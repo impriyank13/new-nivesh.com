@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { clientSteps, partnerSteps } from "./OnboardingIconsAndSteps";
 
 type Step = {
   title: string;
