@@ -253,18 +253,18 @@ export default function StepsOrbit({
             <div className="w-1/2 pl-[8vw] flex items-center" style={{ maxWidth: 560 }}>
               <div className="text-left max-w-[560px]">
                 <h2 className="text-2xl tracking-widest font-extrabold text-[#FFC527] uppercase mb-4">
-                  {steps[active].title}
+                  {activeSteps[active].title}
                 </h2>
                 <div className="text-[#EAF0FF] opacity-90 space-y-2 mb-6 leading-[1.6]">
-                  {steps[active].body.map((line, i) => (
+                  {activeSteps[active].body.map((line, i) => (
                     <p key={i}>{line}</p>
                   ))}
                 </div>
                 <button
                   className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] hover:-translate-y-0.5 transition-transform shadow-sm focus:outline-none"
-                  aria-label={steps[active].cta}
+                  aria-label={activeSteps[active].cta}
                 >
-                  <span className="text-sm font-semibold">{steps[active].cta}</span>
+                  <span className="text-sm font-semibold">{activeSteps[active].cta}</span>
                   <span className="w-6 h-6 bg-[#0A1E3D] text-white rounded-full inline-flex items-center justify-center">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M5 12h14" />
@@ -320,7 +320,7 @@ export default function StepsOrbit({
 
                   <foreignObject x="580" y="80" width="140" height="140" style={{ transform: "translate(-50%,-50%)" }}>
                     <div className="w-[140px] h-[140px] flex items-center justify-center pointer-events-none">
-                      <div className="w-20 h-20">{steps[active].icon}</div>
+                      <div className="w-20 h-20">{activeSteps[active].icon}</div>
                     </div>
                   </foreignObject>
                 </g>
@@ -369,7 +369,7 @@ export default function StepsOrbit({
               <circle ref={nodeRefMobile} cx="110" cy="20" r="22" fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth="2" />
               <foreignObject x="110" y="20" width="44" height="44" style={{ transform: "translate(-50%,-50%)" }}>
                 <div className="w-[44px] h-[44px] flex items-center justify-center pointer-events-none">
-                  <div className="w-6 h-6">{steps[active].icon}</div>
+                  <div className="w-6 h-6">{activeSteps[active].icon}</div>
                 </div>
               </foreignObject>
             </g>
