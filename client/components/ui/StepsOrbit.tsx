@@ -312,7 +312,7 @@ export default function StepsOrbit({
                 <path d="M580,80 L580,600" stroke="#5F7AA3" strokeOpacity="0.12" strokeWidth="1" fill="none" />
 
                 {/* animated string (yellow) */}
-                <path id="stringPath" ref={stringRef} d="M580,80 L580,600" stroke="#FFC527" strokeWidth="3" fill="none" strokeLinecap="round" opacity="1" />
+                <path id="stringPath" ref={stringRef} d="M580,80 L580,600" stroke="#FFC527" strokeWidth="2" fill="none" strokeLinecap="round" opacity="1" />
 
 
                 {/* moving main node - group so circle and icon move together */}
