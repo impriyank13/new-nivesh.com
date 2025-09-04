@@ -264,7 +264,7 @@ export default function StepsOrbit({
           Partner Onboarding
         </button>
       </div>
-        <div className="sticky top-0 h-screen flex items-center" ref={stickyRef}>
+        <div className="sticky top-0  flex items-center" ref={stickyRef}>
           <div className="w-full relative flex">
             <div className="w-1/2 pl-[8vw] flex items-center" style={{ maxWidth: 560 }}>
               <div className="text-left max-w-[560px]">
@@ -387,7 +387,7 @@ export default function StepsOrbit({
           </svg>
         </div>
 
-        <div ref={scrollerMobileRef} className="h-screen snap-y snap-mandatory overflow-y-auto hide-scroll smooth-scroll" style={{ scrollBehavior: 'smooth', WebkitOverflowScrolling: 'touch', touchAction: 'pan-y', overscrollBehavior: 'contain' }}>
+        <div ref={scrollerMobileRef} className=" snap-y snap-mandatory overflow-y-auto hide-scroll smooth-scroll" style={{ scrollBehavior: 'smooth', WebkitOverflowScrolling: 'touch', touchAction: 'pan-y', overscrollBehavior: 'contain' }}>
           {activeSteps.map((s, i) => (
             <section key={i} className="snap-start flex items-center justify-start px-6" aria-hidden={active !== i} style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }}>
               <div className={`max-w-md text-left w-full transition-all duration-300 ease-out ${active === i ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6 pointer-events-none'}`}>
