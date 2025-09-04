@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { ChartBar, Globe, Server } from "lucide-react";
 
 type CardData = {
@@ -63,6 +63,27 @@ export default function CardCarousel({
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const rafRef = useRef<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+
+    const interval = setInterval(() => {
+      const children = scroller.children;
+      if (!children || children.length === 0) return;
+      const next = (activeIndex + 1) % children.length;
+      const child = children[next] as HTMLElement | undefined;
+      if (!child) return;
+      const scrollerRect = scroller.getBoundingClientRect();
+      const childRect = child.getBoundingClientRect();
+      const offset = childRect.left + childRect.width / 2 - (scrollerRect.left + scrollerRect.width / 2);
+      scroller.scrollBy({ left: offset, behavior: "smooth" });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isPaused, activeIndex, cards.length]);
 
   useEffect(() => {
     const scroller = scrollerRef.current;
@@ -128,6 +149,13 @@ export default function CardCarousel({
       <div className="w-full max-w-6xl">
         <div
           ref={scrollerRef}
+          onPointerEnter={() => setIsPaused(true)}
+          onPointerLeave={() => setIsPaused(false)}
+          onPointerDown={() => setIsPaused(true)}
+          onPointerUp={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+          onTouchCancel={() => setIsPaused(false)}
           className="relative flex gap-4 overflow-x-auto py-8 px-6 snap-x snap-mandatory scrollbar-hide touch-pan-x"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
