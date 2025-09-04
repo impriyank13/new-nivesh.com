@@ -1,0 +1,165 @@
+import React, { useEffect, useRef, useState } from "react";
+import { ChartBar, Globe, Server } from "lucide-react";
+
+type CardData = {
+  id: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+};
+
+const sampleCards: CardData[] = [
+  {
+    id: "analytics",
+    title: "Analytics",
+    description: "Powerful insights and reports to help you grow.",
+    icon: <ChartBar size={36} />,
+  },
+  {
+    id: "global",
+    title: "Global",
+    description: "Deploy and scale across multiple regions.",
+    icon: <Globe size={36} />,
+  },
+  {
+    id: "infrastructure",
+    title: "Infrastructure",
+    description: "Reliable, secure, and fast infrastructure.",
+    icon: <Server size={36} />,
+  },
+  {
+    id: "network",
+    title: "Network",
+    description: "Low-latency networking and resilient routing.",
+    icon: <Globe size={36} />,
+  },
+  {
+    id: "reports",
+    title: "Reports",
+    description: "Exportable reports and scheduled summaries.",
+    icon: <ChartBar size={36} />,
+  },
+];
+
+export default function CardCarousel({
+  cards = sampleCards,
+}: {
+  cards?: CardData[];
+}) {
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const rafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+
+    const children = Array.from(scroller.children) as HTMLElement[];
+
+    function updateActive() {
+      const rect = scroller.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      children.forEach((child, idx) => {
+        const r = child.getBoundingClientRect();
+        const childCenter = r.left + r.width / 2;
+        const distance = Math.abs(childCenter - centerX);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = idx;
+        }
+      });
+
+      setActiveIndex((prev) => (prev === closestIndex ? prev : closestIndex));
+      rafRef.current = null;
+    }
+
+    function onScroll() {
+      if (rafRef.current) return;
+      rafRef.current = requestAnimationFrame(updateActive);
+    }
+
+    // initial set
+    updateActive();
+
+    scroller.addEventListener("scroll", onScroll, { passive: true });
+
+    // recompute on resize
+    window.addEventListener("resize", updateActive);
+
+    return () => {
+      scroller.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", updateActive);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [cards]);
+
+  // helper to center an item when clicked
+  const centerItem = (index: number) => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+    const child = scroller.children[index] as HTMLElement | undefined;
+    if (!child) return;
+    const scrollerRect = scroller.getBoundingClientRect();
+    const childRect = child.getBoundingClientRect();
+    const offset = childRect.left + childRect.width / 2 - (scrollerRect.left + scrollerRect.width / 2);
+    scroller.scrollBy({ left: offset, behavior: "smooth" });
+  };
+
+  return (
+    <div className="w-full flex items-center justify-center">
+      <div className="w-full max-w-6xl">
+        <div
+          ref={scrollerRef}
+          className="relative flex gap-4 overflow-x-auto py-8 px-6 snap-x snap-mandatory scrollbar-hide touch-pan-x"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
+          {cards.map((c, idx) => {
+            const isActive = idx === activeIndex;
+            return (
+              <div
+                key={c.id}
+                onClick={() => centerItem(idx)}
+                className={`flex-none snap-center transition-transform duration-300 ease-out transform ${
+                  isActive ? "scale-105" : "scale-100"
+                } w-[80%] md:w-[42%] lg:w-[30%]`}
+                aria-hidden={false}
+              >
+                <article
+                  className={`mx-2 rounded-[14px] border border-[#E5E7EB] p-6 flex flex-col items-center text-center h-full transition-colors duration-300 ease-out ${
+                    isActive
+                      ? "bg-[#1E3A8A] text-white"
+                      : "bg-[#F9FAFB] text-[#1F2937]"
+                  }`}
+                  style={{ minHeight: 220 }}
+                >
+                  <div
+                    className={`mb-4 rounded-full p-2 inline-flex items-center justify-center transition-colors duration-300 ease-out ${
+                      isActive ? "text-white" : "text-[#1F2937]"
+                    }`}
+                  >
+                    {/* Icon color inherits currentColor */}
+                    {React.cloneElement(c.icon as React.ReactElement, {
+                      color: isActive ? "#FFFFFF" : "#1F2937",
+                      size: 36,
+                    })}
+                  </div>
+
+                  <h3 className={`font-semibold text-[18px] leading-tight ${isActive ? "text-white" : "text-[#111827]"}`}>
+                    {c.title}
+                  </h3>
+                  <p className={`mt-2 text-[14px] leading-snug ${isActive ? "text-white/90" : "text-[#9CA3AF]"}`}>
+                    {c.description}
+                  </p>
+                </article>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
