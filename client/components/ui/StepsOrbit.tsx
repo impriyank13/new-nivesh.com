@@ -257,14 +257,6 @@ export default function StepsOrbit({
       {/* Desktop pinned scrub */}
       <div className="hidden md:block h-[300vh] relative">
         <div className="sticky top-0 h-screen flex items-center" ref={stickyRef}>
-        div className="flex gap-3 justify-center py-4">
-        <button onClick={() => setMode('client')} className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === 'client' ? 'bg-[#FFC527] text-[#0A1E3D]' : 'bg-transparent border border-[#3B4B66] text-white'}`}>
-          Client Onboarding
-        </button>
-        <button onClick={() => setMode('partner')} className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === 'partner' ? 'bg-[#FFC527] text-[#0A1E3D]' : 'bg-transparent border border-[#3B4B66] text-white'}`}>
-          Partner Onboarding
-        </button>
-      </div>
           <div className="w-full relative flex">
             <div className="w-1/2 pl-[8vw] flex items-center" style={{ maxWidth: 560 }}>
               <div className="text-left max-w-[560px]">
