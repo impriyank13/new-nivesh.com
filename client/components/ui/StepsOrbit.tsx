@@ -126,7 +126,7 @@ export default function StepsOrbit({
           closest = idx;
         }
       });
-      const boundedIndex = Math.max(0, Math.min(steps.length - 1, closest));
+      const boundedIndex = Math.max(0, Math.min(activeSteps.length - 1, closest));
       if (boundedIndex !== active) {
         setActive(boundedIndex);
         if (onStepChange) onStepChange(boundedIndex);
