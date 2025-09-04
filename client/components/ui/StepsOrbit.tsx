@@ -90,9 +90,29 @@ export default function StepsOrbit({
 
     if (isMobile && scrollerMobileRef.current) {
       const scroller = scrollerMobileRef.current;
-      const totalScrollable = scroller.scrollHeight - scroller.clientHeight;
+      const totalScrollable = Math.max(0, scroller.scrollHeight - scroller.clientHeight);
       const scrolled = scroller.scrollTop;
       progress = totalScrollable > 0 ? clamp(scrolled / totalScrollable, 0, 1) : 0;
+
+      // Determine active index based on which section is closest to viewport center to avoid skips
+      const children = Array.from(scroller.children) as HTMLElement[];
+      const viewportCenter = window.innerHeight / 2;
+      let closest = 0;
+      let closestDist = Infinity;
+      children.forEach((child, idx) => {
+        const r = child.getBoundingClientRect();
+        const childCenter = r.top + r.height / 2;
+        const dist = Math.abs(childCenter - viewportCenter);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closest = idx;
+        }
+      });
+      const boundedIndex = Math.max(0, Math.min(steps.length - 1, closest));
+      if (boundedIndex !== active) {
+        setActive(boundedIndex);
+        if (onStepChange) onStepChange(boundedIndex);
+      }
     } else {
       const rect = wrapper.getBoundingClientRect();
       const viewportH = window.innerHeight;
@@ -100,16 +120,15 @@ export default function StepsOrbit({
       let scrolled = -rect.top;
       scrolled = clamp(scrolled, 0, totalScrollable);
       progress = totalScrollable > 0 ? scrolled / totalScrollable : 0;
-    }
 
-    const seg = 1 / steps.length;
-    // on mobile, round to nearest step to keep icon aligned with snap; on desktop use floor
-    const rawIndex = isMobile ? Math.round(progress / seg) : Math.floor(progress / seg);
-    const boundedIndex = Math.max(0, Math.min(steps.length - 1, rawIndex));
+      const seg = 1 / steps.length;
+      const rawIndex = Math.floor(progress / seg);
+      const boundedIndex = Math.max(0, Math.min(steps.length - 1, rawIndex));
 
-    if (boundedIndex !== active) {
-      setActive(boundedIndex);
-      if (onStepChange) onStepChange(boundedIndex);
+      if (boundedIndex !== active) {
+        setActive(boundedIndex);
+        if (onStepChange) onStepChange(boundedIndex);
+      }
     }
 
     const t = clamp(progress, 0, 1);
