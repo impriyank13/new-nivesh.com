@@ -361,7 +361,9 @@ export default function StepsOrbit({
 
 
             <g ref={nodeGroupMobileRef} style={{ color: '#FFC527' }} transform={`translate(110,170.7730712890625)`}>
-              <circle ref={nodeRefMobile} filter="url(#glow-mobile)" cx={0} cy={0} r={11} fill="rgba(255,197,39,0.08)" stroke="#FFC527" strokeWidth={2} />
+              {/* outer subtle ring */}
+              <circle cx={0} cy={0} r={14} fill="none" stroke="#FFC527" strokeWidth={6} strokeOpacity={0.08} />
+              <circle ref={nodeRefMobile} cx={0} cy={0} r={11} fill="rgba(255,197,39,0.08)" stroke="#FFC527" strokeWidth={2} />
               <g transform={`translate(-10,-10)`}>
                 {CurrentIconComp ? <CurrentIconComp size={18} /> : (CurrentIconJSX ? CurrentIconJSX : null)}
               </g>
