@@ -257,31 +257,60 @@ export default function StepsOrbit({
 
       {/* Mobile panels */}
       <div className="md:hidden">
+        {/* mobile fixed right-side svg controlling node + string */}
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
+          <svg className="w-[120px] h-[520px]" viewBox="0 0 120 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <filter id="glow-mobile" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="6" result="coloredBlur" />
+                <feMerge>
+                  <feMergeNode in="coloredBlur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            <path id="mobileOrbit" ref={pathRefMobile} d="M60,20 L60,500" stroke="transparent" fill="none" />
+            <path d="M60,20 L60,500" stroke="#5F7AA3" strokeOpacity="0.12" strokeWidth="1" fill="none" />
+            <path id="stringPathMobile" ref={stringRefMobile} d="M60,20 L60,500" stroke="#FFC527" strokeWidth="2" fill="none" strokeLinecap="round" />
+
+            <g ref={markersRefMobile}>
+              {Array.from({ length: steps.length }).map((_, i) => (
+                <circle key={i} r="8" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
+              ))}
+            </g>
+
+            <g style={{ filter: "url(#glow-mobile)" }}>
+              <circle ref={nodeRefMobile} cx="60" cy="20" r="44" fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth="2" />
+              <foreignObject x="60" y="20" width="88" height="88" style={{ transform: "translate(-50%,-50%)" }}>
+                <div className="w-[88px] h-[88px] flex items-center justify-center pointer-events-none">
+                  <div className="w-12 h-12">{steps[active].icon}</div>
+                </div>
+              </foreignObject>
+            </g>
+          </svg>
+        </div>
+
         <div className="h-screen snap-y snap-mandatory overflow-y-auto hide-scroll">
           {steps.map((s, i) => (
-            <section key={i} className="h-screen snap-start flex items-center justify-center px-6" aria-hidden={active !== i}>
-              <div className="max-w-md text-center">
+            <section key={i} className="h-screen snap-start flex items-center justify-start px-6" aria-hidden={active !== i}>
+              <div className="max-w-md text-left w-full">
                 <h2 className="text-2xl tracking-widest font-extrabold text-[#FFC527] uppercase mb-4">{s.title}</h2>
                 <div className="text-[#EAF0FF] opacity-90 space-y-2 mb-6 leading-[1.6]">
                   {s.body.map((line, idx) => (
                     <p key={idx}>{line}</p>
                   ))}
                 </div>
-                <div className="flex items-center justify-center mb-6">
-                  <div className="w-[300px] h-[300px] rounded-full border border-white/20 flex items-center justify-center" style={{ boxShadow: "0 8px 30px rgba(0,0,0,0.4)" }}>
-                    <div className="w-24 h-24">{s.icon}</div>
-                  </div>
-                </div>
                 <button className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] focus:outline-none">
                   <span className="text-sm font-semibold">{s.cta}</span>
                 </button>
 
-                <div className="mt-6 text-center">
+                <div className="mt-6 text-left">
                   <div className="text-white font-semibold text-lg">
                     <span className="text-white">{pad(i + 1)}</span>
                     <span className="text-[#7E8EA9]">/{pad(steps.length)}</span>
                   </div>
-                  <div className="w-36 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden mx-auto">
+                  <div className="w-36 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
                     <div className="h-1 bg-[#FFC527]" style={{ width: `${Math.round(((i + 1) / steps.length) * 100)}%` }} />
                   </div>
                 </div>
