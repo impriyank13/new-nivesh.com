@@ -48,25 +48,25 @@ export default function StepsOrbit({
 
     const pathLength = path.getTotalLength();
 
-    // initialize string stroke to full length so we can animate dashoffset
-    if (stringRef.current) {
-      stringRef.current.setAttribute("stroke-dasharray", String(pathLength));
-      stringRef.current.setAttribute("stroke-dashoffset", String(pathLength));
-    }
+    // delay initialization to next frame to ensure DOM defs measured
+    requestAnimationFrame(() => {
+      // initialize string stroke to full length so we can animate dashoffset
+      if (stringRef.current) {
+        stringRef.current.setAttribute("stroke-dasharray", String(pathLength));
+        stringRef.current.setAttribute("stroke-dashoffset", String(pathLength));
+      }
 
-    // position markers initially
-    function positionMarkers() {
-      if (!markersRef.current) return;
-      const children = Array.from(markersRef.current.children) as SVGCircleElement[];
-      children.forEach((child, idx) => {
-        const segT = steps.length > 1 ? idx / (steps.length - 1) : 0;
-        const p = path.getPointAtLength(segT * pathLength);
-        child.setAttribute("cx", String(p.x));
-        child.setAttribute("cy", String(p.y));
-      });
-    }
-
-    positionMarkers();
+      // position markers initially
+      if (markersRef.current) {
+        const children = Array.from(markersRef.current.children) as SVGCircleElement[];
+        children.forEach((child, idx) => {
+          const segT = steps.length > 1 ? idx / (steps.length - 1) : 0;
+          const p = path.getPointAtLength(segT * pathLength);
+          child.setAttribute("cx", String(p.x));
+          child.setAttribute("cy", String(p.y));
+        });
+      }
+    });
 
     function clamp(v: number, a = 0, b = 1) {
       return Math.max(a, Math.min(b, v));
