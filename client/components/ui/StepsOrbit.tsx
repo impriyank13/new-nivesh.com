@@ -190,20 +190,20 @@ export default function StepsOrbit({
                 <path d="M80,340 C180,120 500,80 600,260" stroke="#5F7AA3" strokeOpacity="0.22" strokeWidth="1.2" fill="none" />
                 <path d="M120,420 C220,600 540,640 640,460" stroke="#5F7AA3" strokeOpacity="0.18" strokeWidth="1" fill="none" />
 
-                {/* straight main line for node travel */}
+                {/* straight vertical main line for node travel on the right */}
                 <path
                   id="mainOrbit"
                   ref={pathRef}
-                  d="M100,340 L580,340"
+                  d="M580,80 L580,600"
                   stroke="transparent"
                   fill="none"
                 />
 
-                {/* background faint line */}
-                <path d="M100,340 L580,340" stroke="#5F7AA3" strokeOpacity="0.12" strokeWidth="1" fill="none" />
+                {/* background faint vertical line */}
+                <path d="M580,80 L580,600" stroke="#5F7AA3" strokeOpacity="0.12" strokeWidth="1" fill="none" />
 
                 {/* animated string (yellow) */}
-                <path id="stringPath" ref={stringRef} d="M100,340 L580,340" stroke="#FFC527" strokeWidth="2" fill="none" strokeLinecap="round" opacity="1" />
+                <path id="stringPath" ref={stringRef} d="M580,80 L580,600" stroke="#FFC527" strokeWidth="2" fill="none" strokeLinecap="round" opacity="1" />
 
                 {/* markers group */}
                 <g ref={markersRef} className="pointer-events-none">
@@ -214,9 +214,9 @@ export default function StepsOrbit({
 
                 {/* moving main node */}
                 <g style={{ filter: "url(#glow)" }}>
-                  <circle ref={nodeRef} cx="100" cy="340" r="70" fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle ref={nodeRef} cx="580" cy="80" r="70" fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth="2" />
 
-                  <foreignObject x="100" y="340" width="140" height="140" style={{ transform: "translate(-50%,-50%)" }}>
+                  <foreignObject x="580" y="80" width="140" height="140" style={{ transform: "translate(-50%,-50%)" }}>
                     <div className="w-[140px] h-[140px] flex items-center justify-center pointer-events-none">
                       <div className="w-20 h-20">{steps[active].icon}</div>
                     </div>
