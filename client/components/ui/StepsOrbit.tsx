@@ -382,12 +382,22 @@ export default function StepsOrbit({
             <path id="stringPathMobile" ref={stringRefMobile} d="M110,20 L110,500" stroke="#FFC527" strokeWidth="2" fill="none" strokeLinecap="round" />
 
             <g ref={markersRefMobile}>
-              {Array.from({ length: activeSteps.length }).map((_, i) => (
-                <g key={i} className="marker-mobile">
-                  <circle r="8" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
-                  <text x="0" y="4" textAnchor="middle" fontSize="9" fill="#F4F7FF" opacity="0.9">{pad(i + 1)}</text>
-                </g>
-              ))}
+              {Array.from({ length: activeSteps.length }).map((_, i) => {
+                const step = activeSteps[i] as any;
+                const IconComp = step?.iconComponent as any;
+                return (
+                  <g key={i} className="marker-mobile">
+                    <circle r="10" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
+                    {IconComp ? (
+                      <g transform={`translate(-10,-10)`}>
+                        <IconComp size={18} />
+                      </g>
+                    ) : (
+                      <text x="0" y="4" textAnchor="middle" fontSize="9" fill="#F4F7FF" opacity="0.9">{pad(i + 1)}</text>
+                    )}
+                  </g>
+                );
+              })}
             </g>
 
             <g style={{ filter: "url(#glow-mobile)" }}>
