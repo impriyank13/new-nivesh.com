@@ -309,7 +309,7 @@ export default function StepsOrbit({
 
                 {/* markers group */}
                 <g ref={markersRef} className="pointer-events-none">
-                  {Array.from({ length: steps.length }).map((_, i) => (
+                  {Array.from({ length: activeSteps.length }).map((_, i) => (
                     <circle key={i} r="10" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
                   ))}
                 </g>
@@ -360,7 +360,7 @@ export default function StepsOrbit({
             <path id="stringPathMobile" ref={stringRefMobile} d="M110,20 L110,500" stroke="#FFC527" strokeWidth="2" fill="none" strokeLinecap="round" />
 
             <g ref={markersRefMobile}>
-              {Array.from({ length: steps.length }).map((_, i) => (
+              {Array.from({ length: activeSteps.length }).map((_, i) => (
                 <circle key={i} r="8" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
               ))}
             </g>
