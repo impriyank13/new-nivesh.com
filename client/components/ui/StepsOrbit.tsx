@@ -319,7 +319,10 @@ export default function StepsOrbit({
                 {/* markers group */}
                 <g ref={markersRef} className="pointer-events-none">
                   {Array.from({ length: activeSteps.length }).map((_, i) => (
-                    <circle key={i} r="10" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
+                    <g key={i} className="marker">
+                      <circle r="10" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
+                      <text x="0" y="4" textAnchor="middle" fontSize="10" fill="#F4F7FF" opacity="0.9">{pad(i + 1)}</text>
+                    </g>
                   ))}
                 </g>
 
