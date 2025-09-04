@@ -116,4 +116,9 @@
   .hide-scroll::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
   }
+
+  /* smooth scroll utility */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
 }
