@@ -104,20 +104,25 @@ export default function StepsOrbit({
 
       const t = clamp(progress, 0, 1);
 
-      // main node moves along the path
-      const point = path.getPointAtLength(t * pathLength);
+      // main node moves along the chosen path
+      const point = chosenPath.getPointAtLength(t * pathLength);
 
-      if (nodeRef.current) {
-        const nx = point.x;
-        const ny = point.y;
-        nodeRef.current.setAttribute("cx", String(nx));
-        nodeRef.current.setAttribute("cy", String(ny));
+      if (isMobile) {
+        if (nodeRefMobile.current) {
+          nodeRefMobile.current.setAttribute("cx", String(point.x));
+          nodeRefMobile.current.setAttribute("cy", String(point.y));
+        }
+      } else {
+        if (nodeRef.current) {
+          nodeRef.current.setAttribute("cx", String(point.x));
+          nodeRef.current.setAttribute("cy", String(point.y));
+        }
       }
 
       // animate string reveal
-      if (stringRef.current) {
+      if (chosenString) {
         const dash = pathLength * (1 - t);
-        stringRef.current.setAttribute("stroke-dashoffset", String(dash));
+        chosenString.setAttribute("stroke-dashoffset", String(dash));
       }
 
       rafRef.current = requestAnimationFrame(update);
