@@ -320,7 +320,7 @@ export default function StepsOrbit({
                   {/* subtle outer ring to highlight the circle (no blur) */}
                   <circle style={{ backgroundColor: 'white' }} cx={0} cy={0} r={40} fill="none" stroke="#FFC527" strokeWidth={8} strokeOpacity={0.08} />
                   {/* inner highlighted circle */}
-                  <circle ref={nodeRef} cx={0} cy={0} r={35} fill="rgba(255,197,39,0.08)" stroke="#FFC527" strokeWidth={2} />
+                  <circle style={{ backgroundColor: 'white' }} ref={nodeRef} cx={0} cy={0} r={35} fill="rgba(255,197,39,0.08)" stroke="#FFC527" strokeWidth={2} />
                   {/* render icon SVG centered at 0,0 (smaller for half size) without glow */}
                   <g transform={`translate(-24,-24)`}>
                     {CurrentIconComp ? <CurrentIconComp size={48} /> : (CurrentIconJSX ? CurrentIconJSX : null)}
