@@ -1,8 +1,9 @@
 import React from "react";
 
 const STROKE = 2;
-const STROKE_COLOR = "#FFFFFF";
-const ACCENT = "#FFC527";
+// Use currentColor so consumers can set icon color via CSS or inline style
+const STROKE_COLOR = "currentColor";
+const ACCENT = "currentColor";
 
 function Svg({ children, size = 64, className = "", viewBox = "0 0 64 64", ...rest }: any) {
   return (
