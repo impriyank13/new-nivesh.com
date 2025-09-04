@@ -18,6 +18,7 @@ export default function StepsOrbit({
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const stickyRef = useRef<HTMLDivElement | null>(null);
   const nodeRef = useRef<SVGCircleElement | null>(null);
+  const nodeGroupRef = useRef<SVGGElement | null>(null);
   const pathRef = useRef<SVGPathElement | null>(null);
   const stringRef = useRef<SVGPathElement | null>(null);
   const markersRef = useRef<SVGGElement | null>(null);
