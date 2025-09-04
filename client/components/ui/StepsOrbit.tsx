@@ -204,7 +204,7 @@ export default function StepsOrbit({
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, [steps.length, onStepChange, active]);
+  }, [activeSteps.length, onStepChange, active, isMobile]);
 
   // Mobile: snap to nearest section on scroll end for smooth one-by-one behavior
   useEffect(() => {
