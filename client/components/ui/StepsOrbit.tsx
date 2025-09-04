@@ -55,8 +55,8 @@ export default function StepsOrbit({
 
     // choose path based on mobile/desktop
     const chosenPath = isMobile && pathRefMobile.current ? pathRefMobile.current : path;
-    const chosenString = isMobile && stringRefMobile.current ? stringRefMobile.current : stringRef.current;
-    const chosenMarkers = isMobile && markersRefMobile.current ? markersRefMobile.current : markersRef.current;
+    const chosenString = isMobile ? stringRefMobile.current ?? stringRef.current : stringRef.current;
+    const chosenMarkers = isMobile ? markersRefMobile.current ?? markersRef.current : markersRef.current;
 
     const pathLength = chosenPath.getTotalLength();
 
