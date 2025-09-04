@@ -87,14 +87,23 @@ export default function StepsOrbit({
         chosenString.setAttribute("stroke-dashoffset", String(pathLength));
       }
 
-      // position markers initially
+      // position markers initially on a circular orbit (icons shown on circle, not on the string)
       if (chosenMarkers) {
         const children = Array.from(chosenMarkers.children) as SVGElement[];
+        const svg = chosenPath.ownerSVGElement;
+        const vb = svg ? svg.viewBox.baseVal : null;
+        const svgW = vb ? vb.width : isMobile ? 140 : 680;
+        const svgH = vb ? vb.height : isMobile ? 520 : 680;
+        const cx = svgW / 2;
+        const cy = svgH / 2;
+        const r = Math.min(svgW, svgH) / 2 - (isMobile ? 60 : 120);
+
         children.forEach((child, idx) => {
           const segT = activeSteps.length > 1 ? idx / (activeSteps.length - 1) : 0;
-          const p = chosenPath.getPointAtLength(segT * pathLength);
-          // position group via transform so inner circle/text stay centered
-          child.setAttribute("transform", `translate(${p.x},${p.y})`);
+          const angle = segT * Math.PI * 2 - Math.PI / 2; // start at top
+          const x = cx + r * Math.cos(angle);
+          const y = cy + r * Math.sin(angle);
+          child.setAttribute("transform", `translate(${x},${y})`);
         });
       }
     });
