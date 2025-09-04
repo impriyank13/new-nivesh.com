@@ -53,22 +53,27 @@ export default function StepsOrbit({
     const wrapper = wrapperRef.current;
     const path = pathRef.current;
 
-    const pathLength = path.getTotalLength();
+    // choose path based on mobile/desktop
+    const chosenPath = isMobile && pathRefMobile.current ? pathRefMobile.current : path;
+    const chosenString = isMobile && stringRefMobile.current ? stringRefMobile.current : stringRef.current;
+    const chosenMarkers = isMobile && markersRefMobile.current ? markersRefMobile.current : markersRef.current;
+
+    const pathLength = chosenPath.getTotalLength();
 
     // delay initialization to next frame to ensure DOM defs measured
     requestAnimationFrame(() => {
       // initialize string stroke to full length so we can animate dashoffset
-      if (stringRef.current) {
-        stringRef.current.setAttribute("stroke-dasharray", String(pathLength));
-        stringRef.current.setAttribute("stroke-dashoffset", String(pathLength));
+      if (chosenString) {
+        chosenString.setAttribute("stroke-dasharray", String(pathLength));
+        chosenString.setAttribute("stroke-dashoffset", String(pathLength));
       }
 
       // position markers initially
-      if (markersRef.current) {
-        const children = Array.from(markersRef.current.children) as SVGCircleElement[];
+      if (chosenMarkers) {
+        const children = Array.from(chosenMarkers.children) as SVGCircleElement[];
         children.forEach((child, idx) => {
           const segT = steps.length > 1 ? idx / (steps.length - 1) : 0;
-          const p = path.getPointAtLength(segT * pathLength);
+          const p = chosenPath.getPointAtLength(segT * pathLength);
           child.setAttribute("cx", String(p.x));
           child.setAttribute("cy", String(p.y));
         });
