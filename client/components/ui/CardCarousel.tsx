@@ -10,33 +10,47 @@ type CardData = {
 
 const sampleCards: CardData[] = [
   {
-    id: "analytics",
-    title: "Analytics",
-    description: "Powerful insights and reports to help you grow.",
+    id: "mutual-funds",
+    title: "Mutual Funds",
+    description:
+      "Access a wide array of mutual fund schemes from multiple AMCs. Features include SIPs, one-time investments, switching between schemes, SWP, STP and instant redemption (liquid up to ₹50,000). Sources: AppAdvice, Cafemutual.",
     icon: <ChartBar size={36} />,
   },
   {
-    id: "global",
-    title: "Global",
-    description: "Deploy and scale across multiple regions.",
-    icon: <Globe size={36} />,
-  },
-  {
-    id: "infrastructure",
-    title: "Infrastructure",
-    description: "Reliable, secure, and fast infrastructure.",
+    id: "corporate-fd",
+    title: "Corporate FDs",
+    description: "Corporate Fixed Deposits included in the product portfolio expansion. Source: Cafemutual.",
     icon: <Server size={36} />,
   },
   {
-    id: "network",
-    title: "Network",
-    description: "Low-latency networking and resilient routing.",
+    id: "p2p",
+    title: "P2P Lending",
+    description: "Peer-to-peer lending products are part of the current portfolio. Source: Cafemutual.",
     icon: <Globe size={36} />,
   },
   {
-    id: "reports",
-    title: "Reports",
-    description: "Exportable reports and scheduled summaries.",
+    id: "pms",
+    title: "PMS",
+    description: "Portfolio Management Services available through the platform. Source: Cafemutual.",
+    icon: <Server size={36} />,
+  },
+  {
+    id: "insurance",
+    title: "Insurance (coming soon)",
+    description: "Insurance planned to be added in the coming months following funding. Source: Cafemutual.",
+    icon: <Globe size={36} />,
+  },
+  {
+    id: "lending-products",
+    title: "Lending Products (upcoming)",
+    description: "Additional lending products listed as upcoming additions. Source: Cafemutual.",
+    icon: <Server size={36} />,
+  },
+  {
+    id: "features",
+    title: "Key Mutual Fund Features",
+    description:
+      "SIP, One-time investments, Switch between schemes, SWP, STP, Instant Redemption (liquid up to ₹50,000). Sources: AppAdvice, Cafemutual.",
     icon: <ChartBar size={36} />,
   },
 ];
