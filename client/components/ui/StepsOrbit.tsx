@@ -139,7 +139,7 @@ export default function StepsOrbit({
       scrolled = clamp(scrolled, 0, totalScrollable);
       progress = totalScrollable > 0 ? scrolled / totalScrollable : 0;
 
-      const seg = 1 / steps.length;
+      const seg = 1 / activeSteps.length;
       const rawIndex = Math.floor(progress / seg);
       const boundedIndex = Math.max(0, Math.min(steps.length - 1, rawIndex));
 
@@ -184,7 +184,7 @@ export default function StepsOrbit({
           let scrolled = -rect.top;
           scrolled = clamp(scrolled, 0, totalScrollable);
           const progress = totalScrollable > 0 ? scrolled / totalScrollable : 0;
-          const seg = 1 / steps.length;
+          const seg = 1 / activeSteps.length;
           const rawIndex = Math.floor(progress / seg);
           const boundedIndex = Math.max(0, Math.min(steps.length - 1, rawIndex));
           if (boundedIndex !== active) {
