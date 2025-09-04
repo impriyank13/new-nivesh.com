@@ -128,24 +128,28 @@ export const clientSteps = [
     body: ["Upload PAN, Aadhaar, and bank details for instant digital verification."],
     cta: "Complete KYC",
     icon: <DocumentCheckIcon size={72} />,
+    iconComponent: DocumentCheckIcon,
   },
   {
     title: "RISK PROFILING",
     body: ["Answer a few questions to get personalized investment recommendations."],
     cta: "Take Quiz",
     icon: <ShieldIcon size={72} />,
+    iconComponent: ShieldIcon,
   },
   {
     title: "ADD BANK ACCOUNT",
     body: ["Link your bank securely for investments and withdrawals."],
     cta: "Link Account",
     icon: <BankIcon size={72} />,
+    iconComponent: BankIcon,
   },
   {
     title: "START INVESTING",
     body: ["Choose from mutual funds, SIPs, and other products to begin your journey."],
     cta: "Explore Investments",
     icon: <ChartIcon size={72} />,
+    iconComponent: ChartIcon,
   },
 ];
 
