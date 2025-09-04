@@ -133,7 +133,7 @@ export default function CardCarousel({
   }, [cards]);
 
   // helper to center an item when clicked
-  const centerItem = (index: number) => {
+  const centerItem = useCallback((index: number) => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
     const child = scroller.children[index] as HTMLElement | undefined;
@@ -142,7 +142,8 @@ export default function CardCarousel({
     const childRect = child.getBoundingClientRect();
     const offset = childRect.left + childRect.width / 2 - (scrollerRect.left + scrollerRect.width / 2);
     scroller.scrollBy({ left: offset, behavior: "smooth" });
-  };
+    setActiveIndex(index);
+  }, []);
 
   return (
     <div className="w-full flex items-center justify-center">
