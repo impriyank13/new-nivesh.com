@@ -48,6 +48,26 @@ export default function StepsOrbit({
 
     const pathLength = path.getTotalLength();
 
+    // initialize string stroke to full length so we can animate dashoffset
+    if (stringRef.current) {
+      stringRef.current.setAttribute("stroke-dasharray", String(pathLength));
+      stringRef.current.setAttribute("stroke-dashoffset", String(pathLength));
+    }
+
+    // position markers initially
+    function positionMarkers() {
+      if (!markersRef.current) return;
+      const children = Array.from(markersRef.current.children) as SVGCircleElement[];
+      children.forEach((child, idx) => {
+        const segT = steps.length > 1 ? idx / (steps.length - 1) : 0;
+        const p = path.getPointAtLength(segT * pathLength);
+        child.setAttribute("cx", String(p.x));
+        child.setAttribute("cy", String(p.y));
+      });
+    }
+
+    positionMarkers();
+
     function clamp(v: number, a = 0, b = 1) {
       return Math.max(a, Math.min(b, v));
     }
@@ -72,6 +92,7 @@ export default function StepsOrbit({
 
       const t = clamp(progress, 0, 1);
 
+      // main node moves along the path but visually we want straight-ish motion; using path is fine
       const point = path.getPointAtLength(t * pathLength);
 
       if (nodeRef.current) {
@@ -79,6 +100,12 @@ export default function StepsOrbit({
         const ny = point.y;
         nodeRef.current.setAttribute("cx", String(nx));
         nodeRef.current.setAttribute("cy", String(ny));
+      }
+
+      // animate string reveal
+      if (stringRef.current) {
+        const dash = pathLength * (1 - t);
+        stringRef.current.setAttribute("stroke-dashoffset", String(dash));
       }
 
       rafRef.current = requestAnimationFrame(update);
