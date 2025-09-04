@@ -280,9 +280,9 @@ export default function StepsOrbit({
               </filter>
             </defs>
 
-            <path id="mobileOrbit" ref={pathRefMobile} d="M60,20 L60,500" stroke="transparent" fill="none" />
-            <path d="M60,20 L60,500" stroke="#5F7AA3" strokeOpacity="0.12" strokeWidth="1" fill="none" />
-            <path id="stringPathMobile" ref={stringRefMobile} d="M60,20 L60,500" stroke="#FFC527" strokeWidth="2" fill="none" strokeLinecap="round" />
+            <path id="mobileOrbit" ref={pathRefMobile} d="M110,20 L110,500" stroke="transparent" fill="none" />
+            <path d="M110,20 L110,500" stroke="#5F7AA3" strokeOpacity="0.12" strokeWidth="1" fill="none" />
+            <path id="stringPathMobile" ref={stringRefMobile} d="M110,20 L110,500" stroke="#FFC527" strokeWidth="2" fill="none" strokeLinecap="round" />
 
             <g ref={markersRefMobile}>
               {Array.from({ length: steps.length }).map((_, i) => (
