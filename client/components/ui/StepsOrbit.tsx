@@ -141,7 +141,7 @@ export default function StepsOrbit({
 
       const seg = 1 / activeSteps.length;
       const rawIndex = Math.floor(progress / seg);
-      const boundedIndex = Math.max(0, Math.min(steps.length - 1, rawIndex));
+      const boundedIndex = Math.max(0, Math.min(activeSteps.length - 1, rawIndex));
 
       if (boundedIndex !== active) {
         setActive(boundedIndex);
@@ -186,7 +186,7 @@ export default function StepsOrbit({
           const progress = totalScrollable > 0 ? scrolled / totalScrollable : 0;
           const seg = 1 / activeSteps.length;
           const rawIndex = Math.floor(progress / seg);
-          const boundedIndex = Math.max(0, Math.min(steps.length - 1, rawIndex));
+          const boundedIndex = Math.max(0, Math.min(activeSteps.length - 1, rawIndex));
           if (boundedIndex !== active) {
             setActive(boundedIndex);
             if (onStepChange) onStepChange(boundedIndex);
