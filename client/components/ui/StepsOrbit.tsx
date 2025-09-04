@@ -20,6 +20,13 @@ export default function StepsOrbit({
   const pathRef = useRef<SVGPathElement | null>(null);
   const stringRef = useRef<SVGPathElement | null>(null);
   const markersRef = useRef<SVGGElement | null>(null);
+
+  // mobile refs
+  const nodeRefMobile = useRef<SVGCircleElement | null>(null);
+  const pathRefMobile = useRef<SVGPathElement | null>(null);
+  const stringRefMobile = useRef<SVGPathElement | null>(null);
+  const markersRefMobile = useRef<SVGGElement | null>(null);
+
   const rafRef = useRef<number | null>(null);
   const [active, setActive] = useState(0);
   const prefersReduced = useRef<boolean>(false);
