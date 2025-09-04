@@ -192,7 +192,7 @@ export default function StepsOrbit({
             if (onStepChange) onStepChange(boundedIndex);
           }
         },
-        { threshold: Array.from({ length: steps.length }, (_, i) => i / (steps.length - 1)) }
+        { threshold: Array.from({ length: activeSteps.length }, (_, i) => i / (activeSteps.length - 1)) }
       );
       obs.observe(wrapper);
       return () => obs.disconnect();
