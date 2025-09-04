@@ -34,6 +34,23 @@ export default function StepsOrbit({
   const prefersReduced = useRef<boolean>(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  // toggle between client and partner steps (defaults to client)
+  const [mode, setMode] = useState<'client' | 'partner'>('client');
+  const [activeSteps, setActiveSteps] = useState<Step[]>(steps && steps.length ? steps : clientSteps);
+
+  // keep activeSteps in sync when a custom `steps` prop is provided
+  useEffect(() => {
+    if (steps && steps.length) setActiveSteps(steps);
+  }, [steps]);
+
+  // update activeSteps when the mode toggle changes
+  useEffect(() => {
+    if (mode === 'client') setActiveSteps(clientSteps);
+    else setActiveSteps(partnerSteps);
+    setActive(0);
+    if (scrollerMobileRef.current) scrollerMobileRef.current.scrollTo({ top: 0, behavior: 'auto' });
+  }, [mode]);
+
   useEffect(() => {
     prefersReduced.current = !!(
       typeof window !== "undefined" &&
