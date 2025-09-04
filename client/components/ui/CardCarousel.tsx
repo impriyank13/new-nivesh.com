@@ -164,7 +164,7 @@ export default function CardCarousel({
           onTouchStart={() => setIsPaused(true)}
           onTouchEnd={() => setIsPaused(false)}
           onTouchCancel={() => setIsPaused(false)}
-          className="relative flex gap-4 overflow-x-auto py-8 px-6 snap-x snap-mandatory scrollbar-hide touch-pan-x"
+          className="relative flex gap-4 overflow-x-auto py-8 px-6 snap-x snap-mandatory hide-scroll touch-pan-x"
           style={{ WebkitOverflowScrolling: "touch", scrollbarWidth: "none" as any }}
         >
           {cards.map((c, idx) => {
