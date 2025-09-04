@@ -146,12 +146,16 @@ export default function StepsOrbit({
     const point = chosenPath.getPointAtLength(t * pathLength);
 
       if (isMobile) {
-        if (nodeRefMobile.current) {
+        if (nodeGroupMobileRef.current) {
+          nodeGroupMobileRef.current.setAttribute("transform", `translate(${point.x},${point.y})`);
+        } else if (nodeRefMobile.current) {
           nodeRefMobile.current.setAttribute("cx", String(point.x));
           nodeRefMobile.current.setAttribute("cy", String(point.y));
         }
       } else {
-        if (nodeRef.current) {
+        if (nodeGroupRef.current) {
+          nodeGroupRef.current.setAttribute("transform", `translate(${point.x},${point.y})`);
+        } else if (nodeRef.current) {
           nodeRef.current.setAttribute("cx", String(point.x));
           nodeRef.current.setAttribute("cy", String(point.y));
         }
