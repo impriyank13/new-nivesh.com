@@ -233,6 +233,10 @@ export default function StepsOrbit({
     };
   }, [isMobile]);
 
+  const currentStep = activeSteps[active] as any;
+  const CurrentIconComp = currentStep?.iconComponent as any;
+  const CurrentIconJSX = currentStep?.icon ?? null;
+
   return (
     <div ref={wrapperRef} className="w-full relative">
       {/* Mode toggle: Client / Partner */}
