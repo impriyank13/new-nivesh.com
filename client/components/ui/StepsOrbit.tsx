@@ -246,7 +246,12 @@ export default function StepsOrbit({
   return (
     <div ref={wrapperRef} className="w-full relative">
       {/* Mode toggle: Client / Partner */}
-      <div className="flex gap-3 justify-center py-4">
+      
+      {/* Desktop pinned scrub */}
+      <div className="hidden md:block h-[300vh] relative">
+        <div className="sticky top-0 h-screen flex items-center" ref={stickyRef}>
+          {!isMobile &&
+            <div className="flex gap-3 justify-center py-4">
         <button onClick={() => setMode('client')} className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === 'client' ? 'bg-[#FFC527] text-[#0A1E3D]' : 'bg-transparent border border-[#3B4B66] text-white'}`}>
           Client Onboarding
         </button>
@@ -254,9 +259,7 @@ export default function StepsOrbit({
           Partner Onboarding
         </button>
       </div>
-      {/* Desktop pinned scrub */}
-      <div className="hidden md:block h-[300vh] relative">
-        <div className="sticky top-0 h-screen flex items-center" ref={stickyRef}>
+          }
           <div className="w-full relative flex">
             <div className="w-1/2 pl-[8vw] flex items-center" style={{ maxWidth: 560 }}>
               <div className="text-left max-w-[560px]">
@@ -345,6 +348,16 @@ export default function StepsOrbit({
       {/* Mobile panels */}
       <div className="md:hidden relative">
         {/* mobile fixed right-side svg controlling node + string (absolute) */}
+        {isMobile &&
+            <div className="flex gap-3 justify-center py-4">
+        <button onClick={() => setMode('client')} className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === 'client' ? 'bg-[#FFC527] text-[#0A1E3D]' : 'bg-transparent border border-[#3B4B66] text-white'}`}>
+          Client Onboarding
+        </button>
+        <button onClick={() => setMode('partner')} className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === 'partner' ? 'bg-[#FFC527] text-[#0A1E3D]' : 'bg-transparent border border-[#3B4B66] text-white'}`}>
+          Partner Onboarding
+        </button>
+      </div>
+          }
         <div className="absolute right-2 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
           <svg className="w-[140px] h-[520px]" viewBox="0 0 140 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
