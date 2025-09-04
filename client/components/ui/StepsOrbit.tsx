@@ -338,7 +338,7 @@ export default function StepsOrbit({
               <div className="absolute right-8 bottom-8 text-right">
                 <div className="text-white font-semibold text-xl">
                   <span className="text-white">{pad(active + 1)}</span>
-                  <span className="text-[#7E8EA9]">/{pad(steps.length)}</span>
+                  <span className="text-[#7E8EA9]">/{pad(activeSteps.length)}</span>
                 </div>
                 <div className="w-24 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
                   <div className="h-1 bg-[#FFC527] transition-width" style={{ width: `${Math.round(((active + 1) / steps.length) * 100)}%` }} />
@@ -409,7 +409,7 @@ export default function StepsOrbit({
         <div className="absolute right-4 bottom-4 z-20 text-right">
           <div className="text-white font-semibold text-lg">
             <span className="text-white">{pad(active + 1)}</span>
-            <span className="text-[#7E8EA9]">/{pad(steps.length)}</span>
+            <span className="text-[#7E8EA9]">/{pad(activeSteps.length)}</span>
           </div>
           <div className="w-36 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
             <div className="h-1 bg-[#FFC527] transition-all" style={{ width: `${Math.round(((active + 1) / steps.length) * 100)}%` }} />
