@@ -186,21 +186,37 @@ export default function StepsOrbit({
                   </filter>
                 </defs>
 
+                {/* decorative orbit paths */}
                 <path d="M80,340 C180,120 500,80 600,260" stroke="#5F7AA3" strokeOpacity="0.22" strokeWidth="1.2" fill="none" />
                 <path d="M120,420 C220,600 540,640 640,460" stroke="#5F7AA3" strokeOpacity="0.18" strokeWidth="1" fill="none" />
 
-                <path id="mainOrbit" ref={pathRef} d="M140,360 C220,180 400,120 520,220 C600,300 560,420 420,520" stroke="transparent" fill="none" />
+                {/* straight main line for node travel */}
+                <path
+                  id="mainOrbit"
+                  ref={pathRef}
+                  d="M100,340 L580,340"
+                  stroke="transparent"
+                  fill="none"
+                />
 
-                <g className="pointer-events-none">
-                  <circle cx="100" cy="100" r="18" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
-                  <circle cx="580" cy="80" r="12" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
-                  <circle cx="600" cy="560" r="14" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
+                {/* background faint line */}
+                <path d="M100,340 L580,340" stroke="#5F7AA3" strokeOpacity="0.12" strokeWidth="1" fill="none" />
+
+                {/* animated string (yellow) */}
+                <path id="stringPath" ref={stringRef} d="M100,340 L580,340" stroke="#FFC527" strokeWidth="2" fill="none" strokeLinecap="round" opacity="1" />
+
+                {/* markers group */}
+                <g ref={markersRef} className="pointer-events-none">
+                  {Array.from({ length: steps.length }).map((_, i) => (
+                    <circle key={i} r="10" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
+                  ))}
                 </g>
 
+                {/* moving main node */}
                 <g style={{ filter: "url(#glow)" }}>
-                  <circle ref={nodeRef} cx="140" cy="360" r="70" fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle ref={nodeRef} cx="100" cy="340" r="70" fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth="2" />
 
-                  <foreignObject x="140" y="360" width="140" height="140" style={{ transform: "translate(-50%,-50%)" }}>
+                  <foreignObject x="100" y="340" width="140" height="140" style={{ transform: "translate(-50%,-50%)" }}>
                     <div className="w-[140px] h-[140px] flex items-center justify-center pointer-events-none">
                       <div className="w-20 h-20">{steps[active].icon}</div>
                     </div>
