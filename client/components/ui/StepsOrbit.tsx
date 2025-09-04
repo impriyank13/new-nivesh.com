@@ -313,14 +313,13 @@ export default function StepsOrbit({
                 <path id="stringPath" ref={stringRef} d="M580,80 L580,600" stroke="#FFC527" strokeWidth="2" fill="none" strokeLinecap="round" opacity="1" />
 
 
-                {/* moving main node - show active step icon inside this circle */}
-                <g style={{ filter: "url(#glow)" }}>
-                  <circle ref={nodeRef} cx="580" cy="80" r="70" fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth="2" />
-                  <foreignObject x="580" y="80" width="140" height="140" style={{ transform: "translate(-50%,-50%)" }}>
-                    <div className="w-[140px] h-[140px] flex items-center justify-center pointer-events-none">
-                      {CurrentIconComp ? <CurrentIconComp size={64} /> : (CurrentIconJSX ? CurrentIconJSX : null)}
-                    </div>
-                  </foreignObject>
+                {/* moving main node - group so circle and icon move together */}
+                <g ref={nodeGroupRef} style={{ filter: "url(#glow)" }} transform={`translate(580,80)`}>
+                  <circle ref={nodeRef} cx={0} cy={0} r={70} fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth={2} />
+                  {/* render icon SVG centered at 0,0 */}
+                  <g transform={`translate(-32,-32)`}>
+                    {CurrentIconComp ? <CurrentIconComp size={64} /> : (CurrentIconJSX ? CurrentIconJSX : null)}
+                  </g>
                 </g>
               </svg>
 
