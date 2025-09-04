@@ -341,9 +341,8 @@ export default function StepsOrbit({
                   <circle ref={nodeRef} cx="580" cy="80" r="70" fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth="2" />
 
                   <foreignObject x="580" y="80" width="140" height="140" style={{ transform: "translate(-50%,-50%)" }}>
-                    <div className="w-[140px] h-[140px] flex items-center justify-center pointer-events-none relative">
+                    <div className="w-[140px] h-[140px] flex items-center justify-center pointer-events-none">
                       <div className="w-20 h-20">{activeSteps[active].icon}</div>
-                      <div className="absolute right-0 bottom-0 bg-[#0A1E3D] text-white text-xs font-bold rounded-full w-8 h-8 flex items-center justify-center border border-[#D9E1F5]">{pad(active+1)}</div>
                     </div>
                   </foreignObject>
                 </g>
