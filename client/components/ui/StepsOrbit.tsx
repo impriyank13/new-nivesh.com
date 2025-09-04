@@ -86,27 +86,36 @@ export default function StepsOrbit({
     }
 
     function update() {
+      let progress = 0;
+
+    if (isMobile && scrollerMobileRef.current) {
+      const scroller = scrollerMobileRef.current;
+      const totalScrollable = scroller.scrollHeight - scroller.clientHeight;
+      const scrolled = scroller.scrollTop;
+      progress = totalScrollable > 0 ? clamp(scrolled / totalScrollable, 0, 1) : 0;
+    } else {
       const rect = wrapper.getBoundingClientRect();
       const viewportH = window.innerHeight;
-
       const totalScrollable = rect.height - viewportH;
       let scrolled = -rect.top;
       scrolled = clamp(scrolled, 0, totalScrollable);
-      const progress = totalScrollable > 0 ? scrolled / totalScrollable : 0;
+      progress = totalScrollable > 0 ? scrolled / totalScrollable : 0;
+    }
 
-      const seg = 1 / steps.length;
-      const rawIndex = Math.floor(progress / seg);
-      const boundedIndex = Math.max(0, Math.min(steps.length - 1, rawIndex));
+    const seg = 1 / steps.length;
+    // on mobile, round to nearest step to keep icon aligned with snap; on desktop use floor
+    const rawIndex = isMobile ? Math.round(progress / seg) : Math.floor(progress / seg);
+    const boundedIndex = Math.max(0, Math.min(steps.length - 1, rawIndex));
 
-      if (boundedIndex !== active) {
-        setActive(boundedIndex);
-        if (onStepChange) onStepChange(boundedIndex);
-      }
+    if (boundedIndex !== active) {
+      setActive(boundedIndex);
+      if (onStepChange) onStepChange(boundedIndex);
+    }
 
-      const t = clamp(progress, 0, 1);
+    const t = clamp(progress, 0, 1);
 
-      // main node moves along the chosen path
-      const point = chosenPath.getPointAtLength(t * pathLength);
+    // main node moves along the chosen path
+    const point = chosenPath.getPointAtLength(t * pathLength);
 
       if (isMobile) {
         if (nodeRefMobile.current) {
