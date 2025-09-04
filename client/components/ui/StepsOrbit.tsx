@@ -302,8 +302,10 @@ export default function StepsOrbit({
                   id="mainOrbit"
                   ref={pathRef}
                   d="M580,80 L580,600"
-                  stroke="transparent"
+                  stroke="none"
                   fill="none"
+                  aria-hidden="true"
+                  style={{ display: 'none' }}
                 />
 
                 {/* background faint vertical line */}
