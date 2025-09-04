@@ -71,16 +71,16 @@ export default function CardCarousel({
     if (!scroller) return;
 
     const interval = setInterval(() => {
-      const children = scroller.children;
-      if (!children || children.length === 0) return;
-      const next = (activeIndex + 1) % children.length;
-      const child = children[next] as HTMLElement | undefined;
+      const length = cards.length || scroller.children.length;
+      if (!length) return;
+      const next = (activeIndex + 1) % length;
+      const child = scroller.children[next] as HTMLElement | undefined;
       if (!child) return;
       const scrollerRect = scroller.getBoundingClientRect();
       const childRect = child.getBoundingClientRect();
       const offset = childRect.left + childRect.width / 2 - (scrollerRect.left + scrollerRect.width / 2);
       scroller.scrollBy({ left: offset, behavior: "smooth" });
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [isPaused, activeIndex, cards.length]);
@@ -157,7 +157,7 @@ export default function CardCarousel({
           onTouchEnd={() => setIsPaused(false)}
           onTouchCancel={() => setIsPaused(false)}
           className="relative flex gap-4 overflow-x-auto py-8 px-6 snap-x snap-mandatory scrollbar-hide touch-pan-x"
-          style={{ WebkitOverflowScrolling: "touch" }}
+          style={{ WebkitOverflowScrolling: "touch", scrollbarWidth: "none" as any }}
         >
           {cards.map((c, idx) => {
             const isActive = idx === activeIndex;
@@ -200,6 +200,23 @@ export default function CardCarousel({
               </div>
             );
           })}
+        </div>
+
+        {/* Dots indicator */}
+        <div className="flex items-center justify-center mt-4 space-x-2">
+          {cards.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => centerItem(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              aria-current={i === activeIndex}
+              className={`rounded-full transition-all focus:outline-none ${
+                i === activeIndex
+                  ? "w-3 h-3 bg-[#1E3A8A] scale-110"
+                  : "w-3 h-3 bg-[#D1D5DB]"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </div>
