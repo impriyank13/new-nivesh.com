@@ -345,15 +345,9 @@ export default function StepsOrbit({
                   })}
                 </g>
 
-                {/* moving main node */}
+                {/* moving main node (decorative only; icons live on orbit markers) */}
                 <g style={{ filter: "url(#glow)" }}>
                   <circle ref={nodeRef} cx="580" cy="80" r="70" fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth="2" />
-
-                  <foreignObject x="580" y="80" width="140" height="140" style={{ transform: "translate(-50%,-50%)" }}>
-                    <div className="w-[140px] h-[140px] flex items-center justify-center pointer-events-none">
-                      <div className="w-20 h-20">{activeSteps[active].icon}</div>
-                    </div>
-                  </foreignObject>
                 </g>
               </svg>
 
