@@ -159,30 +159,35 @@ export const partnerSteps = [
     body: ["Fill in your basic details to register as a distributor/advisor on the platform."],
     cta: "Register Now",
     icon: <HandshakeIcon size={72} />,
+    iconComponent: HandshakeIcon,
   },
   {
     title: "COMPLETE COMPLIANCES",
     body: ["Submit ARN, SEBI registration, and KYC documents for approval."],
     cta: "Submit Documents",
     icon: <FileShieldIcon size={72} />,
+    iconComponent: FileShieldIcon,
   },
   {
     title: "SET UP BANKING DETAILS",
     body: ["Add your bank account for payouts, earnings, and commissions."],
     cta: "Add Bank Details",
     icon: <BankIcon size={72} />,
+    iconComponent: BankIcon,
   },
   {
     title: "CLIENT ONBOARDING",
     body: ["Invite clients, assist them with KYC, and track their progress."],
     cta: "Onboard Clients",
     icon: <UsersIcon size={72} />,
+    iconComponent: UsersIcon,
   },
   {
     title: "ACCESS PARTNER DASHBOARD",
     body: ["Manage clients, track commissions, and monitor business growth."],
     cta: "Go to Dashboard",
     icon: <DashboardIcon size={72} />,
+    iconComponent: DashboardIcon,
   },
 ];
 
