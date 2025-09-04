@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import React, { useEffect, useRef, useState } from "react";
-
 type Step = {
   title: string;
   body: string[];
@@ -41,10 +39,9 @@ export default function StepsOrbit({
   }, []);
 
   useEffect(() => {
-    if (!wrapperRef.current || !stickyRef.current || !pathRef.current) return;
+    if (!wrapperRef.current || !pathRef.current) return;
 
     const wrapper = wrapperRef.current;
-    const sticky = stickyRef.current;
     const path = pathRef.current;
 
     const pathLength = path.getTotalLength();
@@ -57,14 +54,11 @@ export default function StepsOrbit({
       const rect = wrapper.getBoundingClientRect();
       const viewportH = window.innerHeight;
 
-      // wrapper is 300vh tall; when sticky is pinned, top goes from 0 to -200vh (approx)
       const totalScrollable = rect.height - viewportH;
-      let scrolled = -rect.top; // how much we've scrolled into the wrapper
-      // clamp
+      let scrolled = -rect.top;
       scrolled = clamp(scrolled, 0, totalScrollable);
       const progress = totalScrollable > 0 ? scrolled / totalScrollable : 0;
 
-      // compute which step we're on (0-based)
       const seg = 1 / steps.length;
       const rawIndex = Math.floor(progress / seg);
       const boundedIndex = Math.max(0, Math.min(steps.length - 1, rawIndex));
@@ -74,16 +68,11 @@ export default function StepsOrbit({
         if (onStepChange) onStepChange(boundedIndex);
       }
 
-      // For movement along path we want a smooth mapping from progress 0->1 across full length
-      // but the timeline holds for each segment. We'll map progress to a 0..1 t for the path.
-      // so t = progress
       const t = clamp(progress, 0, 1);
 
-      // position point
       const point = path.getPointAtLength(t * pathLength);
 
       if (nodeRef.current) {
-        // center the node on the path point
         const nx = point.x;
         const ny = point.y;
         nodeRef.current.setAttribute("cx", String(nx));
@@ -94,36 +83,28 @@ export default function StepsOrbit({
     }
 
     if (prefersReduced.current) {
-      // if reduced motion, don't run rAF scrub; do simple crossfades on active change
       const obs = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              // trigger a single update to set active based on position
-              const rect = wrapper.getBoundingClientRect();
-              const viewportH = window.innerHeight;
-              const totalScrollable = rect.height - viewportH;
-              let scrolled = -rect.top;
-              scrolled = clamp(scrolled, 0, totalScrollable);
-              const progress = totalScrollable > 0 ? scrolled / totalScrollable : 0;
-              const seg = 1 / steps.length;
-              const rawIndex = Math.floor(progress / seg);
-              const boundedIndex = Math.max(0, Math.min(steps.length - 1, rawIndex));
-              if (boundedIndex !== active) {
-                setActive(boundedIndex);
-                if (onStepChange) onStepChange(boundedIndex);
-              }
-            }
-          });
+        () => {
+          const rect = wrapper.getBoundingClientRect();
+          const viewportH = window.innerHeight;
+          const totalScrollable = rect.height - viewportH;
+          let scrolled = -rect.top;
+          scrolled = clamp(scrolled, 0, totalScrollable);
+          const progress = totalScrollable > 0 ? scrolled / totalScrollable : 0;
+          const seg = 1 / steps.length;
+          const rawIndex = Math.floor(progress / seg);
+          const boundedIndex = Math.max(0, Math.min(steps.length - 1, rawIndex));
+          if (boundedIndex !== active) {
+            setActive(boundedIndex);
+            if (onStepChange) onStepChange(boundedIndex);
+          }
         },
         { threshold: Array.from({ length: steps.length }, (_, i) => i / (steps.length - 1)) }
       );
       obs.observe(wrapper);
-
       return () => obs.disconnect();
     }
 
-    // start rAF loop
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
     rafRef.current = requestAnimationFrame(update);
 
@@ -132,16 +113,12 @@ export default function StepsOrbit({
     };
   }, [steps.length, onStepChange, active]);
 
-  // Desktop layout: pinned section of height 300vh and sticky inner
-  // Mobile layout: native snap sections
-
   return (
     <div ref={wrapperRef} className="w-full relative">
-      {/* Wrapper height 300vh for pinned desktop scrub */}
+      {/* Desktop pinned scrub */}
       <div className="hidden md:block h-[300vh] relative">
-        <div ref={stickyRef} className="sticky top-0 h-screen flex items-center">
+        <div className="sticky top-0 h-screen flex items-center" ref={stickyRef}>
           <div className="w-full relative flex">
-            {/* Left column (content) */}
             <div className="w-1/2 pl-[8vw] flex items-center" style={{ maxWidth: 560 }}>
               <div className="text-left max-w-[560px]">
                 <h2 className="text-2xl tracking-widest font-extrabold text-[#FFC527] uppercase mb-4">
@@ -153,23 +130,21 @@ export default function StepsOrbit({
                   ))}
                 </div>
                 <button
-                  className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] hover:translate-y-[-2px] transition-transform shadow-sm focus:outline-none"
+                  className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] hover:-translate-y-0.5 transition-transform shadow-sm focus:outline-none"
                   aria-label={steps[active].cta}
                 >
                   <span className="text-sm font-semibold">{steps[active].cta}</span>
                   <span className="w-6 h-6 bg-[#0A1E3D] text-white rounded-full inline-flex items-center justify-center">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5l7 7-7 7"></path>
+                      <path d="M5 12h14" />
+                      <path d="M12 5l7 7-7 7" />
                     </svg>
                   </span>
                 </button>
               </div>
             </div>
 
-            {/* Right/Center visual area */}
             <div className="w-1/2 flex items-center justify-center relative">
-              {/* SVG orbits */}
               <svg className="w-[680px] h-[680px]" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <defs>
                   <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
@@ -182,64 +157,35 @@ export default function StepsOrbit({
                   </filter>
                 </defs>
 
-                {/* decorative orbit paths */}
-                <path
-                  d="M80,340 C180,120 500,80 600,260"
-                  stroke="#5F7AA3"
-                  strokeOpacity="0.22"
-                  strokeWidth="1.2"
-                  fill="none"
-                />
-                <path
-                  d="M120,420 C220,600 540,640 640,460"
-                  stroke="#5F7AA3"
-                  strokeOpacity="0.18"
-                  strokeWidth="1"
-                  fill="none"
-                />
+                <path d="M80,340 C180,120 500,80 600,260" stroke="#5F7AA3" strokeOpacity="0.22" strokeWidth="1.2" fill="none" />
+                <path d="M120,420 C220,600 540,640 640,460" stroke="#5F7AA3" strokeOpacity="0.18" strokeWidth="1" fill="none" />
 
-                {/* main path used for motion */}
-                <path
-                  id="mainOrbit"
-                  ref={pathRef}
-                  d="M140,360 C220,180 400,120 520,220 C600,300 560,420 420,520"
-                  stroke="transparent"
-                  fill="none"
-                />
+                <path id="mainOrbit" ref={pathRef} d="M140,360 C220,180 400,120 520,220 C600,300 560,420 420,520" stroke="transparent" fill="none" />
 
-                {/* satellite nodes (static) */}
                 <g className="pointer-events-none">
                   <circle cx="100" cy="100" r="18" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
                   <circle cx="580" cy="80" r="12" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
                   <circle cx="600" cy="560" r="14" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
                 </g>
 
-                {/* moving main node: a circle with inner glow and icon*/}
                 <g style={{ filter: "url(#glow)" }}>
                   <circle ref={nodeRef} cx="140" cy="360" r="70" fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth="2" />
 
-                  {/* inner icon for current step: render inline SVGs centered by the cx/cy of circle via foreignObject */}
                   <foreignObject x="140" y="360" width="140" height="140" style={{ transform: "translate(-50%,-50%)" }}>
                     <div className="w-[140px] h-[140px] flex items-center justify-center pointer-events-none">
-                      <div className="w-20 h-20">
-                        {steps[active].icon}
-                      </div>
+                      <div className="w-20 h-20">{steps[active].icon}</div>
                     </div>
                   </foreignObject>
                 </g>
               </svg>
 
-              {/* counter bottom-right */}
               <div className="absolute right-8 bottom-8 text-right">
                 <div className="text-white font-semibold text-xl">
                   <span className="text-white">{pad(active + 1)}</span>
                   <span className="text-[#7E8EA9]">/{pad(steps.length)}</span>
                 </div>
                 <div className="w-24 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
-                  <div
-                    className="h-1 bg-[#FFC527] transition-width"
-                    style={{ width: `${Math.round(((active + 1) / steps.length) * 100)}%` }}
-                  />
+                  <div className="h-1 bg-[#FFC527] transition-width" style={{ width: `${Math.round(((active + 1) / steps.length) * 100)}%` }} />
                 </div>
               </div>
             </div>
@@ -247,7 +193,7 @@ export default function StepsOrbit({
         </div>
       </div>
 
-      {/* Mobile: full-screen snap panels */}
+      {/* Mobile panels */}
       <div className="md:hidden">
         <div className="h-screen snap-y snap-mandatory overflow-y-auto">
           {steps.map((s, i) => (
@@ -268,7 +214,6 @@ export default function StepsOrbit({
                   <span className="text-sm font-semibold">{s.cta}</span>
                 </button>
 
-                {/* counter */}
                 <div className="mt-6 text-center">
                   <div className="text-white font-semibold text-lg">
                     <span className="text-white">{pad(i + 1)}</span>
@@ -287,7 +232,6 @@ export default function StepsOrbit({
   );
 }
 
-// helpers and defaults
 function pad(n: number) {
   return String(n).padStart(2, "0");
 }
