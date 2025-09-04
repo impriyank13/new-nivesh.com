@@ -121,6 +121,7 @@ export const clientSteps = [
     body: ["Create your account using mobile number and email for secure access."],
     cta: "Sign Up Now",
     icon: <UserIcon size={72} />,
+    iconComponent: UserIcon,
   },
   {
     title: "KYC VERIFICATION",
