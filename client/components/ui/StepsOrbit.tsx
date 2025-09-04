@@ -249,7 +249,7 @@ export default function StepsOrbit({
       
       {/* Desktop pinned scrub */}
       <div className="hidden md:block h-[300vh] relative">
-        <div className="sticky top-0 h-screen flex items-center" ref={stickyRef}>
+        <div className="sticky top-0 h-screen items-center" ref={stickyRef}>
           {!isMobile &&
             <div className="flex gap-3 justify-center py-4">
         <button onClick={() => setMode('client')} className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === 'client' ? 'bg-[#FFC527] text-[#0A1E3D]' : 'bg-transparent border border-[#3B4B66] text-white'}`}>
