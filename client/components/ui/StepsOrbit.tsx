@@ -314,11 +314,11 @@ export default function StepsOrbit({
 
 
                 {/* moving main node - group so circle and icon move together */}
-                <g ref={nodeGroupRef} style={{ filter: "url(#glow)" }} transform={`translate(580,80)`}>
-                  <circle ref={nodeRef} cx={0} cy={0} r={70} fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth={2} />
-                  {/* render icon SVG centered at 0,0 */}
-                  <g transform={`translate(-32,-32)`}>
-                    {CurrentIconComp ? <CurrentIconComp size={64} /> : (CurrentIconJSX ? CurrentIconJSX : null)}
+                <g ref={nodeGroupRef} style={{ filter: "url(#glow)", color: 'hsl(var(--sidebar-primary))' }} transform={`translate(580,170.7730712890625)`}>
+                  <circle ref={nodeRef} cx={0} cy={0} r={35} fill="rgba(30,58,138,0.06)" stroke="hsl(var(--sidebar-primary))" strokeWidth={2} />
+                  {/* render icon SVG centered at 0,0 (smaller for half size) */}
+                  <g transform={`translate(-24,-24)`}>
+                    {CurrentIconComp ? <CurrentIconComp size={48} /> : (CurrentIconJSX ? CurrentIconJSX : null)}
                   </g>
                 </g>
               </svg>
