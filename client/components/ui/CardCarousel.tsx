@@ -132,7 +132,16 @@ export default function CardCarousel({
     if (!scroller) return;
     const child = scroller.children[index] as HTMLElement | undefined;
     if (!child) return;
-    const targetLeft = child.offsetLeft - (scroller.clientWidth - child.clientWidth) / 2;
+
+    // compute accurate target using bounding rects to account for transforms/margins
+    const scrollerRect = scroller.getBoundingClientRect();
+    const childRect = child.getBoundingClientRect();
+    const childCenterInScroller = childRect.left + childRect.width / 2 - scrollerRect.left;
+    const targetLeft = scroller.scrollLeft + (childCenterInScroller - scroller.clientWidth / 2);
+
+    // suppress automatic active updates briefly so our programmatic centering wins
+    suppressRef.current = Date.now() + 700;
+
     scroller.scrollTo({ left: targetLeft, behavior: "smooth" });
     setActiveIndex(index);
   }
