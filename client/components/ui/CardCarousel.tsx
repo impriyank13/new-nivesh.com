@@ -131,10 +131,8 @@ export default function CardCarousel({
     if (!scroller) return;
     const child = scroller.children[index] as HTMLElement | undefined;
     if (!child) return;
-    const scrollerRect = scroller.getBoundingClientRect();
-    const childRect = child.getBoundingClientRect();
-    const offset = childRect.left + childRect.width / 2 - (scrollerRect.left + scrollerRect.width / 2);
-    scroller.scrollBy({ left: offset, behavior: "smooth" });
+    const targetLeft = child.offsetLeft - (scroller.clientWidth - child.clientWidth) / 2;
+    scroller.scrollTo({ left: targetLeft, behavior: "smooth" });
     setActiveIndex(index);
   }
 
