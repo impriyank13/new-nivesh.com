@@ -91,7 +91,7 @@ export default function StepsOrbit({
       if (chosenMarkers) {
         const children = Array.from(chosenMarkers.children) as SVGCircleElement[];
         children.forEach((child, idx) => {
-          const segT = steps.length > 1 ? idx / (steps.length - 1) : 0;
+          const segT = activeSteps.length > 1 ? idx / (activeSteps.length - 1) : 0;
           const p = chosenPath.getPointAtLength(segT * pathLength);
           child.setAttribute("cx", String(p.x));
           child.setAttribute("cy", String(p.y));
