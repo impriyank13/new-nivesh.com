@@ -373,7 +373,10 @@ export default function StepsOrbit({
 
             <g ref={markersRefMobile}>
               {Array.from({ length: activeSteps.length }).map((_, i) => (
-                <circle key={i} r="8" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
+                <g key={i} className="marker-mobile">
+                  <circle r="8" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
+                  <text x="0" y="4" textAnchor="middle" fontSize="9" fill="#F4F7FF" opacity="0.9">{pad(i + 1)}</text>
+                </g>
               ))}
             </g>
 
