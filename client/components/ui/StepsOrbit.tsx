@@ -89,12 +89,12 @@ export default function StepsOrbit({
 
       // position markers initially
       if (chosenMarkers) {
-        const children = Array.from(chosenMarkers.children) as SVGCircleElement[];
+        const children = Array.from(chosenMarkers.children) as SVGElement[];
         children.forEach((child, idx) => {
           const segT = activeSteps.length > 1 ? idx / (activeSteps.length - 1) : 0;
           const p = chosenPath.getPointAtLength(segT * pathLength);
-          child.setAttribute("cx", String(p.x));
-          child.setAttribute("cy", String(p.y));
+          // position group via transform so inner circle/text stay centered
+          child.setAttribute("transform", `translate(${p.x},${p.y})`);
         });
       }
     });
