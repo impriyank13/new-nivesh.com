@@ -188,6 +188,44 @@ export default function StepsOrbit({
     };
   }, [steps.length, onStepChange, active]);
 
+  // Mobile: snap to nearest section on scroll end for smooth one-by-one behavior
+  useEffect(() => {
+    if (!scrollerMobileRef.current || !isMobile) return;
+    const scroller = scrollerMobileRef.current;
+    let timeout: number | null = null;
+
+    function onScroll() {
+      if (timeout) window.clearTimeout(timeout);
+      // debounce to detect scroll end
+      timeout = window.setTimeout(() => {
+        const children = Array.from(scroller.children) as HTMLElement[];
+        const viewportCenter = window.innerHeight / 2;
+        let closest = 0;
+        let closestDist = Infinity;
+        children.forEach((child, idx) => {
+          const r = child.getBoundingClientRect();
+          const childCenter = r.top + r.height / 2;
+          const dist = Math.abs(childCenter - viewportCenter);
+          if (dist < closestDist) {
+            closestDist = dist;
+            closest = idx;
+          }
+        });
+        const target = children[closest];
+        if (target) {
+          scroller.scrollTo({ top: target.offsetTop, behavior: "smooth" });
+        }
+      }, 120);
+    }
+
+    scroller.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      scroller.removeEventListener("scroll", onScroll);
+      if (timeout) window.clearTimeout(timeout);
+    };
+  }, [isMobile]);
+
   return (
     <div ref={wrapperRef} className="w-full relative">
       {/* Desktop pinned scrub */}
