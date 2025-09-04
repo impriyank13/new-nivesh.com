@@ -357,13 +357,11 @@ export default function StepsOrbit({
             <path id="stringPathMobile" ref={stringRefMobile} d="M110,20 L110,500" stroke="#FFC527" strokeWidth="2" fill="none" strokeLinecap="round" />
 
 
-            <g style={{ filter: "url(#glow-mobile)" }}>
-              <circle ref={nodeRefMobile} cx="110" cy="20" r="22" fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth="2" />
-              <foreignObject x="110" y="20" width="44" height="44" style={{ transform: "translate(-50%,-50%)" }}>
-                <div className="w-[44px] h-[44px] flex items-center justify-center pointer-events-none">
-                  {CurrentIconComp ? <CurrentIconComp size={20} /> : (CurrentIconJSX ? CurrentIconJSX : null)}
-                </div>
-              </foreignObject>
+            <g ref={nodeGroupMobileRef} style={{ filter: "url(#glow-mobile)" }} transform={`translate(110,20)`}>
+              <circle ref={nodeRefMobile} cx={0} cy={0} r={22} fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth={2} />
+              <g transform={`translate(-12,-12)`}>
+                {CurrentIconComp ? <CurrentIconComp size={24} /> : (CurrentIconJSX ? CurrentIconJSX : null)}
+              </g>
             </g>
           </svg>
         </div>
