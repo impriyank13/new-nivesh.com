@@ -341,7 +341,7 @@ export default function StepsOrbit({
                   <span className="text-[#7E8EA9]">/{pad(activeSteps.length)}</span>
                 </div>
                 <div className="w-24 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
-                  <div className="h-1 bg-[#FFC527] transition-width" style={{ width: `${Math.round(((active + 1) / steps.length) * 100)}%` }} />
+                  <div className="h-1 bg-[#FFC527] transition-width" style={{ width: `${Math.round(((active + 1) / activeSteps.length) * 100)}%` }} />
                 </div>
               </div>
             </div>
@@ -412,7 +412,7 @@ export default function StepsOrbit({
             <span className="text-[#7E8EA9]">/{pad(activeSteps.length)}</span>
           </div>
           <div className="w-36 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
-            <div className="h-1 bg-[#FFC527] transition-all" style={{ width: `${Math.round(((active + 1) / steps.length) * 100)}%` }} />
+            <div className="h-1 bg-[#FFC527] transition-all" style={{ width: `${Math.round(((active + 1) / activeSteps.length) * 100)}%` }} />
           </div>
         </div>
       </div>
