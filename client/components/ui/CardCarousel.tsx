@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ChartBar, Globe, Server } from "lucide-react";
 
 type CardData = {
