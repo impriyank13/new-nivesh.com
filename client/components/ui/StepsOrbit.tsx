@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import React, { useEffect, useRef, useState } from "react";
-
 type Step = {
   title: string;
   body: string[];
@@ -94,7 +92,7 @@ export default function StepsOrbit({
 
       const t = clamp(progress, 0, 1);
 
-      // main node moves along the path but visually we want straight-ish motion; using path is fine
+      // main node moves along the path
       const point = path.getPointAtLength(t * pathLength);
 
       if (nodeRef.current) {
