@@ -266,8 +266,8 @@ export default function StepsOrbit({
       </div>
 
       {/* Mobile panels */}
-      <div className="md:hidden">
-        {/* mobile fixed right-side svg controlling node + string */}
+      <div className="md:hidden relative">
+        {/* mobile fixed right-side svg controlling node + string (absolute) */}
         <div className="absolute right-2 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
           <svg className="w-[140px] h-[520px]" viewBox="0 0 140 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
@@ -304,7 +304,7 @@ export default function StepsOrbit({
         <div ref={scrollerMobileRef} className="h-screen snap-y snap-mandatory overflow-y-auto hide-scroll">
           {steps.map((s, i) => (
             <section key={i} className="h-screen snap-start flex items-center justify-start px-6" aria-hidden={active !== i}>
-              <div className="max-w-md text-left w-full">
+              <div className={`max-w-md text-left w-full transition-all duration-300 ease-out ${active === i ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6 pointer-events-none'}`}>
                 <h2 className="text-2xl tracking-widest font-extrabold text-[#FFC527] uppercase mb-4">{s.title}</h2>
                 <div className="text-[#EAF0FF] opacity-90 space-y-2 mb-6 leading-[1.6]">
                   {s.body.map((line, idx) => (
@@ -314,19 +314,20 @@ export default function StepsOrbit({
                 <button className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] focus:outline-none">
                   <span className="text-sm font-semibold">{s.cta}</span>
                 </button>
-
-                <div className="mt-6 text-left">
-                  <div className="text-white font-semibold text-lg">
-                    <span className="text-white">{pad(i + 1)}</span>
-                    <span className="text-[#7E8EA9]">/{pad(steps.length)}</span>
-                  </div>
-                  <div className="w-36 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
-                    <div className="h-1 bg-[#FFC527]" style={{ width: `${Math.round(((i + 1) / steps.length) * 100)}%` }} />
-                  </div>
-                </div>
               </div>
             </section>
           ))}
+        </div>
+
+        {/* Mobile global counter and progress (absolute bottom-right) */}
+        <div className="absolute right-4 bottom-4 z-20 text-right">
+          <div className="text-white font-semibold text-lg">
+            <span className="text-white">{pad(active + 1)}</span>
+            <span className="text-[#7E8EA9]">/{pad(steps.length)}</span>
+          </div>
+          <div className="w-36 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
+            <div className="h-1 bg-[#FFC527] transition-all" style={{ width: `${Math.round(((active + 1) / steps.length) * 100)}%` }} />
+          </div>
         </div>
       </div>
     </div>
