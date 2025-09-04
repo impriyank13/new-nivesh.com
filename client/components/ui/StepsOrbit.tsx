@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import React, { useEffect, useRef, useState } from "react";
+
 type Step = {
   title: string;
   body: string[];
@@ -177,7 +179,7 @@ export default function StepsOrbit({
                       <feMergeNode in="coloredBlur" />
                       <feMergeNode in="SourceGraphic" />
                     </feMerge>
-                  </feMerge>
+                  </filter>
                 </defs>
 
                 {/* decorative orbit paths */}
