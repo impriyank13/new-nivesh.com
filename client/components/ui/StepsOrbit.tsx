@@ -343,8 +343,8 @@ export default function StepsOrbit({
       {/* Mobile panels */}
       <div className="md:hidden relative">
         {/* mobile fixed right-side svg controlling node + string (absolute) */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
-          <svg className="w-[110px] h-[450px]" viewBox="0 0 140 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <div className="absolute right-2 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
+          <svg className="w-[140px] h-[520px]" viewBox="0 0 140 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
               <filter id="glow-mobile" x="-50%" y="-50%" width="200%" height="200%">
                 <feGaussianBlur stdDeviation="6" result="coloredBlur" />
