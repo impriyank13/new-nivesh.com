@@ -291,8 +291,8 @@ export default function StepsOrbit({
             </g>
 
             <g style={{ filter: "url(#glow-mobile)" }}>
-              <circle ref={nodeRefMobile} cx="60" cy="20" r="44" fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth="2" />
-              <foreignObject x="60" y="20" width="88" height="88" style={{ transform: "translate(-50%,-50%)" }}>
+              <circle ref={nodeRefMobile} cx="110" cy="20" r="44" fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth="2" />
+              <foreignObject x="110" y="20" width="88" height="88" style={{ transform: "translate(-50%,-50%)" }}>
                 <div className="w-[88px] h-[88px] flex items-center justify-center pointer-events-none">
                   <div className="w-12 h-12">{steps[active].icon}</div>
                 </div>
@@ -301,7 +301,7 @@ export default function StepsOrbit({
           </svg>
         </div>
 
-        <div className="h-screen snap-y snap-mandatory overflow-y-auto hide-scroll">
+        <div ref={scrollerMobileRef} className="h-screen snap-y snap-mandatory overflow-y-auto hide-scroll">
           {steps.map((s, i) => (
             <section key={i} className="h-screen snap-start flex items-center justify-start px-6" aria-hidden={active !== i}>
               <div className="max-w-md text-left w-full">
