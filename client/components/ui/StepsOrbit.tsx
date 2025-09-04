@@ -18,6 +18,8 @@ export default function StepsOrbit({
   const stickyRef = useRef<HTMLDivElement | null>(null);
   const nodeRef = useRef<SVGCircleElement | null>(null);
   const pathRef = useRef<SVGPathElement | null>(null);
+  const stringRef = useRef<SVGPathElement | null>(null);
+  const markersRef = useRef<SVGGElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const [active, setActive] = useState(0);
   const prefersReduced = useRef<boolean>(false);
