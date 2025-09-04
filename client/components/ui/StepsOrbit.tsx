@@ -25,6 +25,7 @@ export default function StepsOrbit({
 
   // mobile refs
   const nodeRefMobile = useRef<SVGCircleElement | null>(null);
+  const nodeGroupMobileRef = useRef<SVGGElement | null>(null);
   const pathRefMobile = useRef<SVGPathElement | null>(null);
   const stringRefMobile = useRef<SVGPathElement | null>(null);
   const markersRefMobile = useRef<SVGGElement | null>(null);
