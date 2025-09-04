@@ -64,6 +64,7 @@ export default function CardCarousel({
   const [activeIndex, setActiveIndex] = useState(0);
   const rafRef = useRef<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const suppressRef = useRef(0); // timestamp to suppress automatic active updates during programmatic scrolls
 
   useEffect(() => {
     if (isPaused) return;
