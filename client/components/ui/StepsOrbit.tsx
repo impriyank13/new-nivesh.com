@@ -357,10 +357,10 @@ export default function StepsOrbit({
             <path id="stringPathMobile" ref={stringRefMobile} d="M110,20 L110,500" stroke="#FFC527" strokeWidth="2" fill="none" strokeLinecap="round" />
 
 
-            <g ref={nodeGroupMobileRef} style={{ filter: "url(#glow-mobile)" }} transform={`translate(110,20)`}>
-              <circle ref={nodeRefMobile} cx={0} cy={0} r={22} fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth={2} />
-              <g transform={`translate(-12,-12)`}>
-                {CurrentIconComp ? <CurrentIconComp size={24} /> : (CurrentIconJSX ? CurrentIconJSX : null)}
+            <g ref={nodeGroupMobileRef} style={{ filter: "url(#glow-mobile)", color: 'hsl(var(--sidebar-primary))' }} transform={`translate(110,170.7730712890625)`}>
+              <circle ref={nodeRefMobile} cx={0} cy={0} r={11} fill="rgba(30,58,138,0.06)" stroke="hsl(var(--sidebar-primary))" strokeWidth={2} />
+              <g transform={`translate(-10,-10)`}>
+                {CurrentIconComp ? <CurrentIconComp size={18} /> : (CurrentIconJSX ? CurrentIconJSX : null)}
               </g>
             </g>
           </svg>
