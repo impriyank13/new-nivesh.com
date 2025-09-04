@@ -305,25 +305,6 @@ export default function StepsOrbit({
                 {/* animated string (yellow) */}
                 <path id="stringPath" ref={stringRef} d="M580,80 L580,600" stroke="#FFC527" strokeWidth="2" fill="none" strokeLinecap="round" opacity="1" />
 
-                {/* markers group */}
-                <g ref={markersRef} className="pointer-events-none">
-                  {Array.from({ length: activeSteps.length }).map((_, i) => {
-                    const step = activeSteps[i] as any;
-                    const IconComp = step?.iconComponent as any;
-                    return (
-                      <g key={i} className="marker">
-                        <circle r="12" fill="transparent" stroke="#F4F7FF" strokeWidth="2" opacity="0.12" />
-                        {IconComp ? (
-                          <g transform={`translate(-12,-12)`}>
-                            <IconComp size={24} />
-                          </g>
-                        ) : (
-                          <text x="0" y="4" textAnchor="middle" fontSize="10" fill="#F4F7FF" opacity="0.9">{pad(i + 1)}</text>
-                        )}
-                      </g>
-                    );
-                  })}
-                </g>
 
                 {/* moving main node (decorative only; icons live on orbit markers) */}
                 <g style={{ filter: "url(#glow)" }}>
