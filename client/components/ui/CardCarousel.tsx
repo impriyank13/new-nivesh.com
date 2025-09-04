@@ -87,16 +87,14 @@ export default function CardCarousel({
     const children = Array.from(scroller.children) as HTMLElement[];
 
     function updateActive() {
-      const rect = scroller.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
+      const scrollerCenter = scroller.scrollLeft + scroller.clientWidth / 2;
 
       let closestIndex = 0;
       let closestDistance = Infinity;
 
       children.forEach((child, idx) => {
-        const r = child.getBoundingClientRect();
-        const childCenter = r.left + r.width / 2;
-        const distance = Math.abs(childCenter - centerX);
+        const childCenter = child.offsetLeft + child.clientWidth / 2;
+        const distance = Math.abs(childCenter - scrollerCenter);
         if (distance < closestDistance) {
           closestDistance = distance;
           closestIndex = idx;
