@@ -74,16 +74,11 @@ export default function CardCarousel({
       const length = cards.length || scroller.children.length;
       if (!length) return;
       const next = (activeIndex + 1) % length;
-      const child = scroller.children[next] as HTMLElement | undefined;
-      if (!child) return;
-      const scrollerRect = scroller.getBoundingClientRect();
-      const childRect = child.getBoundingClientRect();
-      const offset = childRect.left + childRect.width / 2 - (scrollerRect.left + scrollerRect.width / 2);
-      scroller.scrollBy({ left: offset, behavior: "smooth" });
+      centerItem(next);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [isPaused, activeIndex, cards.length]);
+  }, [isPaused, activeIndex, cards.length, centerItem]);
 
   useEffect(() => {
     const scroller = scrollerRef.current;
