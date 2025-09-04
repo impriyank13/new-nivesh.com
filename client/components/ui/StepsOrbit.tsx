@@ -286,9 +286,6 @@ export default function StepsOrbit({
                   </filter>
                 </defs>
 
-                {/* decorative orbit paths */}
-                <path d="M80,340 C180,120 500,80 600,260" stroke="#5F7AA3" strokeOpacity="0.22" strokeWidth="1.2" fill="none" />
-                <path d="M120,420 C220,600 540,640 640,460" stroke="#5F7AA3" strokeOpacity="0.18" strokeWidth="1" fill="none" />
 
                 {/* straight vertical main line for node travel on the right */}
                 <path
