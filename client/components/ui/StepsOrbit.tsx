@@ -256,15 +256,7 @@ export default function StepsOrbit({
       </div>
       {/* Desktop pinned scrub */}
       <div className="hidden md:block h-[300vh] relative">
-            <div className="flex gap-3 justify-center py-4">
-        <button onClick={() => setMode('client')} className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === 'client' ? 'bg-[#FFC527] text-[#0A1E3D]' : 'bg-transparent border border-[#3B4B66] text-white'}`}>
-          Client Onboarding
-        </button>
-        <button onClick={() => setMode('partner')} className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === 'partner' ? 'bg-[#FFC527] text-[#0A1E3D]' : 'bg-transparent border border-[#3B4B66] text-white'}`}>
-          Partner Onboarding
-        </button>
-      </div>
-        <div className="sticky top-0  flex items-center" ref={stickyRef}>
+        <div className="sticky top-0 h-screen flex items-center" ref={stickyRef}>
           <div className="w-full relative flex">
             <div className="w-1/2 pl-[8vw] flex items-center" style={{ maxWidth: 560 }}>
               <div className="text-left max-w-[560px]">
@@ -351,14 +343,6 @@ export default function StepsOrbit({
       {/* Mobile panels */}
       <div className="md:hidden relative">
         {/* mobile fixed right-side svg controlling node + string (absolute) */}
-              <div className="flex gap-3 justify-center py-4">
-        <button onClick={() => setMode('client')} className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === 'client' ? 'bg-[#FFC527] text-[#0A1E3D]' : 'bg-transparent border border-[#3B4B66] text-white'}`}>
-          Client Onboarding
-        </button>
-        <button onClick={() => setMode('partner')} className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === 'partner' ? 'bg-[#FFC527] text-[#0A1E3D]' : 'bg-transparent border border-[#3B4B66] text-white'}`}>
-          Partner Onboarding
-        </button>
-      </div>
         <div className="absolute right-2 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
           <svg className="w-[140px] h-[520px]" viewBox="0 0 140 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
@@ -387,9 +371,9 @@ export default function StepsOrbit({
           </svg>
         </div>
 
-        <div ref={scrollerMobileRef} className=" snap-y snap-mandatory overflow-y-auto hide-scroll smooth-scroll" style={{ scrollBehavior: 'smooth', WebkitOverflowScrolling: 'touch', touchAction: 'pan-y', overscrollBehavior: 'contain' }}>
+        <div ref={scrollerMobileRef} className="h-screen snap-y snap-mandatory overflow-y-auto hide-scroll smooth-scroll" style={{ scrollBehavior: 'smooth', WebkitOverflowScrolling: 'touch', touchAction: 'pan-y', overscrollBehavior: 'contain' }}>
           {activeSteps.map((s, i) => (
-            <section key={i} className="snap-start flex items-center justify-start px-6" aria-hidden={active !== i} style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }}>
+            <section key={i} className="h-screen snap-start flex items-center justify-start px-6" aria-hidden={active !== i} style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }}>
               <div className={`max-w-md text-left w-full transition-all duration-300 ease-out ${active === i ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6 pointer-events-none'}`}>
                 <h2 className="text-2xl tracking-widest font-extrabold text-[#FFC527] uppercase mb-4">{s.title}</h2>
                 <div className="text-[#EAF0FF] opacity-90 space-y-2 mb-6 leading-[1.6]">
