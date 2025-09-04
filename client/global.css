@@ -170,10 +170,8 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Icons: use currentColor so they follow text color or accent */
+  /* Icons: keep color inheritance but do not override stroke/fill attributes set on inline SVGs */
   svg {
     color: inherit;
-    stroke: currentColor;
-    fill: none;
   }
 }
