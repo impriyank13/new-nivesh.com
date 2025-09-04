@@ -358,7 +358,7 @@ export default function StepsOrbit({
           </svg>
         </div>
 
-        <div ref={scrollerMobileRef} className="h-screen snap-y snap-mandatory overflow-y-auto hide-scroll smooth-scroll" style={{ scrollBehavior: 'smooth' }}>
+        <div ref={scrollerMobileRef} className="h-screen snap-y snap-mandatory overflow-y-auto hide-scroll smooth-scroll" style={{ scrollBehavior: 'smooth', WebkitOverflowScrolling: 'touch', touchAction: 'pan-y', overscrollBehavior: 'contain' }}>
           {steps.map((s, i) => (
             <section key={i} className="h-screen snap-start flex items-center justify-start px-6" aria-hidden={active !== i} style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }}>
               <div className={`max-w-md text-left w-full transition-all duration-300 ease-out ${active === i ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6 pointer-events-none'}`}>
