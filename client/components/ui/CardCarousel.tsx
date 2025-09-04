@@ -88,6 +88,12 @@ export default function CardCarousel({
     const children = Array.from(scroller.children) as HTMLElement[];
 
     function updateActive() {
+      // if a programmatic scroll was just triggered, skip detecting active to avoid race
+      if (Date.now() < suppressRef.current) {
+        rafRef.current = null;
+        return;
+      }
+
       const scrollerCenter = scroller.scrollLeft + scroller.clientWidth / 2;
 
       let closestIndex = 0;
