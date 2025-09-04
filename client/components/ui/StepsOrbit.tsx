@@ -403,9 +403,8 @@ export default function StepsOrbit({
             <g style={{ filter: "url(#glow-mobile)" }}>
               <circle ref={nodeRefMobile} cx="110" cy="20" r="22" fill="rgba(244,247,255,0.04)" stroke="#FFFFFF" strokeWidth="2" />
               <foreignObject x="110" y="20" width="44" height="44" style={{ transform: "translate(-50%,-50%)" }}>
-                <div className="w-[44px] h-[44px] flex items-center justify-center pointer-events-none relative">
+                <div className="w-[44px] h-[44px] flex items-center justify-center pointer-events-none">
                   <div className="w-6 h-6">{activeSteps[active].icon}</div>
-                  <div className="absolute right-0 bottom-0 bg-[#0A1E3D] text-white text-[9px] font-bold rounded-full w-6 h-6 flex items-center justify-center border border-[#D9E1F5]">{pad(active+1)}</div>
                 </div>
               </foreignObject>
             </g>
