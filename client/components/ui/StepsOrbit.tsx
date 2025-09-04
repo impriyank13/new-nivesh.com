@@ -26,6 +26,7 @@ export default function StepsOrbit({
   const pathRefMobile = useRef<SVGPathElement | null>(null);
   const stringRefMobile = useRef<SVGPathElement | null>(null);
   const markersRefMobile = useRef<SVGGElement | null>(null);
+  const scrollerMobileRef = useRef<HTMLDivElement | null>(null);
 
   const rafRef = useRef<number | null>(null);
   const [active, setActive] = useState(0);
