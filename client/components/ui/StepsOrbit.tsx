@@ -316,7 +316,7 @@ export default function StepsOrbit({
 
 
                 {/* moving main node - group so circle and icon move together */}
-                <g ref={nodeGroupRef} style={{ color: '#FFC527' }} transform={`translate(580,170.7730712890625)`}>
+                <g ref={nodeGroupRef} style={{ color: '#FFC527'; backgroundColor: 'white'; }} transform={`translate(580,170.7730712890625)`}>
                   {/* subtle outer ring to highlight the circle (no blur) */}
                   <circle cx={0} cy={0} r={40} fill="none" stroke="#FFC527" strokeWidth={8} strokeOpacity={0.08} />
                   {/* inner highlighted circle */}
