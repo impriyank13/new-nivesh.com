@@ -240,7 +240,7 @@ export default function StepsOrbit({
 
       {/* Mobile panels */}
       <div className="md:hidden">
-        <div className="h-screen snap-y snap-mandatory overflow-y-auto">
+        <div className="h-screen snap-y snap-mandatory overflow-y-auto hide-scroll">
           {steps.map((s, i) => (
             <section key={i} className="h-screen snap-start flex items-center justify-center px-6" aria-hidden={active !== i}>
               <div className="max-w-md text-center">
