@@ -120,5 +120,7 @@
   /* smooth scroll utility */
   .smooth-scroll {
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* enable momentum scrolling on iOS */
+    touch-action: pan-y; /* allow vertical panning */
   }
 }
