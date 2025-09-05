@@ -9,8 +9,8 @@ import NavBar from "@/components/ui/NavBar";
 
 export default function Index() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-slate-100 to-slate-200 px-6 space-y-16">
       <NavBar />
+    <main className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-slate-100 to-slate-200 px-6 space-y-16">
       <section className="w-full max-w-7xl">
         <div className="w-full bg-white rounded-2xl shadow-sm p-6">
           <CardCarousel showTitle={true} />
