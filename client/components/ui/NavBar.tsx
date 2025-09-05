@@ -20,7 +20,9 @@ export default function NavBar() {
   ];
 
   const location = window.location.pathname;
-  const navigate = require('react-router-dom').useNavigate ? (require('react-router-dom').useNavigate()) : (() => {});
+  const navigate = useNavigate();
+  const locationObj = useLocation();
+  const location = locationObj.pathname;
   const getLangFromPath = () => {
     const match = location.match(/^\/(en|hin|mar)(?:\/|$)/);
     return match ? match[1] : 'en';
