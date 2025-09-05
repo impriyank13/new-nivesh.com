@@ -155,10 +155,27 @@ export default function NavBar() {
           <div className="md:hidden mt-2 pb-4">
             <div className="bg-white rounded-lg shadow-md p-4 flex flex-col space-y-3">
               {navItems.map((n) => (
-                <Link key={n.to} to={buildPath(n.to)} className="text-base font-medium text-slate-700" onClick={() => setOpen(false)}>
-                  {n.label}
-                </Link>
+                <div key={n.to}>
+                  <Link to={buildPath(n.to)} className="text-base font-medium text-slate-700" onClick={() => setOpen(false)}>
+                    {n.label}
+                  </Link>
+                  {n.key === 'products' && (
+                    <div className="mt-2 pl-4">
+                      {productsList.map((p) => (
+                        <Link key={p} to={buildPath('/products')} className="block text-sm text-slate-600 py-1" onClick={() => setOpen(false)}>{p}</Link>
+                      ))}
+                    </div>
+                  )}
+                  {n.key === 'partner' && (
+                    <div className="mt-2 pl-4">
+                      {partnerList.map((p) => (
+                        <Link key={p} to={buildPath('/partner')} className="block text-sm text-slate-600 py-1" onClick={() => setOpen(false)}>{p}</Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
+
               <div className="pt-2 border-t border-slate-100 mt-2">
                 <div className="flex items-center gap-2 mb-3">
                   {langs.map((l) => (
