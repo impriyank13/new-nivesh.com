@@ -27,6 +27,9 @@ const translations: any = {
     teamTitle: "Our Amazing Team",
     teamText:
       "A diverse group of leaders across technology, product, operations and partner success. Together we bring decades of experience to build products that serve advisors and their clients.",
+    investorsTitle: "Investors",
+    investorsSubtitle: "We are supported by marquee investors, who believe in our vision.",
+    investorsFooter: "And other prominent angel investors who are successful entrepreneurs, venture capitalists and fund managers",
   },
   hin: {
     breadcrumb: ["होम", "हमारी कहानी"],
@@ -44,12 +47,15 @@ const translations: any = {
     approachTitle: "दृष्टिकोण और प्रौद्योगिकी",
     approachText: "हमारा ऐप निवेशों को ट्रैक करने को सरल बनाता है।",
     awardsTitle: "पुरस्कार और मान्यता",
-    commitmentTitle: "हमारी प्रतिबद्धता",
+    commitmentTitle: "हमारी प्रत���बद्धता",
     commitmentText:
       "हम सुरक्षित, अनुपालन-आधारित और मानव-केंद्रित फिनटेक प्रदान करने के लिए प्रतिबद्ध हैं जो सलाहकारों को सशक्त बनाता है और निवेशकों की सुरक्षा करता है।",
     teamTitle: "हमारी टीम",
     teamText:
-      "प्रौद्योगिकी, उत्पाद और संचालन में अनुभवी नेताओं का एक विविध समूह जो सलाहकारों और उनके ग्राहकों क�� सेवा के लिए उत्पाद बनाता है।",
+      "प्रौद्योगिकी, उत्पाद और संचालन में अनुभवी नेताओं का एक विविध समूह जो सलाहकारों और उनके ग्राहकों की सेवा के लिए उत्पाद बनाता है।",
+    investorsTitle: "निवेशक",
+    investorsSubtitle: "हमारे महत्वाकांक्षी निवेशक जिन्होंने हमारे विज़न में विश्वास रखा है।",
+    investorsFooter: "और अन्य प्रमुख एंजेल निवेशक जो सफल उद्यमी, वेंचर कैपिटलिस्ट और फंड मैनेजर हैं",
   },
   mar: {
     breadcrumb: ["मुखपृष्ठ", "आमची कथा"],
@@ -73,7 +79,10 @@ const translations: any = {
       "आम्ही सुरक्षित, अनुपालन-अनुकूल आणि मानव-केंद्रित फिनटेक प्रदान करण्यात बांधील आहोत जे सल्लागारांना सशक्त करते आणि गुंतवणूकदारांचे संरक्षण करते.",
     teamTitle: "आमची टीम",
     teamText:
-      "तंत्रज्ञान, उत्पादन आणि ऑपरेशन्समधील विविध नेतृत्व ज्यांनी अनेक वर्षांचा अनुभव घेवून उत्पादने तयार केली आहेत.",
+      "तंत्रज्ञान, उत्पादन आणि ऑपरेशन्समधील विविध नेतृत्व ज्यांनी अनेक वर्षांचा अनुभव घेऊन उत्पादने तयार केली आहेत.",
+    investorsTitle: "गुंतवणूकदार",
+    investorsSubtitle: "आमच्या व्हिजनमध्ये विश्वास असलेल्या प्रमुख गुंतवणूकदारांनी आम्हाला समर्थन केले आहे.",
+    investorsFooter: "आणि इतर प्रमुख एंजल गुंतवणूकदार जे यशस्वी उद्योजक, व्हेंचर कॅपिटॅलिस्ट आणि फंड मॅनेजर आहेत",
   },
 };
 
@@ -387,6 +396,24 @@ export default function About() {
             ))}
           </div>
         </section>
+
+        {/* Investors */}
+        <section className="mb-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-2xl font-extrabold mb-2">{t('investorsTitle')}</h3>
+            <p className="text-slate-300 mb-8">{t('investorsSubtitle')}</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {['Windrose capital', 'Lets Venture', 'Indian Angel Network Fund'].map((name, idx) => (
+                <div key={name} className="bg-white rounded-lg p-6 flex flex-col items-center justify-center shadow-md">
+                  <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ff668d1330e1a4297a3024a099e463da8?format=webp&width=800" alt={name} className="h-20 object-contain mb-4" />
+                  <div className="font-semibold text-lg text-slate-900">{name}</div>
+                </div>
+              ))}
+            </div>
+            <p className="text-slate-400 mt-8 text-sm">{t('investorsFooter')}</p>
+          </div>
+        </section>
+
       </div>
     </main>
   );
