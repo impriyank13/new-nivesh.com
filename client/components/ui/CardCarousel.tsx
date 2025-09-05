@@ -180,8 +180,8 @@ export default function CardCarousel({
                 <article
                   className={`mx-2 rounded-[14px] border border-[#E5E7EB] p-6 flex flex-col items-center text-center h-full transition-colors duration-300 ease-out ${
                     isActive
-                      ? "bg-[#1E3A8A] text-white"
-                      : "bg-[#F9FAFB] text-[#1F2937]"
+                      ? "bg-[#ffe1ce] text-black"
+                      : "bg-white text-black"
                   }`}
                   style={{ minHeight: 220 }}
                 >
@@ -207,15 +207,13 @@ export default function CardCarousel({
                     )
                   ) : (
                     <div
-                      className={`mb-4 rounded-full p-2 inline-flex items-center justify-center transition-colors duration-300 ease-out ${
-                        isActive ? "text-white" : "text-[#1F2937]"
-                      }`}
+                      className={`mb-4 rounded-full p-2 inline-flex items-center justify-center transition-colors duration-300 ease-out text-black`}
                     >
                       {/* Icon color inherits currentColor */}
                       {c.icon ? (
                         // @ts-ignore
                         cloneElement(c.icon as React.ReactElement, {
-                          color: isActive ? "#FFFFFF" : "#1F2937",
+                          color: "#000000",
                           size: 36,
                         })
                       ) : null}
