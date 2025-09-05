@@ -186,23 +186,34 @@ export default function NavBar() {
             <div className="bg-white rounded-lg shadow-md p-4 flex flex-col space-y-3">
               {navItems.map((n) => (
                 <div key={n.to}>
-                  <Link to={buildPath(n.to)} className="text-base font-medium text-slate-700 flex items-center justify-between" onClick={() => setOpen(false)}>
-                    <span>{n.label}</span>
-                    {(n.key === 'products' || n.key === 'partner') && (
-                      <svg className="w-4 h-4 text-slate-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
-                    )}
-                  </Link>
-                  {n.key === 'products' && (
+                  { (n.key === 'products') ? (
+                    <button onClick={(e) => { e.stopPropagation(); setProductsOpen((v) => !v); }} className="w-full text-left text-base font-medium text-slate-700 flex items-center justify-between">
+                      <span>{n.label}</span>
+                      <svg className={`w-4 h-4 text-slate-500 transform transition-transform ${productsOpen ? 'rotate-180' : ''}`} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
+                    </button>
+                  ) : (n.key === 'partner') ? (
+                    <button onClick={(e) => { e.stopPropagation(); setPartnerOpen((v) => !v); }} className="w-full text-left text-base font-medium text-slate-700 flex items-center justify-between">
+                      <span>{n.label}</span>
+                      <svg className={`w-4 h-4 text-slate-500 transform transition-transform ${partnerOpen ? 'rotate-180' : ''}`} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
+                    </button>
+                  ) : (
+                    <Link to={buildPath(n.to)} className="text-base font-medium text-slate-700" onClick={() => setOpen(false)}>
+                      {n.label}
+                    </Link>
+                  )}
+
+                  {n.key === 'products' && productsOpen && (
                     <div className="mt-2 pl-4">
                       {productsList.map((p) => (
-                        <Link key={p} to={buildPath('/products')} className="block text-sm text-slate-600 py-1" onClick={() => setOpen(false)}>{p}</Link>
+                        <Link key={p} to={buildPath('/products')} className="block text-sm text-slate-600 py-1" onClick={() => { setOpen(false); setProductsOpen(false); }}>{p}</Link>
                       ))}
                     </div>
                   )}
-                  {n.key === 'partner' && (
+
+                  {n.key === 'partner' && partnerOpen && (
                     <div className="mt-2 pl-4">
                       {partnerList.map((p) => (
-                        <Link key={p} to={buildPath('/partner')} className="block text-sm text-slate-600 py-1" onClick={() => setOpen(false)}>{p}</Link>
+                        <Link key={p} to={buildPath('/partner')} className="block text-sm text-slate-600 py-1" onClick={() => { setOpen(false); setPartnerOpen(false); }}>{p}</Link>
                       ))}
                     </div>
                   )}
