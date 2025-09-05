@@ -112,7 +112,7 @@ export default function NavBar() {
               <div className="pt-2 border-t border-slate-100 mt-2">
                 <div className="flex items-center gap-2 mb-3">
                   {langs.map((l) => (
-                    <button key={l.code} onClick={() => { window.location.pathname = `/${l.code}${location.replace(/^\/(en|hin|mar)/, '')}`; setOpen(false); }} className={`text-sm font-medium px-2 py-1 rounded ${l.code === lang ? 'bg-slate-900 text-white' : 'text-slate-700'}`}>
+                    <button key={l.code} onClick={() => { changeLang(l.code); setOpen(false); }} className={`text-sm font-medium px-2 py-1 rounded ${l.code === lang ? 'bg-slate-900 text-white' : 'text-slate-700'}`}>
                       {l.label}
                     </button>
                   ))}
