@@ -1,5 +1,4 @@
 import CardCarousel from "@/components/ui/CardCarousel";
-import { User } from "lucide-react";
 
 export default function Testimonials() {
   const testimonials = [
@@ -8,28 +7,44 @@ export default function Testimonials() {
       title: "Aisha Rahman — VP of Product, FinCo",
       description:
         "Working with the team accelerated our roadmap and improved customer activation across channels. Their approach is pragmatic and design-led.",
-      icon: <User />,
+      media: {
+        type: "video",
+        src: "https://www.w3schools.com/html/mov_bbb.mp4",
+        poster: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+      },
     },
     {
       id: "t2",
       title: "Michael Chen — Head of Growth, Retailly",
       description:
         "Their platform helped us reduce churn and increase NPS. The onboarding support was exceptional and measurable.",
-      icon: <User />,
+      media: {
+        type: "video",
+        src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+        poster: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
+      },
     },
     {
       id: "t3",
       title: "Priya Kapoor — Customer Success Lead, HealthWave",
       description:
         "Professional, reliable, and results-focused. Our implementation completed ahead of schedule with clear ROI.",
-      icon: <User />,
+      media: {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80",
+        alt: "Priya Kapoor",
+      },
     },
     {
       id: "t4",
       title: "Carlos Mendes — CTO, LogiNext",
       description:
         "Scalable architecture and a thoughtful product roadmap made integration seamless for our teams.",
-      icon: <User />,
+      media: {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1531123414780-f36b38f1b6c9?auto=format&fit=crop&w=800&q=80",
+        alt: "Carlos Mendes",
+      },
     },
   ];
 
