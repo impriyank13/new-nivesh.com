@@ -17,6 +17,10 @@ export default function Index() {
       </section>
 
       <section className="w-full max-w-6xl">
+        <AwardsMarquee />
+      </section>
+
+      <section className="w-full max-w-6xl">
         <Benefits />
       </section>
 
