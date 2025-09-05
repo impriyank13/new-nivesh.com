@@ -164,7 +164,7 @@ export default function CardCarousel({
         Select a feature
       </h1>
       <div className="w-full flex items-center justify-center">
-        <div className="w-full max-w-6xl">
+        <div className="w-full max-w-7xl">
           <div
             ref={scrollerRef}
             onPointerEnter={() => setIsPaused(true)}
