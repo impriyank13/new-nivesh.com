@@ -16,7 +16,7 @@ export default function AwardsMarquee() {
 
   return (
     <section className="w-full rounded-2xl bg-white shadow-sm py-8">
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="text-center mb-6">
           <p className="text-sm text-slate-500 tracking-wide">Awards & Recognition</p>
           <h3 className="text-xl md:text-2xl font-extrabold text-slate-900">Trusted by industry leaders</h3>
