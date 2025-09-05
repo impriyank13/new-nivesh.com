@@ -19,8 +19,16 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          {/* Root (no locale) */}
           <Route path="/" element={<Index />} />
+
+          {/* Locale prefixed routes (e.g. /en, /hin, /mar) */}
+          <Route path="/:lang" element={<Index />} />
+          <Route path="/:lang/about-us" element={<About />} />
+
+          {/* Legacy paths */}
           <Route path="/about" element={<About />} />
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
