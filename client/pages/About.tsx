@@ -17,6 +17,10 @@ const translations: any = {
     approachTitle: "Approach & Technology",
     approachText: "One of the reasons investors struggle to maintain a plan is the time spent managing investments. Our app simplifies tracking with clear language and intelligent automation built from years of fintech experience.",
     awardsTitle: "Awards & Recognition",
+    commitmentTitle: "Our Commitment",
+    commitmentText: "We are committed to delivering secure, compliant, and human-centred financial technology that empowers advisors and protects investors. Our product roadmap focuses on reliability, data privacy and measurable outcomes for partners.",
+    teamTitle: "Our Amazing Team",
+    teamText: "A diverse group of leaders across technology, product, operations and partner success. Together we bring decades of experience to build products that serve advisors and their clients.",
   },
   hin: {
     breadcrumb: ["होम", "हमारी कहानी"],
@@ -24,7 +28,7 @@ const translations: any = {
     p1: "Nivesh एक award-winning डिजिट���-फर्स्ट प्लेटफार्म है जो स्वतंत्र म्यूचुअल फंड डिस्ट्रीब्यूटर्स को उनके AUM बढ़ाने में सहायता करता है।",
     p2: "हमारा दृष्टिकोण तकनीक-सक्षम समाधानों के माध्यम से IFAs को सशक्त बनाना है।",
     speak: "एक विशेषज्ञ से बात करें",
-    solutions: "हमारे समाधान देखें",
+    solutions: "हमारे समाध���न देखें",
     stats: ["19.5crt+", "100+", "50+", "8 yrs"],
     statsLabels: ["घरेलू", "साझेदार", "पुरस्कार", "औसत अनुभव"],
     missionTitle: "हमारा मिशन",
@@ -34,6 +38,10 @@ const translations: any = {
     approachTitle: "दृष्टिकोण और प्रौद्योगिकी",
     approachText: "हमारा ऐप निवेशों को ट्रैक करने को सरल बनाता है।",
     awardsTitle: "पुरस्कार और मान्यता",
+    commitmentTitle: "हमारी प्रतिबद्धता",
+    commitmentText: "हम सुरक्षित, अनुपालन-आधारित और मानव-केंद्रित फिनटेक प्रदान करने के लिए प्रतिबद्ध हैं जो सलाहकारों को सशक्त बनाता है और निवेशकों की सुरक्षा करता है।",
+    teamTitle: "हमारी टीम",
+    teamText: "प्रौद्योगिकी, उत्पाद और संचालन में अनुभवी नेताओं का एक विविध समूह जो सलाहकारों और उनके ग्राहकों की सेवा के लिए उत्पाद बनाता है।",
   },
   mar: {
     breadcrumb: ["मुखपृष्ठ", "आमची कथा"],
@@ -51,6 +59,10 @@ const translations: any = {
     approachTitle: "पद्धत & तंत्रज्ञान",
     approachText: "आमचे अॅप गुंतवणुकींचे ट्रॅकिंग सुलभ करते.",
     awardsTitle: "पुरस्कार आणि मान्यता",
+    commitmentTitle: "आमची बांधिलकी",
+    commitmentText: "आम्ही सुरक्षित, अनुपालन-अनुकूल आणि मानव-केंद्रित फिनटेक प्रदान करण्यात बांधील आहोत जे सल्लागारांना सशक्त करते आणि गुंतवणूकदारांचे संरक्षण करते.",
+    teamTitle: "आमची टीम",
+    teamText: "तंत्रज्ञान, उत्पादन आणि ऑपरेशन्समधील विविध नेतृत्व ज्यांनी अनेक वर्षांचा अनुभव घेवून उत्पादने तयार केली आहेत.",
   },
 };
 
