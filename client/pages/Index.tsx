@@ -12,22 +12,12 @@ export default function Index() {
         <h1 className="text-3xl font-bold text-slate-800 mb-6 text-center">Select a feature</h1>
         <CardCarousel />
       </section>
-
-      <section className="w-full max-w-6xl">
+      <section className="w-full ">
         <StepsOrbit />
       </section>
-
-      <section className="w-full max-w-6xl">
-        <AwardsMarquee />
-      </section>
-
-      <section className="w-full max-w-6xl">
-        <Benefits />
-      </section>
-
-      <section className="w-full max-w-6xl">
-        <Testimonials />
-      </section>
+      <Benefits />
+      <Testimonials />
+      <AwardsMarquee />
     </main>
   );
 }
