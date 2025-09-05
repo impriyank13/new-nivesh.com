@@ -153,6 +153,9 @@ export default function CardCarousel({
 
   return (
     <div className="w-full flex items-center justify-center">
+      <h1 className="text-3xl font-bold text-slate-800 mb-6 text-center">
+        Select a feature
+      </h1>
       <div className="w-full max-w-6xl">
         <div
           ref={scrollerRef}
@@ -178,8 +181,12 @@ export default function CardCarousel({
                 aria-hidden={false}
               >
                 <article
-                  className={`mx-2 rounded-[14px] border border-[#E5E7EB] p-6 flex flex-col items-center text-center h-full transition-colors duration-300 ease-out text-black`}
-                  style={{ minHeight: 220, background: isActive ? 'linear-gradient(135deg, #FFE7D6 0%, #FFD1B8 100%)' : '#ffffff' }}
+                  className={`mx-2 rounded-[14px] border border-[#E5E7EB] p-6 flex flex-col items-center text-center h-full transition-colors duration-300 ease-out ${
+                    isActive
+                      ? "bg-[#ffe1ce] text-black"
+                      : "bg-white text-black"
+                  }`}
+                  style={{ minHeight: 220 }}
                 >
                   {/* Media (video/image) or icon */}
                   {c.media ? (
