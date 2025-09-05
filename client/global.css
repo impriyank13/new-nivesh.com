@@ -12,53 +12,53 @@
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
-    /* Zomato-inspired palette: white background with bold red accent */
-    --background: 0 0% 100%; /* white */
-    --foreground: 220 13% 12%; /* dark text */
+    /* HNI / premium palette: deep navy background with gold accent and white cards */
+    --background: 220 10% 6%; /* very dark navy */
+    --foreground: 220 14% 96%; /* near-white text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 13% 12%;
+    --card: 0 0% 100%; /* white cards */
+    --card-foreground: 220 10% 10%; /* dark text for cards */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 12%;
+    --popover: 220 10% 8%;
+    --popover-foreground: 220 14% 96%;
 
-    /* Primary/Accent using Zomato red (~#ff3b30) */
-    --primary: 5 100% 55%; /* red */
-    --primary-foreground: 0 0% 100%; /* white text on red */
+    /* Gold accent (~#D4AF37) */
+    --primary: 45 66% 52%; /* gold */
+    --primary-foreground: 220 14% 6%; /* dark text on gold */
 
-    --secondary: 0 0% 98%;
-    --secondary-foreground: 220 13% 12%;
+    --secondary: 220 12% 10%;
+    --secondary-foreground: 220 14% 96%;
 
-    --muted: 210 16% 92%;
-    --muted-foreground: 215 12% 45%;
+    --muted: 220 12% 20%;
+    --muted-foreground: 220 14% 76%;
 
-    --accent: 5 100% 55%; /* zomato red */
-    --accent-foreground: 0 0% 100%;
+    --accent: 45 66% 52%; /* gold */
+    --accent-foreground: 220 14% 6%;
 
     --destructive: 0 75% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 12% 92%;
-    --input: 220 12% 98%;
-    --ring: 5 90% 55%;
+    --border: 220 12% 14%;
+    --input: 220 12% 18%;
+    --ring: 45 70% 45%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 100%;
+    --sidebar-background: 218 12% 8%;
 
-    --sidebar-foreground: 220 13% 12%;
+    --sidebar-foreground: 220 14% 96%;
 
-    --sidebar-primary: 5 100% 55%;
+    --sidebar-primary: 45 66% 52%;
 
     --sidebar-primary-foreground: 0 0% 100%;
 
-    --sidebar-accent: 0 0% 100%;
+    --sidebar-accent: 218 12% 8%;
 
-    --sidebar-accent-foreground: 220 13% 12%;
+    --sidebar-accent-foreground: 220 14% 96%;
 
-    --sidebar-border: 220 12% 92%;
+    --sidebar-border: 218 12% 10%;
 
-    --sidebar-ring: 5 90% 55%;
+    --sidebar-ring: 45 70% 45%;
   }
 
   .dark {
