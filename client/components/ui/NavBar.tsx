@@ -5,12 +5,18 @@ export default function NavBar() {
   const [open, setOpen] = useState(false);
 
   const navItems = [
-    { label: "Home", to: "/" },
-    { label: "About", to: "/about" },
-    { label: "Products", to: "/products" },
-    { label: "Partner", to: "/partner" },
-    { label: "Solutions", to: "/solutions" },
-    { label: "Blog", to: "/blog" },
+    { key: 'home', label: "Home", to: "/" },
+    { key: 'about', label: "About", to: "/about-us" },
+    { key: 'products', label: "Products", to: "/products" },
+    { key: 'partner', label: "Partner", to: "/partner" },
+    { key: 'solutions', label: "Solutions", to: "/solutions" },
+    { key: 'blog', label: "Blog", to: "/blog" },
+  ];
+
+  const langs = [
+    { code: 'en', label: 'EN' },
+    { code: 'hin', label: 'हिन्दी' },
+    { code: 'mar', label: 'मराठी' },
   ];
 
   return (
