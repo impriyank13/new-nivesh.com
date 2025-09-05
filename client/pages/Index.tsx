@@ -5,7 +5,6 @@ import Benefits from "@/components/ui/Benefits";
 import AwardsMarquee from "@/components/ui/AwardsMarquee";
 import Testimonials from "@/components/ui/Testimonials";
 
-import NavBar from "@/components/ui/NavBar";
 
 export default function Index() {
   return (
