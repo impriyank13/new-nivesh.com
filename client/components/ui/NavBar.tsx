@@ -13,6 +13,28 @@ export default function NavBar() {
     { key: 'blog', label: "Blog", to: "/blog" },
   ];
 
+  const productsList = [
+    'Mutual Funds',
+    'Specialized Investment Fund (SIF)',
+    'Market Linked Debentures (MLD)',
+    'Gift City',
+    'Unlisted Shares',
+    'Fixed Deposit',
+    'PMS',
+    'AIF',
+    'NPS',
+    'Bond',
+    'Loan Against Securities (LAS)'
+  ];
+
+  const partnerList = [
+    'Be A Nivesh Partner',
+    'Become MF Distributor',
+    'Grow Your MF Business',
+    'AMFI ARN Code',
+    'NISM Certification'
+  ];
+
   const langs = [
     { code: 'en', label: 'EN' },
     { code: 'hin', label: 'हिन्दी' },
