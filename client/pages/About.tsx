@@ -12,16 +12,21 @@ const translations: any = {
     stats: ["19.5cr+", "100+", "50+", "8 yrs"],
     statsLabels: ["Households", "Partners", "Awards", "Avg. experience"],
     missionTitle: "Our Mission",
-    missionText: "To democratize access to financial services through technology and human support, enabling advisors to scale and clients to achieve their financial goals.",
+    missionText:
+      "To democratize access to financial services through technology and human support, enabling advisors to scale and clients to achieve their financial goals.",
     visionTitle: "Our Vision",
-    visionText: "A future where financial planning is accessible, transparent and personalized for every household in India.",
+    visionText:
+      "A future where financial planning is accessible, transparent and personalized for every household in India.",
     approachTitle: "Approach & Technology",
-    approachText: "One of the reasons investors struggle to maintain a plan is the time spent managing investments. Our app simplifies tracking with clear language and intelligent automation built from years of fintech experience.",
+    approachText:
+      "One of the reasons investors struggle to maintain a plan is the time spent managing investments. Our app simplifies tracking with clear language and intelligent automation built from years of fintech experience.",
     awardsTitle: "Awards & Recognition",
     commitmentTitle: "Our Commitment",
-    commitmentText: "We are committed to delivering secure, compliant, and human-centred financial technology that empowers advisors and protects investors. Our product roadmap focuses on reliability, data privacy and measurable outcomes for partners.",
+    commitmentText:
+      "We are committed to delivering secure, compliant, and human-centred financial technology that empowers advisors and protects investors. Our product roadmap focuses on reliability, data privacy and measurable outcomes for partners.",
     teamTitle: "Our Amazing Team",
-    teamText: "A diverse group of leaders across technology, product, operations and partner success. Together we bring decades of experience to build products that serve advisors and their clients.",
+    teamText:
+      "A diverse group of leaders across technology, product, operations and partner success. Together we bring decades of experience to build products that serve advisors and their clients.",
   },
   hin: {
     breadcrumb: ["होम", "हमारी कहानी"],
@@ -40,9 +45,11 @@ const translations: any = {
     approachText: "हमारा ऐप निवेशों को ट्रैक करने को सरल बनाता है।",
     awardsTitle: "पुरस्कार और मान्यता",
     commitmentTitle: "हमारी प्रतिबद्धता",
-    commitmentText: "हम सुरक्षित, अनुपालन-आधारित और मानव-केंद्रित फिनटेक प्रदान करने के लिए प्रतिबद्ध हैं जो सलाहकारों को सशक्त बनाता है और निवेशकों की सुरक्षा करता है।",
+    commitmentText:
+      "हम सुरक्षित, अनुपालन-आधारित और मानव-केंद्रित फिनटेक प्रदान करने के लिए प्रतिबद्ध हैं जो सलाहकारों को सशक्त बनाता है और निवेशकों की सुरक्षा करता है।",
     teamTitle: "हमारी टीम",
-    teamText: "प्रौद्योगिकी, उत्पाद और संचालन में अनुभवी नेताओं का एक विविध समूह जो सलाहकारों और उनके ग्राहकों क�� सेवा के लिए उत्पाद बनाता है।",
+    teamText:
+      "प्रौद्योगिकी, उत्पाद और संचालन में अनुभवी नेताओं का एक विविध समूह जो सलाहकारों और उनके ग्राहकों क�� सेवा के लिए उत्पाद बनाता है।",
   },
   mar: {
     breadcrumb: ["मुखपृष्ठ", "आमची कथा"],
@@ -54,45 +61,167 @@ const translations: any = {
     stats: ["19.5क्र+", "100+", "50+", "8 yrs"],
     statsLabels: ["घर", "भागीदार", "पुरस्कार", "सरासरी अनुभव"],
     missionTitle: "आमचे ध्येय",
-    missionText: "तंत्रज्ञान आणि मानवी आधाराद्वारे वित्तीय सेवा लोकांपर्यंत पोहोचवणे.",
+    missionText:
+      "तंत्रज्ञान आणि मानवी आधाराद्वारे वित्तीय सेवा लोकांपर्यंत पोहोचवणे.",
     visionTitle: "आमची दृष्टी",
     visionText: "विदित घरागृहासाठी व्यक्तिगत वित्तीय नियोजन.",
     approachTitle: "पद्धत & तंत्रज्ञान",
     approachText: "आमचे अॅप गुंतवणुकींचे ट्रॅकिंग सुलभ करते.",
     awardsTitle: "पुरस्कार आणि मान्यता",
     commitmentTitle: "आमची बांधिलकी",
-    commitmentText: "आम्ही सुरक्षित, अनुपालन-अनुकूल आणि मानव-केंद्रित फिनटेक प्रदान करण्यात बांधील आहोत जे सल्लागारांना सशक्त करते आणि गुंतवणूकदारांचे संरक्षण करते.",
+    commitmentText:
+      "आम्ही सुरक्षित, अनुपालन-अनुकूल आणि मानव-केंद्रित फिनटेक प्रदान करण्यात बांधील आहोत जे सल्लागारांना सशक्त करते आणि गुंतवणूकदारांचे संरक्षण करते.",
     teamTitle: "आमची टीम",
-    teamText: "तंत्रज्ञान, उत्पादन आणि ऑपरेशन्समधील विविध नेतृत्व ज्यांनी अनेक वर्षांचा अनुभव घेवून उत्पादने तयार केली आहेत.",
+    teamText:
+      "तंत्रज्ञान, उत्पादन आणि ऑपरेशन्समधील विविध नेतृत्व ज्यांनी अनेक वर्षांचा अनुभव घेवून उत्पादने तयार केली आहेत.",
   },
 };
 
 export default function About() {
   const params = useParams();
   const location = useLocation();
-  const lang = (params.lang as string) || (location.pathname.match(/^\/(en|hin|mar)/)?.[1] as string) || 'en';
-  const t = (key: string) => translations[lang as keyof typeof translations]?.[key] ?? translations.en[key];
+  const lang =
+    (params.lang as string) ||
+    (location.pathname.match(/^\/(en|hin|mar)/)?.[1] as string) ||
+    "en";
+  const t = (key: string) =>
+    translations[lang as keyof typeof translations]?.[key] ??
+    translations.en[key];
 
   const teamMembers = [
-    { name: 'Anurag Garg', title: 'Founder & Chief Executive Officer', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/anurag-garg' },
-    { name: 'Sridhar Srinivasan', title: 'Co-Founder & CTO', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/sridhar-srinivasan' },
-    { name: 'Dr Hira Jaiswal', title: 'Principal Officer & General Manager - Insurance', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/dr-hira-jaiswal' },
-    { name: 'Rajesh Kumar Ram', title: 'VP - Engineering & Technology', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/rajesh-kumar-ram' },
-    { name: 'Vishal Rohta', title: 'VP - Operations & Partner Development', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/vishal-rohta' },
-    { name: 'Anant Sharma', title: 'Business Head - Product & Research', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/anant-sharma' },
-    { name: 'Sarika Bhadauria', title: 'Manager - HR & Admin', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/sarika-bhadauria' },
-    { name: 'Kamal Kumar', title: 'Company Secretary, Accounts and Legal', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/kamal-kumar' },
-    { name: 'Puneet Agarwal', title: 'Manager - Partner Relations', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/puneet-agarwal' },
-    { name: 'Ankit Nibhania', title: 'Senior Area Manager - Partner Relations', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/ankit-nibhania' },
-    { name: 'Devendra Singh', title: 'Senior Area Manager - Partner Relations', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/devendra-singh' },
-    { name: 'Akanksha Srivastava', title: 'Product Manager - Technology', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/akanksha-srivastava' },
-    { name: 'Abhijeet Awasthi', title: 'Technical Architect - Technology', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/abhijeet-awasthi' },
-    { name: 'Pooja Ratudi', title: 'Manager - Partner Support', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/pooja-ratudi' },
-    { name: 'Sneha Ghag', title: 'Lead Engineer - Technology', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/sneha-ghag' },
-    { name: 'Shivani Shrivastav', title: 'Manager-Team Lead, Customer Success Manager', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/shivani-shrivastav' },
-    { name: 'Akhilesh Chandak', title: 'Principal Software Engineer - Technology', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/akhilesh-chandak' },
-    { name: 'Shivani Baghel', title: 'Manager- Client Wealth', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/shivani-baghel' },
-    { name: 'Nishant Pandey', title: 'Senior Area Manager - Partner Relations', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/nishant-pandey' },
+    {
+      name: "Anurag Garg",
+      title: "Founder & Chief Executive Officer",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/anurag-garg",
+    },
+    {
+      name: "Sridhar Srinivasan",
+      title: "Co-Founder & CTO",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/sridhar-srinivasan",
+    },
+    {
+      name: "Dr Hira Jaiswal",
+      title: "Principal Officer & General Manager - Insurance",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/dr-hira-jaiswal",
+    },
+    {
+      name: "Rajesh Kumar Ram",
+      title: "VP - Engineering & Technology",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/rajesh-kumar-ram",
+    },
+    {
+      name: "Vishal Rohta",
+      title: "VP - Operations & Partner Development",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/vishal-rohta",
+    },
+    {
+      name: "Anant Sharma",
+      title: "Business Head - Product & Research",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/anant-sharma",
+    },
+    {
+      name: "Sarika Bhadauria",
+      title: "Manager - HR & Admin",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/sarika-bhadauria",
+    },
+    {
+      name: "Kamal Kumar",
+      title: "Company Secretary, Accounts and Legal",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/kamal-kumar",
+    },
+    {
+      name: "Puneet Agarwal",
+      title: "Manager - Partner Relations",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/puneet-agarwal",
+    },
+    {
+      name: "Ankit Nibhania",
+      title: "Senior Area Manager - Partner Relations",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/ankit-nibhania",
+    },
+    {
+      name: "Devendra Singh",
+      title: "Senior Area Manager - Partner Relations",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/devendra-singh",
+    },
+    {
+      name: "Akanksha Srivastava",
+      title: "Product Manager - Technology",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/akanksha-srivastava",
+    },
+    {
+      name: "Abhijeet Awasthi",
+      title: "Technical Architect - Technology",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/abhijeet-awasthi",
+    },
+    {
+      name: "Pooja Ratudi",
+      title: "Manager - Partner Support",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/pooja-ratudi",
+    },
+    {
+      name: "Sneha Ghag",
+      title: "Lead Engineer - Technology",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/sneha-ghag",
+    },
+    {
+      name: "Shivani Shrivastav",
+      title: "Manager-Team Lead, Customer Success Manager",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/shivani-shrivastav",
+    },
+    {
+      name: "Akhilesh Chandak",
+      title: "Principal Software Engineer - Technology",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/akhilesh-chandak",
+    },
+    {
+      name: "Shivani Baghel",
+      title: "Manager- Client Wealth",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/shivani-baghel",
+    },
+    {
+      name: "Nishant Pandey",
+      title: "Senior Area Manager - Partner Relations",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
+      linkedin: "https://www.linkedin.com/in/nishant-pandey",
+    },
   ];
 
   return (
@@ -102,33 +231,64 @@ export default function About() {
         <nav className="text-sm text-slate-300/70 mb-4" aria-label="Breadcrumb">
           <ol className="flex items-center gap-2">
             <li>
-              <Link to={`/${lang}`} className="hover:underline text-slate-300/70">{t('breadcrumb')[0]}</Link>
+              <Link
+                to={`/${lang}`}
+                className="hover:underline text-slate-300/70"
+              >
+                {t("breadcrumb")[0]}
+              </Link>
             </li>
-            <li aria-hidden className="text-slate-500">/</li>
-            <li className="text-slate-200 font-semibold">{t('breadcrumb')[1]}</li>
+            <li aria-hidden className="text-slate-500">
+              /
+            </li>
+            <li className="text-slate-200 font-semibold">
+              {t("breadcrumb")[1]}
+            </li>
           </ol>
         </nav>
 
         {/* Hero */}
         <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-12">
           <div className="md:col-span-7">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-gold" style={{ color: 'hsl(45 66% 72%)' }}>
-              {t('title')}
+            <h1
+              className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-gold"
+              style={{ color: "hsl(45 66% 72%)" }}
+            >
+              {t("title")}
             </h1>
-            <p className="text-slate-200/90 max-w-3xl mb-6 leading-relaxed">{t('p1')}</p>
-            <p className="text-slate-300 max-w-3xl mb-6 leading-relaxed">{t('p2')}</p>
+            <p className="text-slate-200/90 max-w-3xl mb-6 leading-relaxed">
+              {t("p1")}
+            </p>
+            <p className="text-slate-300 max-w-3xl mb-6 leading-relaxed">
+              {t("p2")}
+            </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
-              <a href="#" className="inline-flex items-center justify-center bg-gold text-black font-semibold px-5 py-3 rounded-full shadow-lg hover:shadow-xl">{t('speak')}</a>
-              <a href="#" className="inline-flex items-center justify-center border border-slate-600 text-slate-200 px-5 py-3 rounded-full hover:bg-slate-800/40">{t('solutions')}</a>
+              <a
+                href="#"
+                className="inline-flex items-center justify-center bg-gold text-black font-semibold px-5 py-3 rounded-full shadow-lg hover:shadow-xl"
+              >
+                {t("speak")}
+              </a>
+              <a
+                href="#"
+                className="inline-flex items-center justify-center border border-slate-600 text-slate-200 px-5 py-3 rounded-full hover:bg-slate-800/40"
+              >
+                {t("solutions")}
+              </a>
             </div>
 
             {/* key stats */}
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {t('stats').map((s: string, idx: number) => (
-                <div key={idx} className="bg-white/5 rounded-lg p-4 text-center">
+              {t("stats").map((s: string, idx: number) => (
+                <div
+                  key={idx}
+                  className="bg-white/5 rounded-lg p-4 text-center"
+                >
                   <div className="text-2xl font-bold">{s}</div>
-                  <div className="text-sm text-slate-300">{t('statsLabels')[idx]}</div>
+                  <div className="text-sm text-slate-300">
+                    {t("statsLabels")[idx]}
+                  </div>
                 </div>
               ))}
             </div>
@@ -136,13 +296,23 @@ export default function About() {
 
           <div className="md:col-span-5">
             <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
-              <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ffac3605fb1b24468b70218d201be3635?format=webp&width=1200" alt="Our story" className="w-full h-[360px] object-cover" />
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ffac3605fb1b24468b70218d201be3635?format=webp&width=1200"
+                alt="Our story"
+                className="w-full h-[360px] object-cover"
+              />
             </div>
             <div className="mt-4 flex items-center gap-3">
-              <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center">🏆</div>
+              <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center">
+                🏆
+              </div>
               <div>
-                <div className="text-sm text-slate-200 font-semibold">Recognized Excellence</div>
-                <div className="text-xs text-slate-400">Multiple awards for innovation</div>
+                <div className="text-sm text-slate-200 font-semibold">
+                  Recognized Excellence
+                </div>
+                <div className="text-xs text-slate-400">
+                  Multiple awards for innovation
+                </div>
               </div>
             </div>
           </div>
@@ -151,67 +321,72 @@ export default function About() {
         {/* Mission & Vision */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-12">
           <div>
-            <h3 className="text-xl font-bold mb-3">{t('missionTitle')}</h3>
-            <p className="text-slate-200/90 leading-relaxed">{t('missionText')}</p>
+            <h3 className="text-xl font-bold mb-3">{t("missionTitle")}</h3>
+            <p className="text-slate-200/90 leading-relaxed">
+              {t("missionText")}
+            </p>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-3">{t('visionTitle')}</h3>
-            <p className="text-slate-200/90 leading-relaxed">{t('visionText')}</p>
+            <h3 className="text-xl font-bold mb-3">{t("visionTitle")}</h3>
+            <p className="text-slate-200/90 leading-relaxed">
+              {t("visionText")}
+            </p>
           </div>
         </section>
 
         {/* Team / approach */}
         <section className="mb-12">
-          <h3 className="text-2xl font-extrabold mb-6">{t('approachTitle')}</h3>
+          <h3 className="text-2xl font-extrabold mb-6">{t("approachTitle")}</h3>
           <div className="bg-white/3 rounded-lg p-6">
-            <p className="text-slate-200/90 leading-relaxed">{t('approachText')}</p>
+            <p className="text-slate-200/90 leading-relaxed">
+              {t("approachText")}
+            </p>
           </div>
         </section>
 
         {/* Awards strip */}
         <section className="mb-16">
-          <h4 className="text-lg font-semibold mb-4">{t('awardsTitle')}</h4>
+          <h4 className="text-lg font-semibold mb-4">{t("awardsTitle")}</h4>
           <div className="flex gap-4 overflow-x-auto pb-3 hide-scroll">
-            <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fc32f6d57ceda4c518a7267e66c448826?format=webp&width=600" alt="AMFI" className="h-28 object-contain"/>
-            <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F5aaf8d75897d440289633ffedd84751c?format=webp&width=600" alt="Best Performer" className="h-28 object-contain"/>
-            <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F747a7d68a119469c9c4f43505331a45b?format=webp&width=600" alt="SIP Performer" className="h-28 object-contain"/>
-            <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ff952b975ed9d44e4a1f7ef60b5e0bc81?format=webp&width=600" alt="BFSI" className="h-28 object-contain"/>
-          </div>
-        </section>
-
-        {/* Commitment & Values */}
-        <section className="mb-12 grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h3 className="text-2xl font-extrabold mb-4">{t('commitmentTitle')}</h3>
-            <p className="text-slate-200/90 leading-relaxed mb-4">{t('commitmentText')}</p>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-              <li className="bg-white/5 rounded-lg p-4">
-                <div className="font-semibold text-gold">Customer Centricity</div>
-                <div className="text-sm text-slate-300">We put advisors and investors first.</div>
-              </li>
-              <li className="bg-white/5 rounded-lg p-4">
-                <div className="font-semibold text-gold">Security & Compliance</div>
-                <div className="text-sm text-slate-300">Built to regulatory standards.</div>
-              </li>
-            </ul>
-          </div>
-          <div className="space-y-4">
-            <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800" alt="Commitment image 1" className="w-full rounded-lg shadow-lg object-cover h-48"/>
-            <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800" alt="Commitment image 2" className="w-full rounded-lg shadow-lg object-cover h-48"/>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fc32f6d57ceda4c518a7267e66c448826?format=webp&width=600"
+              alt="AMFI"
+              className="h-28 object-contain"
+            />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F5aaf8d75897d440289633ffedd84751c?format=webp&width=600"
+              alt="Best Performer"
+              className="h-28 object-contain"
+            />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F747a7d68a119469c9c4f43505331a45b?format=webp&width=600"
+              alt="SIP Performer"
+              className="h-28 object-contain"
+            />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ff952b975ed9d44e4a1f7ef60b5e0bc81?format=webp&width=600"
+              alt="BFSI"
+              className="h-28 object-contain"
+            />
           </div>
         </section>
 
         {/* Team showcase */}
         <section className="mb-16">
-          <h3 className="text-2xl font-extrabold mb-6">{t('teamTitle')}</h3>
-          <p className="text-slate-300 max-w-3xl mb-6">{t('teamText')}</p>
+          <h3 className="text-2xl font-extrabold mb-6">{t("teamTitle")}</h3>
+          <p className="text-slate-300 max-w-3xl mb-6">{t("teamText")}</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-stretch">
             {teamMembers.map((m) => (
-              <TeamCard key={m.name} name={m.name} title={m.title} image={m.image} linkedin={m.linkedin} />
+              <TeamCard
+                key={m.name}
+                name={m.name}
+                title={m.title}
+                image={m.image}
+                linkedin={m.linkedin}
+              />
             ))}
           </div>
         </section>
-
       </div>
     </main>
   );
