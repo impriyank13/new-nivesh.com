@@ -25,31 +25,36 @@ const sampleCards: CardData[] = [
   {
     id: "corporate-fd",
     title: "Corporate FDs",
-    description: "Corporate Fixed Deposits included in the product portfolio expansion. Source: Cafemutual.",
+    description:
+      "Corporate Fixed Deposits included in the product portfolio expansion. Source: Cafemutual.",
     icon: <Server size={36} />,
   },
   {
     id: "p2p",
     title: "P2P Lending",
-    description: "Peer-to-peer lending products are part of the current portfolio. Source: Cafemutual.",
+    description:
+      "Peer-to-peer lending products are part of the current portfolio. Source: Cafemutual.",
     icon: <Globe size={36} />,
   },
   {
     id: "pms",
     title: "PMS",
-    description: "Portfolio Management Services available through the platform. Source: Cafemutual.",
+    description:
+      "Portfolio Management Services available through the platform. Source: Cafemutual.",
     icon: <Server size={36} />,
   },
   {
     id: "insurance",
     title: "Insurance (coming soon)",
-    description: "Insurance planned to be added in the coming months following funding. Source: Cafemutual.",
+    description:
+      "Insurance planned to be added in the coming months following funding. Source: Cafemutual.",
     icon: <Globe size={36} />,
   },
   {
     id: "lending-products",
     title: "Lending Products (upcoming)",
-    description: "Additional lending products listed as upcoming additions. Source: Cafemutual.",
+    description:
+      "Additional lending products listed as upcoming additions. Source: Cafemutual.",
     icon: <Server size={36} />,
   },
   {
@@ -142,8 +147,10 @@ export default function CardCarousel({
 
     const scrollerRect = scroller.getBoundingClientRect();
     const childRect = child.getBoundingClientRect();
-    const childCenterInScroller = childRect.left + childRect.width / 2 - scrollerRect.left;
-    const targetLeft = scroller.scrollLeft + (childCenterInScroller - scroller.clientWidth / 2);
+    const childCenterInScroller =
+      childRect.left + childRect.width / 2 - scrollerRect.left;
+    const targetLeft =
+      scroller.scrollLeft + (childCenterInScroller - scroller.clientWidth / 2);
 
     suppressRef.current = Date.now() + 700;
 
@@ -156,102 +163,105 @@ export default function CardCarousel({
       <h1 className="text-3xl font-bold text-slate-800 mb-6 text-center">
         Select a feature
       </h1>
-    <div className="w-full flex items-center justify-center">
-      <div className="w-full max-w-6xl">
-        <div
-          ref={scrollerRef}
-          onPointerEnter={() => setIsPaused(true)}
-          onPointerLeave={() => setIsPaused(false)}
-          onPointerDown={() => setIsPaused(true)}
-          onPointerUp={() => setIsPaused(false)}
-          onTouchStart={() => setIsPaused(true)}
-          onTouchEnd={() => setIsPaused(false)}
-          onTouchCancel={() => setIsPaused(false)}
-          className="relative flex gap-4 overflow-x-auto py-8 px-6 snap-x snap-mandatory hide-scroll touch-pan-x"
-          style={{ WebkitOverflowScrolling: "touch", scrollbarWidth: "none" as any }}
-        >
-          {cards.map((c, idx) => {
-            const isActive = idx === activeIndex;
-            return (
-              <div
-                key={c.id}
-                onClick={() => centerItem(idx)}
-                className={`flex-none snap-center transition-transform duration-300 ease-out transform ${
-                  isActive ? "scale-105" : "scale-100"
-                } w-[80%] md:w-[42%] lg:w-[30%]`}
-                aria-hidden={false}
-              >
-                <article
-                  className={`mx-2 rounded-[14px] border border-[#E5E7EB] p-6 flex flex-col items-center text-center h-full transition-colors duration-300 ease-out ${
-                    isActive
-                      ? "bg-[#ffe1ce] text-black"
-                      : "bg-white text-black"
-                  }`}
-                  style={{ minHeight: 220 }}
+      <div className="w-full flex items-center justify-center">
+        <div className="w-full max-w-6xl">
+          <div
+            ref={scrollerRef}
+            onPointerEnter={() => setIsPaused(true)}
+            onPointerLeave={() => setIsPaused(false)}
+            onPointerDown={() => setIsPaused(true)}
+            onPointerUp={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+            onTouchCancel={() => setIsPaused(false)}
+            className="relative flex gap-4 overflow-x-auto py-8 px-6 snap-x snap-mandatory hide-scroll touch-pan-x"
+            style={{
+              WebkitOverflowScrolling: "touch",
+              scrollbarWidth: "none" as any,
+            }}
+          >
+            {cards.map((c, idx) => {
+              const isActive = idx === activeIndex;
+              return (
+                <div
+                  key={c.id}
+                  onClick={() => centerItem(idx)}
+                  className={`flex-none snap-center transition-transform duration-300 ease-out transform ${
+                    isActive ? "scale-105" : "scale-100"
+                  } w-[80%] md:w-[42%] lg:w-[30%]`}
+                  aria-hidden={false}
                 >
-                  {/* Media (video/image) or icon */}
-                  {c.media ? (
-                    c.media.type === "video" ? (
-                      <div className="mb-4 w-full rounded-lg overflow-hidden">
-                        <video
+                  <article
+                    className={`mx-2 rounded-[14px] border border-[#E5E7EB] p-6 flex flex-col items-center text-center h-full transition-colors duration-300 ease-out ${
+                      isActive
+                        ? "bg-[#ffe1ce] text-black"
+                        : "bg-white text-black"
+                    }`}
+                    style={{ minHeight: 220 }}
+                  >
+                    {/* Media (video/image) or icon */}
+                    {c.media ? (
+                      c.media.type === "video" ? (
+                        <div className="mb-4 w-full rounded-lg overflow-hidden">
+                          <video
+                            src={c.media.src}
+                            poster={c.media.poster}
+                            controls
+                            className="w-full h-40 object-cover bg-black"
+                            preload="metadata"
+                            playsInline
+                          />
+                        </div>
+                      ) : (
+                        <img
                           src={c.media.src}
-                          poster={c.media.poster}
-                          controls
-                          className="w-full h-40 object-cover bg-black"
-                          preload="metadata"
-                          playsInline
+                          alt={c.media.alt || c.title}
+                          className="mb-4 w-full h-40 object-cover rounded-lg"
                         />
-                      </div>
+                      )
                     ) : (
-                      <img
-                        src={c.media.src}
-                        alt={c.media.alt || c.title}
-                        className="mb-4 w-full h-40 object-cover rounded-lg"
-                      />
-                    )
-                  ) : (
-                    <div
-                      className={`mb-4 rounded-full p-2 inline-flex items-center justify-center transition-colors duration-300 ease-out text-black`}
-                    >
-                      {/* Icon color inherits currentColor */}
-                      {c.icon ? (
-                        // @ts-ignore
-                        cloneElement(c.icon as React.ReactElement, {
-                          color: "#000000",
-                          size: 36,
-                        })
-                      ) : null}
-                    </div>
-                  )}
+                      <div
+                        className={`mb-4 rounded-full p-2 inline-flex items-center justify-center transition-colors duration-300 ease-out text-black`}
+                      >
+                        {/* Icon color inherits currentColor */}
+                        {c.icon
+                          ? // @ts-ignore
+                            cloneElement(c.icon as React.ReactElement, {
+                              color: "#000000",
+                              size: 36,
+                            })
+                          : null}
+                      </div>
+                    )}
 
-                  <h3 className="font-semibold text-[18px] leading-tight text-black">
-                    {c.title}
-                  </h3>
-                  <p className="mt-2 text-[14px] leading-snug text-slate-700">
-                    {c.description}
-                  </p>
-                </article>
-              </div>
-            );
-          })}
-        </div>
+                    <h3 className="font-semibold text-[18px] leading-tight text-black">
+                      {c.title}
+                    </h3>
+                    <p className="mt-2 text-[14px] leading-snug text-slate-700">
+                      {c.description}
+                    </p>
+                  </article>
+                </div>
+              );
+            })}
+          </div>
 
-        <div className="flex items-center justify-center mt-4 space-x-2">
-          {cards.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => centerItem(i)}
-              aria-label={`Go to slide ${i + 1}`}
-              aria-current={i === activeIndex}
-              className={`rounded-full transition-all focus:outline-none ${
-                i === activeIndex
-                  ? "w-3 h-3 bg-[#1E3A8A] scale-110"
-                  : "w-3 h-3 bg-[#D1D5DB]"
-              }`}
-            />
-          ))}
+          <div className="flex items-center justify-center mt-4 space-x-2">
+            {cards.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => centerItem(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                aria-current={i === activeIndex}
+                className={`rounded-full transition-all focus:outline-none ${
+                  i === activeIndex
+                    ? "w-3 h-3 bg-[#1E3A8A] scale-110"
+                    : "w-3 h-3 bg-[#D1D5DB]"
+                }`}
+              />
+            ))}
+          </div>
         </div>
-      </div>
       </div>
     </>
   );
