@@ -9,7 +9,7 @@ type TeamCardProps = {
 
 export default function TeamCard({ name, title, image, linkedin }: TeamCardProps) {
   return (
-    <div className="bg-white/5 rounded-xl p-4 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+    <div className="w-full h-full bg-white/5 rounded-xl p-4 flex flex-col items-center text-center justify-between hover:shadow-xl transition-shadow">
       <img src={image} alt={name} className="w-24 h-24 rounded-full object-cover mb-3 border border-white/10" />
       <div className="text-sm font-semibold">{name}</div>
       <div className="text-xs text-slate-400 mb-3">{title}</div>
