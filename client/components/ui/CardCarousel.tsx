@@ -1,11 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
 import { ChartBar, Globe, Server } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 type CardData = {
   id: string;
   title: string;
   description: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
+  media?: {
+    type: "image" | "video";
+    src: string;
+    poster?: string;
+    alt?: string;
+  };
 };
 
 const sampleCards: CardData[] = [
@@ -79,7 +85,7 @@ export default function CardCarousel({
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [isPaused, activeIndex, cards.length, centerItem]);
+  }, [isPaused, activeIndex, cards.length]);
 
   useEffect(() => {
     const scroller = scrollerRef.current;
@@ -88,7 +94,6 @@ export default function CardCarousel({
     const children = Array.from(scroller.children) as HTMLElement[];
 
     function updateActive() {
-      // if a programmatic scroll was just triggered, skip detecting active to avoid race
       if (Date.now() < suppressRef.current) {
         rafRef.current = null;
         return;
@@ -117,12 +122,9 @@ export default function CardCarousel({
       rafRef.current = requestAnimationFrame(updateActive);
     }
 
-    // initial set
     updateActive();
 
     scroller.addEventListener("scroll", onScroll, { passive: true });
-
-    // recompute on resize
     window.addEventListener("resize", updateActive);
 
     return () => {
@@ -132,20 +134,17 @@ export default function CardCarousel({
     };
   }, [cards]);
 
-  // helper to center an item when clicked
   function centerItem(index: number) {
     const scroller = scrollerRef.current;
     if (!scroller) return;
     const child = scroller.children[index] as HTMLElement | undefined;
     if (!child) return;
 
-    // compute accurate target using bounding rects to account for transforms/margins
     const scrollerRect = scroller.getBoundingClientRect();
     const childRect = child.getBoundingClientRect();
     const childCenterInScroller = childRect.left + childRect.width / 2 - scrollerRect.left;
     const targetLeft = scroller.scrollLeft + (childCenterInScroller - scroller.clientWidth / 2);
 
-    // suppress automatic active updates briefly so our programmatic centering wins
     suppressRef.current = Date.now() + 700;
 
     scroller.scrollTo({ left: targetLeft, behavior: "smooth" });
@@ -186,17 +185,42 @@ export default function CardCarousel({
                   }`}
                   style={{ minHeight: 220 }}
                 >
-                  <div
-                    className={`mb-4 rounded-full p-2 inline-flex items-center justify-center transition-colors duration-300 ease-out ${
-                      isActive ? "text-white" : "text-[#1F2937]"
-                    }`}
-                  >
-                    {/* Icon color inherits currentColor */}
-                    {React.cloneElement(c.icon as React.ReactElement, {
-                      color: isActive ? "#FFFFFF" : "#1F2937",
-                      size: 36,
-                    })}
-                  </div>
+                  {/* Media (video/image) or icon */}
+                  {c.media ? (
+                    c.media.type === "video" ? (
+                      <div className="mb-4 w-full rounded-lg overflow-hidden">
+                        <video
+                          src={c.media.src}
+                          poster={c.media.poster}
+                          controls
+                          className="w-full h-40 object-cover bg-black"
+                          preload="metadata"
+                          playsInline
+                        />
+                      </div>
+                    ) : (
+                      <img
+                        src={c.media.src}
+                        alt={c.media.alt || c.title}
+                        className="mb-4 w-full h-40 object-cover rounded-lg"
+                      />
+                    )
+                  ) : (
+                    <div
+                      className={`mb-4 rounded-full p-2 inline-flex items-center justify-center transition-colors duration-300 ease-out ${
+                        isActive ? "text-white" : "text-[#1F2937]"
+                      }`}
+                    >
+                      {/* Icon color inherits currentColor */}
+                      {c.icon ? (
+                        // @ts-ignore
+                        React.cloneElement(c.icon as React.ReactElement, {
+                          color: isActive ? "#FFFFFF" : "#1F2937",
+                          size: 36,
+                        })
+                      ) : null}
+                    </div>
+                  )}
 
                   <h3 className={`font-semibold text-[18px] leading-tight ${isActive ? "text-white" : "text-[#111827]"}`}>
                     {c.title}
@@ -210,7 +234,6 @@ export default function CardCarousel({
           })}
         </div>
 
-        {/* Dots indicator */}
         <div className="flex items-center justify-center mt-4 space-x-2">
           {cards.map((_, i) => (
             <button
