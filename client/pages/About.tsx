@@ -1,4 +1,5 @@
 import { Link, useParams, useLocation } from "react-router-dom";
+import TeamCard from "../components/ui/TeamCard";
 
 const translations: any = {
   en: {
@@ -71,6 +72,28 @@ export default function About() {
   const location = useLocation();
   const lang = (params.lang as string) || (location.pathname.match(/^\/(en|hin|mar)/)?.[1] as string) || 'en';
   const t = (key: string) => translations[lang as keyof typeof translations]?.[key] ?? translations.en[key];
+
+  const teamMembers = [
+    { name: 'Anurag Garg', title: 'Founder & Chief Executive Officer', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/anurag-garg' },
+    { name: 'Sridhar Srinivasan', title: 'Co-Founder & CTO', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/sridhar-srinivasan' },
+    { name: 'Dr Hira Jaiswal', title: 'Principal Officer & General Manager - Insurance', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/dr-hira-jaiswal' },
+    { name: 'Rajesh Kumar Ram', title: 'VP - Engineering & Technology', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/rajesh-kumar-ram' },
+    { name: 'Vishal Rohta', title: 'VP - Operations & Partner Development', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/vishal-rohta' },
+    { name: 'Anant Sharma', title: 'Business Head - Product & Research', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/anant-sharma' },
+    { name: 'Sarika Bhadauria', title: 'Manager - HR & Admin', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/sarika-bhadauria' },
+    { name: 'Kamal Kumar', title: 'Company Secretary, Accounts and Legal', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/kamal-kumar' },
+    { name: 'Puneet Agarwal', title: 'Manager - Partner Relations', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/puneet-agarwal' },
+    { name: 'Ankit Nibhania', title: 'Senior Area Manager - Partner Relations', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/ankit-nibhania' },
+    { name: 'Devendra Singh', title: 'Senior Area Manager - Partner Relations', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/devendra-singh' },
+    { name: 'Akanksha Srivastava', title: 'Product Manager - Technology', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/akanksha-srivastava' },
+    { name: 'Abhijeet Awasthi', title: 'Technical Architect - Technology', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/abhijeet-awasthi' },
+    { name: 'Pooja Ratudi', title: 'Manager - Partner Support', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/pooja-ratudi' },
+    { name: 'Sneha Ghag', title: 'Lead Engineer - Technology', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/sneha-ghag' },
+    { name: 'Shivani Shrivastav', title: 'Manager-Team Lead, Customer Success Manager', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/shivani-shrivastav' },
+    { name: 'Akhilesh Chandak', title: 'Principal Software Engineer - Technology', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/akhilesh-chandak' },
+    { name: 'Shivani Baghel', title: 'Manager- Client Wealth', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/shivani-baghel' },
+    { name: 'Nishant Pandey', title: 'Senior Area Manager - Partner Relations', image: 'https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800', linkedin: 'https://www.linkedin.com/in/nishant-pandey' },
+  ];
 
   return (
     <main className="min-h-screen pb-20 bg-gradient-to-br from-[rgba(2,6,23,0.95)] to-[rgba(9,12,20,0.98)] text-white">
@@ -182,37 +205,10 @@ export default function About() {
         <section className="mb-16">
           <h3 className="text-2xl font-extrabold mb-6">{t('teamTitle')}</h3>
           <p className="text-slate-300 max-w-3xl mb-6">{t('teamText')}</p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-6">
-            <div className="flex flex-col items-center text-center">
-              <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800" alt="Team member" className="w-24 h-24 rounded-full object-cover mb-3"/>
-              <div className="text-sm font-semibold">Anurag Garg</div>
-              <div className="text-xs text-slate-400">Founder & Chief Executive Officer</div>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800" alt="Team member" className="w-24 h-24 rounded-full object-cover mb-3"/>
-              <div className="text-sm font-semibold">Sridhar Srinivasan</div>
-              <div className="text-xs text-slate-400">Co-Founder & CTO</div>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800" alt="Team member" className="w-24 h-24 rounded-full object-cover mb-3"/>
-              <div className="text-sm font-semibold">Dr Hira Jaiswal</div>
-              <div className="text-xs text-slate-400">Principal Officer & General Manager - Insurance</div>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800" alt="Team member" className="w-24 h-24 rounded-full object-cover mb-3"/>
-              <div className="text-sm font-semibold">Rajesh Kumar Ram</div>
-              <div className="text-xs text-slate-400">VP - Engineering & Technology</div>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800" alt="Team member" className="w-24 h-24 rounded-full object-cover mb-3"/>
-              <div className="text-sm font-semibold">Vishal Rohta</div>
-              <div className="text-xs text-slate-400">VP - Operations & Partner Development</div>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800" alt="Team member" className="w-24 h-24 rounded-full object-cover mb-3"/>
-              <div className="text-sm font-semibold">Anant Sharma</div>
-              <div className="text-xs text-slate-400">Business Head - Product & Research</div>
-            </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {teamMembers.map((m) => (
+              <TeamCard key={m.name} name={m.name} title={m.title} image={m.image} linkedin={m.linkedin} />
+            ))}
           </div>
         </section>
 
