@@ -19,6 +19,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <NavBar />
         <Routes>
           {/* Root (no locale) */}
           <Route path="/" element={<Index />} />
