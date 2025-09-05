@@ -5,6 +5,8 @@ import Benefits from "@/components/ui/Benefits";
 import AwardsMarquee from "@/components/ui/AwardsMarquee";
 import Testimonials from "@/components/ui/Testimonials";
 
+import NavBar from "@/components/ui/NavBar";
+
 export default function Index() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-slate-100 to-slate-200 p-6 space-y-16">
