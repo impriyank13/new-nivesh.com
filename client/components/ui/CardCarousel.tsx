@@ -178,12 +178,8 @@ export default function CardCarousel({
                 aria-hidden={false}
               >
                 <article
-                  className={`mx-2 rounded-[14px] border border-[#E5E7EB] p-6 flex flex-col items-center text-center h-full transition-colors duration-300 ease-out ${
-                    isActive
-                      ? " text-black"
-                      : "bg-white text-black"
-                  }`}
-                  style={{ minHeight: 220 }}
+                  className={`mx-2 rounded-[14px] border border-[#E5E7EB] p-6 flex flex-col items-center text-center h-full transition-colors duration-300 ease-out text-black`}
+                  style={{ minHeight: 220, background: isActive ? 'linear-gradient(135deg, #FFE7D6 0%, #FFD1B8 100%)' : '#ffffff' }}
                 >
                   {/* Media (video/image) or icon */}
                   {c.media ? (
