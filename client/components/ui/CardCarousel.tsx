@@ -179,10 +179,9 @@ export default function CardCarousel({
               >
                 <article
                   className={`mx-2 rounded-[14px] border border-[#E5E7EB] p-6 flex flex-col items-center text-center h-full transition-colors duration-300 ease-out ${
-                    // isActive
-                    //   ? "bg-[#ffe1ce] text-black"
-                    // :
-                    "bg-white text-black"
+                    isActive
+                      ? " text-black"
+                      : "bg-white text-black"
                   }`}
                   style={{ minHeight: 220 }}
                 >
