@@ -36,7 +36,7 @@ export default function Index() {
 
       <section className="w-full max-w-7xl pt-6">
         <div className="w-full bg-white rounded-2xl shadow-sm p-6">
-          <CardCarousel />
+          <CardCarousel showTitle={true} />
         </div>
       </section>
 
