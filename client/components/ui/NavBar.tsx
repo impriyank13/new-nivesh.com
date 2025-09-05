@@ -15,21 +15,33 @@ export default function NavBar() {
 
   const langs = [
     { code: 'en', label: 'EN' },
-    { code: 'hin', label: 'हि��्दी' },
+    { code: 'hin', label: 'हिन्दी' },
     { code: 'mar', label: 'मराठी' },
   ];
 
   const location = window.location.pathname;
+  const navigate = require('react-router-dom').useNavigate();
   const getLangFromPath = () => {
     const match = location.match(/^\/(en|hin|mar)(?:\/|$)/);
     return match ? match[1] : 'en';
   };
   const lang = getLangFromPath();
 
-  const buildPath = (to: string) => {
-    // ensure leading slash
+  const buildPath = (to: string, targetLang = lang) => {
     const clean = to.startsWith('/') ? to : `/${to}`;
-    return `/${lang}${clean === '/' ? '' : clean}`;
+    const base = location.replace(/^\/(en|hin|mar)/, '');
+    // if clean is '/', we want just /:lang
+    if (clean === '/') return `/${targetLang}${base || ''}`;
+    return `/${targetLang}${clean}`;
+  };
+
+  const changeLang = (targetLang: string) => {
+    const base = location.replace(/^\/(en|hin|mar)/, '') || '/';
+    const newPath = `/${targetLang}${base}`;
+    // use react-router navigation to avoid full reload
+    // @ts-ignore
+    const nav = navigate as (p: string) => void;
+    nav(newPath);
   };
 
   return (
@@ -52,11 +64,11 @@ export default function NavBar() {
 
           <div className="flex items-center gap-3 md:gap-4">
             <div className="hidden md:flex items-center gap-2">
-              {langs.map((l) => (
-                <button key={l.code} onClick={() => { window.location.pathname = `/${l.code}${location.replace(/^\/(en|hin|mar)/, '')}`; }} className={`text-sm font-medium px-2 py-1 rounded ${l.code === lang ? 'bg-slate-900 text-white' : 'text-slate-700'}`}>
-                  {l.label}
-                </button>
-              ))}
+              <select aria-label="Select language" value={lang} onChange={(e) => changeLang(e.target.value)} className="bg-transparent text-sm text-slate-700 p-1 rounded">
+                {langs.map((l) => (
+                  <option key={l.code} value={l.code}>{l.label}</option>
+                ))}
+              </select>
             </div>
 
             <Link to={`${buildPath('/signin')}`} className="hidden md:inline-flex items-center text-sm text-slate-700" onClick={() => setOpen(false)}>
