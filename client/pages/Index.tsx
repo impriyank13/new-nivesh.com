@@ -33,18 +33,6 @@ export default function Index() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-slate-100 to-slate-200 px-6 space-y-16">
       {/* Hero */}
-      <section className="w-full max-w-7xl">
-        <div className="w-full bg-white rounded-2xl shadow-sm p-8 text-center">
-          <p className="text-sm text-slate-500 tracking-wide mb-2">Testimonials</p>
-          <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900">{t("heroTitle")}</h1>
-          <p className="mt-3 text-slate-600 max-w-2xl mx-auto">{t("heroSubtitle")}</p>
-          <div className="mt-6">
-            <a href="#" className="inline-flex items-center bg-slate-900 text-white rounded-full px-5 py-3 font-medium shadow-md hover:opacity-95">
-              {t("cta")}
-            </a>
-          </div>
-        </div>
-      </section>
 
       <section className="w-full max-w-7xl">
         <div className="w-full bg-white rounded-2xl shadow-sm p-6">
