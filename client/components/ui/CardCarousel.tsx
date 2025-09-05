@@ -220,10 +220,10 @@ export default function CardCarousel({
                     </div>
                   )}
 
-                  <h3 className={`font-semibold text-[18px] leading-tight ${isActive ? "text-white" : "text-[#111827]"}`}>
+                  <h3 className="font-semibold text-[18px] leading-tight text-black">
                     {c.title}
                   </h3>
-                  <p className={`mt-2 text-[14px] leading-snug ${isActive ? "text-white/90" : "text-[#9CA3AF]"}`}>
+                  <p className="mt-2 text-[14px] leading-snug text-slate-700">
                     {c.description}
                   </p>
                 </article>
