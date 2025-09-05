@@ -144,6 +144,66 @@ export default function About() {
           </div>
         </section>
 
+        {/* Commitment & Values */}
+        <section className="mb-12 grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 className="text-2xl font-extrabold mb-4">{t('commitmentTitle')}</h3>
+            <p className="text-slate-200/90 leading-relaxed mb-4">{t('commitmentText')}</p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+              <li className="bg-white/5 rounded-lg p-4">
+                <div className="font-semibold text-gold">Customer Centricity</div>
+                <div className="text-sm text-slate-300">We put advisors and investors first.</div>
+              </li>
+              <li className="bg-white/5 rounded-lg p-4">
+                <div className="font-semibold text-gold">Security & Compliance</div>
+                <div className="text-sm text-slate-300">Built to regulatory standards.</div>
+              </li>
+            </ul>
+          </div>
+          <div className="space-y-4">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800" alt="Commitment image 1" className="w-full rounded-lg shadow-lg object-cover h-48"/>
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800" alt="Commitment image 2" className="w-full rounded-lg shadow-lg object-cover h-48"/>
+          </div>
+        </section>
+
+        {/* Team showcase */}
+        <section className="mb-16">
+          <h3 className="text-2xl font-extrabold mb-6">{t('teamTitle')}</h3>
+          <p className="text-slate-300 max-w-3xl mb-6">{t('teamText')}</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-6">
+            <div className="flex flex-col items-center text-center">
+              <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800" alt="Team member" className="w-24 h-24 rounded-full object-cover mb-3"/>
+              <div className="text-sm font-semibold">Anurag Garg</div>
+              <div className="text-xs text-slate-400">Founder & Chief Executive Officer</div>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800" alt="Team member" className="w-24 h-24 rounded-full object-cover mb-3"/>
+              <div className="text-sm font-semibold">Sridhar Srinivasan</div>
+              <div className="text-xs text-slate-400">Co-Founder & CTO</div>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800" alt="Team member" className="w-24 h-24 rounded-full object-cover mb-3"/>
+              <div className="text-sm font-semibold">Dr Hira Jaiswal</div>
+              <div className="text-xs text-slate-400">Principal Officer & General Manager - Insurance</div>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800" alt="Team member" className="w-24 h-24 rounded-full object-cover mb-3"/>
+              <div className="text-sm font-semibold">Rajesh Kumar Ram</div>
+              <div className="text-xs text-slate-400">VP - Engineering & Technology</div>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800" alt="Team member" className="w-24 h-24 rounded-full object-cover mb-3"/>
+              <div className="text-sm font-semibold">Vishal Rohta</div>
+              <div className="text-xs text-slate-400">VP - Operations & Partner Development</div>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800" alt="Team member" className="w-24 h-24 rounded-full object-cover mb-3"/>
+              <div className="text-sm font-semibold">Anant Sharma</div>
+              <div className="text-xs text-slate-400">Business Head - Product & Research</div>
+            </div>
+          </div>
+        </section>
+
       </div>
     </main>
   );
