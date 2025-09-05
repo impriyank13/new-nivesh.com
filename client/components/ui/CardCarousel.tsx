@@ -1,5 +1,5 @@
 import { ChartBar, Globe, Server } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, cloneElement } from "react";
 
 type CardData = {
   id: string;
@@ -214,7 +214,7 @@ export default function CardCarousel({
                       {/* Icon color inherits currentColor */}
                       {c.icon ? (
                         // @ts-ignore
-                        React.cloneElement(c.icon as React.ReactElement, {
+                        cloneElement(c.icon as React.ReactElement, {
                           color: isActive ? "#FFFFFF" : "#1F2937",
                           size: 36,
                         })
