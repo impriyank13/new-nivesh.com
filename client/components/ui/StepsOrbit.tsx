@@ -259,7 +259,7 @@ export default function StepsOrbit({
         <div className="sticky top-0 h-screen flex items-center" ref={stickyRef}>
           <div className="w-full relative flex">
             <div className="w-1/2 pl-[8vw] flex items-center" style={{ maxWidth: 560 }}>
-              <div className="text-left max-w-[560px]">
+              <div className="card p-6 text-left max-w-[560px]">
                 <h2 className="text-2xl tracking-widest font-extrabold text-[#FFC527] uppercase mb-4">
                   {activeSteps[active].title}
                 </h2>
