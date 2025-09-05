@@ -1,5 +1,3 @@
-import CardCarousel from "@/components/ui/CardCarousel";
-
 import CardCarousel, { CardData } from "@/components/ui/CardCarousel";
 
 export default function Testimonials() {
