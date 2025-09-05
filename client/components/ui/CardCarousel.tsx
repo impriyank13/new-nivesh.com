@@ -70,7 +70,7 @@ export default function CardCarousel({
   cards = sampleCards,
 }: {
   cards?: CardData[];
-}) {
+  }, { showTitle }) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const rafRef = useRef<number | null>(null);
@@ -160,9 +160,9 @@ export default function CardCarousel({
 
   return (
     <>
-      <h1 className="text-3xl font-bold text-slate-800 mb-6 text-center">
+      {!!showTitle && <h1 className="text-3xl font-bold text-slate-800 mb-6 text-center">
         Select a feature
-      </h1>
+      </h1>}
       <div className="w-full flex items-center justify-center">
         <div className="w-full max-w-6xl">
           <div
