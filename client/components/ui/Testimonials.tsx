@@ -1,7 +1,9 @@
 import CardCarousel from "@/components/ui/CardCarousel";
 
+import CardCarousel, { CardData } from "@/components/ui/CardCarousel";
+
 export default function Testimonials() {
-  const testimonials = [
+  const testimonials: CardData[] = [
     {
       id: "t1",
       title: "Aisha Rahman — VP of Product, FinCo",

@@ -1,7 +1,7 @@
 import { ChartBar, Globe, Server } from "lucide-react";
 import { useEffect, useRef, useState, cloneElement } from "react";
 
-type CardData = {
+export type CardData = {
   id: string;
   title: string;
   description: string;
