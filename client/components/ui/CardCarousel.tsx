@@ -152,10 +152,10 @@ export default function CardCarousel({
   }
 
   return (
-    <div className="w-full flex items-center justify-center">
       <h1 className="text-3xl font-bold text-slate-800 mb-6 text-center">
         Select a feature
       </h1>
+    <div className="w-full flex items-center justify-center">
       <div className="w-full max-w-6xl">
         <div
           ref={scrollerRef}
