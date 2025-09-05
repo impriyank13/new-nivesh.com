@@ -68,9 +68,11 @@ const sampleCards: CardData[] = [
 
 export default function CardCarousel({
   cards = sampleCards,
+  showTitle = false,
 }: {
   cards?: CardData[];
-  }, { showTitle = false }) {
+  showTitle?: boolean;
+}) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const rafRef = useRef<number | null>(null);
