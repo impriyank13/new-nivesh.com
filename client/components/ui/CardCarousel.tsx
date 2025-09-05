@@ -70,7 +70,7 @@ export default function CardCarousel({
   cards = sampleCards,
 }: {
   cards?: CardData[];
-  }, { showTitle }) {
+  }, { showTitle = false }) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const rafRef = useRef<number | null>(null);
