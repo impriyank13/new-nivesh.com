@@ -82,7 +82,10 @@ export default function NavBar() {
               if (n.key === 'products') {
                 return (
                   <div key={n.to} className="relative group">
-                    <Link to={buildPath(n.to)} className="text-sm font-medium text-slate-700 hover:text-slate-900" onClick={() => setOpen(false)}>{n.label}</Link>
+                    <Link to={buildPath(n.to)} className="text-sm font-medium text-slate-700 hover:text-slate-900 inline-flex items-center gap-1" onClick={() => setOpen(false)}>
+                      <span>{n.label}</span>
+                      <svg className="w-3 h-3 text-slate-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
+                    </Link>
                     <div className="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg text-slate-700 p-3 opacity-0 group-hover:opacity-100 invisible group-hover:visible transform translate-y-1 group-hover:translate-y-0 transition-all">
                       {productsList.map((p) => (
                         <Link key={p} to={buildPath('/products')} className="block text-sm py-1 hover:text-slate-900">{p}</Link>
@@ -95,7 +98,10 @@ export default function NavBar() {
               if (n.key === 'partner') {
                 return (
                   <div key={n.to} className="relative group">
-                    <Link to={buildPath(n.to)} className="text-sm font-medium text-slate-700 hover:text-slate-900" onClick={() => setOpen(false)}>{n.label}</Link>
+                    <Link to={buildPath(n.to)} className="text-sm font-medium text-slate-700 hover:text-slate-900 inline-flex items-center gap-1" onClick={() => setOpen(false)}>
+                      <span>{n.label}</span>
+                      <svg className="w-3 h-3 text-slate-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
+                    </Link>
                     <div className="absolute left-0 mt-2 w-52 bg-white rounded-lg shadow-lg text-slate-700 p-3 opacity-0 group-hover:opacity-100 invisible group-hover:visible transform translate-y-1 group-hover:translate-y-0 transition-all">
                       {partnerList.map((p) => (
                         <Link key={p} to={buildPath('/partner')} className="block text-sm py-1 hover:text-slate-900">{p}</Link>
@@ -156,8 +162,11 @@ export default function NavBar() {
             <div className="bg-white rounded-lg shadow-md p-4 flex flex-col space-y-3">
               {navItems.map((n) => (
                 <div key={n.to}>
-                  <Link to={buildPath(n.to)} className="text-base font-medium text-slate-700" onClick={() => setOpen(false)}>
-                    {n.label}
+                  <Link to={buildPath(n.to)} className="text-base font-medium text-slate-700 flex items-center justify-between" onClick={() => setOpen(false)}>
+                    <span>{n.label}</span>
+                    {(n.key === 'products' || n.key === 'partner') && (
+                      <svg className="w-4 h-4 text-slate-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
+                    )}
                   </Link>
                   {n.key === 'products' && (
                     <div className="mt-2 pl-4">
