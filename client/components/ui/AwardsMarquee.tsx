@@ -25,9 +25,9 @@ export default function AwardsMarquee() {
         <div className="relative overflow-hidden">
           {/* marquee track */}
           <div
-            className="flex items-center space-x-6 will-change-transform"
+            className="marquee-track flex items-center space-x-6 will-change-transform"
             style={{
-              animation: "marquee 20s linear infinite",
+              animation: "marquee 24s linear infinite",
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLElement).style.animationPlayState = "paused";
@@ -46,23 +46,17 @@ export default function AwardsMarquee() {
             {items.map((a, i) => (
               <div
                 key={`${a.id}-${i}`}
-                className="flex-shrink-0 w-44 md:w-56 p-3 bg-white rounded-2xl shadow hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                className="flex-shrink-0 w-64 md:w-80 p-3 bg-white rounded-2xl shadow hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center"
                 tabIndex={0}
                 role="group"
               >
-                <div className="flex items-center justify-center mb-3 h-20">
-                  {/* simple trophy SVG */}
-                  <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                    <path d="M8 2h8v2H8z" fill="#FFD166" />
-                    <path d="M7 4h10v2a4 4 0 0 1-4 4H11a4 4 0 0 1-4-4V4z" fill="#FFB4A2" />
-                    <path d="M9 12h6v2H9z" fill="#FFF1E6" />
-                    <path d="M10 14h4v4h-4z" fill="#FFC6A9" />
-                  </svg>
+                <div className="flex items-center justify-center mb-3 h-36 w-full">
+                  <img src={a.src} alt={a.title} className="max-h-full object-contain" loading="lazy" />
                 </div>
 
-                <div className="text-center">
-                  <div className="text-sm font-semibold text-slate-900">{a.title}</div>
-                  <div className="text-xs text-slate-500 mt-1">{a.desc}</div>
+                <div className="text-center px-2">
+                  <div className="text-sm md:text-base font-semibold text-slate-900">{a.title}</div>
+                  {a.desc ? <div className="text-xs text-slate-500 mt-1">{a.desc}</div> : null}
                 </div>
               </div>
             ))}
