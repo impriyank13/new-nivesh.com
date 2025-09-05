@@ -1,6 +1,7 @@
 import React from "react";
 import CardCarousel from "@/components/ui/CardCarousel";
 import StepsOrbit from "@/components/ui/StepsOrbit";
+import Testimonials from "@/components/ui/Testimonials";
 
 export default function Index() {
   return (
@@ -12,6 +13,10 @@ export default function Index() {
 
       <section className="w-full max-w-6xl">
         <StepsOrbit />
+      </section>
+
+      <section className="w-full max-w-6xl">
+        <Testimonials />
       </section>
     </main>
   );
