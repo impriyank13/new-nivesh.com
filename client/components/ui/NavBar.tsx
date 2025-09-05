@@ -97,14 +97,18 @@ export default function NavBar() {
             {navItems.map((n) => {
               if (n.key === 'products') {
                 return (
-                  <div key={n.to} className="relative group">
-                    <Link to={buildPath(n.to)} className="text-sm font-medium text-slate-700 hover:text-slate-900 inline-flex items-center gap-1" onClick={() => setOpen(false)}>
+                  <div key={n.to} className="relative" ref={navRef as any}>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); setProductsOpen((v) => !v); setPartnerOpen(false); }}
+                      aria-expanded={productsOpen}
+                      className="text-sm font-medium text-slate-700 hover:text-slate-900 inline-flex items-center gap-1"
+                    >
                       <span>{n.label}</span>
-                      <svg className="w-3 h-3 text-slate-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
-                    </Link>
-                    <div className="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg text-slate-700 p-3 opacity-0 group-hover:opacity-100 invisible group-hover:visible transform translate-y-1 group-hover:translate-y-0 transition-all">
+                      <svg className={`w-3 h-3 text-slate-500 transform transition-transform ${productsOpen ? 'rotate-180' : ''}`} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
+                    </button>
+                    <div className={`absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg text-slate-700 p-3 transition-all ${productsOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-1'}`}>
                       {productsList.map((p) => (
-                        <Link key={p} to={buildPath('/products')} className="block text-sm py-1 hover:text-slate-900">{p}</Link>
+                        <Link key={p} to={buildPath('/products')} className="block text-sm py-1 hover:text-slate-900" onClick={() => setProductsOpen(false)}>{p}</Link>
                       ))}
                     </div>
                   </div>
