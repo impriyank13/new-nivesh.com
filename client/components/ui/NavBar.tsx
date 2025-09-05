@@ -19,7 +19,6 @@ export default function NavBar() {
     { code: 'mar', label: 'मराठी' },
   ];
 
-  const location = window.location.pathname;
   const navigate = useNavigate();
   const locationObj = useLocation();
   const location = locationObj.pathname;
