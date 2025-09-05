@@ -4,14 +4,51 @@ import StepsOrbit from "@/components/ui/StepsOrbit";
 import Benefits from "@/components/ui/Benefits";
 import AwardsMarquee from "@/components/ui/AwardsMarquee";
 import Testimonials from "@/components/ui/Testimonials";
+import { useParams, useLocation } from "react-router-dom";
 
+const translations: any = {
+  en: {
+    heroTitle: "Trusted by leaders from various industries",
+    heroSubtitle: "Learn why professionals trust our solutions to complete their customer journeys.",
+    cta: "Read Success Stories →",
+  },
+  hin: {
+    heroTitle: "विभिन्न उद्योगों के नेताओं द्वारा भरोसा किया गया",
+    heroSubtitle: "जानें कि पेशेवर अपने ग्राहक यात्रा को पूरा करने क�� लिए हमारे समाधानों पर भरोसा क्यों करते हैं।",
+    cta: "सफलता की कहानियाँ पढ़ें →",
+  },
+  mar: {
+    heroTitle: "विविध उद्योगांमधील नेत्यांकडून विश्वास",
+    heroSubtitle: "कारण जाणून घ्या का व्यावसायिक त्यांच्या ग्राहकांच्या प्रवास पूर्ण करण्यासाठी आमच्या समाधानांवर विश्वास ठेवतात.",
+    cta: "यशोगाथा वाचा →",
+  },
+};
 
 export default function Index() {
+  const params = useParams();
+  const location = useLocation();
+  const lang = (params.lang as string) || (location.pathname.match(/^\/(en|hin|mar)/)?.[1] as string) || "en";
+  const t = (key: string) => translations[lang as keyof typeof translations]?.[key] ?? translations.en[key];
+
   return (
     <main className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-slate-100 to-slate-200 px-6 space-y-16">
+      {/* Hero */}
+      <section className="w-full max-w-7xl">
+        <div className="w-full bg-white rounded-2xl shadow-sm p-8 text-center">
+          <p className="text-sm text-slate-500 tracking-wide mb-2">Testimonials</p>
+          <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900">{t("heroTitle")}</h1>
+          <p className="mt-3 text-slate-600 max-w-2xl mx-auto">{t("heroSubtitle")}</p>
+          <div className="mt-6">
+            <a href="#" className="inline-flex items-center bg-slate-900 text-white rounded-full px-5 py-3 font-medium shadow-md hover:opacity-95">
+              {t("cta")}
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="w-full max-w-7xl">
         <div className="w-full bg-white rounded-2xl shadow-sm p-6">
-          <CardCarousel showTitle={true} />
+          <CardCarousel />
         </div>
       </section>
 
