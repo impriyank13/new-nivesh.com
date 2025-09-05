@@ -12,52 +12,53 @@
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
-    /* Modern, slightly desaturated cool palette with warm accent */
-    --background: 214 36% 96%; /* very light slate */
-    --foreground: 222 18% 12%; /* dark navy */
+    /* Zomato-inspired palette: white background with bold red accent */
+    --background: 0 0% 100%; /* white */
+    --foreground: 220 13% 12%; /* dark text */
 
     --card: 0 0% 100%;
-    --card-foreground: 222 18% 12%;
+    --card-foreground: 220 13% 12%;
 
-    --popover: 214 36% 98%;
-    --popover-foreground: 222 18% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 12%;
 
-    --primary: 218 64% 18%; /* deep indigo */
-    --primary-foreground: 210 40% 98%;
+    /* Primary/Accent using Zomato red (~#ff3b30) */
+    --primary: 5 100% 55%; /* red */
+    --primary-foreground: 0 0% 100%; /* white text on red */
 
-    --secondary: 210 36% 92%;
-    --secondary-foreground: 222 18% 12%;
+    --secondary: 0 0% 98%;
+    --secondary-foreground: 220 13% 12%;
 
-    --muted: 215 20% 75%;
+    --muted: 210 16% 92%;
     --muted-foreground: 215 12% 45%;
 
-    --accent: 45 100% 52%; /* warm yellow accent */
-    --accent-foreground: 210 40% 4%;
+    --accent: 5 100% 55%; /* zomato red */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 75% 45%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214 22% 90%;
-    --input: 214 22% 95%;
-    --ring: 218 64% 26%;
+    --border: 220 12% 92%;
+    --input: 220 12% 98%;
+    --ring: 5 90% 55%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 214 36% 96%;
+    --sidebar-background: 0 0% 100%;
 
-    --sidebar-foreground: 222 18% 12%;
+    --sidebar-foreground: 220 13% 12%;
 
-    --sidebar-primary: 218 64% 18%;
+    --sidebar-primary: 5 100% 55%;
 
     --sidebar-primary-foreground: 0 0% 100%;
 
-    --sidebar-accent: 214 36% 96%;
+    --sidebar-accent: 0 0% 100%;
 
-    --sidebar-accent-foreground: 222 18% 12%;
+    --sidebar-accent-foreground: 220 13% 12%;
 
-    --sidebar-border: 214 22% 90%;
+    --sidebar-border: 220 12% 92%;
 
-    --sidebar-ring: 218 64% 30%;
+    --sidebar-ring: 5 90% 55%;
   }
 
   .dark {
