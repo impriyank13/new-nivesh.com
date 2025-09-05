@@ -9,17 +9,20 @@ import { useParams, useLocation } from "react-router-dom";
 const translations: any = {
   en: {
     heroTitle: "Trusted by leaders from various industries",
-    heroSubtitle: "Learn why professionals trust our solutions to complete their customer journeys.",
+    heroSubtitle:
+      "Learn why professionals trust our solutions to complete their customer journeys.",
     cta: "Read Success Stories →",
   },
   hin: {
     heroTitle: "विभिन्न उद्योगों के नेताओं द्वारा भरोसा किया गया",
-    heroSubtitle: "जानें कि पेशेवर अपने ग्राहक यात्रा को पूरा करने क�� लिए हमारे समाधानों पर भरोसा क्यों करते हैं।",
+    heroSubtitle:
+      "जानें कि पेशेवर अपने ग्राहक यात्रा को पूरा करने क�� लिए हमारे समाधानों पर भरोसा क्यों करते हैं।",
     cta: "सफलता की कहानियाँ पढ़ें →",
   },
   mar: {
     heroTitle: "विविध उद्योगांमधील नेत्यांकडून विश्वास",
-    heroSubtitle: "कारण जाणून घ्या का व्यावसायिक त्यांच्या ग्राहकांच्या प्रवास पूर्ण करण्यासाठी आमच्या समाधानांवर विश्वास ठेवतात.",
+    heroSubtitle:
+      "कारण जाणून घ्या का व्यावसायिक त्यांच्या ग्राहकांच्या प्रवास पूर्ण करण्यासाठी आमच्या समाधानांवर विश्वास ठेवतात.",
     cta: "यशोगाथा वाचा →",
   },
 };
@@ -27,8 +30,13 @@ const translations: any = {
 export default function Index() {
   const params = useParams();
   const location = useLocation();
-  const lang = (params.lang as string) || (location.pathname.match(/^\/(en|hin|mar)/)?.[1] as string) || "en";
-  const t = (key: string) => translations[lang as keyof typeof translations]?.[key] ?? translations.en[key];
+  const lang =
+    (params.lang as string) ||
+    (location.pathname.match(/^\/(en|hin|mar)/)?.[1] as string) ||
+    "en";
+  const t = (key: string) =>
+    translations[lang as keyof typeof translations]?.[key] ??
+    translations.en[key];
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-slate-100 to-slate-200 px-6 space-y-16">

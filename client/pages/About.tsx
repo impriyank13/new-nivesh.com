@@ -28,10 +28,13 @@ const translations: any = {
     teamText:
       "A diverse group of leaders across technology, product, operations and partner success. Together we bring decades of experience to build products that serve advisors and their clients.",
     investorsTitle: "Investors",
-    investorsSubtitle: "We are supported by marquee investors, who believe in our vision.",
-    investorsFooter: "And other prominent angel investors who are successful entrepreneurs, venture capitalists and fund managers",
+    investorsSubtitle:
+      "We are supported by marquee investors, who believe in our vision.",
+    investorsFooter:
+      "And other prominent angel investors who are successful entrepreneurs, venture capitalists and fund managers",
     partnersTitle: "Our Partners",
-    partnersSubtitle: "We collaborate with leading financial institutions and partners to expand our reach.",
+    partnersSubtitle:
+      "We collaborate with leading financial institutions and partners to expand our reach.",
   },
   hin: {
     breadcrumb: ["होम", "हमारी कहानी"],
@@ -56,10 +59,13 @@ const translations: any = {
     teamText:
       "प्रौद्योगिकी, उत्पाद और संचालन में अनुभवी नेताओं का एक विविध समूह जो सलाहकारों और उनके ग्राहकों की सेवा के लिए उत्पाद बनाता है।",
     investorsTitle: "निवेशक",
-    investorsSubtitle: "हमारे महत्वाकांक्षी निवेशक जिन्होंने हमारे विज़न में विश्वास रखा है।",
-    investorsFooter: "और अन्य प्रमुख एंजेल निवेशक जो सफल उद्यमी, वेंचर कैपिटलिस्ट और फंड मैनेजर हैं",
+    investorsSubtitle:
+      "हमारे महत्वाकांक्षी निवेशक जिन्होंने हमारे विज़न में विश्वास रखा है।",
+    investorsFooter:
+      "और अन्य प्रमुख एंजेल निवेशक जो सफल उद्यमी, वेंचर कैपिटलिस्ट और फंड मैनेजर हैं",
     partnersTitle: "हमारे साझेदार",
-    partnersSubtitle: "हम अपने पहुँच का विस्तार करने के लिए प्रमुख वित्तीय संस्थानों और भागीदारों के साथ सहयोग करते हैं।",
+    partnersSubtitle:
+      "हम अपने पहुँच का विस्तार करने के लिए प्रमुख वित्तीय संस्थानों और भागीदारों के साथ सहयोग करते हैं।",
   },
   mar: {
     breadcrumb: ["मुखपृष्ठ", "आमची कथा"],
@@ -85,10 +91,13 @@ const translations: any = {
     teamText:
       "तंत्रज्ञान, उत्पादन आणि ऑपरेशन्समधील विविध नेतृत्व ज्यांनी अनेक वर्षांचा अनुभव घेऊन उत्पादने तयार केली आहेत.",
     investorsTitle: "गुंतवणूकदार",
-    investorsSubtitle: "आमच्या व्हिजनमध्ये विश्वास असलेल्या प्रमुख गुंतवणूकदारांनी आम्हाला समर्थन केले आहे.",
-    investorsFooter: "आणि इतर प्���मुख एंजल गुंतवणूकदार जे यशस्वी उद्योजक, व्हेंचर कॅपिटॅलिस्ट आणि फंड मॅनेजर आहेत",
+    investorsSubtitle:
+      "आमच्या व्हिजनमध्ये विश्वास असलेल्या प्रमुख गुंतवणूकदारांनी आम्हाला समर्थन केले आहे.",
+    investorsFooter:
+      "आणि इतर प्���मुख एंजल गुंतवणूकदार जे यशस्वी उद्योजक, व्हेंचर कॅपिटॅलिस्ट आणि फंड मॅनेजर आहेत",
     partnersTitle: "आमचे भागीदार",
-    partnersSubtitle: "आम्ही आमच्या पोहोच वाढविण्यासाठी आघाडीच्या आर्थिक संस्थांशी आणि भागीदारांशी सहकार्य करतो.",
+    partnersSubtitle:
+      "आम्ही आमच्या पोहोच वाढविण्यासाठी आघाडीच्या आर्थिक संस्थांशी आणि भागीदारांशी सहकार्य करतो.",
   },
 };
 
@@ -406,45 +415,89 @@ export default function About() {
         {/* Investors */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-extrabold mb-2">{t('investorsTitle')}</h3>
-            <p className="text-slate-300 mb-8">{t('investorsSubtitle')}</p>
+            <h3 className="text-2xl font-extrabold mb-2">
+              {t("investorsTitle")}
+            </h3>
+            <p className="text-slate-300 mb-8">{t("investorsSubtitle")}</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {['Windrose capital', 'Lets Venture', 'Indian Angel Network Fund'].map((name, idx) => (
-                <div key={name} className="bg-white rounded-lg p-6 flex flex-col items-center justify-center shadow-md">
-                  <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ff668d1330e1a4297a3024a099e463da8?format=webp&width=800" alt={name} className="h-20 object-contain mb-4" />
-                  <div className="font-semibold text-lg text-slate-900">{name}</div>
+              {[
+                "Windrose capital",
+                "Lets Venture",
+                "Indian Angel Network Fund",
+              ].map((name, idx) => (
+                <div
+                  key={name}
+                  className="bg-white rounded-lg p-6 flex flex-col items-center justify-center shadow-md"
+                >
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ff668d1330e1a4297a3024a099e463da8?format=webp&width=800"
+                    alt={name}
+                    className="h-20 object-contain mb-4"
+                  />
+                  <div className="font-semibold text-lg text-slate-900">
+                    {name}
+                  </div>
                 </div>
               ))}
             </div>
-            <p className="text-slate-400 mt-8 text-sm">{t('investorsFooter')}</p>
+            <p className="text-slate-400 mt-8 text-sm">
+              {t("investorsFooter")}
+            </p>
           </div>
         </section>
 
         {/* Partners */}
         <section className="mb-20">
           <div className="max-w-7xl mx-auto text-center">
-            <h3 className="text-2xl font-extrabold mb-2">{t('partnersTitle')}</h3>
-            <p className="text-slate-300 mb-8">{t('partnersSubtitle')}</p>
+            <h3 className="text-2xl font-extrabold mb-2">
+              {t("partnersTitle")}
+            </h3>
+            <p className="text-slate-300 mb-8">{t("partnersSubtitle")}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[
-                { name: 'PNB Housing Finance Ltd.', desc: 'Know More About PNB Housing Finance Ltd.' },
-                { name: 'HDFC Limited', desc: 'Know More About HDFC Limited' },
-                { name: 'ICICI Home Finance Company Ltd', desc: 'Know More About ICICI Home Finance Company Ltd' },
-                { name: 'Shriram Transport Finance Limited', desc: 'Know More About Shriram Transport Finance Limited' },
-                { name: 'Bajaj Finance Limited', desc: 'Know More About Bajaj Finance Limited' },
-                { name: 'Mahindra Finance Limited', desc: 'Know More About Mahindra Finance Limited' },
+                {
+                  name: "PNB Housing Finance Ltd.",
+                  desc: "Know More About PNB Housing Finance Ltd.",
+                },
+                { name: "HDFC Limited", desc: "Know More About HDFC Limited" },
+                {
+                  name: "ICICI Home Finance Company Ltd",
+                  desc: "Know More About ICICI Home Finance Company Ltd",
+                },
+                {
+                  name: "Shriram Transport Finance Limited",
+                  desc: "Know More About Shriram Transport Finance Limited",
+                },
+                {
+                  name: "Bajaj Finance Limited",
+                  desc: "Know More About Bajaj Finance Limited",
+                },
+                {
+                  name: "Mahindra Finance Limited",
+                  desc: "Know More About Mahindra Finance Limited",
+                },
               ].map((p) => (
-                <div key={p.name} className="bg-white rounded-lg border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm">
-                  <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F4cd3e3d1c3474c0986a482320a0d725f?format=webp&width=800" alt={p.name} className="h-20 object-contain mb-4" />
-                  <div className="font-semibold text-lg text-slate-900 mb-2">{p.name}</div>
+                <div
+                  key={p.name}
+                  className="bg-white rounded-lg border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm"
+                >
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F4cd3e3d1c3474c0986a482320a0d725f?format=webp&width=800"
+                    alt={p.name}
+                    className="h-20 object-contain mb-4"
+                  />
+                  <div className="font-semibold text-lg text-slate-900 mb-2">
+                    {p.name}
+                  </div>
                   <div className="text-sm text-slate-500 mb-4">{p.desc}</div>
-                  <button className="bg-sky-600 text-white px-4 py-2 rounded-md">More</button>
+                  <button className="bg-sky-600 text-white px-4 py-2 rounded-md">
+                    More
+                  </button>
                 </div>
               ))}
             </div>
           </div>
         </section>
-
       </div>
     </main>
   );
