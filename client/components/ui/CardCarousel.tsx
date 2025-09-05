@@ -153,7 +153,7 @@ export default function CardCarousel({
 
   return (
     <div className="w-full flex items-center justify-center">
-      <div className="w-full max-w-6xl card p-6">
+      <div className="w-full max-w-6xl">
         <div
           ref={scrollerRef}
           onPointerEnter={() => setIsPaused(true)}
