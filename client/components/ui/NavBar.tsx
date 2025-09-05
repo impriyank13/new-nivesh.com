@@ -78,11 +78,39 @@ export default function NavBar() {
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((n) => (
-              <Link key={n.to} to={buildPath(n.to)} className="text-sm font-medium text-slate-700 hover:text-slate-900" onClick={() => setOpen(false)}>
-                {n.label}
-              </Link>
-            ))}
+            {navItems.map((n) => {
+              if (n.key === 'products') {
+                return (
+                  <div key={n.to} className="relative group">
+                    <Link to={buildPath(n.to)} className="text-sm font-medium text-slate-700 hover:text-slate-900" onClick={() => setOpen(false)}>{n.label}</Link>
+                    <div className="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg text-slate-700 p-3 opacity-0 group-hover:opacity-100 invisible group-hover:visible transform translate-y-1 group-hover:translate-y-0 transition-all">
+                      {productsList.map((p) => (
+                        <Link key={p} to={buildPath('/products')} className="block text-sm py-1 hover:text-slate-900">{p}</Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              if (n.key === 'partner') {
+                return (
+                  <div key={n.to} className="relative group">
+                    <Link to={buildPath(n.to)} className="text-sm font-medium text-slate-700 hover:text-slate-900" onClick={() => setOpen(false)}>{n.label}</Link>
+                    <div className="absolute left-0 mt-2 w-52 bg-white rounded-lg shadow-lg text-slate-700 p-3 opacity-0 group-hover:opacity-100 invisible group-hover:visible transform translate-y-1 group-hover:translate-y-0 transition-all">
+                      {partnerList.map((p) => (
+                        <Link key={p} to={buildPath('/partner')} className="block text-sm py-1 hover:text-slate-900">{p}</Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <Link key={n.to} to={buildPath(n.to)} className="text-sm font-medium text-slate-700 hover:text-slate-900" onClick={() => setOpen(false)}>
+                  {n.label}
+                </Link>
+              );
+            })}
           </div>
 
           <div className="flex items-center gap-3 md:gap-4">
