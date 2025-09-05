@@ -377,15 +377,17 @@ export default function StepsOrbit({
           {activeSteps.map((s, i) => (
             <section key={i} className="h-screen snap-start flex items-center justify-start" aria-hidden={active !== i} style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }}>
               <div className={`max-w-md text-left w-full transition-all duration-300 ease-out ${active === i ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6 pointer-events-none'}`}>
-                <h2 className="text-2xl tracking-widest font-extrabold text-[#FFC527] uppercase mb-4">{s.title}</h2>
-                <div className="text-[#EAF0FF] opacity-90 space-y-2 mb-6 leading-[1.6]">
-                  {s.body.map((line, idx) => (
-                    <p key={idx}>{line}</p>
-                  ))}
+                <div className="card p-6">
+                  <h2 className="text-2xl tracking-widest font-extrabold text-[#FFC527] uppercase mb-4">{s.title}</h2>
+                  <div className="text-[#EAF0FF] opacity-90 space-y-2 mb-6 leading-[1.6]">
+                    {s.body.map((line, idx) => (
+                      <p key={idx}>{line}</p>
+                    ))}
+                  </div>
+                  <button className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] focus:outline-none">
+                    <span className="text-sm font-semibold">{s.cta}</span>
+                  </button>
                 </div>
-                <button className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] focus:outline-none">
-                  <span className="text-sm font-semibold">{s.cta}</span>
-                </button>
               </div>
             </section>
           ))}
