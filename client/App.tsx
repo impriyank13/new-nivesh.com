@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import NavBar from "./components/ui/NavBar";
+import Footer from "./components/ui/Footer";
 
 const queryClient = new QueryClient();
 
