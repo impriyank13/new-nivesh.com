@@ -42,7 +42,7 @@ const translations: any = {
     commitmentTitle: "हमारी प्रतिबद्धता",
     commitmentText: "हम सुरक्षित, अनुपालन-आधारित और मानव-केंद्रित फिनटेक प्रदान करने के लिए प्रतिबद्ध हैं जो सलाहकारों को सशक्त बनाता है और निवेशकों की सुरक्षा करता है।",
     teamTitle: "हमारी टीम",
-    teamText: "प्रौद्योगिकी, उत्पाद और संचालन में अनुभवी नेताओं का एक विविध समूह जो सलाहकारों और उनके ग्राहकों की सेवा के लिए उत्पाद बनाता है।",
+    teamText: "प्रौद्योगिकी, उत्पाद और संचालन में अनुभवी नेताओं का एक विविध समूह जो सलाहकारों और उनके ग्राहकों क�� सेवा के लिए उत्पाद बनाता है।",
   },
   mar: {
     breadcrumb: ["मुखपृष्ठ", "आमची कथा"],
@@ -205,7 +205,7 @@ export default function About() {
         <section className="mb-16">
           <h3 className="text-2xl font-extrabold mb-6">{t('teamTitle')}</h3>
           <p className="text-slate-300 max-w-3xl mb-6">{t('teamText')}</p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-stretch">
             {teamMembers.map((m) => (
               <TeamCard key={m.name} name={m.name} title={m.title} image={m.image} linkedin={m.linkedin} />
             ))}
