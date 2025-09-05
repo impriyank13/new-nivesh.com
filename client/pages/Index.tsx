@@ -1,6 +1,7 @@
 import React from "react";
 import CardCarousel from "@/components/ui/CardCarousel";
 import StepsOrbit from "@/components/ui/StepsOrbit";
+import Benefits from "@/components/ui/Benefits";
 import Testimonials from "@/components/ui/Testimonials";
 
 export default function Index() {
