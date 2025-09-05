@@ -152,6 +152,7 @@ export default function CardCarousel({
   }
 
   return (
+    <>
       <h1 className="text-3xl font-bold text-slate-800 mb-6 text-center">
         Select a feature
       </h1>
@@ -251,6 +252,7 @@ export default function CardCarousel({
           ))}
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
