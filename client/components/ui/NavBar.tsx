@@ -50,6 +50,22 @@ export default function NavBar() {
   };
   const lang = getLangFromPath();
 
+  const [productsOpen, setProductsOpen] = useState(false);
+  const [partnerOpen, setPartnerOpen] = useState(false);
+  const navRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    function handleDocClick(e: MouseEvent) {
+      const target = e.target as Node;
+      if (navRef.current && !navRef.current.contains(target)) {
+        setProductsOpen(false);
+        setPartnerOpen(false);
+      }
+    }
+    document.addEventListener('click', handleDocClick);
+    return () => document.removeEventListener('click', handleDocClick);
+  }, []);
+
   const buildPath = (to: string, targetLang = lang) => {
     const clean = to.startsWith('/') ? to : `/${to}`;
     const base = location.replace(/^\/(en|hin|mar)/, '');
