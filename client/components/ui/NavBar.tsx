@@ -178,12 +178,12 @@ export default function NavBar() {
                     >
                       {partnerList.map((p) => (
                         <Link
-                          key={p}
-                          to={buildPath("/partner")}
+                          key={p.key}
+                          to={buildPath(`/partner/${p.key}`)}
                           className="block text-sm py-1 hover:text-slate-900"
                           onClick={() => setPartnerOpen(false)}
                         >
-                          {p}
+                          {p.label}
                         </Link>
                       ))}
                     </div>
