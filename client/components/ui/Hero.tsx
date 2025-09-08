@@ -85,7 +85,10 @@ export default function Hero() {
     return lines;
   };
 
-  const subtitleLines = useMemo(() => splitIntoLines(texts[index].subtitle, 48), [index]);
+  const subtitleLines = useMemo(
+    () => splitIntoLines(texts[index].subtitle, 48),
+    [index],
+  );
 
   // CTA delay calculation: headline(0.6) + sub start delay(0.3) + stagger between lines + last line duration
   const ctaDelay = useMemo(() => {
@@ -94,20 +97,33 @@ export default function Hero() {
     const lineStagger = 0.25;
     const subLineCount = Math.max(1, subtitleLines.length);
     const subDuration = 0.6; // each line animate duration
-    const totalSubTime = subStartDelay + (subLineCount - 1) * lineStagger + subDuration;
+    const totalSubTime =
+      subStartDelay + (subLineCount - 1) * lineStagger + subDuration;
     return headlineDuration + totalSubTime + 0.05; // small buffer
   }, [subtitleLines.length]);
 
   const wordVariant = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
     exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
   };
 
   const lineVariant = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-    exit: { opacity: 0, y: -12, transition: { duration: 0.35, ease: "easeIn" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+    exit: {
+      opacity: 0,
+      y: -12,
+      transition: { duration: 0.35, ease: "easeIn" },
+    },
   };
 
   const headlineContainer = {
@@ -174,7 +190,11 @@ export default function Hero() {
                 aria-label={texts[index].subtitle}
               >
                 {subtitleLines.map((line, i) => (
-                  <motion.div key={line + i} variants={lineVariant} className="overflow-hidden">
+                  <motion.div
+                    key={line + i}
+                    variants={lineVariant}
+                    className="overflow-hidden"
+                  >
                     <div className="inline-block mr-2">{line}</div>
                   </motion.div>
                 ))}

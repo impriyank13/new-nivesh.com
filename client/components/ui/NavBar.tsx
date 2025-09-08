@@ -59,9 +59,13 @@ export default function NavBar() {
   const linkTextClass = "text-white";
   const chevronClass = "text-white/80";
   const navButtonHoverBg = isHero ? "hover:bg-white/10" : "hover:bg-white/20";
-  const dropdownBgClass = isHero ? "bg-black/70 text-white" : "bg-white text-white";
+  const dropdownBgClass = isHero
+    ? "bg-black/70 text-white"
+    : "bg-white text-white";
   const dropdownItemHover = "hover:text-white";
-  const mobileMenuBg = isHero ? "bg-black/70 text-white" : "bg-white text-white";
+  const mobileMenuBg = isHero
+    ? "bg-black/70 text-white"
+    : "bg-white text-white";
 
   const navRef = useRef<HTMLElement | null>(null);
   const [atTop, setAtTop] = useState(true);
@@ -76,16 +80,16 @@ export default function NavBar() {
     }
 
     function onScroll() {
-      const top = typeof window !== 'undefined' ? window.scrollY < 10 : true;
+      const top = typeof window !== "undefined" ? window.scrollY < 10 : true;
       setAtTop(top);
     }
 
     document.addEventListener("click", handleDocClick);
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => {
       document.removeEventListener("click", handleDocClick);
-      window.removeEventListener('scroll', onScroll as any);
+      window.removeEventListener("scroll", onScroll as any);
     };
   }, []);
 
@@ -104,15 +108,24 @@ export default function NavBar() {
     nav(newPath);
   };
 
-  const headerStyle = isHero && atTop ? { background: 'var(--hero-navbar-bg, rgba(0,0,0,0.2))' } : undefined;
-  const headerClass = 'w-full backdrop-blur-[2px] sticky top-0 z-50 shadow-sm ' + (isHero && atTop ? 'text-white' : 'bg-white/10 text-slate-700');
+  const headerStyle =
+    isHero && atTop
+      ? { background: "var(--hero-navbar-bg, rgba(0,0,0,0.2))" }
+      : undefined;
+  const headerClass =
+    "w-full backdrop-blur-[2px] sticky top-0 z-50 shadow-sm " +
+    (isHero && atTop ? "text-white" : "bg-white/10 text-slate-700");
 
   return (
     <header style={headerStyle} className={headerClass}>
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <nav className="flex items-center justify-between py-4">
           <div className="flex items-center gap-6">
-            <Link to={`/${lang}`} className="flex items-center" onClick={() => setOpen(false)}>
+            <Link
+              to={`/${lang}`}
+              className="flex items-center"
+              onClick={() => setOpen(false)}
+            >
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Faf0d2769dfae4e9a91bf3c20942483d2?format=webp&width=800"
                 alt="Nivesh"
@@ -133,7 +146,7 @@ export default function NavBar() {
                         setPartnerOpen(false);
                       }}
                       aria-expanded={productsOpen}
-                      className={`text-sm font-medium ${linkTextClass} inline-flex items-center gap-1 px-3 py-1 rounded-md transition-transform transform hover:scale-105 ${navButtonHoverBg}` }
+                      className={`text-sm font-medium ${linkTextClass} inline-flex items-center gap-1 px-3 py-1 rounded-md transition-transform transform hover:scale-105 ${navButtonHoverBg}`}
                     >
                       <span>{n.label}</span>
                       <svg
@@ -150,12 +163,14 @@ export default function NavBar() {
                       </svg>
                     </button>
 
-                    <div className={`absolute left-0 mt-2 w-64 rounded-lg shadow-lg p-3 transition-all ${productsOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-1"} ${dropdownBgClass}`}>
+                    <div
+                      className={`absolute left-0 mt-2 w-64 rounded-lg shadow-lg p-3 transition-all ${productsOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-1"} ${dropdownBgClass}`}
+                    >
                       {productsList.map((p) => (
                         <Link
                           key={p.key}
                           to={buildPath(`/products/${p.key}`)}
-                          className={`block text-sm py-1 ${dropdownItemHover}` }
+                          className={`block text-sm py-1 ${dropdownItemHover}`}
                           onClick={() => setProductsOpen(false)}
                         >
                           {p.label}
@@ -176,7 +191,7 @@ export default function NavBar() {
                         setProductsOpen(false);
                       }}
                       aria-expanded={partnerOpen}
-                      className={`text-sm font-medium ${linkTextClass} inline-flex items-center gap-1 px-3 py-1 rounded-md transition-transform transform hover:scale-105 ${navButtonHoverBg}` }
+                      className={`text-sm font-medium ${linkTextClass} inline-flex items-center gap-1 px-3 py-1 rounded-md transition-transform transform hover:scale-105 ${navButtonHoverBg}`}
                     >
                       <span>{n.label}</span>
                       <svg
@@ -193,12 +208,14 @@ export default function NavBar() {
                       </svg>
                     </button>
 
-                    <div className={`absolute left-0 mt-2 w-52 rounded-lg shadow-lg p-3 transition-all ${partnerOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-1"} ${dropdownBgClass}`}>
+                    <div
+                      className={`absolute left-0 mt-2 w-52 rounded-lg shadow-lg p-3 transition-all ${partnerOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-1"} ${dropdownBgClass}`}
+                    >
                       {partnerList.map((p) => (
                         <Link
                           key={p.key}
                           to={buildPath(`/partner/${p.key}`)}
-                          className={`block text-sm py-1 ${dropdownItemHover}` }
+                          className={`block text-sm py-1 ${dropdownItemHover}`}
                           onClick={() => setPartnerOpen(false)}
                         >
                           {p.label}
@@ -213,7 +230,7 @@ export default function NavBar() {
                 <Link
                   key={n.to}
                   to={buildPath(n.to)}
-                  className={`text-sm font-medium ${linkTextClass} px-3 py-1 rounded-md transition-transform transform hover:scale-105 ${navButtonHoverBg}` }
+                  className={`text-sm font-medium ${linkTextClass} px-3 py-1 rounded-md transition-transform transform hover:scale-105 ${navButtonHoverBg}`}
                   onClick={() => setOpen(false)}
                 >
                   {n.label}
@@ -228,7 +245,7 @@ export default function NavBar() {
                 aria-label="Select language"
                 value={lang}
                 onChange={(e) => changeLang(e.target.value)}
-                className={`bg-transparent text-sm ${linkTextClass} p-1 rounded` }
+                className={`bg-transparent text-sm ${linkTextClass} p-1 rounded`}
               >
                 {langs.map((l) => (
                   <option key={l.code} value={l.code}>
@@ -240,7 +257,7 @@ export default function NavBar() {
 
             <a
               href="https://app.nivesh.com/login"
-              className={`hidden md:inline-flex items-center text-sm ${linkTextClass}` }
+              className={`hidden md:inline-flex items-center text-sm ${linkTextClass}`}
               onClick={() => setOpen(false)}
             >
               Sign in
@@ -248,7 +265,11 @@ export default function NavBar() {
 
             <a
               href="https://app.nivesh.com/partner_onboarding"
-              className={isHero ? "inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold shadow transform scale-105 bg-white/10 text-white ring-1 ring-white/20" : "inline-flex items-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold shadow" }
+              className={
+                isHero
+                  ? "inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold shadow transform scale-105 bg-white/10 text-white ring-1 ring-white/20"
+                  : "inline-flex items-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold shadow"
+              }
               onClick={() => setOpen(false)}
             >
               Get Started
@@ -258,7 +279,7 @@ export default function NavBar() {
             <button
               aria-label="Toggle menu"
               onClick={() => setOpen((v) => !v)}
-              className={`md:hidden inline-flex items-center justify-center p-2 rounded-lg ${linkTextClass} hover:bg-white/10` }
+              className={`md:hidden inline-flex items-center justify-center p-2 rounded-lg ${linkTextClass} hover:bg-white/10`}
             >
               <svg
                 width="20"
@@ -287,7 +308,9 @@ export default function NavBar() {
         {/* Mobile menu panel */}
         {open && (
           <div className="md:hidden mt-2 pb-4">
-            <div className={`${mobileMenuBg} rounded-lg shadow-md p-4 flex flex-col space-y-3`}>
+            <div
+              className={`${mobileMenuBg} rounded-lg shadow-md p-4 flex flex-col space-y-3`}
+            >
               {navItems.map((n) => (
                 <div key={n.to}>
                   {n.key === "products" ? (
@@ -296,7 +319,7 @@ export default function NavBar() {
                         e.stopPropagation();
                         setProductsOpen((v) => !v);
                       }}
-                      className={`w-full text-left text-base font-medium ${linkTextClass} flex items-center justify-between` }
+                      className={`w-full text-left text-base font-medium ${linkTextClass} flex items-center justify-between`}
                     >
                       <span>{n.label}</span>
                       <svg
@@ -318,7 +341,7 @@ export default function NavBar() {
                         e.stopPropagation();
                         setPartnerOpen((v) => !v);
                       }}
-                      className={`w-full text-left text-base font-medium ${linkTextClass} flex items-center justify-between` }
+                      className={`w-full text-left text-base font-medium ${linkTextClass} flex items-center justify-between`}
                     >
                       <span>{n.label}</span>
                       <svg
@@ -337,7 +360,7 @@ export default function NavBar() {
                   ) : (
                     <Link
                       to={buildPath(n.to)}
-                      className={`text-base font-medium ${linkTextClass} px-3 py-1 rounded-md transition-transform transform hover:scale-105 ${navButtonHoverBg}` }
+                      className={`text-base font-medium ${linkTextClass} px-3 py-1 rounded-md transition-transform transform hover:scale-105 ${navButtonHoverBg}`}
                       onClick={() => setOpen(false)}
                     >
                       {n.label}
@@ -391,7 +414,15 @@ export default function NavBar() {
                         changeLang(l.code);
                         setOpen(false);
                       }}
-                      className={'text-sm font-medium px-2 py-1 rounded transition-transform transform ' + (l.code === lang ? (isHero ? 'bg-white/20 text-white' : 'bg-slate-900 text-white') : (linkTextClass + ' hover:scale-105 hover:bg-white/10'))}
+                      className={
+                        "text-sm font-medium px-2 py-1 rounded transition-transform transform " +
+                        (l.code === lang
+                          ? isHero
+                            ? "bg-white/20 text-white"
+                            : "bg-slate-900 text-white"
+                          : linkTextClass +
+                            " hover:scale-105 hover:bg-white/10")
+                      }
                     >
                       {l.label}
                     </button>
@@ -400,7 +431,7 @@ export default function NavBar() {
 
                 <a
                   href="https://app.nivesh.com/login"
-                  className={`block text-sm ${linkTextClass} mb-2` }
+                  className={`block text-sm ${linkTextClass} mb-2`}
                   onClick={() => setOpen(false)}
                 >
                   Sign in
@@ -408,7 +439,11 @@ export default function NavBar() {
 
                 <a
                   href="https://app.nivesh.com/partner_onboarding"
-                  className={isHero ? `block text-sm font-semibold ${"bg-white/10 text-white scale-105 transform"} px-4 py-2 rounded-full text-center` : "block text-sm font-semibold bg-black text-white px-4 py-2 rounded-full text-center" }
+                  className={
+                    isHero
+                      ? `block text-sm font-semibold ${"bg-white/10 text-white scale-105 transform"} px-4 py-2 rounded-full text-center`
+                      : "block text-sm font-semibold bg-black text-white px-4 py-2 rounded-full text-center"
+                  }
                   onClick={() => setOpen(false)}
                 >
                   Get Started
