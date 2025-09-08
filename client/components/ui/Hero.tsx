@@ -47,17 +47,38 @@ export default function Hero() {
     return () => clearInterval(id);
   }, []);
 
-  // split headline/sub into words for staggered animation
+  // split headline into words for staggered animation
   const headlineWords = useMemo(() => texts[index].title.split(" "), [index]);
-  const subtitleWords = useMemo(() => texts[index].subtitle.split(" "), [index]);
 
-  // approximated CTA delay so it fades in after headline+subtitle animation
+  // split subtitle into lines (approximate) for line-by-line animation
+  const splitIntoLines = (text: string, maxChars = 48) => {
+    const words = text.split(" ");
+    const lines: string[] = [];
+    let current = "";
+    for (const w of words) {
+      if ((current + " " + w).trim().length <= maxChars) {
+        current = (current + " " + w).trim();
+      } else {
+        if (current) lines.push(current);
+        current = w;
+      }
+    }
+    if (current) lines.push(current);
+    return lines;
+  };
+
+  const subtitleLines = useMemo(() => splitIntoLines(texts[index].subtitle, 48), [index]);
+
+  // CTA delay calculation: headline(0.6) + sub start delay(0.3) + stagger between lines + last line duration
   const ctaDelay = useMemo(() => {
-    const headlineStagger = Math.max(0, headlineWords.length - 1) * 0.2;
-    const subtitleStagger = Math.max(0, subtitleWords.length - 1) * 0.2;
-    // headline duration 0.6, subtitle delay 0.3 + duration 0.6
-    return 0.6 + 0.3 + headlineStagger + subtitleStagger * 0.25; // weighted a bit to keep timing reasonable
-  }, [headlineWords.length, subtitleWords.length]);
+    const headlineDuration = 0.6;
+    const subStartDelay = 0.3; // after headline
+    const lineStagger = 0.25;
+    const subLineCount = Math.max(1, subtitleLines.length);
+    const subDuration = 0.6; // each line animate duration
+    const totalSubTime = subStartDelay + (subLineCount - 1) * lineStagger + subDuration;
+    return headlineDuration + totalSubTime + 0.05; // small buffer
+  }, [subtitleLines.length]);
 
   const wordVariant = {
     hidden: { opacity: 0, y: 40 },
@@ -65,7 +86,7 @@ export default function Hero() {
     exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
   };
 
-  const subWordVariant = {
+  const lineVariant = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
     exit: { opacity: 0, y: -12, transition: { duration: 0.35, ease: "easeIn" } },
@@ -78,7 +99,7 @@ export default function Hero() {
 
   const subtitleContainer = {
     hidden: {},
-    visible: { transition: { delay: 0.3, staggerChildren: 0.2 } },
+    visible: { transition: { delay: 0.3, staggerChildren: 0.25 } },
   };
 
   return (
@@ -115,7 +136,7 @@ export default function Hero() {
                   <motion.span
                     key={w + i}
                     variants={wordVariant}
-                    className={`inline-block mr-2`} 
+                    className={`inline-block mr-2`}
                     aria-hidden={false}
                   >
                     {w}
@@ -125,7 +146,7 @@ export default function Hero() {
             </AnimatePresence>
 
             <AnimatePresence mode="wait">
-              <motion.p
+              <motion.div
                 key={`sub-${index}`}
                 className="mt-4 text-lg md:text-xl text-white/90 max-w-xl font-sans"
                 variants={subtitleContainer}
@@ -134,12 +155,12 @@ export default function Hero() {
                 exit="hidden"
                 aria-label={texts[index].subtitle}
               >
-                {subtitleWords.map((w, i) => (
-                  <motion.span key={w + i} variants={subWordVariant} className="inline-block mr-2">
-                    {w}
-                  </motion.span>
+                {subtitleLines.map((line, i) => (
+                  <motion.div key={line + i} variants={lineVariant} className="overflow-hidden">
+                    <div className="inline-block mr-2">{line}</div>
+                  </motion.div>
                 ))}
-              </motion.p>
+              </motion.div>
             </AnimatePresence>
 
             <motion.div
