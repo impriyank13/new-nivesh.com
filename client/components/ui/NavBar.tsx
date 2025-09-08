@@ -347,15 +347,15 @@ export default function NavBar() {
                     <div className="mt-2 pl-4">
                       {partnerList.map((p) => (
                         <Link
-                          key={p}
-                          to={buildPath("/partner")}
+                          key={p.key}
+                          to={buildPath(`/partner/${p.key}`)}
                           className="block text-sm text-slate-600 py-1"
                           onClick={() => {
                             setOpen(false);
                             setPartnerOpen(false);
                           }}
                         >
-                          {p}
+                          {p.label}
                         </Link>
                       ))}
                     </div>
