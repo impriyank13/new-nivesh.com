@@ -220,13 +220,13 @@ export default function NavBar() {
               </select>
             </div>
 
-            <Link
-              to={`${buildPath("/signin")}`}
+            <a
+              href="https://app.nivesh.com/login"
               className="hidden md:inline-flex items-center text-sm text-slate-700"
               onClick={() => setOpen(false)}
             >
               Sign in
-            </Link>
+            </a>
             <a
               href="https://app.nivesh.com/partner_onboarding"
               className="inline-flex items-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold shadow"
@@ -378,13 +378,13 @@ export default function NavBar() {
                     </button>
                   ))}
                 </div>
-                <Link
-                  to={buildPath("/signin")}
+                <a
+                  href="https://app.nivesh.com/login"
                   className="block text-sm text-slate-700 mb-2"
                   onClick={() => setOpen(false)}
                 >
                   Sign in
-                </Link>
+                </a>
                 <a
                   href="https://app.nivesh.com/partner_onboarding"
                   className="block text-sm font-semibold bg-black text-white px-4 py-2 rounded-full text-center"
