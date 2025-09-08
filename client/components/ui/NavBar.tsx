@@ -119,7 +119,7 @@ export default function NavBar() {
                         setPartnerOpen(false);
                       }}
                       aria-expanded={productsOpen}
-                      className="text-sm font-medium text-slate-700 inline-flex items-center gap-1 px-3 py-1 rounded-md transition-transform transform hover:scale-105 hover:bg-white/20"
+                      className={`text-sm font-medium ${linkTextClass} inline-flex items-center gap-1 px-3 py-1 rounded-md transition-transform transform hover:scale-105 ${navButtonHoverBg}` }
                     >
                       <span>{n.label}</span>
                       <svg
@@ -163,7 +163,7 @@ export default function NavBar() {
                         setProductsOpen(false);
                       }}
                       aria-expanded={partnerOpen}
-                      className="text-sm font-medium text-slate-700 inline-flex items-center gap-1 px-3 py-1 rounded-md transition-transform transform hover:scale-105 hover:bg-white/20"
+                      className={`text-sm font-medium ${linkTextClass} inline-flex items-center gap-1 px-3 py-1 rounded-md transition-transform transform hover:scale-105 ${navButtonHoverBg}` }
                     >
                       <span>{n.label}</span>
                       <svg
