@@ -36,8 +36,8 @@ const productTranslations: any = {
       features: ["कस्टम संरचनाएँ", "नियमों का पालन", "रिपोर्टिंग"],
     },
     mar: {
-      title: "विशेषीकृत इन्वेस्टम��ंट फंड (SIF)",
-      subtitle: "विशेषीकृ��� गुंतवणूक धोरणांसाठी संरचित फंड।",
+      title: "विशेषीकृत इन्वेस्��म��ंट फंड (SIF)",
+      subtitle: "विशेषीकृत गुंतवणूक धोरणांसाठी संरचित फंड।",
       features: ["सानुकूल रचना", "नियमांचे पालन", "तपशीलवार रिपोर्ट्स"],
     },
   },
@@ -55,7 +55,7 @@ const productTranslations: any = {
     mar: {
       title: "मार्केट लिंक्ड डिबेंचर (MLD)",
       subtitle: "बाजार निर्देशांकांशी संबंधित फिक्स्ड-इनकम साधने।",
-      features: ["उच्��� परतावा", "बाजाराशी संबं���ित लाभ", "निर्धारित कालावधी"],
+      features: ["���च्��� परतावा", "बाजाराशी संबंधित लाभ", "निर्धारित कालावधी"],
     },
   },
   "gift-city": {
@@ -99,7 +99,7 @@ const productTranslations: any = {
       features: ["Stable returns", "Flexible tenors", "Credit-rated options"],
     },
     hin: { title: "फिक्स्ड डिपॉजिट", subtitle: "स्थिर रिटर्न", features: ["स्थिर रिटर्न"] },
-    mar: { title: "���िक्स्ड डिपॉझिट", subtitle: "स्थिर परतावा", features: ["स्थिर परतावा"] },
+    mar: { title: "फिक्स्ड डिपॉझिट", subtitle: "स्थिर परतावा", features: ["स्थि�� परतावा"] },
   },
   pms: {
     en: { title: "PMS", subtitle: "Portfolio Management Services for high net-worth investors.", features: ["Customized portfolios", "Dedicated manager"] },
@@ -113,7 +113,7 @@ const productTranslations: any = {
   },
   nps: {
     en: { title: "NPS", subtitle: "National Pension System", features: ["Retirement-focused"] },
-    hin: { title: "NPS", subtitle: "नेशनल पेंशन सिस्ट��", features: ["रिटायरमेंट-फोकस्ड"] },
+    hin: { title: "NPS", subtitle: "नेशनल पेंशन सिस्टम", features: ["रिटायरमेंट-फोकस्ड"] },
     mar: { title: "NPS", subtitle: "नॅशनल पेन्शन सिस्टम", features: ["रिटायरमेंट-���ोकस्ड"] },
   },
   bond: {
@@ -345,18 +345,46 @@ export default function Product() {
                         transition: "transform 0.6s",
                       }}
                     >
-                      {/* Front (show name, NAV, returns, invest + details) */}
+                      {/* Front (show icon, name, NAV, all returns, invest + details) */}
                       <div className="absolute inset-0 p-4 bg-white rounded-lg border border-slate-200 shadow-sm flex flex-col overflow-hidden" style={{ backfaceVisibility: "hidden" }}>
-                        <div className="mb-2">
-                          <div className="font-semibold text-lg truncate">{s.SchemeName}</div>
-                          <div className="text-sm text-slate-500 truncate">{s.SchemeType}</div>
+                        <div className="flex items-start gap-3 mb-2">
+                          <div className="h-10 w-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-700 flex-shrink-0">
+                            {/* Simple icon: initials */}
+                            <span className="font-semibold text-sm">{String(s.SchemeName || "").split(" ").slice(0,2).map(w=>w[0]).join("")}</span>
+                          </div>
+                          <div className="min-w-0">
+                            <div className="font-semibold text-lg truncate">{s.SchemeName}</div>
+                            <div className="text-sm text-slate-500 truncate">{s.SchemeType}</div>
+                          </div>
                         </div>
 
-                        <div className="mt-2 text-sm text-slate-700">
+                        <div className="mt-2 text-sm text-slate-700 flex-1 overflow-hidden">
                           <div className="mb-2">NAV: <span className="font-medium">{s.NAV_Value}</span></div>
-                          <div className="flex items-center gap-3 text-sm">
-                            <div className="text-slate-500">1Y: <span className={`font-medium ${s.OneYearReturn >= 0 ? "text-green-600" : "text-red-600"}`}>{s.OneYearReturn ?? "—"}%</span></div>
-                            <div className="text-slate-500">3Y: <span className={`font-medium ${s.ThreeYearReturn >= 0 ? "text-green-600" : "text-red-600"}`}>{s.ThreeYearReturn ?? "—"}%</span></div>
+
+                          <div className="grid grid-cols-2 gap-2 text-sm">
+                            {[
+                              ["OneWeekReturn","1W"],
+                              ["OneMonthReturn","1M"],
+                              ["ThreeMonthReturn","3M"],
+                              ["SixMonthReturn","6M"],
+                              ["NineMonthReturn","9M"],
+                              ["OneYearReturn","1Y"],
+                              ["TwoYearReturn","2Y"],
+                              ["ThreeYearReturn","3Y"],
+                              ["FiveYearReturn","5Y"],
+                              ["SinceInceptionReturn","SIN"]
+                            ].map(([k, label]) => {
+                              const val = s[k as string];
+                              if (val === null || val === undefined) return null;
+                              const num = Number(val);
+                              const cls = isNaN(num) ? "text-slate-500" : num >= 0 ? "text-green-600" : "text-red-600";
+                              return (
+                                <div key={String(k)} className="truncate">
+                                  <div className="text-slate-500 text-xs">{label}</div>
+                                  <div className={`font-medium ${cls}`}>{isNaN(num) ? String(val) : `${num}%`}</div>
+                                </div>
+                              );
+                            })}
                           </div>
                         </div>
 
@@ -366,9 +394,9 @@ export default function Product() {
                         </div>
                       </div>
 
-                      {/* Back */}
+                      {/* Back (full details) */}
                       <div
-                        className="absolute inset-0 p-4 bg-white rounded-lg border border-slate-200 shadow-sm"
+                        className="absolute inset-0 p-4 bg-white rounded-lg border border-slate-200 shadow-sm overflow-auto"
                         style={{
                           backfaceVisibility: "hidden",
                           transform: "rotateY(180deg)",
@@ -376,19 +404,35 @@ export default function Product() {
                       >
                         <div className="h-full flex flex-col">
                           <div className="flex items-center justify-between mb-2">
-                            <div className="font-semibold">{s.SchemeName}</div>
-                            <div className="text-sm text-slate-500">{s.SchemeType}</div>
-                          </div>
-                          <div className="text-sm text-slate-700 mb-2">NAV: <span className="font-medium">{s.NAV_Value}</span></div>
-                          <div className="grid grid-cols-2 gap-2 text-sm text-slate-600 mb-3">
-                            <div><span className="font-medium">1Y:</span> {s.OneYearReturn}%</div>
-                            <div><span className="font-medium">3Y:</span> {s.ThreeYearReturn}%</div>
-                            <div><span className="font-medium">Since Inception:</span> {s.SinceInceptionReturn ?? "—"}%</div>
-                            <div><span className="font-medium">SIP:</span> {s.SIPFLAG === "Y" ? "Yes" : "No"}</div>
+                            <div className="font-semibold truncate">{s.SchemeName}</div>
+                            <div className="text-sm text-slate-500 truncate">{s.SchemeType}</div>
                           </div>
 
-                          <div className="text-sm text-slate-600 mb-3">Start Date: {s.StartDate ?? "—"}</div>
-                          <div className="text-sm text-slate-600 mb-3">Exit Load: {s.ExitLoad ?? "—"}</div>
+                          <div className="grid grid-cols-1 gap-2 text-sm text-slate-700 mb-3">
+                            {[
+                              ["SchemeCode","Scheme Code"],
+                              ["ISIN","ISIN"],
+                              ["AMCCode","AMC Code"],
+                              ["MinimumPurchaseAmount","Min Purchase"],
+                              ["RedemptionAmountMinimum","Min Redemption"],
+                              ["PurchaseCutoffTime","Purchase Cutoff"],
+                              ["RedemptionCutOffTime","Redemption Cutoff"],
+                              ["SIPFLAG","SIP Allowed"],
+                              ["ExitLoad","Exit Load"],
+                              ["StartDate","Start Date"],
+                              ["EndDate","End Date"],
+                            ].map(([k,label])=>{
+                              const val = s[k as string];
+                              if (val === null || val === undefined || val === "") return null;
+                              return (
+                                <div key={String(k)} className="flex justify-between">
+                                  <div className="text-slate-500">{label}</div>
+                                  <div className="font-medium text-right">{String(val)}</div>
+                                </div>
+                              );
+                            })}
+                          </div>
+
                           {s.SchemeDescription && <div className="text-sm text-slate-600 mb-3">{s.SchemeDescription}</div>}
 
                           <div className="mt-auto flex items-center gap-2">
