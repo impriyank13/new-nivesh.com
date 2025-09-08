@@ -56,6 +56,7 @@ export default function NavBar() {
   const chevronClass = isHero ? "text-white/80" : "text-slate-500";
   const navButtonHoverBg = isHero ? "hover:bg-white/10" : "hover:bg-white/20";
   const dropdownBgClass = isHero ? "bg-black/70 text-white" : "bg-white text-slate-700";
+  const dropdownItemHover = isHero ? "hover:text-white" : "hover:text-slate-900";
 
   const [productsOpen, setProductsOpen] = useState(false);
   const [partnerOpen, setPartnerOpen] = useState(false);
