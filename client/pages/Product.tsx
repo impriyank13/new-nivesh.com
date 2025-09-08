@@ -36,7 +36,7 @@ const productTranslations: any = {
       features: ["कस्टम संरचनाएँ", "नियमों का पालन", "रिपोर्टिंग"],
     },
     mar: {
-      title: "विशेषीकृत इन्व��स्टम��ंट फंड (SIF)",
+      title: "विशेषीकृत इन्वेस्टम��ंट फंड (SIF)",
       subtitle: "विशेषीकृत गुंतवणूक धोरणांसाठी संरचित फंड।",
       features: ["सानुकूल रचना", "नियमांचे पालन", "तपशीलवार रिपोर्ट्स"],
     },
@@ -124,7 +124,7 @@ const productTranslations: any = {
   las: {
     en: { title: "Loan Against Securities (LAS)", subtitle: "Borrow against your investments", features: ["Quick credit", "Competitive rates"] },
     hin: { title: "लोन एगेन्स्ट सिक्योरिटीज", subtitle: "अपने निवेश के खिलाफ उधार" },
-    mar: { title: "लोन अगेंस्ट सि��्योरिटीज", subtitle: "तुमच्या गुंतवणुकीविरुद्ध कर्ज" },
+    mar: { title: "लोन अगेंस्ट सिक्योरिटीज", subtitle: "तुमच्या गुंतवणुकीविरुद्ध कर्ज" },
   },
 };
 
@@ -161,7 +161,7 @@ export default function Product() {
       setSchemesLoading(true);
       setSchemesError(null);
       try {
-        const res = await fetch(`/api/getSchemes`, {
+        const res = await fetch(`/.netlify/functions/api/getSchemes`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
