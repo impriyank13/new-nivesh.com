@@ -8,33 +8,33 @@ const images = [
 ];
 
 export default function Hero() {
-  const variantContainer = {
+  const variantContainer: any = {
     hidden: {},
     visible: {
       transition: {
         staggerChildren: 0.12,
       },
     },
-  };
+  } as any;
 
-  const headline = {
+  const headline: any = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
-  const sub = {
+  const sub: any = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut", delay: 0.3 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.3 } },
   };
 
-  const cta = {
+  const cta: any = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 260, damping: 20 } },
   };
 
-  const imageVariant = {
+  const imageVariant: any = {
     hidden: { opacity: 0, x: 60 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
   };
 
   const bgImage = images[Math.floor(Math.random() * images.length)];
