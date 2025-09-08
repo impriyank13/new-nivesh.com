@@ -227,13 +227,13 @@ export default function NavBar() {
             >
               Sign in
             </Link>
-            <Link
-              to={`${buildPath("/get-started")}`}
+            <a
+              href="http://localhost:3000/partner_onboarding"
               className="inline-flex items-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold shadow"
               onClick={() => setOpen(false)}
             >
               Get Started
-            </Link>
+            </a>
 
             {/* mobile menu button */}
             <button
@@ -385,13 +385,13 @@ export default function NavBar() {
                 >
                   Sign in
                 </Link>
-                <Link
-                  to={buildPath("/get-started")}
+                <a
+                  href="http://localhost:3000/partner_onboarding"
                   className="block text-sm font-semibold bg-black text-white px-4 py-2 rounded-full text-center"
                   onClick={() => setOpen(false)}
                 >
                   Get Started
-                </Link>
+                </a>
               </div>
             </div>
           </div>
