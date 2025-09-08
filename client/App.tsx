@@ -30,6 +30,10 @@ const App = () => (
           <Route path="/:lang" element={<Index />} />
           <Route path="/:lang/about-us" element={<About />} />
 
+          {/* Product pages */}
+          <Route path="/:lang/products/:product" element={<Product />} />
+          <Route path="/products/:product" element={<Product />} />
+
           {/* Legacy paths */}
           <Route path="/about" element={<About />} />
 
