@@ -84,7 +84,7 @@ export default function NavBar() {
   };
 
   return (
-    <header className="w-full bg-white/95 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+    <header className="w-full bg-gradient-to-r from-white/50 via-white/30 to-white/50 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <nav className="flex items-center justify-between py-4">
           <div className="flex items-center gap-6">
