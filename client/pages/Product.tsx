@@ -32,7 +32,7 @@ const productTranslations: any = {
     },
     hin: {
       title: "विशेषीकृत निवेश फंड (SIF)",
-      subtitle: "विशेषीकृत निवेश रणनीतियों के लिए संरचित फंड���",
+      subtitle: "विशेषीकृत निवेश रणनीतियों के लिए संरचित फंड।",
       features: ["कस्टम संरचनाएँ", "नियमों का पालन", "रिपोर्टिंग"],
     },
     mar: {
@@ -293,12 +293,24 @@ export default function Product() {
                         transition: "transform 0.6s",
                       }}
                     >
-                      {/* Front (minimal) */}
-                      <div className="absolute inset-0 p-4 bg-white rounded-lg border border-slate-200 shadow-sm flex flex-col items-center justify-center text-center" style={{ backfaceVisibility: "hidden" }}>
-                        <div className="font-semibold text-lg mb-2 truncate">{s.SchemeName}</div>
-                        <div className="text-sm text-slate-500 mb-4 truncate">{s.SchemeType}</div>
-                        <div className="mt-auto">
-                          <button onClick={() => toggleFlip(id)} className="inline-flex items-center bg-black text-white rounded-full px-3 py-2 text-sm font-semibold">Details</button>
+                      {/* Front (show name, NAV, returns, invest + details) */}
+                      <div className="absolute inset-0 p-4 bg-white rounded-lg border border-slate-200 shadow-sm flex flex-col overflow-hidden" style={{ backfaceVisibility: "hidden" }}>
+                        <div className="mb-2">
+                          <div className="font-semibold text-lg truncate">{s.SchemeName}</div>
+                          <div className="text-sm text-slate-500 truncate">{s.SchemeType}</div>
+                        </div>
+
+                        <div className="mt-2 text-sm text-slate-700">
+                          <div className="mb-2">NAV: <span className="font-medium">{s.NAV_Value}</span></div>
+                          <div className="flex items-center gap-3 text-sm">
+                            <div className="text-slate-500">1Y: <span className={`font-medium ${s.OneYearReturn >= 0 ? "text-green-600" : "text-red-600"}`}>{s.OneYearReturn ?? "—"}%</span></div>
+                            <div className="text-slate-500">3Y: <span className={`font-medium ${s.ThreeYearReturn >= 0 ? "text-green-600" : "text-red-600"}`}>{s.ThreeYearReturn ?? "—"}%</span></div>
+                          </div>
+                        </div>
+
+                        <div className="mt-auto flex items-center justify-between gap-2">
+                          <a href={s.InvestURL} target="_blank" rel="noreferrer" className="inline-flex items-center bg-black text-white rounded-full px-3 py-2 text-sm font-semibold">Invest</a>
+                          <button onClick={() => toggleFlip(id)} className="text-sm text-slate-600">Details</button>
                         </div>
                       </div>
 
