@@ -1,5 +1,7 @@
 import { Link, useParams, useLocation } from "react-router-dom";
 import TeamCard from "../components/ui/TeamCard";
+import AwardsMarquee from "@/components/ui/AwardsMarquee";
+
 
 const translations: any = {
   en: {
