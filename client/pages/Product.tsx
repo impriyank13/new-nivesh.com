@@ -48,14 +48,14 @@ const productTranslations: any = {
       features: ["Attractive yields", "Market-linked upside", "Defined tenor"],
     },
     hin: {
-      title: "मार्केट लिंक्ड डेबे���चर (MLD)",
+      title: "मार्केट लिंक्ड डेबेंचर (MLD)",
       subtitle: "बाजार सूचकांक या संदर्भ संपत्ति से संबंधित फिक्स्ड-इनकम उपकरण।",
       features: ["आकर्षक रिटर्न", "बाजार-लिंक्ड संभावित लाभ", "समय-सीमा"],
     },
     mar: {
       title: "मार्केट लिंक्ड डिबेंचर (MLD)",
       subtitle: "बाजार निर्देशांकांशी संबंधित फिक्स्ड-इनकम साधने।",
-      features: ["उच्��� परतावा", "बाजाराशी संबंधित लाभ", "निर्धारित कालावधी"],
+      features: ["उच्��� परतावा", "बाज���राशी संबंधित लाभ", "निर्धारित कालावधी"],
     },
   },
   "gift-city": {
@@ -87,7 +87,7 @@ const productTranslations: any = {
       features: ["प्रारंभिक चरण पहुंच", "क्यूरेटेड डील्स", "डिव-डिल समर्थन"],
     },
     mar: {
-      title: "अनलिस्टेड शेअर्���",
+      title: "अनलिस्टेड शेअर्स",
       subtitle: "क्युरेटेड अनलिस्टेड गुंतवणूक संधींना प्रवेश।",
       features: ["लवकर प्रवेश", "क्युरेटेड डील्स", "ड्यू डिलिजन्स"],
     },
@@ -113,12 +113,12 @@ const productTranslations: any = {
   },
   nps: {
     en: { title: "NPS", subtitle: "National Pension System", features: ["Retirement-focused"] },
-    hin: { title: "NPS", subtitle: "नेशनल पेंशन सिस्टम", features: ["रिटायरमेंट-फोकस्ड"] },
+    hin: { title: "NPS", subtitle: "नेशनल पें��न सिस्टम", features: ["रिटायरमेंट-फोकस्ड"] },
     mar: { title: "NPS", subtitle: "नॅशनल पेन्शन सिस्टम", features: ["रिटायरमेंट-फोकस्ड"] },
   },
   bond: {
     en: { title: "Bond", subtitle: "Fixed income securities", features: ["Steady income", "Credit-rated options"] },
-    hin: { title: "��ॉन्ड", subtitle: "फिक्स्ड-इनकम सिक्योरिटीज" },
+    hin: { title: "बॉन्ड", subtitle: "फिक्स्ड-इनकम सिक्योरिटीज" },
     mar: { title: "बॉन्ड", subtitle: "फिक्स्ड-इनकम सिक्योरिटीज" },
   },
   las: {
@@ -211,6 +211,38 @@ export default function Product() {
             </dl>
           </aside>
         </section>
+
+        {/* Schemes (fetched from API for mutual funds) */}
+        {prod === "mutual-funds" && (
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">Top Performing Schemes</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {schemesLoading && <div className="col-span-full text-center text-slate-500">Loading schemes...</div>}
+              {schemesError && <div className="col-span-full text-center text-red-500">{schemesError}</div>}
+              {!schemesLoading && !schemesError && schemes.length === 0 && (
+                <div className="col-span-full text-center text-slate-500">No schemes found.</div>
+              )}
+
+              {schemes.map((s: any) => (
+                <div key={s.UniqueNo} className="bg-white rounded-lg border border-slate-200 p-4 shadow-sm flex flex-col">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="font-semibold">{s.SchemeName}</div>
+                    <div className="text-sm text-slate-500">{s.SchemeType}</div>
+                  </div>
+                  <div className="text-sm text-slate-700 mb-2">NAV: <span className="font-medium">{s.NAV_Value}</span></div>
+                  <div className="flex items-center gap-3 text-sm mb-3">
+                    <div className="text-slate-500">1Y: <span className={`font-medium ${s.OneYearReturn >= 0 ? "text-green-600" : "text-red-600"}`}>{s.OneYearReturn}%</span></div>
+                    <div className="text-slate-500">3Y: <span className={`font-medium ${s.ThreeYearReturn >= 0 ? "text-green-600" : "text-red-600"}`}>{s.ThreeYearReturn}%</span></div>
+                  </div>
+                  <div className="mt-auto flex items-center gap-2">
+                    <a href={s.InvestURL} target="_blank" rel="noreferrer" className="inline-flex items-center bg-black text-white rounded-full px-3 py-2 text-sm font-semibold">Invest</a>
+                    <Link to={`/${lang}/`} className="text-sm text-slate-600">Details</Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* CTA block */}
         <section className="bg-white rounded-lg border border-slate-200 p-6 shadow-sm text-center">
