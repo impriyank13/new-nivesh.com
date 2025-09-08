@@ -14,17 +14,17 @@ export default function NavBar() {
   ];
 
   const productsList = [
-    "Mutual Funds",
-    "Specialized Investment Fund (SIF)",
-    "Market Linked Debentures (MLD)",
-    "Gift City",
-    "Unlisted Shares",
-    "Fixed Deposit",
-    "PMS",
-    "AIF",
-    "NPS",
-    "Bond",
-    "Loan Against Securities (LAS)",
+    { key: "mutual-funds", label: "Mutual Funds" },
+    { key: "sif", label: "Specialized Investment Fund (SIF)" },
+    { key: "mld", label: "Market Linked Debentures (MLD)" },
+    { key: "gift-city", label: "Gift City" },
+    { key: "unlisted-shares", label: "Unlisted Shares" },
+    { key: "fixed-deposit", label: "Fixed Deposit" },
+    { key: "pms", label: "PMS" },
+    { key: "aif", label: "AIF" },
+    { key: "nps", label: "NPS" },
+    { key: "bond", label: "Bond" },
+    { key: "las", label: "Loan Against Securities (LAS)" },
   ];
 
   const partnerList = [
