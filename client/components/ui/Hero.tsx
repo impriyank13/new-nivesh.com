@@ -69,8 +69,8 @@ export default function Hero() {
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
       >
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="flex flex-col items-start justify-center">
+        <div className="w-full flex items-center justify-center">
+          <div className="flex flex-col items-center justify-center text-center max-w-3xl">
             <motion.h1
               className="text-4xl md:text-6xl font-extrabold leading-tight text-white"
               variants={headline}
