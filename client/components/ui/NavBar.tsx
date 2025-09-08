@@ -329,15 +329,15 @@ export default function NavBar() {
                     <div className="mt-2 pl-4">
                       {productsList.map((p) => (
                         <Link
-                          key={p}
-                          to={buildPath("/products")}
+                          key={p.key}
+                          to={buildPath(`/products/${p.key}`)}
                           className="block text-sm text-slate-600 py-1"
                           onClick={() => {
                             setOpen(false);
                             setProductsOpen(false);
                           }}
                         >
-                          {p}
+                          {p.label}
                         </Link>
                       ))}
                     </div>
