@@ -372,7 +372,7 @@ export default function NavBar() {
                         changeLang(l.code);
                         setOpen(false);
                       }}
-                      className={`text-sm font-medium px-2 py-1 rounded ${l.code === lang ? "bg-slate-900 text-white" : "text-slate-700"}`}
+                      className={`text-sm font-medium px-2 py-1 rounded transition-transform transform ${l.code === lang ? "bg-slate-900 text-white" : "text-slate-700 hover:scale-105 hover:bg-white/10"}`}
                     >
                       {l.label}
                     </button>
