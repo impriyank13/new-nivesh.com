@@ -123,7 +123,7 @@ export default function NavBar() {
                     >
                       <span>{n.label}</span>
                       <svg
-                        className={`w-3 h-3 text-slate-500 transform transition-transform ${productsOpen ? "rotate-180" : ""}`}
+                        className={`w-3 h-3 ${chevronClass} transform transition-transform ${productsOpen ? "rotate-180" : ""}`}
                         viewBox="0 0 20 20"
                         fill="currentColor"
                         aria-hidden="true"
