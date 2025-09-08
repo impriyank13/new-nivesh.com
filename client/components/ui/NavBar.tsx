@@ -50,6 +50,12 @@ export default function NavBar() {
   };
   const lang = getLangFromPath();
 
+  // determine if we're on the hero/index page so navbar can adapt to hero gradient
+  const isHero = /^\/(?:en|hin|mar)?\/?$/.test(location);
+  const linkTextClass = isHero ? "text-white" : "text-slate-700";
+  const chevronClass = isHero ? "text-white/80" : "text-slate-500";
+  const navButtonHoverBg = isHero ? "hover:bg-white/10" : "hover:bg-white/20";
+
   const [productsOpen, setProductsOpen] = useState(false);
   const [partnerOpen, setPartnerOpen] = useState(false);
   const navRef = useRef<HTMLElement | null>(null);
