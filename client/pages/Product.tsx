@@ -32,7 +32,7 @@ const productTranslations: any = {
     },
     hin: {
       title: "विशेषीकृत निवेश फंड (SIF)",
-      subtitle: "विशेषीकृत निवेश रणनीतियों के लिए संरचित फंड।",
+      subtitle: "विशेषीकृत निवेश रणनीतियों के लिए संरचित फंड���",
       features: ["कस्टम संरचनाएँ", "नियमों का पालन", "रिपोर्टिंग"],
     },
     mar: {
@@ -160,20 +160,29 @@ export default function Product() {
     const fetchSchemes = async () => {
       setSchemesLoading(true);
       setSchemesError(null);
-      try {
-        const res = await fetch(`/.netlify/functions/api/getSchemes`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        const list = data?.ObjectResponse?.SchemeDataList || [];
-        if (!cancelled) setSchemes(list);
-      } catch (err: any) {
-        if (!cancelled) setSchemesError(err.message || "Failed to fetch schemes");
-      } finally {
-        if (!cancelled) setSchemesLoading(false);
+      const endpoints = ["/api/getSchemes", "/.netlify/functions/api/getSchemes", "https://api.nivesh.com/API/getSchemesDataV2"];
+      let lastErr: any = null;
+      for (const ep of endpoints) {
+        try {
+          const res = await fetch(ep, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+          const list = data?.ObjectResponse?.SchemeDataList || [];
+          if (!cancelled) setSchemes(list);
+          lastErr = null;
+          break;
+        } catch (err: any) {
+          lastErr = err;
+          // try next endpoint
+        }
+      }
+      if (!cancelled) {
+        if (lastErr) setSchemesError(lastErr.message || "Failed to fetch schemes");
+        setSchemesLoading(false);
       }
     };
 
