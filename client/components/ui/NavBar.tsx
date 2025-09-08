@@ -286,7 +286,7 @@ export default function NavBar() {
                         e.stopPropagation();
                         setProductsOpen((v) => !v);
                       }}
-                      className="w-full text-left text-base font-medium text-slate-700 flex items-center justify-between"
+                      className={`w-full text-left text-base font-medium ${linkTextClass} flex items-center justify-between` }
                     >
                       <span>{n.label}</span>
                       <svg
@@ -308,7 +308,7 @@ export default function NavBar() {
                         e.stopPropagation();
                         setPartnerOpen((v) => !v);
                       }}
-                      className="w-full text-left text-base font-medium text-slate-700 flex items-center justify-between"
+                      className={`w-full text-left text-base font-medium ${linkTextClass} flex items-center justify-between` }
                     >
                       <span>{n.label}</span>
                       <svg
