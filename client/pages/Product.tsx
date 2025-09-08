@@ -16,7 +16,7 @@ const productTranslations: any = {
     hin: {
       title: "म्यूचुअल फंड",
       subtitle: "विभिन्न जोखिम प्रोफाइल और लक्ष्यों के लिए म्यूचुअल फंड समाधान।",
-      features: ["विविध पोर्टफोलियो", "SIP", "टैक्स-इफिशिएंसी"],
+      features: ["��िविध पोर्टफोलियो", "SIP", "टैक्स-इफिशिएंसी"],
     },
     mar: {
       title: "म्युच्युअल फंड",
@@ -37,7 +37,7 @@ const productTranslations: any = {
     },
     mar: {
       title: "विशेषीकृत इन्वेस्टम��ंट फंड (SIF)",
-      subtitle: "विशेषीकृत गुंतवणूक धोरणांसाठी संरचित फंड।",
+      subtitle: "विशेषीकृत गुंतवणू�� धोरणांसाठी संरचित फंड।",
       features: ["सानुकूल रचना", "नियमांचे पालन", "तपशीलवार रिपोर्ट्स"],
     },
   },
@@ -55,7 +55,7 @@ const productTranslations: any = {
     mar: {
       title: "मार्केट लिंक्ड डिबेंचर (MLD)",
       subtitle: "बाजार निर्देशांकांशी संबंधित फिक्स्ड-इनकम साधने।",
-      features: ["उच्��� परतावा", "बाजाराशी संबंधित लाभ", "निर्धारित कालावधी"],
+      features: ["उच्��� परतावा", "बाजाराशी संबंधित लाभ", "��िर्धारित कालावधी"],
     },
   },
   "gift-city": {
@@ -113,7 +113,7 @@ const productTranslations: any = {
   },
   nps: {
     en: { title: "NPS", subtitle: "National Pension System", features: ["Retirement-focused"] },
-    hin: { title: "NPS", subtitle: "नेशनल पेंशन सिस्टम", features: ["रिटायरमेंट-फोकस्ड"] },
+    hin: { title: "NPS", subtitle: "नेशनल पेंशन सिस्टम", features: ["��िटायरमेंट-फोकस्ड"] },
     mar: { title: "NPS", subtitle: "नॅशनल पेन्शन सिस्टम", features: ["रिटायरमेंट-���ोकस्ड"] },
   },
   bond: {
@@ -275,9 +275,9 @@ export default function Product() {
                 const id = String(s.UniqueNo ?? s.SchemeCode ?? Math.random());
                 const isFlipped = !!flipped[id];
                 return (
-                  <div key={id} style={{ perspective: 1000 }}>
+                  <div key={id} className="relative" style={{ perspective: 1000 }}>
                     <div
-                      className="relative w-full h-full"
+                      className="relative w-full h-56"
                       style={{
                         transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
                         transformStyle: "preserve-3d",
@@ -285,7 +285,7 @@ export default function Product() {
                       }}
                     >
                       {/* Front */}
-                      <div className="bg-white rounded-lg border border-slate-200 p-4 shadow-sm flex flex-col" style={{ backfaceVisibility: "hidden" }}>
+                      <div className="absolute inset-0 p-4 bg-white rounded-lg border border-slate-200 shadow-sm flex flex-col" style={{ backfaceVisibility: "hidden" }}>
                         <div className="flex items-center justify-between mb-2">
                           <div className="font-semibold">{s.SchemeName}</div>
                           <div className="text-sm text-slate-500">{s.SchemeType}</div>
@@ -303,13 +303,13 @@ export default function Product() {
 
                       {/* Back */}
                       <div
-                        className="absolute inset-0 p-4"
+                        className="absolute inset-0 p-4 bg-white rounded-lg border border-slate-200 shadow-sm"
                         style={{
                           backfaceVisibility: "hidden",
                           transform: "rotateY(180deg)",
                         }}
                       >
-                        <div className="bg-white rounded-lg border border-slate-200 p-4 shadow-sm h-full flex flex-col">
+                        <div className="h-full flex flex-col">
                           <div className="flex items-center justify-between mb-2">
                             <div className="font-semibold">{s.SchemeName}</div>
                             <div className="text-sm text-slate-500">{s.SchemeType}</div>
