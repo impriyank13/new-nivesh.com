@@ -90,7 +90,7 @@ export default function NavBar() {
   };
 
   return (
-    <header className="w-full  backdrop-blur-[2px] sticky top-0 z-50 shadow-sm">
+    <header className={`w-full backdrop-blur-[2px] sticky top-0 z-50 shadow-sm ${isHero ? 'bg-black/20 text-white' : 'bg-white/10 text-slate-700'}`}>
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <nav className="flex items-center justify-between py-4">
           <div className="flex items-center gap-6">
