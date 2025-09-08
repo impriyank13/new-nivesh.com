@@ -389,7 +389,7 @@ export default function NavBar() {
                 </div>
                 <a
                   href="https://app.nivesh.com/login"
-                  className="block text-sm text-slate-700 mb-2"
+                  className={`block text-sm ${linkTextClass} mb-2` }
                   onClick={() => setOpen(false)}
                 >
                   Sign in
