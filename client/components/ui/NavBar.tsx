@@ -28,11 +28,11 @@ export default function NavBar() {
   ];
 
   const partnerList = [
-    "Be A Nivesh Partner",
-    "Become MF Distributor",
-    "Grow Your MF Business",
-    "AMFI ARN Code",
-    "NISM Certification",
+    { key: "be-a-nivesh-partner", label: "Be A Nivesh Partner" },
+    { key: "become-mf-distributor", label: "Become MF Distributor" },
+    { key: "grow-mf-business", label: "Grow Your MF Business" },
+    { key: "amfi-arn-code", label: "AMFI ARN Code" },
+    { key: "nism-certification", label: "NISM Certification" },
   ];
 
   const langs = [
