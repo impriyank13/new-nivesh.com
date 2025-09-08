@@ -55,7 +55,7 @@ const productTranslations: any = {
     mar: {
       title: "मार्केट लिंक्ड डिबेंचर (MLD)",
       subtitle: "बाजार निर्देशांकांशी संबंधित फिक्स्ड-इनकम साधने।",
-      features: ["उच्��� परतावा", "बाज���राशी संबंधित लाभ", "निर्धारित कालावधी"],
+      features: ["उच्��� परतावा", "बाजाराशी संबंधित लाभ", "निर्धारित कालावधी"],
     },
   },
   "gift-city": {
@@ -104,7 +104,7 @@ const productTranslations: any = {
   pms: {
     en: { title: "PMS", subtitle: "Portfolio Management Services for high net-worth investors.", features: ["Customized portfolios", "Dedicated manager"] },
     hin: { title: "PMS", subtitle: "हाई नेट-वर्थ के लिए पोर्टफोलियो प्रबंधन", features: ["कस्टम पोर्टफोलियो"] },
-    mar: { title: "PMS", subtitle: "हाय नेट-वर्थसाठी पोर्टफोलिओ मॅनेजमेंट", features: ["सानुकूल पोर्टफोलिओ"] },
+    mar: { title: "PMS", subtitle: "हाय नेट-वर्थ���ाठी पोर्टफोलिओ मॅनेजमेंट", features: ["सानुकूल पोर्टफोलिओ"] },
   },
   aif: {
     en: { title: "AIF", subtitle: "Alternative Investment Funds", features: ["Strategies", "Specialised managers"] },
@@ -113,7 +113,7 @@ const productTranslations: any = {
   },
   nps: {
     en: { title: "NPS", subtitle: "National Pension System", features: ["Retirement-focused"] },
-    hin: { title: "NPS", subtitle: "नेशनल पें��न सिस्टम", features: ["रिटायरमेंट-फोकस्ड"] },
+    hin: { title: "NPS", subtitle: "नेशनल पेंशन सिस्टम", features: ["रिटायरमेंट-फोकस्ड"] },
     mar: { title: "NPS", subtitle: "नॅशनल पेन्शन सिस्टम", features: ["रिटायरमेंट-फोकस्ड"] },
   },
   bond: {
@@ -134,6 +134,52 @@ export default function Product() {
   const prod = params.product || "";
   const content = (productTranslations as any)[prod] || (productTranslations as any)["mutual-funds"];
   const t = (key: string) => content[lang]?.[key] ?? content["en"]?.[key] ?? "";
+
+  const [schemes, setSchemes] = useState<any[]>([]);
+  const [schemesLoading, setSchemesLoading] = useState(false);
+  const [schemesError, setSchemesError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (prod !== "mutual-funds") return;
+
+    const langMap: any = { en: 1, hin: 2, mar: 3 };
+    const payload = {
+      ProductCategoryId: "1",
+      ClientCode: "",
+      LanguageId: langMap[lang] || 1,
+      device: "",
+      AMCCode: "",
+      SebiCategoryId: "",
+      SebiSubCategoryId: "",
+      DefaultProductId: "1",
+    };
+
+    let cancelled = false;
+    const fetchSchemes = async () => {
+      setSchemesLoading(true);
+      setSchemesError(null);
+      try {
+        const res = await fetch("https://api.nivesh.com/API/getSchemesDataV2", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const list = data?.ObjectResponse?.SchemeDataList || [];
+        if (!cancelled) setSchemes(list);
+      } catch (err: any) {
+        if (!cancelled) setSchemesError(err.message || "Failed to fetch schemes");
+      } finally {
+        if (!cancelled) setSchemesLoading(false);
+      }
+    };
+
+    fetchSchemes();
+    return () => {
+      cancelled = true;
+    };
+  }, [prod, lang]);
 
   return (
     <main className="py-12">
