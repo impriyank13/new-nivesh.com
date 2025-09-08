@@ -3,6 +3,8 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
+  const [partnerOpen, setPartnerOpen] = useState(false);
 
   const navItems = [
     { key: "home", label: "Home", to: "/" },
@@ -44,6 +46,7 @@ export default function NavBar() {
   const navigate = useNavigate();
   const locationObj = useLocation();
   const location = locationObj.pathname;
+
   const getLangFromPath = () => {
     const match = location.match(/^\/(en|hin|mar)(?:\/|$)/);
     return match ? match[1] : "en";
@@ -52,6 +55,7 @@ export default function NavBar() {
 
   // determine if we're on the hero/index page so navbar can adapt to hero gradient
   const isHero = /^\/(?:en|hin|mar)?\/?$/.test(location);
+
   const linkTextClass = isHero ? "text-white" : "text-slate-700";
   const chevronClass = isHero ? "text-white/80" : "text-slate-500";
   const navButtonHoverBg = isHero ? "hover:bg-white/10" : "hover:bg-white/20";
@@ -59,8 +63,6 @@ export default function NavBar() {
   const dropdownItemHover = isHero ? "hover:text-white" : "hover:text-slate-900";
   const mobileMenuBg = isHero ? "bg-black/70 text-white" : "bg-white text-slate-700";
 
-  const [productsOpen, setProductsOpen] = useState(false);
-  const [partnerOpen, setPartnerOpen] = useState(false);
   const navRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -78,7 +80,6 @@ export default function NavBar() {
   const buildPath = (to: string, targetLang = lang) => {
     const clean = to.startsWith("/") ? to : `/${to}`;
     const base = location.replace(/^\/(en|hin|mar)/, "");
-    // if clean is '/', we want just /:lang
     if (clean === "/") return `/${targetLang}${base || ""}`;
     return `/${targetLang}${clean}`;
   };
@@ -86,7 +87,6 @@ export default function NavBar() {
   const changeLang = (targetLang: string) => {
     const base = location.replace(/^\/(en|hin|mar)/, "") || "/";
     const newPath = `/${targetLang}${base}`;
-    // use react-router navigation to avoid full reload
     // @ts-ignore
     const nav = navigate as (p: string) => void;
     nav(newPath);
@@ -97,11 +97,7 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <nav className="flex items-center justify-between py-4">
           <div className="flex items-center gap-6">
-            <Link
-              to={`/${lang}`}
-              className="flex items-center"
-              onClick={() => setOpen(false)}
-            >
+            <Link to={`/${lang}`} className="flex items-center" onClick={() => setOpen(false)}>
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Faf0d2769dfae4e9a91bf3c20942483d2?format=webp&width=800"
                 alt="Nivesh"
@@ -138,9 +134,8 @@ export default function NavBar() {
                         />
                       </svg>
                     </button>
-                    <div
-                      className={`absolute left-0 mt-2 w-64 rounded-lg shadow-lg p-3 transition-all ${productsOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-1"} ${dropdownBgClass}`}
-                    >
+
+                    <div className={`absolute left-0 mt-2 w-64 rounded-lg shadow-lg p-3 transition-all ${productsOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-1"} ${dropdownBgClass}`}>
                       {productsList.map((p) => (
                         <Link
                           key={p.key}
@@ -182,9 +177,8 @@ export default function NavBar() {
                         />
                       </svg>
                     </button>
-                    <div
-                      className={`absolute left-0 mt-2 w-52 rounded-lg shadow-lg p-3 transition-all ${partnerOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-1"} ${dropdownBgClass}`}
-                    >
+
+                    <div className={`absolute left-0 mt-2 w-52 rounded-lg shadow-lg p-3 transition-all ${partnerOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-1"} ${dropdownBgClass}`}>
                       {partnerList.map((p) => (
                         <Link
                           key={p.key}
@@ -236,6 +230,7 @@ export default function NavBar() {
             >
               Sign in
             </a>
+
             <a
               href="https://app.nivesh.com/partner_onboarding"
               className={isHero ? "inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold shadow transform scale-105 bg-white/10 text-white ring-1 ring-white/20" : "inline-flex items-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold shadow" }
@@ -290,7 +285,7 @@ export default function NavBar() {
                     >
                       <span>{n.label}</span>
                       <svg
-                        className={`w-4 h-4 text-slate-500 transform transition-transform ${productsOpen ? "rotate-180" : ""}`}
+                        className={`w-4 h-4 ${chevronClass} transform transition-transform ${productsOpen ? "rotate-180" : ""}`}
                         viewBox="0 0 20 20"
                         fill="currentColor"
                         aria-hidden="true"
@@ -312,7 +307,7 @@ export default function NavBar() {
                     >
                       <span>{n.label}</span>
                       <svg
-                        className={`w-4 h-4 text-slate-500 transform transition-transform ${partnerOpen ? "rotate-180" : ""}`}
+                        className={`w-4 h-4 ${chevronClass} transform transition-transform ${partnerOpen ? "rotate-180" : ""}`}
                         viewBox="0 0 20 20"
                         fill="currentColor"
                         aria-hidden="true"
@@ -340,7 +335,7 @@ export default function NavBar() {
                         <Link
                           key={p.key}
                           to={buildPath(`/products/${p.key}`)}
-                          className="block text-sm text-slate-600 py-1"
+                          className={`block text-sm ${linkTextClass} py-1 ${dropdownItemHover}`}
                           onClick={() => {
                             setOpen(false);
                             setProductsOpen(false);
@@ -358,7 +353,7 @@ export default function NavBar() {
                         <Link
                           key={p.key}
                           to={buildPath(`/partner/${p.key}`)}
-                          className="block text-sm text-slate-600 py-1"
+                          className={`block text-sm ${linkTextClass} py-1 ${dropdownItemHover}`}
                           onClick={() => {
                             setOpen(false);
                             setPartnerOpen(false);
@@ -381,12 +376,13 @@ export default function NavBar() {
                         changeLang(l.code);
                         setOpen(false);
                       }}
-                      className={`text-sm font-medium px-2 py-1 rounded transition-transform transform ${l.code === lang ? "bg-slate-900 text-white" : "text-slate-700 hover:scale-105 hover:bg-white/10"}`}
+                      className={'text-sm font-medium px-2 py-1 rounded transition-transform transform ' + (l.code === lang ? (isHero ? 'bg-white/20 text-white' : 'bg-slate-900 text-white') : (linkTextClass + ' hover:scale-105 hover:bg-white/10'))}
                     >
                       {l.label}
                     </button>
                   ))}
                 </div>
+
                 <a
                   href="https://app.nivesh.com/login"
                   className={`block text-sm ${linkTextClass} mb-2` }
@@ -394,6 +390,7 @@ export default function NavBar() {
                 >
                   Sign in
                 </a>
+
                 <a
                   href="https://app.nivesh.com/partner_onboarding"
                   className={isHero ? `block text-sm font-semibold ${"bg-white/10 text-white scale-105 transform"} px-4 py-2 rounded-full text-center` : "block text-sm font-semibold bg-black text-white px-4 py-2 rounded-full text-center" }
