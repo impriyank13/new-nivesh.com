@@ -318,7 +318,7 @@ export default function NavBar() {
                   ) : (
                     <Link
                       to={buildPath(n.to)}
-                      className="text-base font-medium text-slate-700"
+                      className="text-base font-medium text-slate-700 px-3 py-1 rounded-md transition-transform transform hover:scale-105 hover:bg-white/20"
                       onClick={() => setOpen(false)}
                     >
                       {n.label}
