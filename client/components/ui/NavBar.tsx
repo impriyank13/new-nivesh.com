@@ -144,7 +144,7 @@ export default function NavBar() {
                         <Link
                           key={p.key}
                           to={buildPath(`/products/${p.key}`)}
-                          className="block text-sm py-1 hover:text-slate-900"
+                          className={`block text-sm py-1 ${dropdownItemHover}` }
                           onClick={() => setProductsOpen(false)}
                         >
                           {p.label}
@@ -188,7 +188,7 @@ export default function NavBar() {
                         <Link
                           key={p.key}
                           to={buildPath(`/partner/${p.key}`)}
-                          className="block text-sm py-1 hover:text-slate-900"
+                          className={`block text-sm py-1 ${dropdownItemHover}` }
                           onClick={() => setPartnerOpen(false)}
                         >
                           {p.label}
