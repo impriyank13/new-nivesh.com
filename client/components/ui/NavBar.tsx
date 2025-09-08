@@ -64,6 +64,7 @@ export default function NavBar() {
   const mobileMenuBg = isHero ? "bg-black/70 text-white" : "bg-white text-white";
 
   const navRef = useRef<HTMLElement | null>(null);
+  const [atTop, setAtTop] = useState(true);
 
   useEffect(() => {
     function handleDocClick(e: MouseEvent) {
@@ -73,8 +74,19 @@ export default function NavBar() {
         setPartnerOpen(false);
       }
     }
+
+    function onScroll() {
+      const top = typeof window !== 'undefined' ? window.scrollY < 10 : true;
+      setAtTop(top);
+    }
+
     document.addEventListener("click", handleDocClick);
-    return () => document.removeEventListener("click", handleDocClick);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => {
+      document.removeEventListener("click", handleDocClick);
+      window.removeEventListener('scroll', onScroll as any);
+    };
   }, []);
 
   const buildPath = (to: string, targetLang = lang) => {
@@ -92,8 +104,11 @@ export default function NavBar() {
     nav(newPath);
   };
 
+  const headerStyle = isHero && atTop ? { background: 'var(--hero-navbar-bg, rgba(0,0,0,0.2))' } : undefined;
+  const headerClass = 'w-full backdrop-blur-[2px] sticky top-0 z-50 shadow-sm ' + (isHero && atTop ? 'text-white' : 'bg-white/10 text-slate-700');
+
   return (
-    <header className={`w-full backdrop-blur-[2px] sticky top-0 z-50 shadow-sm ${isHero ? 'bg-black/20 text-white' : 'bg-white/10 text-slate-700'}`}>
+    <header style={headerStyle} className={headerClass}>
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <nav className="flex items-center justify-between py-4">
           <div className="flex items-center gap-6">
