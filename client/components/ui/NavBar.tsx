@@ -57,11 +57,11 @@ export default function NavBar() {
   const isHero = /^\/(?:en|hin|mar)?\/?$/.test(location);
 
   const linkTextClass = "text-white";
-  const chevronClass = isHero ? "text-white/80" : "text-slate-500";
+  const chevronClass = "text-white/80";
   const navButtonHoverBg = isHero ? "hover:bg-white/10" : "hover:bg-white/20";
-  const dropdownBgClass = isHero ? "bg-black/70 text-white" : "bg-white text-slate-700";
-  const dropdownItemHover = isHero ? "hover:text-white" : "hover:text-slate-900";
-  const mobileMenuBg = isHero ? "bg-black/70 text-white" : "bg-white text-slate-700";
+  const dropdownBgClass = isHero ? "bg-black/70 text-white" : "bg-white text-white";
+  const dropdownItemHover = "hover:text-white";
+  const mobileMenuBg = isHero ? "bg-black/70 text-white" : "bg-white text-white";
 
   const navRef = useRef<HTMLElement | null>(null);
 
