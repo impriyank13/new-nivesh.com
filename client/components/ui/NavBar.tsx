@@ -38,7 +38,7 @@ export default function NavBar() {
   const langs = [
     { code: "en", label: "EN" },
     { code: "hin", label: "हिन्दी" },
-    { code: "mar", label: "मरा��ी" },
+    { code: "mar", label: "मराठी" },
   ];
 
   const navigate = useNavigate();
@@ -231,7 +231,7 @@ export default function NavBar() {
 
             <a
               href="https://app.nivesh.com/login"
-              className="hidden md:inline-flex items-center text-sm text-slate-700"
+              className={`hidden md:inline-flex items-center text-sm ${linkTextClass}` }
               onClick={() => setOpen(false)}
             >
               Sign in
