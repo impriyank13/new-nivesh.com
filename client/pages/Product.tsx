@@ -20,7 +20,7 @@ const productTranslations: any = {
     },
     mar: {
       title: "म्युच्युअल फंड",
-      subtitle: "विविध जोखीम प्र��फाइल व उद्देशांसाठी म्युच्युअल फंड उपाय।",
+      subtitle: "विविध जोखीम प्रोफाइल व उद्देशांसाठी म्युच्युअल फंड उपाय।",
       features: ["विविध प��र्टफोलियो", "SIP", "कर-अनुकूल"],
     },
   },
@@ -36,7 +36,7 @@ const productTranslations: any = {
       features: ["कस्टम संरचनाएँ", "नियमों का पालन", "रिपोर्टिंग"],
     },
     mar: {
-      title: "विशेषीकृत इन्वेस्टम��ंट फंड (SIF)",
+      title: "विशेषीकृत इन्व��स्टम��ंट फंड (SIF)",
       subtitle: "विशेषीकृत गुंतवणूक धोरणांसाठी संरचित फंड।",
       features: ["सानुकूल रचना", "नियमांचे पालन", "तपशीलवार रिपोर्ट्स"],
     },
@@ -124,7 +124,7 @@ const productTranslations: any = {
   las: {
     en: { title: "Loan Against Securities (LAS)", subtitle: "Borrow against your investments", features: ["Quick credit", "Competitive rates"] },
     hin: { title: "लोन एगेन्स्ट सिक्योरिटीज", subtitle: "अपने निवेश के खिलाफ उधार" },
-    mar: { title: "लोन अगेंस्ट सिक्योरिटीज", subtitle: "तुमच्या गुंतवणुकीविरुद्ध कर्ज" },
+    mar: { title: "लोन अगेंस्ट सि��्योरिटीज", subtitle: "तुमच्या गुंतवणुकीविरुद्ध कर्ज" },
   },
 };
 
@@ -284,20 +284,12 @@ export default function Product() {
                         transition: "transform 0.6s",
                       }}
                     >
-                      {/* Front */}
-                      <div className="absolute inset-0 p-4 bg-white rounded-lg border border-slate-200 shadow-sm flex flex-col" style={{ backfaceVisibility: "hidden" }}>
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="font-semibold">{s.SchemeName}</div>
-                          <div className="text-sm text-slate-500">{s.SchemeType}</div>
-                        </div>
-                        <div className="text-sm text-slate-700 mb-2">NAV: <span className="font-medium">{s.NAV_Value}</span></div>
-                        <div className="flex items-center gap-3 text-sm mb-3">
-                          <div className="text-slate-500">1Y: <span className={`font-medium ${s.OneYearReturn >= 0 ? "text-green-600" : "text-red-600"}`}>{s.OneYearReturn}%</span></div>
-                          <div className="text-slate-500">3Y: <span className={`font-medium ${s.ThreeYearReturn >= 0 ? "text-green-600" : "text-red-600"}`}>{s.ThreeYearReturn}%</span></div>
-                        </div>
-                        <div className="mt-auto flex items-center gap-2">
-                          <a href={s.InvestURL} target="_blank" rel="noreferrer" className="inline-flex items-center bg-black text-white rounded-full px-3 py-2 text-sm font-semibold">Invest</a>
-                          <button onClick={() => toggleFlip(id)} className="text-sm text-slate-600">Details</button>
+                      {/* Front (minimal) */}
+                      <div className="absolute inset-0 p-4 bg-white rounded-lg border border-slate-200 shadow-sm flex flex-col items-center justify-center text-center" style={{ backfaceVisibility: "hidden" }}>
+                        <div className="font-semibold text-lg mb-2 truncate">{s.SchemeName}</div>
+                        <div className="text-sm text-slate-500 mb-4 truncate">{s.SchemeType}</div>
+                        <div className="mt-auto">
+                          <button onClick={() => toggleFlip(id)} className="inline-flex items-center bg-black text-white rounded-full px-3 py-2 text-sm font-semibold">Details</button>
                         </div>
                       </div>
 
