@@ -181,7 +181,7 @@ export default function NavBar() {
                       </svg>
                     </button>
                     <div
-                      className={`absolute left-0 mt-2 w-52 bg-white rounded-lg shadow-lg text-slate-700 p-3 transition-all ${partnerOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-1"}`}
+                      className={`absolute left-0 mt-2 w-52 rounded-lg shadow-lg p-3 transition-all ${partnerOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-1"} ${dropdownBgClass}`}
                     >
                       {partnerList.map((p) => (
                         <Link
