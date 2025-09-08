@@ -5,6 +5,7 @@ import Benefits from "@/components/ui/Benefits";
 import AwardsMarquee from "@/components/ui/AwardsMarquee";
 import Testimonials from "@/components/ui/Testimonials";
 import { useParams, useLocation } from "react-router-dom";
+import Hero from "@/components/ui/Hero";
 
 const translations: any = {
   en: {
@@ -20,10 +21,10 @@ const translations: any = {
     cta: "सफलता की कहानियाँ पढ़ें →",
   },
   mar: {
-    heroTitle: "विविध उद्योगांमधील नेत्यांकडून वि���्वास",
+    heroTitle: "विविध उद्योगांमधील नेत्यांकडून विश्वास",
     heroSubtitle:
       "कारण जाणून घ्या का व्यावसायिक त्यांच्या ग्राहकांच्या प्रवास पूर्ण करण्यासाठी आमच्या समाधानांवर विश्वास ठेवतात.",
-    cta: "यशोगाथा वाचा →",
+    cta: "यशोगाथा वाचा ���",
   },
 };
 
