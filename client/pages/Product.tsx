@@ -37,7 +37,7 @@ const productTranslations: any = {
     },
     mar: {
       title: "विशेषीकृत इन्वेस्टम��ंट फंड (SIF)",
-      subtitle: "विशेषीकृत गुंतवणूक धोरणांसाठी संरचित फंड।",
+      subtitle: "विशेषीकृ��� गुंतवणूक धोरणांसाठी संरचित फंड।",
       features: ["सानुकूल रचना", "नियमांचे पालन", "तपशीलवार रिपोर्ट्स"],
     },
   },
@@ -55,7 +55,7 @@ const productTranslations: any = {
     mar: {
       title: "मार्केट लिंक्ड डिबेंचर (MLD)",
       subtitle: "बाजार निर्देशांकांशी संबंधित फिक्स्ड-इनकम साधने।",
-      features: ["उच्��� परतावा", "बाजाराशी संबंधित लाभ", "निर्धारित कालावधी"],
+      features: ["उच्��� परतावा", "बाजाराशी संबं���ित लाभ", "निर्धारित कालावधी"],
     },
   },
   "gift-city": {
@@ -99,7 +99,7 @@ const productTranslations: any = {
       features: ["Stable returns", "Flexible tenors", "Credit-rated options"],
     },
     hin: { title: "फिक्स्ड डिपॉजिट", subtitle: "स्थिर रिटर्न", features: ["स्थिर रिटर्न"] },
-    mar: { title: "फिक्स्ड डिपॉझिट", subtitle: "स्थिर परतावा", features: ["स्थिर परतावा"] },
+    mar: { title: "���िक्स्ड डिपॉझिट", subtitle: "स्थिर परतावा", features: ["स्थिर परतावा"] },
   },
   pms: {
     en: { title: "PMS", subtitle: "Portfolio Management Services for high net-worth investors.", features: ["Customized portfolios", "Dedicated manager"] },
@@ -113,7 +113,7 @@ const productTranslations: any = {
   },
   nps: {
     en: { title: "NPS", subtitle: "National Pension System", features: ["Retirement-focused"] },
-    hin: { title: "NPS", subtitle: "नेशनल पेंशन सिस्टम", features: ["रिटायरमेंट-फोकस्ड"] },
+    hin: { title: "NPS", subtitle: "नेशनल पेंशन सिस्ट��", features: ["रिटायरमेंट-फोकस्ड"] },
     mar: { title: "NPS", subtitle: "नॅशनल पेन्शन सिस्टम", features: ["रिटायरमेंट-���ोकस्ड"] },
   },
   bond: {
@@ -155,6 +155,58 @@ export default function Product() {
       SebiSubCategoryId: "",
       DefaultProductId: "1",
     };
+
+    // Sample fallback data (from provided API response) used in preview environments
+    const SAMPLE_SCHEMES = [
+      {
+        Product_category_id: 17,
+        UniqueNo: "493",
+        SchemeName: "INVESCO INDIA PSU EQUITY FUND",
+        SchemeType: "Equity: Sectoral/ Thematic",
+        NAV_Value: 60.96,
+        OneYearReturn: -10.25,
+        ThreeYearReturn: 28.25,
+        SinceInceptionReturn: 12.81,
+        SIPFLAG: "Y",
+        StartDate: "2010-07-19",
+        ExitLoad: "0",
+        InvestURL: "https://nivesh.app.link/vObimin3hMb",
+      },
+      {
+        Product_category_id: 1,
+        UniqueNo: "34777",
+        SchemeName: "BANDHAN SMALL CAP FUND",
+        SchemeType: "Equity: Small Cap Fund",
+        NAV_Value: 45.969,
+        OneYearReturn: -3.81,
+        ThreeYearReturn: 28.22,
+        SinceInceptionReturn: 35.67,
+        SIPFLAG: "Y",
+        StartDate: "2020-02-26",
+        ExitLoad: "0",
+        InvestURL: "https://nivesh.app.link/NcdeikTUgub",
+      },
+      {
+        Product_category_id: 18,
+        UniqueNo: "875",
+        SchemeName: "INVESCO INDIA MIDCAP FUND",
+        SchemeType: "Equity: Mid Cap Fund",
+        NAV_Value: 180.34,
+        OneYearReturn: 8.65,
+        ThreeYearReturn: 26.92,
+        SinceInceptionReturn: 15.11,
+        SIPFLAG: "Y",
+        StartDate: "2010-07-19",
+        ExitLoad: "0",
+        InvestURL: "https://nivesh.app.link/oR9VNTUUgub",
+      },
+    ];
+
+    // If running in Builder preview or similar restricted environment, use sample data to avoid network/CORS issues
+    if (typeof window !== "undefined" && window.location && window.location.hostname && window.location.hostname.includes("projects.builder.codes")) {
+      setSchemes(SAMPLE_SCHEMES);
+      return;
+    }
 
     let cancelled = false;
     const fetchSchemes = async () => {
