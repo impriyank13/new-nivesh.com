@@ -49,27 +49,27 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="w-full max-w-7xl pt-6">
+      <section className="w-full">
         <div className="w-full bg-white rounded-2xl shadow-sm p-6">
           <CardCarousel showTitle={true} />
         </div>
       </section>
 
-      <section className="w-full max-w-7xl">
+      <section className="w-full">
         <div className="w-full bg-white rounded-2xl shadow-sm p-6">
           <StepsOrbit />
         </div>
       </section>
 
-      <section className="w-full max-w-7xl">
+      <section className="w-full">
         <Benefits />
       </section>
 
-      <section className="w-full max-w-7xl">
+      <section className="w-full">
         <Testimonials />
       </section>
 
-      <section className="w-full max-w-7xl">
+      <section className="w-full">
         <AwardsMarquee />
       </section>
     </main>
