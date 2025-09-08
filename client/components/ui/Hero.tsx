@@ -51,14 +51,19 @@ export default function Hero() {
   const bgImage = images[index];
 
   return (
-    <section
-      className="relative h-screen w-full flex items-center"
-      style={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <section className="relative h-screen w-full flex items-center">
+      {/* Background layers (crossfade) */}
+      {images.map((img, i) => (
+        <motion.div
+          key={img + i}
+          className="absolute inset-0 bg-center bg-cover"
+          style={{ backgroundImage: `url(${img})` }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: i === index ? 1 : 0 }}
+          transition={{ duration: 1 }}
+        />
+      ))}
+
       {/* Overlay to give background 50% opacity */}
       <div className="absolute inset-0 bg-black/50" />
 
