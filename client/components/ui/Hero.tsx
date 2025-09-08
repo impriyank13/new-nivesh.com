@@ -101,18 +101,6 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          <motion.div
-            className="hidden md:flex items-center justify-center relative"
-            variants={imageVariant}
-            style={{ perspective: 800 }}
-          >
-            {/* decorative image on right (no floating) */}
-            <img
-              src={images[(index + 1) % images.length]}
-              alt="Hero"
-              className="w-full max-w-md rounded-xl shadow-xl object-cover"
-            />
-          </motion.div>
         </div>
       </motion.div>
     </section>
