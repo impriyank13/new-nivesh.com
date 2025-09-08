@@ -277,7 +277,7 @@ export default function NavBar() {
         {/* Mobile menu panel */}
         {open && (
           <div className="md:hidden mt-2 pb-4">
-            <div className="bg-white rounded-lg shadow-md p-4 flex flex-col space-y-3">
+            <div className={`${mobileMenuBg} rounded-lg shadow-md p-4 flex flex-col space-y-3`}>
               {navItems.map((n) => (
                 <div key={n.to}>
                   {n.key === "products" ? (
