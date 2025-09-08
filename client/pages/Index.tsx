@@ -24,7 +24,7 @@ const translations: any = {
     heroTitle: "विविध उद्योगांमधील नेत्यांकडून विश्वास",
     heroSubtitle:
       "कारण जाणून घ्या का व्यावसायिक त्यांच्या ग्राहकांच्या प्रवास पूर्ण करण्यासाठी आमच्या समाधानांवर विश्वास ठेवतात.",
-    cta: "यशोगाथा वाचा ���",
+    cta: "यशोगाथा वाचा →",
   },
 };
 
@@ -45,7 +45,7 @@ export default function Index() {
       <section className="w-full">
         <div className="w-full">
           {/* Hero component */}
-          <import-placeholder />
+          <Hero />
         </div>
       </section>
 
