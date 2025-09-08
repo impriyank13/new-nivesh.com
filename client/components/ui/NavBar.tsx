@@ -113,7 +113,7 @@ export default function NavBar() {
                         setPartnerOpen(false);
                       }}
                       aria-expanded={productsOpen}
-                      className="text-sm font-medium text-slate-700 hover:text-slate-900 inline-flex items-center gap-1"
+                      className="text-sm font-medium text-slate-700 inline-flex items-center gap-1 px-3 py-1 rounded-md transition-transform transform hover:scale-105 hover:bg-white/20"
                     >
                       <span>{n.label}</span>
                       <svg
