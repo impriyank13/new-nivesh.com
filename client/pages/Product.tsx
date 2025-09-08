@@ -138,6 +138,8 @@ export default function Product() {
   const [schemes, setSchemes] = useState<any[]>([]);
   const [schemesLoading, setSchemesLoading] = useState(false);
   const [schemesError, setSchemesError] = useState<string | null>(null);
+  const [flipped, setFlipped] = useState<Record<string, boolean>>({});
+  const toggleFlip = (id: string) => setFlipped((p) => ({ ...p, [id]: !p[id] }));
 
   useEffect(() => {
     if (prod !== "mutual-funds") return;
