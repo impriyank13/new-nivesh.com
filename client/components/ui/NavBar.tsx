@@ -56,7 +56,7 @@ export default function NavBar() {
   // determine if we're on the hero/index page so navbar can adapt to hero gradient
   const isHero = /^\/(?:en|hin|mar)?\/?$/.test(location);
 
-  const linkTextClass = isHero ? "text-white" : "text-slate-700";
+  const linkTextClass = "text-white";
   const chevronClass = isHero ? "text-white/80" : "text-slate-500";
   const navButtonHoverBg = isHero ? "hover:bg-white/10" : "hover:bg-white/20";
   const dropdownBgClass = isHero ? "bg-black/70 text-white" : "bg-white text-slate-700";
