@@ -47,6 +47,24 @@ export default function Hero() {
     return () => clearInterval(id);
   }, []);
 
+  // set a CSS variable used by the NavBar for a matching gradient
+  const gradients = [
+    "linear-gradient(90deg, rgba(2,6,23,0.7), rgba(2,6,23,0.2))",
+    "linear-gradient(90deg, rgba(3,37,65,0.7), rgba(3,37,65,0.18))",
+    "linear-gradient(90deg, rgba(6,18,48,0.68), rgba(6,18,48,0.18))",
+    "linear-gradient(90deg, rgba(12,8,40,0.7), rgba(12,8,40,0.18))",
+    "linear-gradient(90deg, rgba(22,28,36,0.7), rgba(22,28,36,0.18))",
+  ];
+
+  useEffect(() => {
+    const g = gradients[index % gradients.length];
+    try {
+      document.documentElement.style.setProperty("--hero-navbar-bg", g);
+    } catch (e) {
+      // ignore
+    }
+  }, [index]);
+
   // split headline into words for staggered animation
   const headlineWords = useMemo(() => texts[index].title.split(" "), [index]);
 
