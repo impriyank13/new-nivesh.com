@@ -248,7 +248,7 @@ export default function NavBar() {
             <button
               aria-label="Toggle menu"
               onClick={() => setOpen((v) => !v)}
-              className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-slate-700 hover:bg-slate-100"
+              className={`md:hidden inline-flex items-center justify-center p-2 rounded-lg ${linkTextClass} hover:bg-white/10` }
             >
               <svg
                 width="20"
