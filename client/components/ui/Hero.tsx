@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
@@ -12,23 +12,28 @@ const images = [
 const texts = [
   {
     title: "Build smarter investments with Nivesh",
-    subtitle: "Modern distribution tools, curated products and onboarding that help you scale AUM and serve clients better.",
+    subtitle:
+      "Modern distribution tools, curated products and onboarding that help you scale AUM and serve clients better.",
   },
   {
     title: "Digitize distribution for mutual funds and advisors",
-    subtitle: "Streamline client onboarding, compliance and reporting with our secure fintech platform.",
+    subtitle:
+      "Streamline client onboarding, compliance and reporting with our secure fintech platform.",
   },
   {
     title: "Data-driven insights to grow AUM",
-    subtitle: "Real-time dashboards and performance analytics to help you advise clients confidently.",
+    subtitle:
+      "Real-time dashboards and performance analytics to help you advise clients confidently.",
   },
   {
     title: "API-powered integrations for seamless workflows",
-    subtitle: "Integrate portfolio, KYC and payments to reduce manual work and speed up onboarding.",
+    subtitle:
+      "Integrate portfolio, KYC and payments to reduce manual work and speed up onboarding.",
   },
   {
     title: "Trusted infrastructure for wealth management",
-    subtitle: "Enterprise-grade security, compliance-ready processes, and 24/7 support for advisors.",
+    subtitle:
+      "Enterprise-grade security, compliance-ready processes, and 24/7 support for advisors.",
   },
 ];
 
@@ -42,16 +47,38 @@ export default function Hero() {
     return () => clearInterval(id);
   }, []);
 
-  const headlineVariant = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-    exit: { opacity: 0, y: -10, transition: { duration: 0.4 } },
+  // split headline/sub into words for staggered animation
+  const headlineWords = useMemo(() => texts[index].title.split(" "), [index]);
+  const subtitleWords = useMemo(() => texts[index].subtitle.split(" "), [index]);
+
+  // approximated CTA delay so it fades in after headline+subtitle animation
+  const ctaDelay = useMemo(() => {
+    const headlineStagger = Math.max(0, headlineWords.length - 1) * 0.2;
+    const subtitleStagger = Math.max(0, subtitleWords.length - 1) * 0.2;
+    // headline duration 0.6, subtitle delay 0.3 + duration 0.6
+    return 0.6 + 0.3 + headlineStagger + subtitleStagger * 0.25; // weighted a bit to keep timing reasonable
+  }, [headlineWords.length, subtitleWords.length]);
+
+  const wordVariant = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
   };
 
-  const subtitleVariant = {
-    initial: { opacity: 0, y: 10 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.12 } },
-    exit: { opacity: 0, y: -6, transition: { duration: 0.35 } },
+  const subWordVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    exit: { opacity: 0, y: -12, transition: { duration: 0.35, ease: "easeIn" } },
+  };
+
+  const headlineContainer = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.2 } },
+  };
+
+  const subtitleContainer = {
+    hidden: {},
+    visible: { transition: { delay: 0.3, staggerChildren: 0.2 } },
   };
 
   return (
@@ -68,39 +95,59 @@ export default function Hero() {
         />
       ))}
 
-      {/* Overlay to give background 50% opacity */}
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/55" />
 
       <div className="relative max-w-7xl mx-auto w-full px-6 md:px-8 flex items-center">
         <div className="w-full flex items-center justify-center">
-          <div className="flex flex-col items-center justify-center text-center max-w-3xl">
+          <div className="flex flex-col items-center justify-center text-center max-w-3xl px-4">
             <AnimatePresence mode="wait">
               <motion.h1
                 key={`title-${index}`}
-                className="text-4xl md:text-6xl font-extrabold leading-tight text-white"
-                variants={headlineVariant}
-                initial="initial"
-                animate="animate"
-                exit="exit"
+                className="text-4xl md:text-6xl font-extrabold leading-tight text-white font-sans"
+                variants={headlineContainer}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                aria-label={texts[index].title}
               >
-                {texts[index].title}
+                {headlineWords.map((w, i) => (
+                  <motion.span
+                    key={w + i}
+                    variants={wordVariant}
+                    className={`inline-block mr-2`} 
+                    aria-hidden={false}
+                  >
+                    {w}
+                  </motion.span>
+                ))}
               </motion.h1>
             </AnimatePresence>
 
             <AnimatePresence mode="wait">
               <motion.p
                 key={`sub-${index}`}
-                className="mt-4 text-lg md:text-xl text-white/90 max-w-xl"
-                variants={subtitleVariant}
-                initial="initial"
-                animate="animate"
-                exit="exit"
+                className="mt-4 text-lg md:text-xl text-white/90 max-w-xl font-sans"
+                variants={subtitleContainer}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                aria-label={texts[index].subtitle}
               >
-                {texts[index].subtitle}
+                {subtitleWords.map((w, i) => (
+                  <motion.span key={w + i} variants={subWordVariant} className="inline-block mr-2">
+                    {w}
+                  </motion.span>
+                ))}
               </motion.p>
             </AnimatePresence>
 
-            <motion.div className="mt-6 flex gap-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+            <motion.div
+              className="mt-6 flex gap-4"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: ctaDelay }}
+            >
               <motion.a
                 href="#"
                 whileHover={{ scale: 1.05 }}
