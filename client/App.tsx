@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Product from "./pages/Product";
+import Partner from "./pages/Partner";
 import NavBar from "./components/ui/NavBar";
 import Footer from "./components/ui/Footer";
 
