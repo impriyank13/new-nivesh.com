@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const productTranslations: any = {
   "mutual-funds": {
@@ -47,7 +48,7 @@ const productTranslations: any = {
       features: ["Attractive yields", "Market-linked upside", "Defined tenor"],
     },
     hin: {
-      title: "मार्केट लिंक्ड डेबेंचर (MLD)",
+      title: "मार्केट लिंक्ड डेबे���चर (MLD)",
       subtitle: "बाजार सूचकांक या संदर्भ संपत्ति से संबंधित फिक्स्ड-इनकम उपकरण।",
       features: ["आकर्षक रिटर्न", "बाजार-लिंक्ड संभावित लाभ", "समय-सीमा"],
     },
@@ -66,7 +67,7 @@ const productTranslations: any = {
     hin: {
       title: "गिफ्ट सिटी",
       subtitle: "भार��� के अंतर्राष्ट्रीय वित्तीय केंद्र के लिए निवेश और सेवाएँ।",
-      features: ["नियामक लाभ", "अंतरराष्��्रीय निवेशक", "प्रतिस्पर्धी लागत"],
+      features: ["नियामक लाभ", "अंतरराष्ट्रीय निवेशक", "प्रतिस्पर्धी लागत"],
     },
     mar: {
       title: "गिफ्ट सिटी",
@@ -86,8 +87,8 @@ const productTranslations: any = {
       features: ["प्रारंभिक चरण पहुंच", "क्यूरेटेड डील्स", "डिव-डिल समर्थन"],
     },
     mar: {
-      title: "अनलिस्टेड शेअर्स",
-      subtitle: "क्युरेटेड अनलिस्टेड ���ुंतवणूक संधींना प्रवेश।",
+      title: "अनलिस्टेड शेअर्���",
+      subtitle: "क्युरेटेड अनलिस्टेड गुंतवणूक संधींना प्रवेश।",
       features: ["लवकर प्रवेश", "क्युरेटेड डील्स", "ड्यू डिलिजन्स"],
     },
   },
@@ -103,7 +104,7 @@ const productTranslations: any = {
   pms: {
     en: { title: "PMS", subtitle: "Portfolio Management Services for high net-worth investors.", features: ["Customized portfolios", "Dedicated manager"] },
     hin: { title: "PMS", subtitle: "हाई नेट-वर्थ के लिए पोर्टफोलियो प्रबंधन", features: ["कस्टम पोर्टफोलियो"] },
-    mar: { title: "PMS", subtitle: "हाय नेट-वर्थसाठी पोर्टफोलिओ मॅनेजमें���", features: ["सानुकूल पोर्टफोलिओ"] },
+    mar: { title: "PMS", subtitle: "हाय नेट-वर्थसाठी पोर्टफोलिओ मॅनेजमेंट", features: ["सानुकूल पोर्टफोलिओ"] },
   },
   aif: {
     en: { title: "AIF", subtitle: "Alternative Investment Funds", features: ["Strategies", "Specialised managers"] },
@@ -117,7 +118,7 @@ const productTranslations: any = {
   },
   bond: {
     en: { title: "Bond", subtitle: "Fixed income securities", features: ["Steady income", "Credit-rated options"] },
-    hin: { title: "बॉन्ड", subtitle: "फिक्स्ड-इनकम सिक्योरिटीज" },
+    hin: { title: "��ॉन्ड", subtitle: "फिक्स्ड-इनकम सिक्योरिटीज" },
     mar: { title: "बॉन्ड", subtitle: "फिक्स्ड-इनकम सिक्योरिटीज" },
   },
   las: {
