@@ -38,7 +38,7 @@ export default function NavBar() {
   const langs = [
     { code: "en", label: "EN" },
     { code: "hin", label: "हिन्दी" },
-    { code: "mar", label: "मराठी" },
+    { code: "mar", label: "मरा��ी" },
   ];
 
   const navigate = useNavigate();
@@ -219,7 +219,7 @@ export default function NavBar() {
                 aria-label="Select language"
                 value={lang}
                 onChange={(e) => changeLang(e.target.value)}
-                className="bg-transparent text-sm text-slate-700 p-1 rounded"
+                className={`bg-transparent text-sm ${linkTextClass} p-1 rounded` }
               >
                 {langs.map((l) => (
                   <option key={l.code} value={l.code}>
