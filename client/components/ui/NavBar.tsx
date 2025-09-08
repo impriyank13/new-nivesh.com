@@ -228,7 +228,7 @@ export default function NavBar() {
               Sign in
             </Link>
             <a
-              href="http://localhost:3000/partner_onboarding"
+              href="https://app.nivesh.com/partner_onboarding"
               className="inline-flex items-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold shadow"
               onClick={() => setOpen(false)}
             >
@@ -386,7 +386,7 @@ export default function NavBar() {
                   Sign in
                 </Link>
                 <a
-                  href="http://localhost:3000/partner_onboarding"
+                  href="https://app.nivesh.com/partner_onboarding"
                   className="block text-sm font-semibold bg-black text-white px-4 py-2 rounded-full text-center"
                   onClick={() => setOpen(false)}
                 >
