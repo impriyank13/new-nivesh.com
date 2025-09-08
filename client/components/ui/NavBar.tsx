@@ -238,7 +238,7 @@ export default function NavBar() {
             </a>
             <a
               href="https://app.nivesh.com/partner_onboarding"
-              className="inline-flex items-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold shadow"
+              className={isHero ? "inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold shadow transform scale-105 bg-white/10 text-white ring-1 ring-white/20" : "inline-flex items-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold shadow" }
               onClick={() => setOpen(false)}
             >
               Get Started
