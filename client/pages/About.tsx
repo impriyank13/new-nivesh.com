@@ -498,6 +498,10 @@ export default function About() {
             </div>
           </div>
         </section>
+
+        <section className="mb-20">>
+          <AwardsMarquee />
+        </section>
       </div>
     </main>
   );
