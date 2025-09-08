@@ -134,12 +134,12 @@ export default function NavBar() {
                     >
                       {productsList.map((p) => (
                         <Link
-                          key={p}
-                          to={buildPath("/products")}
+                          key={p.key}
+                          to={buildPath(`/products/${p.key}`)}
                           className="block text-sm py-1 hover:text-slate-900"
                           onClick={() => setProductsOpen(false)}
                         >
-                          {p}
+                          {p.label}
                         </Link>
                       ))}
                     </div>
