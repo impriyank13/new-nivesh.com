@@ -66,7 +66,7 @@ const productTranslations: any = {
     hin: {
       title: "गिफ्ट सिटी",
       subtitle: "भार��� के अंतर्राष्ट्रीय वित्तीय केंद्र के लिए निवेश और सेवाएँ।",
-      features: ["नियामक लाभ", "अंतरराष्ट्रीय निवेशक", "प्रतिस्पर्धी लागत"],
+      features: ["नियामक लाभ", "अंतरराष्��्रीय निवेशक", "प्रतिस्पर्धी लागत"],
     },
     mar: {
       title: "गिफ्ट सिटी",
@@ -87,7 +87,7 @@ const productTranslations: any = {
     },
     mar: {
       title: "अनलिस्टेड शेअर्स",
-      subtitle: "क्युरेटेड अनलिस्टेड गुंतवणूक संधींना प्रवेश।",
+      subtitle: "क्युरेटेड अनलिस्टेड ���ुंतवणूक संधींना प्रवेश।",
       features: ["लवकर प्रवेश", "क्युरेटेड डील्स", "ड्यू डिलिजन्स"],
     },
   },
@@ -103,7 +103,7 @@ const productTranslations: any = {
   pms: {
     en: { title: "PMS", subtitle: "Portfolio Management Services for high net-worth investors.", features: ["Customized portfolios", "Dedicated manager"] },
     hin: { title: "PMS", subtitle: "हाई नेट-वर्थ के लिए पोर्टफोलियो प्रबंधन", features: ["कस्टम पोर्टफोलियो"] },
-    mar: { title: "PMS", subtitle: "हाय नेट-वर्थसाठी पोर्टफोलिओ मॅनेजमेंट", features: ["सानुकूल पोर्टफोलिओ"] },
+    mar: { title: "PMS", subtitle: "हाय नेट-वर्थसाठी पोर्टफोलिओ मॅनेजमें���", features: ["सानुकूल पोर्टफोलिओ"] },
   },
   aif: {
     en: { title: "AIF", subtitle: "Alternative Investment Funds", features: ["Strategies", "Specialised managers"] },
@@ -137,32 +137,85 @@ export default function Product() {
   return (
     <main className="py-12">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <div className="mb-8">
+        <div className="mb-6">
           <Link to={`/${lang}/`} className="text-sm text-slate-500 hover:underline">
             Back
           </Link>
         </div>
 
-        <header className="bg-white p-6 rounded-lg shadow-sm mb-8">
-          <h1 className="text-3xl font-extrabold mb-2">{t("title")}</h1>
-          <p className="text-slate-400">{t("subtitle")}</p>
-        </header>
+        {/* Hero */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white p-6 rounded-lg shadow-sm mb-8">
+          <div>
+            <h1 className="text-4xl leading-tight font-extrabold mb-4">{t("title")}</h1>
+            <p className="text-lg text-slate-600 mb-6">{t("subtitle")}</p>
 
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {(content[lang]?.features || content["en"]?.features || []).map((f: string) => (
-            <div key={f} className="bg-white rounded-lg border border-slate-200 p-6 text-center shadow-sm">
-              <div className="font-semibold mb-2">{f}</div>
-              <p className="text-sm text-slate-500">Learn more about {f.toLowerCase()}.</p>
+            <ul className="space-y-3 mb-6">
+              {(content[lang]?.features || content["en"]?.features || []).map((f: string) => (
+                <li key={f} className="flex items-start gap-3">
+                  <span className="mt-1 inline-flex h-3 w-3 rounded-full bg-slate-900" />
+                  <span className="text-sm text-slate-700">{f}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a href="https://app.nivesh.com/partner_onboarding" className="inline-flex items-center justify-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold">Get Started</a>
+              <Link to={`/${lang}/`} className="inline-flex items-center justify-center border border-slate-200 text-slate-700 rounded-full px-4 py-2 text-sm">Speak to an expert</Link>
             </div>
-          ))}
+          </div>
+
+          <div className="flex items-center justify-center">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fplaceholder.svg?width=800" alt={t("title")} className="w-full max-w-md object-contain" />
+          </div>
         </section>
 
-        <section className="mt-8">
-          <div className="bg-white rounded-lg border border-slate-200 p-6 shadow-sm">
-            <h2 className="text-xl font-semibold mb-3">Get Started</h2>
-            <p className="text-slate-600 mb-4">For onboarding and detailed product documentation, visit our partner portal.</p>
-            <a href="https://app.nivesh.com/partner_onboarding" className="inline-flex items-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold">Get Started</a>
+        {/* Product details / benefits */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="md:col-span-2 bg-white rounded-lg border border-slate-200 p-6 shadow-sm">
+            <h2 className="text-2xl font-semibold mb-4">Why choose {t("title")}</h2>
+            <p className="text-slate-600 mb-4">Our platform helps distributors access diversified mutual fund solutions with best-in-class technology and support.</p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {(content[lang]?.features || content["en"]?.features || []).map((f: string) => (
+                <div key={f} className="flex items-start gap-3 bg-slate-50 p-4 rounded">
+                  <div className="h-10 w-10 flex items-center justify-center rounded bg-white border">
+                    <svg className="w-5 h-5 text-slate-700" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-semibold">{f}</div>
+                    <div className="text-sm text-slate-500">Learn more about how we deliver {f.toLowerCase()}.</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
+
+          <aside className="bg-white rounded-lg border border-slate-200 p-6 shadow-sm">
+            <h3 className="font-semibold mb-3">Quick facts</h3>
+            <dl className="text-sm text-slate-700 space-y-3">
+              <div>
+                <dt className="font-medium">AUM</dt>
+                <dd className="text-slate-500">19.5cr+</dd>
+              </div>
+              <div>
+                <dt className="font-medium">Partners</dt>
+                <dd className="text-slate-500">100+</dd>
+              </div>
+              <div>
+                <dt className="font-medium">Experience</dt>
+                <dd className="text-slate-500">8 yrs</dd>
+              </div>
+            </dl>
+          </aside>
+        </section>
+
+        {/* CTA block */}
+        <section className="bg-white rounded-lg border border-slate-200 p-6 shadow-sm text-center">
+          <h3 className="text-xl font-semibold mb-3">Ready to onboard?</h3>
+          <p className="text-slate-600 mb-4">Start the partner onboarding process and get access to product documentation, onboarding kits and support.</p>
+          <a href="https://app.nivesh.com/partner_onboarding" className="inline-flex items-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold">Get Started</a>
         </section>
       </div>
     </main>
