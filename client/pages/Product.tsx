@@ -16,11 +16,11 @@ const productTranslations: any = {
     hin: {
       title: "म्यूचुअल फंड",
       subtitle: "विभिन्न जोखिम प्रोफाइल और लक्ष्यों के लिए म्यूचुअल फंड समाधान।",
-      features: ["��िविध पोर्टफोलियो", "SIP", "टैक्स-इफिशिएंसी"],
+      features: ["विविध पोर्टफोलियो", "SIP", "टैक्स-इफिशिएंसी"],
     },
     mar: {
       title: "म्युच्युअल फंड",
-      subtitle: "विविध जोखीम प्रोफाइल व उद्देशांसाठी म्युच्युअल फंड उपाय।",
+      subtitle: "विविध जोखीम प्र��फाइल व उद्देशांसाठी म्युच्युअल फंड उपाय।",
       features: ["विविध प��र्टफोलियो", "SIP", "कर-अनुकूल"],
     },
   },
@@ -37,7 +37,7 @@ const productTranslations: any = {
     },
     mar: {
       title: "विशेषीकृत इन्वेस्टम��ंट फंड (SIF)",
-      subtitle: "विशेषीकृत गुंतवणू�� धोरणांसाठी संरचित फंड।",
+      subtitle: "विशेषीकृत गुंतवणूक धोरणांसाठी संरचित फंड।",
       features: ["सानुकूल रचना", "नियमांचे पालन", "तपशीलवार रिपोर्ट्स"],
     },
   },
@@ -55,7 +55,7 @@ const productTranslations: any = {
     mar: {
       title: "मार्केट लिंक्ड डिबेंचर (MLD)",
       subtitle: "बाजार निर्देशांकांशी संबंधित फिक्स्ड-इनकम साधने।",
-      features: ["उच्��� परतावा", "बाजाराशी संबंधित लाभ", "��िर्धारित कालावधी"],
+      features: ["उच्��� परतावा", "बाजाराशी संबंधित लाभ", "निर्धारित कालावधी"],
     },
   },
   "gift-city": {
@@ -113,7 +113,7 @@ const productTranslations: any = {
   },
   nps: {
     en: { title: "NPS", subtitle: "National Pension System", features: ["Retirement-focused"] },
-    hin: { title: "NPS", subtitle: "नेशनल पेंशन सिस्टम", features: ["��िटायरमेंट-फोकस्ड"] },
+    hin: { title: "NPS", subtitle: "नेशनल पेंशन सिस्टम", features: ["रिटायरमेंट-फोकस्ड"] },
     mar: { title: "NPS", subtitle: "नॅशनल पेन्शन सिस्टम", features: ["रिटायरमेंट-���ोकस्ड"] },
   },
   bond: {
@@ -161,7 +161,7 @@ export default function Product() {
       setSchemesLoading(true);
       setSchemesError(null);
       try {
-        const res = await fetch("https://api.nivesh.com/API/getSchemesDataV2", {
+        const res = await fetch(`/api/getSchemes`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
