@@ -35,7 +35,7 @@ const productTranslations: any = {
       features: ["कस्टम संरचनाएँ", "नियमों का पालन", "रिपोर्टिंग"],
     },
     mar: {
-      title: "विशेषीकृत इन्वेस्टमेंट फंड (SIF)",
+      title: "विशेषीकृत इन्वेस्टम��ंट फंड (SIF)",
       subtitle: "विशेषीकृत गुंतवणूक धोरणांसाठी संरचित फंड।",
       features: ["सानुकूल रचना", "नियमांचे पालन", "तपशीलवार रिपोर्ट्स"],
     },
@@ -54,7 +54,7 @@ const productTranslations: any = {
     mar: {
       title: "मार्केट लिंक्ड डिबेंचर (MLD)",
       subtitle: "बाजार निर्देशांकांशी संबंधित फिक्स्ड-इनकम साधने।",
-      features: ["उच्च परतावा", "बाजाराशी संबंधित लाभ", "निर्धारित कालावधी"],
+      features: ["उच्��� परतावा", "बाजाराशी संबंधित लाभ", "निर्धारित कालावधी"],
     },
   },
   "gift-city": {
@@ -105,10 +105,26 @@ const productTranslations: any = {
     hin: { title: "PMS", subtitle: "हाई नेट-वर्थ के लिए पोर्टफोलियो प्रबंधन", features: ["कस्टम पोर्टफोलियो"] },
     mar: { title: "PMS", subtitle: "हाय नेट-वर्थसाठी पोर्टफोलिओ मॅनेजमेंट", features: ["सानुकूल पोर्टफोलिओ"] },
   },
-  aif: { en: { title: "AIF", subtitle: "Alternative Investment Funds", features: ["Strategies", "Specialised managers"] }, hin: { en: { title: "AIF" } },
-  nps: { en: { title: "NPS", subtitle: "National Pension System", features: ["Retirement-focused"] } },
-  bond: { en: { title: "Bond", subtitle: "Fixed income securities" } },
-  las: { en: { title: "Loan Against Securities (LAS)", subtitle: "Borrow against your investments" } },
+  aif: {
+    en: { title: "AIF", subtitle: "Alternative Investment Funds", features: ["Strategies", "Specialised managers"] },
+    hin: { title: "AIF", subtitle: "वैकल्पिक निवेश फंड", features: ["रणनीतियाँ", "विशेष प्रबंधक"] },
+    mar: { title: "AIF", subtitle: "अल्टरनेटिव इन्वेस्टमेंट फंड्स", features: ["स्ट्रॅटेजीज", "स्पेशालिस्ट मॅनेजर्स"] },
+  },
+  nps: {
+    en: { title: "NPS", subtitle: "National Pension System", features: ["Retirement-focused"] },
+    hin: { title: "NPS", subtitle: "नेशनल पेंशन सिस्टम", features: ["रिटायरमेंट-फोकस्ड"] },
+    mar: { title: "NPS", subtitle: "नॅशनल पेन्शन सिस्टम", features: ["रिटायरमेंट-फोकस्ड"] },
+  },
+  bond: {
+    en: { title: "Bond", subtitle: "Fixed income securities", features: ["Steady income", "Credit-rated options"] },
+    hin: { title: "बॉन्ड", subtitle: "फिक्स्ड-इनकम सिक्योरिटीज" },
+    mar: { title: "बॉन्ड", subtitle: "फिक्स्ड-इनकम सिक्योरिटीज" },
+  },
+  las: {
+    en: { title: "Loan Against Securities (LAS)", subtitle: "Borrow against your investments", features: ["Quick credit", "Competitive rates"] },
+    hin: { title: "लोन एगेन्स्ट सिक्योरिटीज", subtitle: "अपने निवेश के खिलाफ उधार" },
+    mar: { title: "लोन अगेंस्ट सिक्योरिटीज", subtitle: "तुमच्या गुंतवणुकीविरुद्ध कर्ज" },
+  },
 };
 
 export default function Product() {
