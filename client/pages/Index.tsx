@@ -54,9 +54,7 @@ export default function Index() {
       </section>
 
       <section className="w-full max-w-7xl">
-        <div className="w-full bg-white rounded-2xl shadow-sm p-6">
           <StepsOrbit />
-        </div>
       </section>
 
       <section className="w-full max-w-7xl">
