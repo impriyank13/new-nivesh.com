@@ -29,7 +29,7 @@ export default function TeamCard({
             target="_blank"
             rel="noreferrer"
             aria-label={`Open ${name} on LinkedIn`}
-            className="inline-flex items-center justify-center w-9 h-9 bg-white/6 rounded-full text-slate-200 hover:bg-blue-700 hover:text-white transition-colors"
+            className="inline-flex items-center justify-center w-9 h-9 bg-[#0a66c2] rounded-full text-white hover:bg-[#084a9e] hover:text-white transition-colors"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
