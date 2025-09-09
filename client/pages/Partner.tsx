@@ -36,7 +36,7 @@ const partnerTranslations: any = {
   "nism-certification": {
     en: { title: "NISM Certification", subtitle: "Get guidance and resources for NISM certification and training.", points: ["Course materials", "Exam prep", "Certification support"] },
     hin: { title: "NISM प्रमाणन", subtitle: "NISM प्रमाणन और प्रशिक्षण के लिए मार्गदर्शन और संसाधन प्राप्त करें।", points: ["कोर्स सामग्री", "परीक्षा तैयारी", "प्रमाणन समर्थन"] },
-    mar: { title: "NISM प्रमाणन", subtitle: "NISM प्रमाणन व प्रशिक्षणासाठी मार्गदर्शन व संसाधने मिळवा.", points: ["कोर्स मटेरियल", "परीक्षा तयारी", "प्रमाणन समर्थन"] },
+    mar: { title: "NISM प्रमाणन", subtitle: "NISM प्रमाणन व प्रशिक्षणासाठी मार्गदर्शन व संसाधने मिळवा.", points: ["कोर्स म���ेरियल", "परीक्षा तयारी", "प्रमाणन समर्थन"] },
   },
 };
 
@@ -55,7 +55,7 @@ export default function Partner() {
         </div>
 
         <header className="bg-white p-6 rounded-lg shadow-sm mb-8">
-          <h1 className="text-3xl font-extrabold mb-2">{t("title")}</h1>
+          <h1 className="text-3xl font-extrabold mb-2 text-[#0a66c2]">{t("title")}</h1>
           <p className="text-slate-400">{t("subtitle")}</p>
         </header>
 
