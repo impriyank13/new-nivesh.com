@@ -32,7 +32,7 @@ const productTranslations: any = {
     },
     hin: {
       title: "विशेषीकृत निवेश फंड (SIF)",
-      subtitle: "विश��षीकृत निवेश रणनीतियों के लिए संरचित फंड।",
+      subtitle: "विशेषीकृत निवेश रणनीतियों के लिए संरचित फंड।",
       features: ["कस्��म संरचनाएँ", "नियमों का पालन", "रिपोर्टिंग"],
     },
     mar: {
@@ -67,11 +67,11 @@ const productTranslations: any = {
     hin: {
       title: "गिफ्ट सिटी",
       subtitle: "भार��� के अंतर्राष्ट्रीय वित्तीय केंद्र के लिए निवेश और सेवाएँ।",
-      features: ["नियामक लाभ", "अंतरराष्ट्रीय निवेशक", "प्रतिस्पर्धी लागत"],
+      features: ["नियामक लाभ", "अंतरराष्ट्रीय निवेशक", "प्रतिस्प��्धी लागत"],
     },
     mar: {
       title: "गिफ्ट सिटी",
-      subtitle: "इंडियाच्या आ��तरराष्ट्रीय फायनान्शियल सेंटरसाठी गुंतवणूक व सेवा।",
+      subtitle: "इंडियाच्या आंतरराष्ट्रीय फायनान्शियल सेंटरसाठी गुंतवणूक व सेवा।",
       features: ["नियमिती फायदे", "आंतरराष्ट्रीय गुंतवणूक", "स्पर्धात्मक खर्च"],
     },
   },
@@ -104,7 +104,7 @@ const productTranslations: any = {
   pms: {
     en: { title: "PMS", subtitle: "Portfolio Management Services for high net-worth investors.", features: ["Customized portfolios", "Dedicated manager"] },
     hin: { title: "PMS", subtitle: "हाई नेट-वर्थ के लिए पोर्टफोलियो प्रबंधन", features: ["कस्टम पोर्टफोलियो"] },
-    mar: { title: "PMS", subtitle: "हाय नेट-वर्थ���ाठी पोर्टफोलिओ मॅनेजमेंट", features: ["सानुकूल पोर्टफोलिओ"] },
+    mar: { title: "PMS", subtitle: "हाय नेट-वर्थ���ाठी पोर्टफोलिओ मॅनेजमेंट", features: ["सानुकूल पोर्��फोलिओ"] },
   },
   aif: {
     en: { title: "AIF", subtitle: "Alternative Investment Funds", features: ["Strategies", "Specialised managers"] },
@@ -119,7 +119,7 @@ const productTranslations: any = {
   bond: {
     en: { title: "Bond", subtitle: "Fixed income securities", features: ["Steady income", "Credit-rated options"] },
     hin: { title: "बॉन्ड", subtitle: "फिक्स्ड-इनकम सिक्योरिटीज" },
-    mar: { title: "बॉन्ड", subtitle: "फिक्स्ड-इनकम सिक्योरिटीज" },
+    mar: { title: "बॉ���्ड", subtitle: "फिक्स्ड-इनकम सिक्योरिटीज" },
   },
   las: {
     en: { title: "Loan Against Securities (LAS)", subtitle: "Borrow against your investments", features: ["Quick credit", "Competitive rates"] },
@@ -453,7 +453,7 @@ export default function Product() {
         <section className="bg-white rounded-lg border border-slate-200 p-6 shadow-sm text-center">
           <h3 className="text-xl font-semibold mb-3">Ready to onboard?</h3>
           <p className="text-slate-600 mb-4">Start the partner onboarding process and get access to product documentation, onboarding kits and support.</p>
-          <a href="https://app.nivesh.com/partner_onboarding" className="inline-flex items-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold">Get Started</a>
+          <a href="https://app.nivesh.com/partner_onboarding" className="inline-flex items-center bg-[#0a66c2] text-white rounded-full px-4 py-2 text-sm font-semibold hover:bg-[#084a9e] transition">Get Started</a>
         </section>
       </div>
     </main>
