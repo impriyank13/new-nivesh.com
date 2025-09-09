@@ -227,6 +227,19 @@ export default function NavBar() {
                 );
               }
 
+              if (n.key === "blog") {
+                return (
+                  <a
+                    key={n.to}
+                    href="https://nivesh.com/blog/"
+                    className={`text-sm font-medium ${linkTextClass} px-3 py-1 rounded-md transition-transform transform hover:scale-105 ${navButtonHoverBg}`}
+                    onClick={() => setOpen(false)}
+                  >
+                    {n.label}
+                  </a>
+                );
+              }
+
               return (
                 <Link
                   key={n.to}
