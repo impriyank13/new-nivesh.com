@@ -404,8 +404,8 @@ export default function About() {
                     src={p.img}
                     alt={p.name}
                     className="object-contain mb-4"
-                    width="500px"
-                    height="500px"
+                    width="200px"
+                    height="200px"
                   />
                   <div className="font-semibold text-lg text-slate-900 mb-2">
                     {p.name}
