@@ -254,7 +254,7 @@ export default function Product() {
         </div>
 
         {/* Hero */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white p-6 rounded-lg shadow-sm mb-8">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-6 rounded-lg shadow-sm mb-8">
           <div>
             <h1 className="text-4xl leading-tight font-extrabold mb-4">{t("title")}</h1>
             <p className="text-lg text-slate-600 mb-6">{t("subtitle")}</p>
@@ -281,14 +281,14 @@ export default function Product() {
 
         {/* Product details / benefits */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="md:col-span-2 bg-white rounded-lg border border-slate-200 p-6 shadow-sm">
+          <div className="md:col-span-2 rounded-lg border border-slate-200 p-6 shadow-sm">
             <h2 className="text-2xl font-semibold mb-4">Why choose {t("title")}</h2>
             <p className="text-slate-600 mb-4">Our platform helps distributors access diversified mutual fund solutions with best-in-class technology and support.</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {(content[lang]?.features || content["en"]?.features || []).map((f: string) => (
                 <div key={f} className="flex items-start gap-3 bg-slate-50 p-4 rounded">
-                  <div className="h-10 w-10 flex items-center justify-center rounded bg-white border">
+                  <div className="h-10 w-10 flex items-center justify-center rounded border">
                     <svg className="w-5 h-5 text-slate-700" viewBox="0 0 24 24" fill="none">
                       <path d="M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -346,7 +346,7 @@ export default function Product() {
                       }}
                     >
                       {/* Front (show icon, name, NAV, all returns, invest + details) */}
-                      <div className="absolute inset-0 p-4 bg-white rounded-lg border border-slate-200 shadow-sm flex flex-col overflow-hidden" style={{ backfaceVisibility: "hidden" }}>
+                      <div className="absolute inset-0 p-4 rounded-lg border border-slate-200 shadow-sm flex flex-col overflow-hidden" style={{ backfaceVisibility: "hidden" }}>
                         <div className="flex items-start gap-3 mb-2">
                           <div className="h-10 w-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-700 flex-shrink-0">
                             {/* Simple icon: initials */}
@@ -396,7 +396,7 @@ export default function Product() {
 
                       {/* Back (full details) */}
                       <div
-                        className="absolute inset-0 p-4 bg-white rounded-lg border border-slate-200 shadow-sm overflow-auto"
+                        className="absolute inset-0 p-4 rounded-lg border border-slate-200 shadow-sm overflow-auto"
                         style={{
                           backfaceVisibility: "hidden",
                           transform: "rotateY(180deg)",
