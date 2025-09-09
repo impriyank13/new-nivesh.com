@@ -48,9 +48,9 @@ const translations: any = {
     stats: ["19.5crt+", "100+", "50+", "8 yrs"],
     statsLabels: ["घरेलू", "साझेदार", "पुरस्कार", "औसत अनुभव"],
     missionTitle: "हमारा मिशन",
-    missionText: "वित्तीय सेवाओं तक प���ुंच को लोकतांत्रित करना...",
+    missionText: "वित्तीय सेवाओं तक पहुंच को लोकतांत्रित करना...",
     visionTitle: "हमारी दृष्टि",
-    visionText: "एक भविष्य जहां वित्तीय योजना हर घर के लिए सुलभ हो।",
+    visionText: "एक भवि��्य जहां वित्तीय योजना हर घर के लिए सुलभ हो।",
     approachTitle: "दृष्टिकोण और प्रौद्योगिकी",
     approachText: "हमारा ऐप निवेशों को ट्रैक करने को सरल बनाता है।",
     awardsTitle: "पुरस्कार और मान्यता",
@@ -59,7 +59,7 @@ const translations: any = {
       "हम सुरक्षित, अनुपालन-आधारित और मानव-केंद्रित फिनटेक प्रदान करने के लिए प्रतिबद्ध हैं जो सलाहकारों को सशक्त बनाता है और निवेशकों की सुरक्षा करता है।",
     teamTitle: "हमारी टीम",
     teamText:
-      "प्रौद्योगिकी, उत्पाद और संचालन में अनुभवी नेताओं का एक विविध समूह जो सलाहकारों और उनके ग्राहकों की सेवा के लिए उत्पाद बनाता है।",
+      "प्रौद्योगिकी, उत्पाद और संचालन में अनुभवी नेताओं का एक विविध समूह जो सलाहकारों और उनके ग्राहकों की सेवा के लिए उत्पाद बनाता ह��।",
     investorsTitle: "निवेशक",
     investorsSubtitle:
       "हमारे महत्वाकांक्षी निवेशक जिन्होंने हमारे विज़न में विश्वास रखा है।",
@@ -72,7 +72,7 @@ const translations: any = {
   mar: {
     breadcrumb: ["मुखपृष्ठ", "आमची कथा"],
     title: "आमची कथा",
-    p1: "Nivesh हे एक पुरस्कार विजेता डिजिटल-प्रथम प्लॅटफॉर्म आहे जे स��वतंत्र म्युच्युअल फंड वितरकांना त्यांचे AUM वाढविण्यात मदत करते.",
+    p1: "Nivesh हे एक पुरस्कार विजेता डिजिटल-प्रथम प्लॅटफॉर्म आहे जे स्वतंत्र म्युच्युअल फंड वितरकांना त्यांचे AUM वाढविण्यात मदत करत��.",
     p2: "आमचा दृष्टिकोन IFAs साठी तंत्रज्ञान-समर्थित उपाय प्रदान करणे आहे.",
     speak: "तज्ञाशी बोला",
     solutions: "आपले सोल्यूशन्स पहा",
@@ -88,7 +88,7 @@ const translations: any = {
     awardsTitle: "पुरस्कार आणि मान्यता",
     commitmentTitle: "आमची बांधिलकी",
     commitmentText:
-      "आम्ही ���ुरक्षित, अनुपालन-अनुकूल आणि मानव-केंद्रित फिनटेक प्रदान करण्यात बांधील आहोत जे सल्लागारांना सशक्त करते आणि गुंतवणूकदारांचे संरक्षण करते.",
+      "आम्ही सुरक्षित, अनुपालन-अनुकूल आणि मानव-केंद्रित फिनटेक प्रदान करण्यात बांधील आहोत जे सल्लागारांना सशक्त करते आणि गुंतवणूकदारांचे संरक्षण करते.",
     teamTitle: "आमची टीम",
     teamText:
       "तंत्रज्ञान, उत्पादन आणि ऑपरेशन्समधील विविध नेतृत्व ज्यांनी अनेक वर्षांचा अनुभव घेऊन उत्पादने तयार केली आहेत.",
@@ -96,7 +96,7 @@ const translations: any = {
     investorsSubtitle:
       "आमच्या व्हिजनमध्ये विश्वास असलेल्या प्रमुख गुंतवणूकदारांनी आम्हाला समर्थन केले आहे.",
     investorsFooter:
-      "आणि इतर प्���मुख एंजल गुंतवणूकदार जे यशस्वी उद्योजक, व्हेंचर कॅपिटॅलिस्ट आणि फंड मॅनेजर आहेत",
+      "आणि इतर प्���मुख एंजल गुंतवणूकदार जे यशस्वी उद्योजक, व्हेंचर कॅपिटॅलिस्ट आणि फं�� मॅनेजर आहेत",
     partnersTitle: "आमचे भागीदार",
     partnersSubtitle:
       "आम्ही आमच्या पोहोच वाढविण्यासाठी आघाडीच्या आर्थिक संस्थांशी आणि भागीद���रांशी सहकार्य करतो.",
@@ -277,7 +277,7 @@ export default function About() {
         <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-12">
           <div className="md:col-span-7">
             <h1
-              className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-indigo-700"
+              className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-[#0a66c2]"
                           >
               {t("title")}
             </h1>
@@ -346,13 +346,13 @@ export default function About() {
         {/* Mission & Vision */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-12">
           <div>
-            <h3 className="text-xl font-bold mb-3 text-indigo-700">{t("missionTitle")}</h3>
+            <h3 className="text-xl font-bold mb-3 text-[#0a66c2]">{t("missionTitle")}</h3>
             <p className="text-slate-700 leading-relaxed">
               {t("missionText")}
             </p>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-3 text-indigo-700">{t("visionTitle")}</h3>
+            <h3 className="text-xl font-bold mb-3 text-[#0a66c2]">{t("visionTitle")}</h3>
             <p className="text-slate-700 leading-relaxed">
               {t("visionText")}
             </p>
@@ -361,7 +361,7 @@ export default function About() {
 
         {/* Team / approach */}
         <section className="mb-12">
-          <h3 className="text-2xl font-extrabold mb-6 text-indigo-700">{t("approachTitle")}</h3>
+          <h3 className="text-2xl font-extrabold mb-6 text-[#0a66c2]">{t("approachTitle")}</h3>
           <div className="bg-white rounded-lg p-6 shadow-md">
             <p className="text-slate-700 leading-relaxed">
               {t("approachText")}
@@ -398,7 +398,7 @@ export default function About() {
 
         {/* Team showcase */}
         <section className="mb-16">
-          <h3 className="text-2xl font-extrabold mb-6 text-indigo-700">{t("teamTitle")}</h3>
+          <h3 className="text-2xl font-extrabold mb-6 text-[#0a66c2]">{t("teamTitle")}</h3>
           <p className="text-slate-700 max-w-3xl mb-6">{t("teamText")}</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-stretch">
             {teamMembers.map((m) => (
