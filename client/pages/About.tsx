@@ -277,7 +277,7 @@ export default function About() {
         <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-12">
           <div className="md:col-span-7">
             <h1
-              className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-gold"
+              className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-black"
               style={{ color: "hsl(45 66% 72%)" }}
             >
               {t("title")}
