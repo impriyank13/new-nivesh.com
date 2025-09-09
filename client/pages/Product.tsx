@@ -33,7 +33,7 @@ const productTranslations: any = {
     hin: {
       title: "विशेषीकृत निवेश फंड (SIF)",
       subtitle: "विशेषीकृत निवेश रणनीतियों के लिए संरचित फंड।",
-      features: ["कस्टम संरचनाएँ", "नियमों का पालन", "रिपोर्टिंग"],
+      features: ["कस्��म संरचनाएँ", "नियमों का पालन", "रिपोर्टिंग"],
     },
     mar: {
       title: "विशेषीकृत इन्वेस्��म��ंट फंड (SIF)",
@@ -53,7 +53,7 @@ const productTranslations: any = {
       features: ["आकर्षक रिटर्न", "बाजार-लिंक्ड संभावित लाभ", "समय-सीमा"],
     },
     mar: {
-      title: "मार्केट लिंक्ड डिबेंचर (MLD)",
+      title: "मार्केट लिंक्ड ड��बेंचर (MLD)",
       subtitle: "बाजार निर्देशांकांशी संबंधित फिक्स्ड-इनकम साधने।",
       features: ["���च्��� परतावा", "बाजाराशी संबंधित लाभ", "निर्धारित कालावधी"],
     },
@@ -123,7 +123,7 @@ const productTranslations: any = {
   },
   las: {
     en: { title: "Loan Against Securities (LAS)", subtitle: "Borrow against your investments", features: ["Quick credit", "Competitive rates"] },
-    hin: { title: "लोन एगेन्स्ट सिक्योरिटीज", subtitle: "अपने निवेश के खिलाफ उधार" },
+    hin: { title: "लोन ���गेन्स्ट सिक्योरिटीज", subtitle: "अपने निवेश के खिलाफ उधार" },
     mar: { title: "लोन अगेंस्ट सिक्योरिटीज", subtitle: "तुमच्या गुंतवणुकीविरुद्ध कर्ज" },
   },
 };
@@ -245,7 +245,7 @@ export default function Product() {
   }, [prod, lang]);
 
   return (
-    <main className="py-12">
+    <main className="py-12 text-slate-800">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="mb-6">
           <Link to={`/${lang}/`} className="text-sm text-slate-500 hover:underline">
