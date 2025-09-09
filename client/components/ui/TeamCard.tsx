@@ -21,7 +21,7 @@ export default function TeamCard({
         className="w-24 h-24 rounded-full object-cover mb-3 border border-white/10"
       />
       <div className="text-sm font-semibold">{name}</div>
-      <div className="text-xs text-slate-400 mb-3">{title}</div>
+      <div className="text-xs text-slate-600 mb-3">{title}</div>
       <div>
         {linkedin ? (
           <a
