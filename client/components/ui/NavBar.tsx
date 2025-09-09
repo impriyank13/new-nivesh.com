@@ -5,6 +5,7 @@ export default function NavBar() {
   const [open, setOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [partnerOpen, setPartnerOpen] = useState(false);
+  const [atTop, setAtTop] = useState(true);
 
   const navItems = [
     { key: "home", label: "Home", to: "/" },
@@ -64,7 +65,6 @@ export default function NavBar() {
   const mobileMenuBg = isHero && atTop ? "bg-black/70 text-white" : "bg-white text-slate-700";
 
   const navRef = useRef<HTMLElement | null>(null);
-  const [atTop, setAtTop] = useState(true);
 
   useEffect(() => {
     function handleDocClick(e: MouseEvent) {
