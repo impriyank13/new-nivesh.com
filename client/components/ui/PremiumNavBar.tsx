@@ -92,7 +92,7 @@ export default function PremiumNavBar() {
                 <Link key={n.to} to={n.to} className={`${textClass} py-2 px-3 rounded-md`}>{n.label}</Link>
               ))}
               <div className="pt-2 border-t border-white/10" />
-              <Link to="/" className="py-2 px-3 rounded-md text-sm font-semibold bg-slate-900 text-white">Get started</Link>
+              <Link to="/" className="py-2 px-3 rounded-md text-sm font-semibold bg-[#0a66c2] text-white hover:bg-[#084a9e] transition">Get started</Link>
             </div>
           </div>
         )}
