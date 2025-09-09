@@ -264,7 +264,7 @@ export default function NavBar() {
               className={
                 isHero
                   ? "inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold shadow transform scale-105 bg-white/10 text-white ring-1 ring-white/20"
-                  : "inline-flex items-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold shadow"
+                  : "inline-flex items-center bg-[#0a66c2] text-white rounded-full px-4 py-2 text-sm font-semibold shadow hover:bg-[#084a9e] transition"
               }
               onClick={() => setOpen(false)}
             >
