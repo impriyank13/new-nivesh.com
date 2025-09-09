@@ -48,7 +48,7 @@ const translations: any = {
     statsLabels: ["घरेलू", "साझेदार", "पुरस्कार", "औसत अनुभव"],
     missionTitle: "हमारा मिशन",
     missionText: "वित्तीय सेवाओं तक पहुंच को लोकतांत्रित करना...",
-    visionTitle: "हमारी द��ष्टि",
+    visionTitle: "हमारी दृष्टि",
     visionText: "एक भविष्य जहां वित्तीय योजना हर घर के लिए सुलभ हो।",
     approachTitle: "दृ��्टिकोण और प्रौद्योगिकी",
     approachText: "हमारा ऐप निवेशों को ट्रैक करने को सरल बनाता है।",
@@ -95,7 +95,7 @@ const translations: any = {
     investorsSubtitle:
       "आमच्या व्हिजनमध्ये विश्वास असलेल्या प्रमुख गुंतवणूकदारांनी आम्हाला समर्थन केले आहे.",
     investorsFooter:
-      "आणि इतर प्���मुख एंजल गुंतवणूकदार जे यशस्वी उद्योजक, व��हेंचर कॅपिटॅलिस्ट आणि फंड मॅनेजर आहेत",
+      "आणि इतर प्���मुख एंजल गुंतवणूकदार जे यशस्वी उद्योजक, व्हेंचर कॅपिटॅलिस्ट आणि फंड मॅनेजर आहेत",
     partnersTitle: "आमचे भागीदार",
     partnersSubtitle:
       "आम्ही ���मच्या पोहोच वाढविण्यासाठी आघाडीच्या आर्थिक संस्थांशी आणि भागीद���रांशी सहकार्य करतो.",
@@ -392,21 +392,21 @@ export default function About() {
             <p className="text-slate-700 mb-8">{t("investorsSubtitle")}</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                "Windrose capital",
-                "Lets Venture",
-                "Indian Angel Network Fund",
-              ].map((name, idx) => (
+                { name: "Windrose capital", img: "https://nivesh.com/e7ffb63fed9a022a2d74929a6e1acb74.svg" },
+                {name: "Lets Venture", img: "https://nivesh.com/d771c6e1878e02339e9c1b5ab7e683c2.svg"},
+                {name: "Indian Angel Network Fund", img: "https://nivesh.com/6a6a4ad24d58d210f67177ef350d9214.svg"},
+              ].map((p, idx) => (
                 <div
-                  key={name}
+                  key={p.name}
                   className="bg-white rounded-lg border border-slate-200 p-6 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow"
                 >
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ff668d1330e1a4297a3024a099e463da8?format=webp&width=800"
-                    alt={name}
+                    alt={p.name}
                     className="h-20 object-contain mb-4"
                   />
                   <div className="font-semibold text-lg text-slate-900 mb-2">
-                    {name}
+                    {p.name}
                   </div>
                 </div>
               ))}
@@ -428,24 +428,24 @@ export default function About() {
               {[
                 {
                   name: "PNB Housing Finance Ltd.",
-                  desc: "Know More About PNB Housing Finance Ltd.", img: "https://nivesh.com/ebe7fc6de268f71f0ce97b3be2183f85.svg"
+                  desc: "Know More About PNB Housing Finance Ltd.", img: "https://nivesh.com/ebe7fc6de268f71f0ce97b3be2183f85.svg",
                 },
-                { name: "HDFC Limited", desc: "Know More About HDFC Limited", img: "https://nivesh.com/6c7572cadb0fed9a670b944b9ccf8f18.svg" },
+                { name: "HDFC Limited", desc: "Know More About HDFC Limited" img: "https://nivesh.com/6c7572cadb0fed9a670b944b9ccf8f18.svg", },
                 {
                   name: "ICICI Home Finance Company Ltd",
-                  desc: "Know More About ICICI Home Finance Company Ltd", img: "https://nivesh.com/dbcbd85c0b9470eb67bab651680ca678.svg"
+                  desc: "Know More About ICICI Home Finance Company Ltd", img: "https://nivesh.com/dbcbd85c0b9470eb67bab651680ca678.svg",
                 },
                 {
                   name: "Shriram Transport Finance Limited",
-                  desc: "Know More About Shriram Transport Finance Limited", img: "https://nivesh.com/d341cd2aad4bd42d0b789729174da896.svg"
+                  desc: "Know More About Shriram Transport Finance Limited", img: "https://nivesh.com/d341cd2aad4bd42d0b789729174da896.svg",
                 },
                 {
                   name: "Bajaj Finance Limited",
-                  desc: "Know More About Bajaj Finance Limited", img: "https://nivesh.com/58f15ef202551679678e8724e23c3de2.svg"
+                  desc: "Know More About Bajaj Finance Limited", img: "https://nivesh.com/58f15ef202551679678e8724e23c3de2.svg",
                 },
                 {
                   name: "Mahindra Finance Limited",
-                  desc: "Know More About Mahindra Finance Limited", img: "https://nivesh.com/5a4b86f02f558e0067bdbd4a79bda71a.svg"
+                  desc: "Know More About Mahindra Finance Limited", img: "https://nivesh.com/5a4b86f02f558e0067bdbd4a79bda71a.svg",
                 },
               ].map((p) => (
                 <div
