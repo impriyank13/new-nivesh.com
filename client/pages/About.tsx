@@ -369,33 +369,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* Awards strip */}
-        <section className="mb-16">
-          <h4 className="text-lg font-semibold mb-4">{t("awardsTitle")}</h4>
-          <div className="flex gap-4 overflow-x-auto pb-3 hide-scroll">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fc32f6d57ceda4c518a7267e66c448826?format=webp&width=600"
-              alt="AMFI"
-              className="h-28 object-contain"
-            />
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F5aaf8d75897d440289633ffedd84751c?format=webp&width=600"
-              alt="Best Performer"
-              className="h-28 object-contain"
-            />
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F747a7d68a119469c9c4f43505331a45b?format=webp&width=600"
-              alt="SIP Performer"
-              className="h-28 object-contain"
-            />
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ff952b975ed9d44e4a1f7ef60b5e0bc81?format=webp&width=600"
-              alt="BFSI"
-              className="h-28 object-contain"
-            />
-          </div>
-        </section>
-
         {/* Team showcase */}
         <section className="mb-16">
           <h3 className="text-2xl font-extrabold mb-6 text-[#0a66c2]">{t("teamTitle")}</h3>
