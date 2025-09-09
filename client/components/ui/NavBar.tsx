@@ -56,16 +56,12 @@ export default function NavBar() {
   // determine if we're on the hero/index page so navbar can adapt to hero gradient
   const isHero = /^\/(?:en|hin|mar)?\/?$/.test(location);
 
-  const linkTextClass = "text-white";
-  const chevronClass = "text-white/80";
-  const navButtonHoverBg = isHero ? "hover:bg-white/10" : "hover:bg-white/20";
-  const dropdownBgClass = isHero
-    ? "bg-black/70 text-white"
-    : "bg-white text-white";
-  const dropdownItemHover = "hover:text-white";
-  const mobileMenuBg = isHero
-    ? "bg-black/70 text-white"
-    : "bg-white text-white";
+  const linkTextClass = isHero && atTop ? "text-white" : "text-slate-700";
+  const chevronClass = isHero && atTop ? "text-white/80" : "text-slate-500";
+  const navButtonHoverBg = isHero && atTop ? "hover:bg-white/10" : "hover:bg-white/20";
+  const dropdownBgClass = isHero && atTop ? "bg-black/70 text-white" : "bg-white text-slate-700";
+  const dropdownItemHover = isHero && atTop ? "hover:text-white" : "hover:text-slate-900";
+  const mobileMenuBg = isHero && atTop ? "bg-black/70 text-white" : "bg-white text-slate-700";
 
   const navRef = useRef<HTMLElement | null>(null);
   const [atTop, setAtTop] = useState(true);
