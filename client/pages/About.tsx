@@ -405,6 +405,7 @@ export default function About() {
                     alt={p.name}
                     className="h-20 object-contain mb-4"
                     width="500px"
+                    height="500px"
                   />
                   <div className="font-semibold text-lg text-slate-900 mb-2">
                     {p.name}
