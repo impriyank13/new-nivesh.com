@@ -296,7 +296,7 @@ export default function About() {
           </div>
 
           <div className="md:col-span-5">
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl">
+            <div className="rounded-2xl overflow-hidden shadow-xl">
               <img
                 src="https://nivesh.com/77ed3b77aee16c36b46d3e0a2d3be68d.png"
                 alt="Our story"
