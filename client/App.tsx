@@ -13,6 +13,7 @@ import Product from "./pages/Product";
 import Partner from "./pages/Partner";
 import NavBar from "./components/ui/NavBar";
 import Footer from "./components/ui/Footer";
+import WaterBackground from "./components/ui/WaterBackground";
 
 const queryClient = new QueryClient();
 
