@@ -486,12 +486,6 @@ export default function About() {
 
             <div className="flex items-center justify-center">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fe6d9f86d8c6e414fbcf0223463710063?format=webp&width=800"
-                alt="Publications logos"
-                className="max-w-full h-14 object-contain mx-4"
-              />
-
-              <img
                 src="https://nivesh.com/cc16d70a21d855dd1303ab66ac1a8dd0.webp"
                 alt="Publication feature"
                 className="max-w-full h-14 object-contain mx-4"
