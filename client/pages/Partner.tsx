@@ -63,7 +63,7 @@ export default function Partner() {
           {(content[lang]?.points || content["en"]?.points || []).map((f: string) => (
             <div key={f} className="bg-white rounded-lg border border-slate-200 p-6 text-center shadow-sm">
               <div className="font-semibold mb-2">{f}</div>
-              <p className="text-sm text-slate-500">Learn how we support: {f.toLowerCase()}.</p>
+              <p className="text-sm text-slate-600">Learn how we support: {f.toLowerCase()}.</p>
             </div>
           ))}
         </section>
