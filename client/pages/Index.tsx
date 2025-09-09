@@ -40,7 +40,7 @@ export default function Index() {
     translations.en[key];
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-start space-y-16">
+    <main className="min-h-screen flex flex-col items-center justify-start space-y-16 text-slate-800">
       {/* Hero */}
       <section className="w-full">
         <div className="w-full">
