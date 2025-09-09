@@ -376,6 +376,8 @@ export default function NavBar() {
                   ) : n.key === "blog" ? (
                     <a
                       href="https://nivesh.com/blog/"
+                      target="_top"
+                      rel="noopener noreferrer"
                       className={`text-base font-medium ${linkTextClass} px-3 py-1 rounded-md transition-transform transform hover:scale-105 ${navButtonHoverBg}`}
                       onClick={() => setOpen(false)}
                     >
