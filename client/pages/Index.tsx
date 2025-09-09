@@ -50,11 +50,11 @@ export default function Index() {
       </section>
 
       <section className="w-full max-w-7xl pt-6">
-          <CardCarousel showTitle={true} />
+        <CardCarousel showTitle={true} />
       </section>
 
       <section className="w-full max-w-7xl">
-          <StepsOrbit />
+        <StepsOrbit />
       </section>
 
       <section className="w-full max-w-7xl">
