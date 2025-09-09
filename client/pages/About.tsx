@@ -48,7 +48,7 @@ const translations: any = {
     statsLabels: ["घरेलू", "साझेदार", "पुरस्कार", "औसत अनुभव"],
     missionTitle: "हमारा मिशन",
     missionText: "वित्तीय सेवाओं तक पहुंच को लोकतांत्रित करना...",
-    visionTitle: "हमारी दृष्टि",
+    visionTitle: "हमारी द��ष्टि",
     visionText: "एक भविष्य जहां वित्तीय योजना हर घर के लिए सुलभ हो।",
     approachTitle: "दृ��्टिकोण और प्रौद्योगिकी",
     approachText: "हमारा ऐप निवेशों को ट्रैक करने को सरल बनाता है।",
@@ -95,7 +95,7 @@ const translations: any = {
     investorsSubtitle:
       "आमच्या व्हिजनमध्ये विश्वास असलेल्या प्रमुख गुंतवणूकदारांनी आम्हाला समर्थन केले आहे.",
     investorsFooter:
-      "आणि इतर प्���मुख एंजल गुंतवणूकदार जे यशस्वी उद्योजक, व्हेंचर कॅपिटॅलिस्ट आणि फंड मॅनेजर आहेत",
+      "आणि इतर प्���मुख एंजल गुंतवणूकदार जे यशस्वी उद्योजक, व��हेंचर कॅपिटॅलिस्ट आणि फंड मॅनेजर आहेत",
     partnersTitle: "आमचे भागीदार",
     partnersSubtitle:
       "आम्ही ���मच्या पोहोच वाढविण्यासाठी आघाडीच्या आर्थिक संस्थांशी आणि भागीद���रांशी सहकार्य करतो.",
@@ -430,7 +430,7 @@ export default function About() {
                   name: "PNB Housing Finance Ltd.",
                   desc: "Know More About PNB Housing Finance Ltd.", img: "https://nivesh.com/ebe7fc6de268f71f0ce97b3be2183f85.svg"
                 },
-                { name: "HDFC Limited", desc: "Know More About HDFC Limited" img: "https://nivesh.com/6c7572cadb0fed9a670b944b9ccf8f18.svg" },
+                { name: "HDFC Limited", desc: "Know More About HDFC Limited", img: "https://nivesh.com/6c7572cadb0fed9a670b944b9ccf8f18.svg" },
                 {
                   name: "ICICI Home Finance Company Ltd",
                   desc: "Know More About ICICI Home Finance Company Ltd", img: "https://nivesh.com/dbcbd85c0b9470eb67bab651680ca678.svg"
