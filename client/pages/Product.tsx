@@ -49,7 +49,7 @@ const productTranslations: any = {
     },
     hin: {
       title: "मार्केट लिंक्ड डेबेंचर (MLD)",
-      subtitle: "बाजार सूचकांक या संदर्भ संपत्ति से संबंधित फिक्स्ड-इनकम उपकरण।",
+      subtitle: "बाजार सूचकांक या संदर्भ संपत��ति से संबंधित फिक्स्ड-इनकम उपकरण।",
       features: ["आकर्षक रिटर्न", "बाजार-लिंक्ड संभावित लाभ", "समय-सीमा"],
     },
     mar: {
@@ -67,7 +67,7 @@ const productTranslations: any = {
     hin: {
       title: "गिफ्ट सिटी",
       subtitle: "भार��� के अंतर्राष्ट्रीय वित्तीय केंद्र के लिए निवेश और सेवाएँ।",
-      features: ["नियामक लाभ", "अंतरराष्ट्रीय निवेशक", "प्रतिस्पर्धी लागत"],
+      features: ["नियामक लाभ", "अंतरराष्ट्रीय निव���शक", "प्रतिस्पर्धी लागत"],
     },
     mar: {
       title: "गिफ्ट सिटी",
@@ -269,7 +269,7 @@ export default function Product() {
             </ul>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <a href="https://app.nivesh.com/partner_onboarding" className="inline-flex items-center justify-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold">Get Started</a>
+              <a href="https://app.nivesh.com/partner_onboarding" className="inline-flex items-center justify-center bg-[#0a66c2] text-white rounded-full px-4 py-2 text-sm font-semibold hover:bg-[#084a9e] transition">Get Started</a>
               <Link to={`/${lang}/`} className="inline-flex items-center justify-center border border-slate-200 text-slate-700 rounded-full px-4 py-2 text-sm">Speak to an expert</Link>
             </div>
           </div>
