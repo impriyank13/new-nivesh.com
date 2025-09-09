@@ -480,7 +480,7 @@ export default function About() {
         </section>
 
         <section className="mb-20 bg-white py-6">
-          <div className="max-w-7xl mx-auto px-6 md:px-8 text-center">
+          <div className="max-w-7xl rounded mx-auto px-6 md:px-8 text-center">
             <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-6">Featured in Leading Publications</h3>
             <p className="text-sm text-slate-600 mb-6">Our work has been featured across leading business and financial publications.</p>
 
