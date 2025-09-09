@@ -232,7 +232,7 @@ export default function About() {
   ];
 
   return (
-    <main className="min-h-screen pb-20 text-slate-800">
+    <main className="min-h-screen text-slate-800">
       <div className="max-w-7xl mx-auto px-6 md:px-8 pt-10">
         {/* Breadcrumbs */}
         <nav className="text-sm text-slate-600 mb-4" aria-label="Breadcrumb">
