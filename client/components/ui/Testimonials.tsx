@@ -60,7 +60,7 @@ export default function Testimonials() {
           <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">Trusted by leaders from various industries</h2>
           <p className="mt-3 text-slate-600">Learn why professionals trust our solutions to complete their customer journeys.</p>
           <div className="mt-6">
-            <a href="#" className="inline-flex items-center bg-slate-900 text-white rounded-full px-5 py-3 font-medium shadow-md hover:opacity-95">
+            <a href="#" className="inline-flex items-center bg-[#0a66c2] text-white rounded-full px-5 py-3 font-medium shadow-md hover:opacity-95 hover:bg-[#084a9e] transition">
               Read Success Stories →
             </a>
           </div>
