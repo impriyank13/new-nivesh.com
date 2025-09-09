@@ -438,7 +438,7 @@ export default function NavBar() {
                   className={
                     isHero
                       ? `block text-sm font-semibold ${"bg-white/10 text-white scale-105 transform"} px-4 py-2 rounded-full text-center`
-                      : "block text-sm font-semibold bg-black text-white px-4 py-2 rounded-full text-center"
+                      : "block text-sm font-semibold bg-[#0a66c2] text-white px-4 py-2 rounded-full text-center"
                   }
                   onClick={() => setOpen(false)}
                 >
