@@ -71,7 +71,7 @@ export default function AwardsMarquee() {
           <div
             className="marquee-track flex items-center space-x-6 will-change-transform"
             style={{
-              animation: "marquee 20s linear infinite",
+              animation: "marquee 15s linear infinite",
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLElement).style.animationPlayState =
