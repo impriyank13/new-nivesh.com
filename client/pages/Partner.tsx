@@ -25,13 +25,13 @@ const partnerTranslations: any = {
   },
   "grow-mf-business": {
     en: { title: "Grow Your MF Business", subtitle: "Tools and campaigns to help you scale AUM and client engagement.", points: ["Lead generation", "Automated outreach", "Client retention programs"] },
-    hin: { title: "अपना एमएफ व्यवसाय बढ़ाएँ", subtitle: "AUM और क्लाइंट एंगेजमेंट को स्केल करने के लिए टूल्स और कैंपेन।", points: ["लीड जनरेशन", "स्वचालित आउटरीच", "क्लाइंट रिटेंशन"] },
+    hin: { title: "अपना एमए��� व्यवसाय बढ़ाएँ", subtitle: "AUM और क्लाइंट एंगेजमेंट को स्केल करने के लिए टूल्स और कैंपेन।", points: ["लीड जनरेशन", "स्वचालित आउटरीच", "क्लाइंट रिटेंशन"] },
     mar: { title: "आपला MF व्यवसाय वाढवा", subtitle: "AUM व क्लायंट एंगेजमेंट वाढवण्यासाठी साधने व अभियान.", points: ["लीड जनरेशन", "ऑटोमेटेड आउटरीच", "क्लायंट रिटेन्शन"] },
   },
   "amfi-arn-code": {
     en: { title: "AMFI ARN Code", subtitle: "Support to obtain and manage your AMFI ARN code.", points: ["ARN application help", "Documentation", "Ongoing compliance"] },
     hin: { title: "AMFI ARN कोड", subtitle: "अपने AMFI ARN कोड प्राप्त करने और प्रबंधित करने में सहायता।", points: ["ARN आवेदन सहायता", "दस्तावेज़", "लगातार अनुपालन"] },
-    mar: { title: "AMFI ARN कोड", subtitle: "तुमचा AMFI ARN कोड मिळवण्यास व व्यवस्थापित करण्यास सहाय्य.", points: ["ARN अर्ज मदत", "डॉक्युमेंटेशन", "निरंतर कंप्लायन्स"] },
+    mar: { title: "AMFI ARN कोड", subtitle: "��ुमचा AMFI ARN कोड मिळवण्यास व व्यवस्थापित करण्यास सहाय्य.", points: ["ARN अर्ज मदत", "डॉक्युमेंटेशन", "निरंतर कंप्लायन्स"] },
   },
   "nism-certification": {
     en: { title: "NISM Certification", subtitle: "Get guidance and resources for NISM certification and training.", points: ["Course materials", "Exam prep", "Certification support"] },
@@ -72,7 +72,7 @@ export default function Partner() {
           <div className="bg-white rounded-lg border border-slate-200 p-6 shadow-sm">
             <h2 className="text-xl font-semibold mb-3">Partner Onboarding</h2>
             <p className="text-slate-600 mb-4">To join as a partner and access onboarding resources, visit our partner portal.</p>
-            <a href="https://app.nivesh.com/partner_onboarding" className="inline-flex items-center bg-black text-white rounded-full px-4 py-2 text-sm font-semibold">Get Started</a>
+            <a href="https://app.nivesh.com/partner_onboarding" className="inline-flex items-center bg-[#0a66c2] text-white rounded-full px-4 py-2 text-sm font-semibold hover:bg-[#084a9e] transition">Get Started</a>
           </div>
         </section>
       </div>
