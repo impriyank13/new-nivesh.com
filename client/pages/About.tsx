@@ -2,7 +2,6 @@ import { Link, useParams, useLocation } from "react-router-dom";
 import TeamCard from "../components/ui/TeamCard";
 import AwardsMarquee from "@/components/ui/AwardsMarquee";
 
-
 const translations: any = {
   en: {
     breadcrumb: ["Home", "About Us"],
@@ -118,135 +117,134 @@ export default function About() {
     {
       name: "Anurag Garg",
       title: "Founder & Chief Executive Officer",
-      image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/anurag-garg",
+      image: "https://nivesh.com/2fa2f14db2c2ee86d3af813c91b002d0.png",
+      linkedin: "https://www.linkedin.com/in/anuraggarg3/",
     },
     {
       name: "Sridhar Srinivasan",
       title: "Co-Founder & CTO",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/sridhar-srinivasan",
+        "https://nivesh.com/d6dff2e15494a162fd04442d4182b0a9.png",
+      linkedin: "https://www.linkedin.com/in/srisri0/",
     },
     {
       name: "Dr Hira Jaiswal",
       title: "Principal Officer & General Manager - Insurance",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/dr-hira-jaiswal",
+        "https://nivesh.com/141b574157a0b78e61649a38dc9d9185.png",
+      linkedin: "https://www.linkedin.com/in/dr-hira-jaiswal-6377b9249/",
     },
     {
       name: "Rajesh Kumar Ram",
       title: "VP - Engineering & Technology",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/rajesh-kumar-ram",
+        "https://nivesh.com/89227cf01d59b83bce92148f3822c090.png",
+      linkedin: "https://in.linkedin.com/in/rajesh-kumar-77734572",
     },
     {
       name: "Vishal Rohta",
       title: "VP - Operations & Partner Development",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/vishal-rohta",
+        "https://nivesh.com/40c5bb2b4d702e4d6429b47b43e57ef1.png",
+      linkedin: "https://www.linkedin.com/in/vishal-rohta-90896632/",
     },
     {
       name: "Anant Sharma",
       title: "Business Head - Product & Research",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/anant-sharma",
+        "https://nivesh.com/cb8c2656150f098bd92c8dd69611a581.png",
+      linkedin: "https://www.linkedin.com/in/anant-sharma-2087a118/",
     },
     {
       name: "Sarika Bhadauria",
       title: "Manager - HR & Admin",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/sarika-bhadauria",
+        "https://nivesh.com/09b61be855188a21908860b5bc042aa4.jpg",
+      linkedin: "https://www.linkedin.com/in/sarika-bhadauria-1a738722/",
     },
     {
       name: "Kamal Kumar",
       title: "Company Secretary, Accounts and Legal",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/kamal-kumar",
+        "https://nivesh.com/219e5182d8cb3078557f96c2e53a3384.jpeg",
+      linkedin: "https://www.linkedin.com/in/cskamalkumar/",
     },
     {
       name: "Puneet Agarwal",
       title: "Manager - Partner Relations",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/puneet-agarwal",
+        "https://nivesh.com/7fb892c87b7f61c6918444b6a69aa5b1.jpg",
+      linkedin: "https://www.linkedin.com/in/puneet-agarwal-10b30332/",
     },
     {
-      name: "Ankit Nibhania",
+      name: "Ankit Nihania",
       title: "Senior Area Manager - Partner Relations",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/ankit-nibhania",
+        "https://nivesh.com/208c997e83445bc7fbeec65da212a1dc.jpg",
+      linkedin: "https://www.linkedin.com/in/ankit-nihania-97aa6b153/",
     },
     {
       name: "Devendra Singh",
       title: "Senior Area Manager - Partner Relations",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/devendra-singh",
+        "https://nivesh.com/0123aae0c68f3a010135ea0ad3d20a11.jpg",
+      linkedin: "https://www.linkedin.com/in/devendra-singh-rawat-67556079/",
     },
     {
       name: "Akanksha Srivastava",
       title: "Product Manager - Technology",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/akanksha-srivastava",
+        "https://nivesh.com/852f4d7aa8e2280abc3658e61422a5b6.jpg",
+      linkedin: "https://www.linkedin.com/in/akanksha8/",
     },
     {
       name: "Abhijeet Awasthi",
       title: "Technical Architect - Technology",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/abhijeet-awasthi",
+        "https://nivesh.com/66cac19c0de56fc4b4543a10cd62d7f8.jpg",
+      linkedin: "https://www.linkedin.com/in/abhijeet-awasthi-63bb22143/",
     },
     {
       name: "Pooja Ratudi",
       title: "Manager - Partner Support",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/pooja-ratudi",
+        "https://nivesh.com/676a8d70672a45939a15d83e7062576d.jpg",
+      linkedin: "https://www.linkedin.com/in/pooja-ratudi-0845a412a/",
     },
     {
       name: "Sneha Ghag",
       title: "Lead Engineer - Technology",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/sneha-ghag",
+        "https://nivesh.com/2d04a8e322c15565cb73d2d36203318e.jpg",
+      linkedin: "https://www.linkedin.com/in/sneha-ghag-671198bb/",
     },
     {
       name: "Shivani Shrivastav",
       title: "Manager-Team Lead, Customer Success Manager",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/shivani-shrivastav",
+        "https://nivesh.com/dc0049358518c8070adce2fc2146dd4f.png",
+      linkedin: "https://www.linkedin.com/in/i-am-shivani-shrivastav/",
     },
     {
       name: "Akhilesh Chandak",
       title: "Principal Software Engineer - Technology",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/akhilesh-chandak",
+        "https://nivesh.com/bd8092ff7a0dcb904f3876ff73b212b2.jpg",
+      linkedin: "https://www.linkedin.com/in/akhilesh-chandak-ab9059b5/",
     },
     {
       name: "Shivani Baghel",
       title: "Manager- Client Wealth",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F0c9b5c71e4444b1ca0d651feff25d853?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/shivani-baghel",
+        "https://nivesh.com/4dceb90d8e71aafb255b1348ca6f7e4d.jpg",
+      linkedin: "https://www.linkedin.com/in/shivani-baghel-b20856125/",
     },
     {
       name: "Nishant Pandey",
       title: "Senior Area Manager - Partner Relations",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F2041f127efc0466cb76d1b41809c278e?format=webp&width=800",
-      linkedin: "https://www.linkedin.com/in/nishant-pandey",
+        "https://nivesh.com/d84fa23c55ffc41900bd9fd7b48d550d.jpg",
+      linkedin: "",
     },
   ];
 
@@ -257,10 +255,7 @@ export default function About() {
         <nav className="text-sm text-slate-600 mb-4" aria-label="Breadcrumb">
           <ol className="flex items-center gap-2">
             <li>
-              <Link
-                to={`/${lang}`}
-                className="hover:underline text-slate-700"
-              >
+              <Link to={`/${lang}`} className="hover:underline text-slate-700">
                 {t("breadcrumb")[0]}
               </Link>
             </li>
@@ -276,9 +271,7 @@ export default function About() {
         {/* Hero */}
         <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-12">
           <div className="md:col-span-7">
-            <h1
-              className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-[#0a66c2]"
-                          >
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-[#0a66c2]">
               {t("title")}
             </h1>
             <p className="text-slate-700 max-w-3xl mb-6 leading-relaxed">
@@ -346,22 +339,24 @@ export default function About() {
         {/* Mission & Vision */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-12">
           <div>
-            <h3 className="text-xl font-bold mb-3 text-[#0a66c2]">{t("missionTitle")}</h3>
-            <p className="text-slate-700 leading-relaxed">
-              {t("missionText")}
-            </p>
+            <h3 className="text-xl font-bold mb-3 text-[#0a66c2]">
+              {t("missionTitle")}
+            </h3>
+            <p className="text-slate-700 leading-relaxed">{t("missionText")}</p>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-3 text-[#0a66c2]">{t("visionTitle")}</h3>
-            <p className="text-slate-700 leading-relaxed">
-              {t("visionText")}
-            </p>
+            <h3 className="text-xl font-bold mb-3 text-[#0a66c2]">
+              {t("visionTitle")}
+            </h3>
+            <p className="text-slate-700 leading-relaxed">{t("visionText")}</p>
           </div>
         </section>
 
         {/* Team / approach */}
         <section className="mb-12">
-          <h3 className="text-2xl font-extrabold mb-6 text-[#0a66c2]">{t("approachTitle")}</h3>
+          <h3 className="text-2xl font-extrabold mb-6 text-[#0a66c2]">
+            {t("approachTitle")}
+          </h3>
           <div className="bg-white rounded-lg p-6 shadow-md">
             <p className="text-slate-700 leading-relaxed">
               {t("approachText")}
@@ -371,7 +366,9 @@ export default function About() {
 
         {/* Team showcase */}
         <section className="mb-16">
-          <h3 className="text-2xl font-extrabold mb-6 text-[#0a66c2]">{t("teamTitle")}</h3>
+          <h3 className="text-2xl font-extrabold mb-6 text-[#0a66c2]">
+            {t("teamTitle")}
+          </h3>
           <p className="text-slate-700 max-w-3xl mb-6">{t("teamText")}</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-stretch">
             {teamMembers.map((m) => (
