@@ -35,7 +35,7 @@ export default function Footer() {
                 <Link to="/about-us">About Us</Link>
               </li>
               <li>
-                <a href="https://nivesh.com/blog/">Blog</a>
+                <a href="https://nivesh.com/blog/" target="_top" rel="noopener noreferrer">Blog</a>
               </li>
               <li>
                 <Link to="/calculators">Calculators</Link>
