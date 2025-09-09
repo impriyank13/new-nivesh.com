@@ -296,11 +296,11 @@ export default function About() {
           </div>
 
           <div className="md:col-span-5">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F802cb78c912843568d87b1701e953178?format=webp&width=800"
-                alt="Our story"
-                className="w-full h-[360px] object-cover"
-              />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F802cb78c912843568d87b1701e953178?format=webp&width=800"
+              alt="Our story"
+              className="w-full h-[360px] object-cover"
+            />
 
             <div className="mt-4 flex items-center gap-3">
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md">
