@@ -415,7 +415,7 @@ export default function NavBar() {
                         (l.code === lang
                           ? isHero
                             ? "bg-white/20 text-white"
-                            : "bg-slate-900 text-white"
+                            : "bg-[#0a66c2] text-white"
                           : linkTextClass +
                             " hover:scale-105 hover:bg-white/10")
                       }
