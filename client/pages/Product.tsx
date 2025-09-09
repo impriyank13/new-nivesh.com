@@ -32,7 +32,7 @@ const productTranslations: any = {
     },
     hin: {
       title: "विशेषीकृत निवेश फंड (SIF)",
-      subtitle: "विशेषीकृत निवेश रणनीतियों के लिए संरचित फंड।",
+      subtitle: "विश��षीकृत निवेश रणनीतियों के लिए संरचित फंड।",
       features: ["कस्��म संरचनाएँ", "नियमों का पालन", "रिपोर्टिंग"],
     },
     mar: {
@@ -49,7 +49,7 @@ const productTranslations: any = {
     },
     hin: {
       title: "मार्केट लिंक्ड डेबेंचर (MLD)",
-      subtitle: "बाजार सूचकांक या संदर्भ संपत��ति से संबंधित फिक्स्ड-इनकम उपकरण।",
+      subtitle: "बाजार सूचकांक या संदर्भ संपत्ति से संबंधित फिक्स्ड-इनकम उपकरण।",
       features: ["आकर्षक रिटर्न", "बाजार-लिंक्ड संभावित लाभ", "समय-सीमा"],
     },
     mar: {
@@ -67,11 +67,11 @@ const productTranslations: any = {
     hin: {
       title: "गिफ्ट सिटी",
       subtitle: "भार��� के अंतर्राष्ट्रीय वित्तीय केंद्र के लिए निवेश और सेवाएँ।",
-      features: ["नियामक लाभ", "अंतरराष्ट्रीय निव���शक", "प्रतिस्पर्धी लागत"],
+      features: ["नियामक लाभ", "अंतरराष्ट्रीय निवेशक", "प्रतिस्पर्धी लागत"],
     },
     mar: {
       title: "गिफ्ट सिटी",
-      subtitle: "इंडियाच्या आंतरराष्ट्रीय फायनान्शियल सेंटरसाठी गुंतवणूक व सेवा।",
+      subtitle: "इंडियाच्या आ��तरराष्ट्रीय फायनान्शियल सेंटरसाठी गुंतवणूक व सेवा।",
       features: ["नियमिती फायदे", "आंतरराष्ट्रीय गुंतवणूक", "स्पर्धात्मक खर्च"],
     },
   },
@@ -389,7 +389,7 @@ export default function Product() {
                         </div>
 
                         <div className="mt-auto flex items-center justify-between gap-2">
-                          <a href={s.InvestURL} target="_blank" rel="noreferrer" className="inline-flex items-center bg-black text-white rounded-full px-3 py-2 text-sm font-semibold">Invest</a>
+                          <a href={s.InvestURL} target="_blank" rel="noreferrer" className="inline-flex items-center bg-[#0a66c2] text-white rounded-full px-3 py-2 text-sm font-semibold hover:bg-[#084a9e] transition">Invest</a>
                           <button onClick={() => toggleFlip(id)} className="text-sm text-slate-600">Details</button>
                         </div>
                       </div>
@@ -436,7 +436,7 @@ export default function Product() {
                           {s.SchemeDescription && <div className="text-sm text-slate-600 mb-3">{s.SchemeDescription}</div>}
 
                           <div className="mt-auto flex items-center gap-2">
-                            <a href={s.InvestURL} target="_blank" rel="noreferrer" className="inline-flex items-center bg-black text-white rounded-full px-3 py-2 text-sm font-semibold">Invest</a>
+                            <a href={s.InvestURL} target="_blank" rel="noreferrer" className="inline-flex items-center bg-[#0a66c2] text-white rounded-full px-3 py-2 text-sm font-semibold hover:bg-[#084a9e] transition">Invest</a>
                             <button onClick={() => toggleFlip(id)} className="text-sm text-slate-600">Back</button>
                           </div>
                         </div>
