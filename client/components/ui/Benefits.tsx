@@ -127,7 +127,7 @@ export default function Benefits() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section className="w-full bg-white rounded-2xl shadow-sm">
+    <section className="">
       <div className="px-6 md:px-12 py-12">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">
