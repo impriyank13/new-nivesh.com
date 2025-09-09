@@ -281,13 +281,13 @@ export default function StepsOrbit({
       <div className="flex gap-3 justify-center py-4">
         <button
           onClick={() => setMode("client")}
-          className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === "client" ? "bg-[#FFC527] text-[#0A1E3D]" : "bg-transparent border border-[#3B4B66] text-white"}`}
+          className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === "client" ? "bg-[#FFC527] text-[#0A1E3D]" : "bg-transparent border border-[#3B4B66] text-slate-700"}`}
         >
           Client Onboarding
         </button>
         <button
           onClick={() => setMode("partner")}
-          className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === "partner" ? "bg-[#FFC527] text-[#0A1E3D]" : "bg-transparent border border-[#3B4B66] text-white"}`}
+          className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === "partner" ? "bg-[#FFC527] text-[#0A1E3D]" : "bg-transparent border border-[#3B4B66] text-slate-700"}`}
         >
           Partner Onboarding
         </button>
@@ -432,7 +432,7 @@ export default function StepsOrbit({
               </svg>
 
               <div className="absolute right-8 bottom-8 text-right">
-                <div className="text-white font-semibold text-xl">
+                <div className="text-slate-900 font-semibold text-xl">
                   <span className="text-white">{pad(active + 1)}</span>
                   <span className="text-[#7E8EA9]">
                     /{pad(activeSteps.length)}
@@ -581,7 +581,7 @@ export default function StepsOrbit({
 
         {/* Mobile global counter and progress (absolute bottom-right) */}
         <div className="absolute right-4 bottom-4 z-20 text-right">
-          <div className="text-white font-semibold text-lg">
+          <div className="text-slate-900 font-semibold text-lg">
             <span className="text-white">{pad(active + 1)}</span>
             <span className="text-[#7E8EA9]">/{pad(activeSteps.length)}</span>
           </div>
