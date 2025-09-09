@@ -68,7 +68,7 @@ export default function PremiumNavBar() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <button className={`hidden md:inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold ${isTop && !scrolled ? 'bg-white/10 text-white ring-1 ring-white/20' : 'bg-slate-900 text-white'}`}>
+            <button className={`hidden md:inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold ${isTop && !scrolled ? 'bg-white/10 text-white ring-1 ring-white/20' : 'bg-[#0a66c2] text-white'}`}>
               Get started
             </button>
 
