@@ -428,24 +428,24 @@ export default function About() {
               {[
                 {
                   name: "PNB Housing Finance Ltd.",
-                  desc: "Know More About PNB Housing Finance Ltd.",
+                  desc: "Know More About PNB Housing Finance Ltd.", img: "https://nivesh.com/ebe7fc6de268f71f0ce97b3be2183f85.svg"
                 },
-                { name: "HDFC Limited", desc: "Know More About HDFC Limited" },
+                { name: "HDFC Limited", desc: "Know More About HDFC Limited" img: "https://nivesh.com/6c7572cadb0fed9a670b944b9ccf8f18.svg" },
                 {
                   name: "ICICI Home Finance Company Ltd",
-                  desc: "Know More About ICICI Home Finance Company Ltd",
+                  desc: "Know More About ICICI Home Finance Company Ltd", img: "https://nivesh.com/dbcbd85c0b9470eb67bab651680ca678.svg"
                 },
                 {
                   name: "Shriram Transport Finance Limited",
-                  desc: "Know More About Shriram Transport Finance Limited",
+                  desc: "Know More About Shriram Transport Finance Limited", img: "https://nivesh.com/d341cd2aad4bd42d0b789729174da896.svg"
                 },
                 {
                   name: "Bajaj Finance Limited",
-                  desc: "Know More About Bajaj Finance Limited",
+                  desc: "Know More About Bajaj Finance Limited", img: "https://nivesh.com/58f15ef202551679678e8724e23c3de2.svg"
                 },
                 {
                   name: "Mahindra Finance Limited",
-                  desc: "Know More About Mahindra Finance Limited",
+                  desc: "Know More About Mahindra Finance Limited", img: "https://nivesh.com/5a4b86f02f558e0067bdbd4a79bda71a.svg"
                 },
               ].map((p) => (
                 <div
@@ -453,7 +453,7 @@ export default function About() {
                   className="bg-white rounded-lg border border-slate-200 p-6 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow"
                 >
                   <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F4cd3e3d1c3474c0986a482320a0d725f?format=webp&width=800"
+                    src={p.img}
                     alt={p.name}
                     className="h-20 object-contain mb-4"
                   />
