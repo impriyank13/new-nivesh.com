@@ -403,7 +403,7 @@ export default function About() {
                   <img
                     src={p.img}
                     alt={p.name}
-                    className="h-25 object-contain mb-4"
+                    className="object-contain mb-4"
                     width="500px"
                     height="500px"
                   />
