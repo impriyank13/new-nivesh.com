@@ -14,6 +14,7 @@ import Partner from "./pages/Partner";
 import NavBar from "./components/ui/NavBar";
 import Footer from "./components/ui/Footer";
 import WaterBackground from "./components/ui/WaterBackground";
+import ScrollToTop from "./components/ui/ScrollToTop";
 
 const queryClient = new QueryClient();
 
