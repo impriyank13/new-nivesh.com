@@ -298,7 +298,7 @@ export default function About() {
           <div className="md:col-span-5">
             <div className="bg-white rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ffac3605fb1b24468b70218d201be3635?format=webp&width=1200"
+                src="https://nivesh.com/77ed3b77aee16c36b46d3e0a2d3be68d.png"
                 alt="Our story"
                 className="w-full h-[360px] object-cover"
               />
