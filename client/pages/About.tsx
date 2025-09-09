@@ -50,7 +50,7 @@ const translations: any = {
     missionText: "वित्तीय सेवाओं तक पहुंच को लोकतांत्रित करना...",
     visionTitle: "हमारी दृष्टि",
     visionText: "एक भविष्य जहां वित्तीय योजना हर घर के लिए सुलभ हो।",
-    approachTitle: "दृ��्टिकोण और प्रौद्योगिकी",
+    approachTitle: "दृ��्टिकोण औ��� प्रौद्योगिकी",
     approachText: "हमारा ऐप निवेशों को ट्रैक करने को सरल बनाता है।",
     awardsTitle: "पुरस्कार और मान्यता",
     commitmentTitle: "हमारी प्रत���बद्धता",
@@ -72,7 +72,7 @@ const translations: any = {
     breadcrumb: ["मुखपृष्ठ", "आमची कथा"],
     title: "आमची कथा",
     p1: "Nivesh हे एक पुरस्कार विजेता डिजिटल-प्रथम प्लॅटफॉर्म आहे जे स्वतंत्र म्युच्युअल फंड वितरकांना त्यांचे AUM वाढविण्यात मदत करते.",
-    p2: "आमचा दृष्टिकोन IFAs साठी तंत्रज्ञान-समर्थित उपाय प���रदान करणे आहे.",
+    p2: "आमचा दृष्टिकोन IFAs साठी तंत्रज्ञान-समर्थित उपाय प���रदा��� करणे आहे.",
     speak: "तज्ञाशी बोला",
     solutions: "आपले सोल्यूशन्स पहा",
     stats: ["19.5क्र+", "100+", "50+", "8 yrs"],
@@ -87,7 +87,7 @@ const translations: any = {
     awardsTitle: "पुरस्कार आणि मान्यता",
     commitmentTitle: "आमची बांधिलकी",
     commitmentText:
-      "आम्ही सुरक्षित, अनुपालन-अनुकूल आणि मानव-केंद्रित फिनटेक प्रदान करण्यात बांधील आहोत जे सल्लागारांना सशक्त करते आणि गुंतवणूकदारांचे संरक्षण करते.",
+      "आम्ही सुरक्षित, अनुपालन-अनुकूल आणि मानव-केंद्रित फि��टेक प्रदान करण्यात बांधील आहोत जे सल्लागारांना सशक्त करते आणि गुंतवणूकदारांचे संरक्षण करते.",
     teamTitle: "आमची टीम",
     teamText:
       "तंत्रज्ञान, उत्पादन आणि ऑपरेशन्समधील विविध नेतृत्व ज्यांनी अनेक वर्षांचा अनुभव घेऊन उत्पादने तयार केली आहेत.",
@@ -98,7 +98,7 @@ const translations: any = {
       "आणि इतर प्���मुख एंजल गुंतवणूकदार जे यशस्वी उद्योजक, व्हेंचर कॅपिटॅलिस्ट आणि फंड मॅनेजर आहेत",
     partnersTitle: "आमचे भागीदार",
     partnersSubtitle:
-      "आम्ही ���मच्या पोहोच वाढविण्यासाठी आघाडीच्या आर्थिक संस्थांशी आणि भागीद���रांशी सहकार्य करतो.",
+      "आम्ही ���म���्या पोहोच वाढविण्यासाठी आघाडीच्या आर्थिक संस्थांशी आणि भागीद���रांशी सहकार्य करतो.",
   },
 };
 
@@ -430,7 +430,7 @@ export default function About() {
                   name: "PNB Housing Finance Ltd.",
                   desc: "Know More About PNB Housing Finance Ltd.", img: "https://nivesh.com/ebe7fc6de268f71f0ce97b3be2183f85.svg",
                 },
-                { name: "HDFC Limited", desc: "Know More About HDFC Limited" img: "https://nivesh.com/6c7572cadb0fed9a670b944b9ccf8f18.svg", },
+                { name: "HDFC Limited", desc: "Know More About HDFC Limited", img: "https://nivesh.com/6c7572cadb0fed9a670b944b9ccf8f18.svg" },
                 {
                   name: "ICICI Home Finance Company Ltd",
                   desc: "Know More About ICICI Home Finance Company Ltd", img: "https://nivesh.com/dbcbd85c0b9470eb67bab651680ca678.svg",
