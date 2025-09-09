@@ -27,6 +27,7 @@ const App = () => (
         <WaterBackground />
         <div className="app-content-over-water">
           <NavBar />
+          <ScrollToTop />
           <Routes>
             {/* Root (no locale) */}
             <Route path="/" element={<Index />} />
