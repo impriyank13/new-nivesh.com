@@ -254,12 +254,12 @@ export default function About() {
     <main className="min-h-screen pb-20 text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8 pt-10">
         {/* Breadcrumbs */}
-        <nav className="text-sm text-black mb-4" aria-label="Breadcrumb">
+        <nav className="text-sm text-slate-300/70 mb-4" aria-label="Breadcrumb">
           <ol className="flex items-center gap-2">
             <li>
               <Link
                 to={`/${lang}`}
-                className="hover:underline text-black"
+                className="hover:underline text-slate-300/70"
               >
                 {t("breadcrumb")[0]}
               </Link>
