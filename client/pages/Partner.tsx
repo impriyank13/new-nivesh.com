@@ -9,7 +9,7 @@ const partnerTranslations: any = {
     },
     hin: {
       title: "Nivesh पार्टनर बनें",
-      subtitle: "प्रौद्योगिकी और समर्थन के साथ अपने वितरण व्यवसाय को बढ़ाने के लिए हमारे पार्टनर प्रोग्राम में शामिल हों।",
+      subtitle: "प्रौद्योगिकी और समर्थन के साथ अपने वितरण व्यवसाय को बढ़ाने के लिए ��मारे पार्टनर प्रोग्राम में शामिल हों।",
       points: ["पार्टनर डैशबोर्ड", "सह-मार्केटिंग समर्थन", "समर्पित पार्टनर मैनेजर"],
     },
     mar: {
@@ -20,7 +20,7 @@ const partnerTranslations: any = {
   },
   "become-mf-distributor": {
     en: { title: "Become MF Distributor", subtitle: "Start distributing mutual funds with compliant processes and tooling.", points: ["Onboarding kits", "Compliance assistance", "Sales playbooks"] },
-    hin: { title: "एमएफ वितरक बनें", subtitle: "अनुपालन प्रक्रियाओं और उपकरणों के साथ म्यूचुअल फंड वितरित करना शुरू करें।", points: ["ऑनबोर्डिंग किट", "अनुपालन सहायता", "सेल्स प्लेबुक्स"] },
+    hin: { title: "एमएफ वितरक बनें", subtitle: "अनुपालन प्रक्रियाओं और उपकरणों के साथ म्यूचुअ��� फंड वितरित करना शुरू करें।", points: ["ऑनबोर्डिंग किट", "अनुपालन सहायता", "सेल्स प्लेबुक्स"] },
     mar: { title: "MF वितरक बना", subtitle: "कंप्लायंट प्रोसेस व टूलिंगसह म्युच्युअल फंड वितरित करा.", points: ["ऑनबोर्डिंग किट", "कंप्लायन्स मदत", "सेल्स प्लेबुक्स"] },
   },
   "grow-mf-business": {
@@ -48,7 +48,7 @@ export default function Partner() {
   const t = (key: string) => content[lang]?.[key] ?? content["en"]?.[key] ?? "";
 
   return (
-    <main className="py-12">
+    <main className="py-12 text-slate-800">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="mb-8">
           <Link to={`/${lang}/`} className="text-sm text-slate-500 hover:underline">Back</Link>
