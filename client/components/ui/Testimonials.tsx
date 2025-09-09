@@ -50,7 +50,7 @@ export default function Testimonials() {
 
   return (
     <section className="w-full bg-white rounded-2xl shadow-sm">
-      <div className="relative overflow-hidden px-4 md:px-12 py-6 md:py-3">
+      <div className="relative overflow-hidden px-4 md:px-12 py-3 md:py-6">
         <div className="mb-6">
           <CardCarousel cards={testimonials} />
         </div>
