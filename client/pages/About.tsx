@@ -251,20 +251,20 @@ export default function About() {
   ];
 
   return (
-    <main className="min-h-screen pb-20 bg-gradient-to-b from-slate-950 to-slate-900 text-slate-100">
+    <main className="min-h-screen pb-20 text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8 pt-10">
         {/* Breadcrumbs */}
-        <nav className="text-sm text-slate-400 mb-4" aria-label="Breadcrumb">
+        <nav className="text-sm text-slate-300/70 mb-4" aria-label="Breadcrumb">
           <ol className="flex items-center gap-2">
             <li>
               <Link
                 to={`/${lang}`}
-                className="hover:underline hover:text-yellow-400"
+                className="hover:underline text-slate-300/70"
               >
                 {t("breadcrumb")[0]}
               </Link>
             </li>
-            <li aria-hidden className="text-slate-600">
+            <li aria-hidden className="text-slate-500">
               /
             </li>
             <li className="text-slate-200 font-semibold">
@@ -274,42 +274,45 @@ export default function About() {
         </nav>
 
         {/* Hero */}
-        <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-16">
+        <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-12">
           <div className="md:col-span-7">
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-white">
+            <h1
+              className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-gold"
+              style={{ color: "black" }}
+            >
               {t("title")}
             </h1>
-            <p className="text-slate-300/90 max-w-3xl mb-6 leading-relaxed">
+            <p className="text-slate-200/90 max-w-3xl mb-6 leading-relaxed">
               {t("p1")}
             </p>
-            <p className="text-slate-400 max-w-3xl mb-8 leading-relaxed">
+            <p className="text-slate-300 max-w-3xl mb-6 leading-relaxed">
               {t("p2")}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <a
                 href="#"
-                className="inline-flex items-center justify-center bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-yellow-400 transition"
+                className="inline-flex items-center justify-center bg-gold text-black font-semibold px-5 py-3 rounded-full shadow-lg hover:shadow-xl"
               >
                 {t("speak")}
               </a>
               <a
                 href="#"
-                className="inline-flex items-center justify-center border border-slate-600 text-slate-200 px-6 py-3 rounded-full hover:bg-slate-800/60 transition"
+                className="inline-flex items-center justify-center border border-slate-600 text-slate-200 px-5 py-3 rounded-full hover:bg-slate-800/40"
               >
                 {t("solutions")}
               </a>
             </div>
 
-            {/* Stats */}
-            <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6">
+            {/* key stats */}
+            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
               {t("stats").map((s: string, idx: number) => (
                 <div
                   key={idx}
-                  className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center shadow-md"
+                  className="bg-white/5 rounded-lg p-4 text-center"
                 >
-                  <div className="text-2xl font-bold text-yellow-400">{s}</div>
-                  <div className="text-sm text-slate-400">
+                  <div className="text-2xl font-bold">{s}</div>
+                  <div className="text-sm text-slate-300">
                     {t("statsLabels")[idx]}
                   </div>
                 </div>
@@ -318,7 +321,7 @@ export default function About() {
           </div>
 
           <div className="md:col-span-5">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-white/10">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ffac3605fb1b24468b70218d201be3635?format=webp&width=1200"
                 alt="Our story"
@@ -326,11 +329,11 @@ export default function About() {
               />
             </div>
             <div className="mt-4 flex items-center gap-3">
-              <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center">
                 🏆
               </div>
               <div>
-                <div className="text-sm text-yellow-400 font-semibold">
+                <div className="text-sm text-slate-200 font-semibold">
                   Recognized Excellence
                 </div>
                 <div className="text-xs text-slate-400">
@@ -342,36 +345,63 @@ export default function About() {
         </section>
 
         {/* Mission & Vision */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-16">
-          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-md">
-            <h3 className="text-xl font-bold mb-3 text-white">{t("missionTitle")}</h3>
-            <p className="text-slate-300 leading-relaxed">{t("missionText")}</p>
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-12">
+          <div>
+            <h3 className="text-xl font-bold mb-3">{t("missionTitle")}</h3>
+            <p className="text-slate-200/90 leading-relaxed">
+              {t("missionText")}
+            </p>
           </div>
-          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-md">
-            <h3 className="text-xl font-bold mb-3 text-white">{t("visionTitle")}</h3>
-            <p className="text-slate-300 leading-relaxed">{t("visionText")}</p>
-          </div>
-        </section>
-
-        {/* Approach */}
-        <section className="mb-16">
-          <h3 className="text-2xl font-extrabold mb-6 text-white">{t("approachTitle")}</h3>
-          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-md">
-            <p className="text-slate-300 leading-relaxed">{t("approachText")}</p>
+          <div>
+            <h3 className="text-xl font-bold mb-3">{t("visionTitle")}</h3>
+            <p className="text-slate-200/90 leading-relaxed">
+              {t("visionText")}
+            </p>
           </div>
         </section>
 
-        {/* Awards */}
-        <section className="mb-16">
-          <h4 className="text-lg font-semibold mb-4 text-white">{t("awardsTitle")}</h4>
-          <AwardsMarquee />
+        {/* Team / approach */}
+        <section className="mb-12">
+          <h3 className="text-2xl font-extrabold mb-6">{t("approachTitle")}</h3>
+          <div className="bg-white/3 rounded-lg p-6">
+            <p className="text-slate-200/90 leading-relaxed">
+              {t("approachText")}
+            </p>
+          </div>
         </section>
 
-        {/* Team */}
+        {/* Awards strip */}
         <section className="mb-16">
-          <h3 className="text-2xl font-extrabold mb-6 text-white">{t("teamTitle")}</h3>
-          <p className="text-slate-400 max-w-3xl mb-6">{t("teamText")}</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <h4 className="text-lg font-semibold mb-4">{t("awardsTitle")}</h4>
+          <div className="flex gap-4 overflow-x-auto pb-3 hide-scroll">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fc32f6d57ceda4c518a7267e66c448826?format=webp&width=600"
+              alt="AMFI"
+              className="h-28 object-contain"
+            />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F5aaf8d75897d440289633ffedd84751c?format=webp&width=600"
+              alt="Best Performer"
+              className="h-28 object-contain"
+            />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F747a7d68a119469c9c4f43505331a45b?format=webp&width=600"
+              alt="SIP Performer"
+              className="h-28 object-contain"
+            />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ff952b975ed9d44e4a1f7ef60b5e0bc81?format=webp&width=600"
+              alt="BFSI"
+              className="h-28 object-contain"
+            />
+          </div>
+        </section>
+
+        {/* Team showcase */}
+        <section className="mb-16">
+          <h3 className="text-2xl font-extrabold mb-6">{t("teamTitle")}</h3>
+          <p className="text-slate-300 max-w-3xl mb-6">{t("teamText")}</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-stretch">
             {teamMembers.map((m) => (
               <TeamCard
                 key={m.name}
@@ -387,34 +417,44 @@ export default function About() {
         {/* Investors */}
         <section className="mb-20">
           <div className="max-w-7xl mx-auto text-center">
-            <h3 className="text-2xl font-extrabold mb-4 text-white">{t("investorsTitle")}</h3>
-            <p className="text-slate-400 mb-10">{t("investorsSubtitle")}</p>
+            <h3 className="text-2xl font-extrabold mb-2">
+              {t("investorsTitle")}
+            </h3>
+            <p className="text-slate-300 mb-8">{t("investorsSubtitle")}</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {["Windrose capital", "Lets Venture", "Indian Angel Network Fund"].map(
-                (name) => (
-                  <div
-                    key={name}
-                    className="bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-md flex flex-col items-center"
-                  >
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ff668d1330e1a4297a3024a099e463da8?format=webp&width=800"
-                      alt={name}
-                      className="h-20 object-contain mb-4"
-                    />
-                    <div className="font-semibold text-lg text-white">{name}</div>
+              {[
+                "Windrose capital",
+                "Lets Venture",
+                "Indian Angel Network Fund",
+              ].map((name, idx) => (
+                <div
+                  key={name}
+                  className="bg-white rounded-lg border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm"
+                >
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ff668d1330e1a4297a3024a099e463da8?format=webp&width=800"
+                    alt={name}
+                    className="h-20 object-contain mb-4"
+                  />
+                  <div className="font-semibold text-lg text-slate-900 mb-2">
+                    {name}
                   </div>
-                )
-              )}
+                </div>
+              ))}
             </div>
-            <p className="text-slate-500 mt-8 text-sm">{t("investorsFooter")}</p>
+            <p className="text-slate-400 mt-8 text-sm">
+              {t("investorsFooter")}
+            </p>
           </div>
         </section>
 
         {/* Partners */}
         <section className="mb-20">
           <div className="max-w-7xl mx-auto text-center">
-            <h3 className="text-2xl font-extrabold mb-4 text-white">{t("partnersTitle")}</h3>
-            <p className="text-slate-400 mb-8">{t("partnersSubtitle")}</p>
+            <h3 className="text-2xl font-extrabold mb-2">
+              {t("partnersTitle")}
+            </h3>
+            <p className="text-slate-300 mb-8">{t("partnersSubtitle")}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[
                 {
@@ -441,22 +481,28 @@ export default function About() {
               ].map((p) => (
                 <div
                   key={p.name}
-                  className="bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-md text-center"
+                  className="bg-white rounded-lg border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm"
                 >
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F4cd3e3d1c3474c0986a482320a0d725f?format=webp&width=800"
                     alt={p.name}
-                    className="h-20 object-contain mb-4 mx-auto"
+                    className="h-20 object-contain mb-4"
                   />
-                  <div className="font-semibold text-lg text-white">{p.name}</div>
-                  <div className="text-sm text-slate-400 mb-4">{p.desc}</div>
-                  <button className="bg-yellow-500 text-black px-4 py-2 rounded-full hover:bg-yellow-400 transition">
+                  <div className="font-semibold text-lg text-slate-900 mb-2">
+                    {p.name}
+                  </div>
+                  <div className="text-sm text-slate-500 mb-4">{p.desc}</div>
+                  <button className="bg-sky-600 text-white px-4 py-2 rounded-md">
                     More
                   </button>
                 </div>
               ))}
             </div>
           </div>
+        </section>
+
+        <section className="mb-20">
+          <AwardsMarquee />
         </section>
       </div>
     </main>
