@@ -433,7 +433,7 @@ export default function StepsOrbit({
 
               <div className="absolute right-8 bottom-8 text-right">
                 <div className="text-slate-900 font-semibold text-xl">
-                  <span className="text-white">{pad(active + 1)}</span>
+                  <span className="text-[#0a66c2]">{pad(active + 1)}</span>
                   <span className="text-[#7E8EA9]">
                     /{pad(activeSteps.length)}
                   </span>
@@ -582,7 +582,7 @@ export default function StepsOrbit({
         {/* Mobile global counter and progress (absolute bottom-right) */}
         <div className="absolute right-4 bottom-4 z-20 text-right">
           <div className="text-slate-900 font-semibold text-lg">
-            <span className="text-white">{pad(active + 1)}</span>
+            <span className="text-[#0a66c2]">{pad(active + 1)}</span>
             <span className="text-[#7E8EA9]">/{pad(activeSteps.length)}</span>
           </div>
           <div className="w-36 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
