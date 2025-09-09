@@ -269,4 +269,5 @@
 .app-content-over-water {
   position: relative;
   z-index: 10;
+  background: transparent; /* ensure transparency so water shows through */
 }
