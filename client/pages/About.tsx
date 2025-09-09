@@ -67,7 +67,7 @@ const translations: any = {
       "और ���न्य प्रमुख एंजेल निवेशक जो ��फल उद्यमी, वेंचर कैपिटलिस��ट और फंड मैनेजर हैं",
     partnersTitle: "हमारे साझेदार",
     partnersSubtitle:
-      "हम अपने पहुँच का विस्तार करने के लिए प्रमुख वित्तीय संस्था��ों और भागीदारों के साथ सहयोग करते हैं।",
+      "हम अपने पहुँच का विस्तार करने के लिए प्रमुख वित्तीय संस्था����ं और भागीदारों के साथ सहयोग करते हैं।",
   },
   mar: {
     breadcrumb: ["मुखपृष्ठ", "आमची कथा"],
@@ -80,7 +80,7 @@ const translations: any = {
     statsLabels: ["घर", "भागीदार", "पुरस्कार", "सरासरी अनुभव"],
     missionTitle: "आमचे ध्येय",
     missionText:
-      "तंत्रज्ञान आणि मानवी आधाराद्वारे वित्तीय सेवा लोकांपर्यंत पोहोच��णे.",
+      "तंत्रज्ञान आणि मानवी आधाराद्वारे वित्तीय सेवा लोकांपर्यंत पोहोच���णे.",
     visionTitle: "आमची दृष्टी",
     visionText: "विदित घरागृहासाठी व��यक्तिगत वित्तीय नियोजन.",
     approachTitle: "पद्धत & तंत्रज्ञान",
@@ -91,7 +91,7 @@ const translations: any = {
       "आम्ही सुरक्षित, अनुपालन-अनुकूल आणि मानव-केंद्रित फि��टेक प्रदान करण्यात बांधील आहोत जे सल्लागारांना सशक्त करते आणि गुंतवणूकदारांचे संरक्षण करते.",
     teamTitle: "आमची टीम",
     teamText:
-      "तंत्रज्ञान, उत्पादन आणि ऑपरेशन्समधील विविध नेतृत्व ज्यांनी अनेक वर्षांचा अनुभव घेऊन उत्पादने तयार केली आ��ेत.",
+      "तंत्रज्ञान, उत्पादन आणि ऑपरेशन्समधील विविध नेतृत्व ज्यांनी अनेक वर्षांचा अनुभव घेऊन उत्पादने तयार केली आ���ेत.",
     investorsTitle: "गुंतवणूकदार",
     investorsSubtitle:
       "आमच्या व्हिजनमध्ये विश्वास असलेल्या प्रमुख गुंतवणूकदारांनी आम्हाला समर्थन केले आहे.",
@@ -477,6 +477,27 @@ export default function About() {
         </section>
         <section className="mb-20">
           <AwardsMarquee />
+        </section>
+
+        <section className="mb-20 bg-slate-50 py-12">
+          <div className="max-w-6xl mx-auto px-6 md:px-8 text-center">
+            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-6">Featured in Leading Publications</h3>
+            <p className="text-sm text-slate-600 mb-6">Our work has been featured across leading business and financial publications.</p>
+
+            <div className="flex items-center justify-center">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fe6d9f86d8c6e414fbcf0223463710063?format=webp&width=800"
+                alt="Publications logos"
+                className="max-w-full h-14 object-contain mx-4"
+              />
+
+              <img
+                src="https://nivesh.com/cc16d70a21d855dd1303ab66ac1a8dd0.webp"
+                alt="Publication feature"
+                className="max-w-full h-14 object-contain mx-4"
+              />
+            </div>
+          </div>
         </section>
       </div>
     </main>
