@@ -48,7 +48,7 @@ const translations: any = {
     stats: ["19.5crt+", "100+", "50+", "8 yrs"],
     statsLabels: ["घरेलू", "साझेदार", "पुरस्कार", "औसत अनुभव"],
     missionTitle: "हमारा मिशन",
-    missionText: "वित्तीय सेवाओं तक पहुंच को लोकतांत्रित करना...",
+    missionText: "वित्तीय सेवाओं तक प���ुंच को लोकतांत्रित करना...",
     visionTitle: "हमारी दृष्टि",
     visionText: "एक भविष्य जहां वित्तीय योजना हर घर के लिए सुलभ हो।",
     approachTitle: "दृष्टिकोण और प्रौद्योगिकी",
@@ -72,7 +72,7 @@ const translations: any = {
   mar: {
     breadcrumb: ["मुखपृष्ठ", "आमची कथा"],
     title: "आमची कथा",
-    p1: "Nivesh हे एक पुरस्कार विजेता डिजिटल-प्रथम प्लॅटफॉर्म आहे जे स्वतंत्र म्युच्युअल फंड वितरकांना त्यांचे AUM वाढविण्यात मदत करते.",
+    p1: "Nivesh हे एक पुरस्कार विजेता डिजिटल-प्रथम प्लॅटफॉर्म आहे जे स��वतंत्र म्युच्युअल फंड वितरकांना त्यांचे AUM वाढविण्यात मदत करते.",
     p2: "आमचा दृष्टिकोन IFAs साठी तंत्रज्ञान-समर्थित उपाय प्रदान करणे आहे.",
     speak: "तज्ञाशी बोला",
     solutions: "आपले सोल्यूशन्स पहा",
@@ -88,7 +88,7 @@ const translations: any = {
     awardsTitle: "पुरस्कार आणि मान्यता",
     commitmentTitle: "आमची बांधिलकी",
     commitmentText:
-      "आम्ही सुरक्षित, अनुपालन-अनुकूल आणि मानव-केंद्रित फिनटेक प्रदान करण्यात बांधील आहोत जे सल्लागारांना सशक्त करते आणि गुंतवणूकदारांचे संरक्षण करते.",
+      "आम्ही ���ुरक्षित, अनुपालन-अनुकूल आणि मानव-केंद्रित फिनटेक प्रदान करण्यात बांधील आहोत जे सल्लागारांना सशक्त करते आणि गुंतवणूकदारांचे संरक्षण करते.",
     teamTitle: "आमची टीम",
     teamText:
       "तंत्रज्ञान, उत्पादन आणि ऑपरेशन्समधील विविध नेतृत्व ज्यांनी अनेक वर्षांचा अनुभव घेऊन उत्पादने तयार केली आहेत.",
@@ -251,15 +251,15 @@ export default function About() {
   ];
 
   return (
-    <main className="min-h-screen pb-20 text-white">
+    <main className="min-h-screen pb-20 text-slate-800">
       <div className="max-w-7xl mx-auto px-6 md:px-8 pt-10">
         {/* Breadcrumbs */}
-        <nav className="text-sm text-slate-300/70 mb-4" aria-label="Breadcrumb">
+        <nav className="text-sm text-slate-600 mb-4" aria-label="Breadcrumb">
           <ol className="flex items-center gap-2">
             <li>
               <Link
                 to={`/${lang}`}
-                className="hover:underline text-slate-300/70"
+                className="hover:underline text-slate-700"
               >
                 {t("breadcrumb")[0]}
               </Link>
@@ -267,7 +267,7 @@ export default function About() {
             <li aria-hidden className="text-slate-500">
               /
             </li>
-            <li className="text-slate-200 font-semibold">
+            <li className="text-slate-900 font-semibold">
               {t("breadcrumb")[1]}
             </li>
           </ol>
@@ -277,28 +277,27 @@ export default function About() {
         <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-12">
           <div className="md:col-span-7">
             <h1
-              className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-gold"
-              style={{ color: "black" }}
-            >
+              className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-indigo-700"
+                          >
               {t("title")}
             </h1>
-            <p className="text-slate-200/90 max-w-3xl mb-6 leading-relaxed">
+            <p className="text-slate-700 max-w-3xl mb-6 leading-relaxed">
               {t("p1")}
             </p>
-            <p className="text-slate-300 max-w-3xl mb-6 leading-relaxed">
+            <p className="text-slate-700 max-w-3xl mb-6 leading-relaxed">
               {t("p2")}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <a
                 href="#"
-                className="inline-flex items-center justify-center bg-gold text-black font-semibold px-5 py-3 rounded-full shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center bg-indigo-600 text-white font-semibold px-5 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-indigo-700 transition"
               >
                 {t("speak")}
               </a>
               <a
                 href="#"
-                className="inline-flex items-center justify-center border border-slate-600 text-slate-200 px-5 py-3 rounded-full hover:bg-slate-800/40"
+                className="inline-flex items-center justify-center border border-slate-300 text-slate-700 px-5 py-3 rounded-full hover:bg-slate-100 transition"
               >
                 {t("solutions")}
               </a>
@@ -309,10 +308,10 @@ export default function About() {
               {t("stats").map((s: string, idx: number) => (
                 <div
                   key={idx}
-                  className="bg-white/5 rounded-lg p-4 text-center"
+                  className="bg-white rounded-lg p-4 text-center shadow-md"
                 >
                   <div className="text-2xl font-bold">{s}</div>
-                  <div className="text-sm text-slate-300">
+                  <div className="text-sm text-slate-600">
                     {t("statsLabels")[idx]}
                   </div>
                 </div>
@@ -321,7 +320,7 @@ export default function About() {
           </div>
 
           <div className="md:col-span-5">
-            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ffac3605fb1b24468b70218d201be3635?format=webp&width=1200"
                 alt="Our story"
@@ -329,14 +328,14 @@ export default function About() {
               />
             </div>
             <div className="mt-4 flex items-center gap-3">
-              <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md">
                 🏆
               </div>
               <div>
-                <div className="text-sm text-slate-200 font-semibold">
+                <div className="text-sm text-slate-600 font-semibold">
                   Recognized Excellence
                 </div>
-                <div className="text-xs text-slate-400">
+                <div className="text-xs text-slate-600">
                   Multiple awards for innovation
                 </div>
               </div>
@@ -347,14 +346,14 @@ export default function About() {
         {/* Mission & Vision */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-12">
           <div>
-            <h3 className="text-xl font-bold mb-3">{t("missionTitle")}</h3>
-            <p className="text-slate-200/90 leading-relaxed">
+            <h3 className="text-xl font-bold mb-3 text-indigo-700">{t("missionTitle")}</h3>
+            <p className="text-slate-700 leading-relaxed">
               {t("missionText")}
             </p>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-3">{t("visionTitle")}</h3>
-            <p className="text-slate-200/90 leading-relaxed">
+            <h3 className="text-xl font-bold mb-3 text-indigo-700">{t("visionTitle")}</h3>
+            <p className="text-slate-700 leading-relaxed">
               {t("visionText")}
             </p>
           </div>
@@ -362,9 +361,9 @@ export default function About() {
 
         {/* Team / approach */}
         <section className="mb-12">
-          <h3 className="text-2xl font-extrabold mb-6">{t("approachTitle")}</h3>
-          <div className="bg-white/3 rounded-lg p-6">
-            <p className="text-slate-200/90 leading-relaxed">
+          <h3 className="text-2xl font-extrabold mb-6 text-indigo-700">{t("approachTitle")}</h3>
+          <div className="bg-white rounded-lg p-6 shadow-md">
+            <p className="text-slate-700 leading-relaxed">
               {t("approachText")}
             </p>
           </div>
@@ -399,8 +398,8 @@ export default function About() {
 
         {/* Team showcase */}
         <section className="mb-16">
-          <h3 className="text-2xl font-extrabold mb-6">{t("teamTitle")}</h3>
-          <p className="text-slate-300 max-w-3xl mb-6">{t("teamText")}</p>
+          <h3 className="text-2xl font-extrabold mb-6 text-indigo-700">{t("teamTitle")}</h3>
+          <p className="text-slate-700 max-w-3xl mb-6">{t("teamText")}</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-stretch">
             {teamMembers.map((m) => (
               <TeamCard
@@ -420,7 +419,7 @@ export default function About() {
             <h3 className="text-2xl font-extrabold mb-2">
               {t("investorsTitle")}
             </h3>
-            <p className="text-slate-300 mb-8">{t("investorsSubtitle")}</p>
+            <p className="text-slate-700 mb-8">{t("investorsSubtitle")}</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 "Windrose capital",
@@ -429,7 +428,7 @@ export default function About() {
               ].map((name, idx) => (
                 <div
                   key={name}
-                  className="bg-white rounded-lg border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm"
+                  className="bg-white rounded-lg border border-slate-200 p-6 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow"
                 >
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ff668d1330e1a4297a3024a099e463da8?format=webp&width=800"
@@ -442,7 +441,7 @@ export default function About() {
                 </div>
               ))}
             </div>
-            <p className="text-slate-400 mt-8 text-sm">
+            <p className="text-slate-600 mt-8 text-sm">
               {t("investorsFooter")}
             </p>
           </div>
@@ -454,7 +453,7 @@ export default function About() {
             <h3 className="text-2xl font-extrabold mb-2">
               {t("partnersTitle")}
             </h3>
-            <p className="text-slate-300 mb-8">{t("partnersSubtitle")}</p>
+            <p className="text-slate-700 mb-8">{t("partnersSubtitle")}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[
                 {
@@ -481,7 +480,7 @@ export default function About() {
               ].map((p) => (
                 <div
                   key={p.name}
-                  className="bg-white rounded-lg border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm"
+                  className="bg-white rounded-lg border border-slate-200 p-6 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow"
                 >
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2F4cd3e3d1c3474c0986a482320a0d725f?format=webp&width=800"
@@ -491,8 +490,8 @@ export default function About() {
                   <div className="font-semibold text-lg text-slate-900 mb-2">
                     {p.name}
                   </div>
-                  <div className="text-sm text-slate-500 mb-4">{p.desc}</div>
-                  <button className="bg-sky-600 text-white px-4 py-2 rounded-md">
+                  <div className="text-sm text-slate-600 mb-4">{p.desc}</div>
+                  <button className="bg-cyan-600 text-white px-4 py-2 rounded-md hover:bg-cyan-700 transition">
                     More
                   </button>
                 </div>
