@@ -55,7 +55,7 @@ export default function AwardsMarquee() {
   const items = [...awards, ...awards]; // duplicate for seamless loop
 
   return (
-    <section className="w-full rounded-2xl bg-white shadow-sm py-8">
+    <section className="">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="text-center mb-6">
           <p className="text-sm text-slate-500 tracking-wide">
