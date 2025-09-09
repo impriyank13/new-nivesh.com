@@ -54,14 +54,14 @@ export default function Partner() {
           <Link to={`/${lang}/`} className="text-sm text-slate-500 hover:underline">Back</Link>
         </div>
 
-        <header className="bg-white p-6 rounded-lg shadow-sm mb-8">
+        <header className=" p-6 rounded-lg shadow-sm mb-8">
           <h1 className="text-3xl font-extrabold mb-2 text-[#0a66c2]">{t("title")}</h1>
           <p className="text-slate-600">{t("subtitle")}</p>
         </header>
 
         <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {(content[lang]?.points || content["en"]?.points || []).map((f: string) => (
-            <div key={f} className="bg-white rounded-lg border border-slate-200 p-6 text-center shadow-sm">
+            <div key={f} className=" rounded-lg border border-slate-200 p-6 text-center shadow-sm">
               <div className="font-semibold mb-2">{f}</div>
               <p className="text-sm text-slate-600">Learn how we support: {f.toLowerCase()}.</p>
             </div>
@@ -69,7 +69,7 @@ export default function Partner() {
         </section>
 
         <section className="mt-8">
-          <div className="bg-white rounded-lg border border-slate-200 p-6 shadow-sm">
+          <div className=" rounded-lg border border-slate-200 p-6 shadow-sm">
             <h2 className="text-xl font-semibold mb-3">Partner Onboarding</h2>
             <p className="text-slate-600 mb-4">To join as a partner and access onboarding resources, visit our partner portal.</p>
             <a href="https://app.nivesh.com/partner_onboarding" className="inline-flex items-center bg-[#0a66c2] text-white rounded-full px-4 py-2 text-sm font-semibold hover:bg-[#084a9e] transition">Get Started</a>
