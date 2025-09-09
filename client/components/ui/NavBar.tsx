@@ -91,8 +91,9 @@ export default function NavBar() {
 
   const buildPath = (to: string, targetLang = lang) => {
     const clean = to.startsWith("/") ? to : `/${to}`;
+    // root should always go to the language root (e.g. /en), not preserve current base
+    if (clean === "/") return `/${targetLang}`;
     const base = location.replace(/^\/(en|hin|mar)/, "");
-    if (clean === "/") return `/${targetLang}${base || ""}`;
     return `/${targetLang}${clean}`;
   };
 
