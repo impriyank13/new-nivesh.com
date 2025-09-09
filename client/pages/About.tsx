@@ -401,7 +401,7 @@ export default function About() {
                   className="bg-white rounded-lg border border-slate-200 p-6 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow"
                 >
                   <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ff668d1330e1a4297a3024a099e463da8?format=webp&width=800"
+                    src={p.img}
                     alt={p.name}
                     className="h-20 object-contain mb-4"
                   />
