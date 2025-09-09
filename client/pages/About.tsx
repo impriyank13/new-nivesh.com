@@ -1,6 +1,7 @@
 import { Link, useParams, useLocation } from "react-router-dom";
 import TeamCard from "../components/ui/TeamCard";
 import AwardsMarquee from "@/components/ui/AwardsMarquee";
+import Testimonials from "@/components/ui/Testimonials";
 
 const translations: any = {
   en: {
@@ -123,127 +124,109 @@ export default function About() {
     {
       name: "Sridhar Srinivasan",
       title: "Co-Founder & CTO",
-      image:
-        "https://nivesh.com/d6dff2e15494a162fd04442d4182b0a9.png",
+      image: "https://nivesh.com/d6dff2e15494a162fd04442d4182b0a9.png",
       linkedin: "https://www.linkedin.com/in/srisri0/",
     },
     {
       name: "Dr Hira Jaiswal",
       title: "Principal Officer & General Manager - Insurance",
-      image:
-        "https://nivesh.com/141b574157a0b78e61649a38dc9d9185.png",
+      image: "https://nivesh.com/141b574157a0b78e61649a38dc9d9185.png",
       linkedin: "https://www.linkedin.com/in/dr-hira-jaiswal-6377b9249/",
     },
     {
       name: "Rajesh Kumar Ram",
       title: "VP - Engineering & Technology",
-      image:
-        "https://nivesh.com/89227cf01d59b83bce92148f3822c090.png",
+      image: "https://nivesh.com/89227cf01d59b83bce92148f3822c090.png",
       linkedin: "https://in.linkedin.com/in/rajesh-kumar-77734572",
     },
     {
       name: "Vishal Rohta",
       title: "VP - Operations & Partner Development",
-      image:
-        "https://nivesh.com/40c5bb2b4d702e4d6429b47b43e57ef1.png",
+      image: "https://nivesh.com/40c5bb2b4d702e4d6429b47b43e57ef1.png",
       linkedin: "https://www.linkedin.com/in/vishal-rohta-90896632/",
     },
     {
       name: "Anant Sharma",
       title: "Business Head - Product & Research",
-      image:
-        "https://nivesh.com/cb8c2656150f098bd92c8dd69611a581.png",
+      image: "https://nivesh.com/cb8c2656150f098bd92c8dd69611a581.png",
       linkedin: "https://www.linkedin.com/in/anant-sharma-2087a118/",
     },
     {
       name: "Sarika Bhadauria",
       title: "Manager - HR & Admin",
-      image:
-        "https://nivesh.com/09b61be855188a21908860b5bc042aa4.jpg",
+      image: "https://nivesh.com/09b61be855188a21908860b5bc042aa4.jpg",
       linkedin: "https://www.linkedin.com/in/sarika-bhadauria-1a738722/",
     },
     {
       name: "Kamal Kumar",
       title: "Company Secretary, Accounts and Legal",
-      image:
-        "https://nivesh.com/219e5182d8cb3078557f96c2e53a3384.jpeg",
+      image: "https://nivesh.com/219e5182d8cb3078557f96c2e53a3384.jpeg",
       linkedin: "https://www.linkedin.com/in/cskamalkumar/",
     },
     {
       name: "Puneet Agarwal",
       title: "Manager - Partner Relations",
-      image:
-        "https://nivesh.com/7fb892c87b7f61c6918444b6a69aa5b1.jpg",
+      image: "https://nivesh.com/7fb892c87b7f61c6918444b6a69aa5b1.jpg",
       linkedin: "https://www.linkedin.com/in/puneet-agarwal-10b30332/",
     },
     {
       name: "Ankit Nihania",
       title: "Senior Area Manager - Partner Relations",
-      image:
-        "https://nivesh.com/208c997e83445bc7fbeec65da212a1dc.jpg",
+      image: "https://nivesh.com/208c997e83445bc7fbeec65da212a1dc.jpg",
       linkedin: "https://www.linkedin.com/in/ankit-nihania-97aa6b153/",
     },
     {
       name: "Devendra Singh",
       title: "Senior Area Manager - Partner Relations",
-      image:
-        "https://nivesh.com/0123aae0c68f3a010135ea0ad3d20a11.jpg",
+      image: "https://nivesh.com/0123aae0c68f3a010135ea0ad3d20a11.jpg",
       linkedin: "https://www.linkedin.com/in/devendra-singh-rawat-67556079/",
     },
     {
       name: "Akanksha Srivastava",
       title: "Product Manager - Technology",
-      image:
-        "https://nivesh.com/852f4d7aa8e2280abc3658e61422a5b6.jpg",
+      image: "https://nivesh.com/852f4d7aa8e2280abc3658e61422a5b6.jpg",
       linkedin: "https://www.linkedin.com/in/akanksha8/",
     },
     {
       name: "Abhijeet Awasthi",
       title: "Technical Architect - Technology",
-      image:
-        "https://nivesh.com/66cac19c0de56fc4b4543a10cd62d7f8.jpg",
+      image: "https://nivesh.com/66cac19c0de56fc4b4543a10cd62d7f8.jpg",
       linkedin: "https://www.linkedin.com/in/abhijeet-awasthi-63bb22143/",
     },
     {
       name: "Pooja Ratudi",
       title: "Manager - Partner Support",
-      image:
-        "https://nivesh.com/676a8d70672a45939a15d83e7062576d.jpg",
+      image: "https://nivesh.com/676a8d70672a45939a15d83e7062576d.jpg",
       linkedin: "https://www.linkedin.com/in/pooja-ratudi-0845a412a/",
     },
     {
       name: "Sneha Ghag",
       title: "Lead Engineer - Technology",
-      image:
-        "https://nivesh.com/2d04a8e322c15565cb73d2d36203318e.jpg",
+      image: "https://nivesh.com/2d04a8e322c15565cb73d2d36203318e.jpg",
       linkedin: "https://www.linkedin.com/in/sneha-ghag-671198bb/",
     },
     {
       name: "Shivani Shrivastav",
       title: "Manager-Team Lead, Customer Success Manager",
-      image:
-        "https://nivesh.com/dc0049358518c8070adce2fc2146dd4f.png",
+      image: "https://nivesh.com/dc0049358518c8070adce2fc2146dd4f.png",
       linkedin: "https://www.linkedin.com/in/i-am-shivani-shrivastav/",
     },
     {
       name: "Akhilesh Chandak",
       title: "Principal Software Engineer - Technology",
-      image:
-        "https://nivesh.com/bd8092ff7a0dcb904f3876ff73b212b2.jpg",
+      image: "https://nivesh.com/bd8092ff7a0dcb904f3876ff73b212b2.jpg",
       linkedin: "https://www.linkedin.com/in/akhilesh-chandak-ab9059b5/",
     },
     {
       name: "Shivani Baghel",
       title: "Manager- Client Wealth",
-      image:
-        "https://nivesh.com/4dceb90d8e71aafb255b1348ca6f7e4d.jpg",
+      image: "https://nivesh.com/4dceb90d8e71aafb255b1348ca6f7e4d.jpg",
       linkedin: "https://www.linkedin.com/in/shivani-baghel-b20856125/",
     },
     {
       name: "Nishant Pandey",
       title: "Senior Area Manager - Partner Relations",
-      image:
-        "https://nivesh.com/d84fa23c55ffc41900bd9fd7b48d550d.jpg",
+      image: "https://nivesh.com/d84fa23c55ffc41900bd9fd7b48d550d.jpg",
       linkedin: "",
     },
   ];
@@ -392,9 +375,18 @@ export default function About() {
             <p className="text-slate-700 mb-8">{t("investorsSubtitle")}</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { name: "Windrose capital", img: "https://nivesh.com/e7ffb63fed9a022a2d74929a6e1acb74.svg" },
-                {name: "Lets Venture", img: "https://nivesh.com/d771c6e1878e02339e9c1b5ab7e683c2.svg"},
-                {name: "Indian Angel Network Fund", img: "https://nivesh.com/6a6a4ad24d58d210f67177ef350d9214.svg"},
+                {
+                  name: "Windrose capital",
+                  img: "https://nivesh.com/e7ffb63fed9a022a2d74929a6e1acb74.svg",
+                },
+                {
+                  name: "Lets Venture",
+                  img: "https://nivesh.com/d771c6e1878e02339e9c1b5ab7e683c2.svg",
+                },
+                {
+                  name: "Indian Angel Network Fund",
+                  img: "https://nivesh.com/6a6a4ad24d58d210f67177ef350d9214.svg",
+                },
               ].map((p, idx) => (
                 <div
                   key={p.name}
@@ -430,24 +422,33 @@ export default function About() {
               {[
                 {
                   name: "PNB Housing Finance Ltd.",
-                  desc: "Know More About PNB Housing Finance Ltd.", img: "https://nivesh.com/ebe7fc6de268f71f0ce97b3be2183f85.svg",
+                  desc: "Know More About PNB Housing Finance Ltd.",
+                  img: "https://nivesh.com/ebe7fc6de268f71f0ce97b3be2183f85.svg",
                 },
-                { name: "HDFC Limited", desc: "Know More About HDFC Limited", img: "https://nivesh.com/6c7572cadb0fed9a670b944b9ccf8f18.svg" },
+                {
+                  name: "HDFC Limited",
+                  desc: "Know More About HDFC Limited",
+                  img: "https://nivesh.com/6c7572cadb0fed9a670b944b9ccf8f18.svg",
+                },
                 {
                   name: "ICICI Home Finance Company Ltd",
-                  desc: "Know More About ICICI Home Finance Company Ltd", img: "https://nivesh.com/dbcbd85c0b9470eb67bab651680ca678.svg",
+                  desc: "Know More About ICICI Home Finance Company Ltd",
+                  img: "https://nivesh.com/dbcbd85c0b9470eb67bab651680ca678.svg",
                 },
                 {
                   name: "Shriram Transport Finance Limited",
-                  desc: "Know More About Shriram Transport Finance Limited", img: "https://nivesh.com/d341cd2aad4bd42d0b789729174da896.svg",
+                  desc: "Know More About Shriram Transport Finance Limited",
+                  img: "https://nivesh.com/d341cd2aad4bd42d0b789729174da896.svg",
                 },
                 {
                   name: "Bajaj Finance Limited",
-                  desc: "Know More About Bajaj Finance Limited", img: "https://nivesh.com/58f15ef202551679678e8724e23c3de2.svg",
+                  desc: "Know More About Bajaj Finance Limited",
+                  img: "https://nivesh.com/58f15ef202551679678e8724e23c3de2.svg",
                 },
                 {
                   name: "Mahindra Finance Limited",
-                  desc: "Know More About Mahindra Finance Limited", img: "https://nivesh.com/5a4b86f02f558e0067bdbd4a79bda71a.svg",
+                  desc: "Know More About Mahindra Finance Limited",
+                  img: "https://nivesh.com/5a4b86f02f558e0067bdbd4a79bda71a.svg",
                 },
               ].map((p) => (
                 <div
@@ -472,6 +473,9 @@ export default function About() {
           </div>
         </section>
 
+        <section className="mb-20">
+          <Testimonials />
+        </section>
         <section className="mb-20">
           <AwardsMarquee />
         </section>
