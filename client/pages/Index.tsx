@@ -23,7 +23,7 @@ const translations: any = {
   mar: {
     heroTitle: "विविध उद्योगांमधील नेत्यांकडून विश्वास",
     heroSubtitle:
-      "कारण जाणून घ्या का व्यावसायिक त्यांच्या ग्राहकांच्या प्रवास पूर्ण करण्यासाठी आमच्या समाधानांवर विश्वास ठेवतात.",
+      "कारण जाणून घ्या का व्यावसायिक त्यांच्या ग्राहकांच्या प्रवास पूर्ण करण्यासाठी आमच्या समाधानांवर विश्वास ठेव���ात.",
     cta: "यशोगाथा वाचा →",
   },
 };
@@ -40,7 +40,7 @@ export default function Index() {
     translations.en[key];
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-slate-100 to-slate-200 space-y-16">
+    <main className="min-h-screen flex flex-col items-center justify-start space-y-16">
       {/* Hero */}
       <section className="w-full">
         <div className="w-full">
