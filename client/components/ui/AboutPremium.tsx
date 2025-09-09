@@ -7,12 +7,12 @@ export default function AboutPremium() {
     visible: { transition: { staggerChildren: 0.12 } },
   };
 
-  const textVariant = {
+  const textVariant: any = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
   };
 
-  const imageVariant = {
+  const imageVariant: any = {
     hidden: { opacity: 0, scale: 0.98 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.9, ease: "circOut" } },
   };

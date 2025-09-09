@@ -102,7 +102,7 @@ export default function Hero() {
     return headlineDuration + totalSubTime + 0.05; // small buffer
   }, [subtitleLines.length]);
 
-  const wordVariant = {
+  const wordVariant: any = {
     hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
@@ -112,7 +112,7 @@ export default function Hero() {
     exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
   };
 
-  const lineVariant = {
+  const lineVariant: any = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
