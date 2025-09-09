@@ -371,6 +371,14 @@ export default function NavBar() {
                         />
                       </svg>
                     </button>
+                  ) : n.key === "blog" ? (
+                    <a
+                      href="https://nivesh.com/blog/"
+                      className={`text-base font-medium ${linkTextClass} px-3 py-1 rounded-md transition-transform transform hover:scale-105 ${navButtonHoverBg}`}
+                      onClick={() => setOpen(false)}
+                    >
+                      {n.label}
+                    </a>
                   ) : (
                     <Link
                       to={buildPath(n.to)}
