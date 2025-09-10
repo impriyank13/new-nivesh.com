@@ -47,7 +47,7 @@ export default function Testimonials() {
         "Scalable architecture and a thoughtful product roadmap made integration seamless for our teams.",
       media: {
         type: "image",
-        src: "https://images.unsplash.com/photo-1531123414780-f36b38f1b6c9?auto=format&fit=crop&w=800&q=80",
+        src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
         alt: "Amit Malhotra",
       },
     },
