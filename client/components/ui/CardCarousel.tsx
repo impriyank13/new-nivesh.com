@@ -230,7 +230,7 @@ export default function CardCarousel({
                             {c.media ? (
                               c.media.type === "video" ? (
                                 <div className="mb-4 w-full rounded-lg overflow-hidden">
-                                  {/(youtube\.com|youtu\.be)/.test(
+                                  {/(youtube\.com|youtu\.be|youtu.be)/.test(
                                     c.media.src,
                                   ) ? (
                                     <div className="relative w-full h-64">
