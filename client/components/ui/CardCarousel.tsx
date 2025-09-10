@@ -80,6 +80,8 @@ export default function CardCarousel({
   const rafRef = useRef<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
   const suppressRef = useRef(0); // timestamp to suppress automatic active updates during programmatic scrolls
+  const [flipped, setFlipped] = useState<Record<string, boolean>>({});
+  const toggleFlip = (id: string) => setFlipped((p) => ({ ...p, [id]: !p[id] }));
 
   useEffect(() => {
     if (isPaused) return;
