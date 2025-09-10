@@ -233,7 +233,7 @@ export default function CardCarousel({
                                   {/(youtube\.com|youtu\.be)/.test(
                                     c.media.src
                                   ) ? (
-                                    <div className="relative w-full h-64">
+                                    <div className="relative w-full h-[220px]">
                                       <iframe
                                         src={
                                           c.media.src
@@ -254,7 +254,7 @@ export default function CardCarousel({
                                       src={c.media.src}
                                       poster={c.media.poster}
                                       controls
-                                      className="w-full h-64 object-cover bg-black"
+                                        className="w-full h-[220px] object-cover bg-black"
                                       preload="metadata"
                                       playsInline
                                     />
