@@ -10,7 +10,8 @@ export default function Testimonials() {
       media: {
         type: "video",
         src: "https://www.youtube.com/embed/MsBnh2RqvPg?si=iJIAWyjIqS9HzyYV",
-        poster: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        poster:
+          "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
       },
     },
     {
@@ -21,7 +22,8 @@ export default function Testimonials() {
       media: {
         type: "video",
         src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-        poster: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
+        poster:
+          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
       },
     },
     {
@@ -51,19 +53,32 @@ export default function Testimonials() {
   return (
     <section className="">
       <div className="relative overflow-hidden px-4 md:px-12 py-3 md:py-6">
+        <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">
+          Testimonials
+        </h2>
         <div className="mb-6">
           <CardCarousel cards={testimonials} />
         </div>
 
         <div className="max-w-3xl mx-auto text-center pt-6">
-          <p className="text-sm text-slate-500 tracking-wide mb-2">Testimonials</p>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">Trusted by leaders from various industries</h2>
-          <p className="mt-3 text-slate-600">Learn why professionals trust our solutions to complete their customer journeys.</p>
-          <div className="mt-6">
-            <a href="#" className="inline-flex items-center bg-[#0a66c2] text-white rounded-full px-5 py-3 font-medium shadow-md hover:opacity-95 hover:bg-[#084a9e] transition">
-              Read Success Stories →
-            </a>
-          </div>
+          <p className="text-sm text-slate-500 tracking-wide mb-2">
+            Testimonials
+          </p>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">
+            Trusted by leaders from various industries
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Learn why professionals trust our solutions to complete their
+            customer journeys.
+          </p>
+          // <div className="mt-6">
+          //   <a
+          //     href="#"
+          //     className="inline-flex items-center bg-[#0a66c2] text-white rounded-full px-5 py-3 font-medium shadow-md hover:opacity-95 hover:bg-[#084a9e] transition"
+          //   >
+          //     Read Success Stories →
+          //   </a>
+          // </div>
         </div>
       </div>
     </section>
