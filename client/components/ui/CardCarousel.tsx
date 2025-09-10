@@ -324,7 +324,7 @@ export default function CardCarousel({
                         </div>
                       </div>
                     ) : (
-                      <div className="flex flex-col items-center text-center">
+                      <div className="flex flex-col align-items-center text-center">
                         {c.media ? (
                           c.media.type === "video" ? (
                             <div className="mb-4 w-full rounded-lg overflow-hidden">
