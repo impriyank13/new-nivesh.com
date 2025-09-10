@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="bg-[#0D3B66] text-white">
@@ -16,8 +18,8 @@ export default function Footer() {
             </ul>
 
             <div className="mt-4 flex items-center gap-3">
-              <a href="https://play.google.com/store/apps/details?id=com.nivesh.production" target="_blank"><img src="/b1e0ea7105b59c39914f42a97c0927eb.svg" alt="" class="img-responsive2"></a>
-              <a href="https://apps.apple.com/in/app/nivesh-wealth-management-app/id6740700135" target="_blank"><img src="/39662a6f385663aae1cec89625b9f278.svg" alt="" class="img-responsive2"></a>
+              <a href={"https://play.google.com/store/apps/details?id=com.nivesh.production\" target=\"_blank\"><img src=\"/b1e0ea7105b59c39914f42a97c0927eb.svg\" alt=\"\" class=\"img-responsive2"}></a>
+              <a href={"https://apps.apple.com/in/app/nivesh-wealth-management-app/id6740700135\" target=\"_blank\"><img src=\"/39662a6f385663aae1cec89625b9f278.svg\" alt=\"\" class=\"img-responsive2"}></a>
             </div>
           </div>
 
