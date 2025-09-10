@@ -203,7 +203,7 @@ export default function CardCarousel({
                     className={`mx-2 rounded-[14px] border border-[#E5E7EB] p-6 h-full transition-colors duration-300 ease-out ${
                       isActive ? "bg-[#ffe1ce] text-black" : "bg-white text-black"
                     }`}
-                    style={{ minHeight: 260 }}
+                    style={{ minHeight: 384 }}
                   >
                     {enableFlip ? (
                       <div className="relative w-full h-full" style={{ perspective: 1000 }}>
