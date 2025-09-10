@@ -81,7 +81,8 @@ export default function CardCarousel({
   const [isPaused, setIsPaused] = useState(false);
   const suppressRef = useRef(0); // timestamp to suppress automatic active updates during programmatic scrolls
   const [flipped, setFlipped] = useState<Record<string, boolean>>({});
-  const toggleFlip = (id: string) => setFlipped((p) => ({ ...p, [id]: !p[id] }));
+  const toggleFlip = (id: string) =>
+    setFlipped((p) => ({ ...p, [id]: !p[id] }));
 
   useEffect(() => {
     if (isPaused) return;
@@ -201,17 +202,24 @@ export default function CardCarousel({
                 >
                   <article
                     className={`mx-2 rounded-[14px] border border-[#E5E7EB] p-6 h-full transition-colors duration-300 ease-out ${
-                      isActive ? "bg-[#ffe1ce] text-black" : "bg-white text-black"
+                      isActive
+                        ? "bg-[#ffe1ce] text-black"
+                        : "bg-white text-black"
                     }`}
                     style={{ minHeight: 384 }}
                   >
                     {enableFlip ? (
-                      <div className="relative w-full h-full" style={{ perspective: 1000 }}>
+                      <div
+                        className="relative w-full h-full"
+                        style={{ perspective: 1000 }}
+                      >
                         <div
                           className="relative w-full h-full transition-transform duration-500"
                           style={{
                             transformStyle: "preserve-3d",
-                            transform: flipped[c.id] ? "rotateY(180deg)" : "rotateY(0deg)",
+                            transform: flipped[c.id]
+                              ? "rotateY(180deg)"
+                              : "rotateY(0deg)",
                           }}
                         >
                           <div
@@ -221,7 +229,9 @@ export default function CardCarousel({
                             {c.media ? (
                               c.media.type === "video" ? (
                                 <div className="mb-4 w-full rounded-lg overflow-hidden">
-                                  {/(youtube\.com|youtu\.be)/.test(c.media.src) ? (
+                                  {/(youtube\.com|youtu\.be)/.test(
+                                    c.media.src,
+                                  ) ? (
                                     <div className="relative w-full h-64">
                                       <iframe
                                         src={c.media.src}
@@ -278,7 +288,10 @@ export default function CardCarousel({
 
                           <div
                             className="absolute inset-0 flex flex-col items-center justify-center text-center p-4"
-                            style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+                            style={{
+                              backfaceVisibility: "hidden",
+                              transform: "rotateY(180deg)",
+                            }}
                           >
                             <h3 className="font-semibold text-[18px] leading-tight text-black">
                               {c.title}

@@ -10,8 +10,7 @@ export default function Testimonials() {
       media: {
         type: "video",
         src: "https://www.youtube.com/embed/MsBnh2RqvPg?si=iJIAWyjIqS9HzyYV",
-        poster:
-          "https://www.youtube.com/embed/MsBnh2RqvPg?si=iJIAWyjIqS9HzyYV",
+        poster: "https://www.youtube.com/embed/MsBnh2RqvPg?si=iJIAWyjIqS9HzyYV",
       },
     },
     {
@@ -28,7 +27,8 @@ export default function Testimonials() {
     },
     {
       id: "t3",
-      title: "Dhananjay Chaturvedi — Evangelist, Thinker, Consultant Formerly Managing Director, Miele India",
+      title:
+        "Dhananjay Chaturvedi — Evangelist, Thinker, Consultant Formerly Managing Director, Miele India",
       description:
         "Nivesh has changed the way I have been investing my money, they have educated me & facilitated investments into a totally new investment class for me, Mutual Funds. Having interacted with their able team, I have grown in my conviction about the merits of investing in MF’s and also benefited adequately over a period of time. Happy to recommend them to all those who are looking out for the opportunities and avenues to invest their money and see it grow.",
       media: {
