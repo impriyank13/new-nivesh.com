@@ -357,7 +357,7 @@ export default function CardCarousel({
                             />
                           )
                         ) : (
-                          <div className="mb-4 rounded-full p-2 inline-flex items-center justify-center text-black mt-6">
+                          <div className="mb-4 rounded-full p-2 inline-flex items-center justify-center text-black mt-5">
                             {c.icon
                               ? // @ts-ignore
                                 cloneElement(c.icon as React.ReactElement, {
