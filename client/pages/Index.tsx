@@ -6,6 +6,7 @@ import AwardsMarquee from "@/components/ui/AwardsMarquee";
 import Testimonials from "@/components/ui/Testimonials";
 import { useParams, useLocation } from "react-router-dom";
 import Hero from "@/components/ui/Hero";
+import ImageBenefits from "@/components/ui/ImageBenefits";
 
 const translations: any = {
   en: {
@@ -17,7 +18,7 @@ const translations: any = {
   hin: {
     heroTitle: "विभिन्न उद्योगों के नेताओं द्वारा भरोसा किया गया",
     heroSubtitle:
-      "जानें कि पेशेवर अपने ग्राहक यात्रा को पूरा करने क�� लिए हमारे समाधानों पर भरोसा क्यों करते हैं।",
+      "जानें कि पेशेवर अपने ग्राहक यात्रा को पूरा ���रने क�� लिए हमारे समाधानों पर भरोसा क्यों करते हैं।",
     cta: "सफलता की कहानियाँ पढ़ें →",
   },
   mar: {
@@ -46,6 +47,13 @@ export default function Index() {
         <div className="w-full">
           {/* Hero component */}
           <Hero />
+        </div>
+      </section>
+
+      {/* New benefits-like grid with image backgrounds */}
+      <section className="w-full max-w-7xl pt-6">
+        <div className="w-full">
+          <ImageBenefits />
         </div>
       </section>
 

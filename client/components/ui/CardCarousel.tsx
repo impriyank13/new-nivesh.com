@@ -69,15 +69,20 @@ const sampleCards: CardData[] = [
 export default function CardCarousel({
   cards = sampleCards,
   showTitle = false,
+  enableFlip = false,
 }: {
   cards?: CardData[];
   showTitle?: boolean;
+  enableFlip?: boolean;
 }) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const rafRef = useRef<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
   const suppressRef = useRef(0); // timestamp to suppress automatic active updates during programmatic scrolls
+  const [flipped, setFlipped] = useState<Record<string, boolean>>({});
+  const toggleFlip = (id: string) =>
+    setFlipped((p) => ({ ...p, [id]: !p[id] }));
 
   useEffect(() => {
     if (isPaused) return;
@@ -196,54 +201,170 @@ export default function CardCarousel({
                   aria-hidden={false}
                 >
                   <article
-                    className={`mx-2 rounded-[14px] border border-[#E5E7EB] p-6 flex flex-col items-center text-center h-full transition-colors duration-300 ease-out ${
+                    className={`mx-2 rounded-[14px] border border-[#E5E7EB] p-6 h-full transition-colors duration-300 ease-out ${
                       isActive
                         ? "bg-[#ffe1ce] text-black"
                         : "bg-white text-black"
                     }`}
-                    style={{ minHeight: 220 }}
+                    style={{ minHeight: 384 }}
                   >
-                    {/* Media (video/image) or icon */}
-                    {c.media ? (
-                      c.media.type === "video" ? (
-                        <div className="mb-4 w-full rounded-lg overflow-hidden">
-                          <video
-                            src={c.media.src}
-                            poster={c.media.poster}
-                            controls
-                            className="w-full h-40 object-cover bg-black"
-                            preload="metadata"
-                            playsInline
-                          />
-                        </div>
-                      ) : (
-                        <img
-                          src={c.media.src}
-                          alt={c.media.alt || c.title}
-                          className="mb-4 w-full h-40 object-cover rounded-lg"
-                        />
-                      )
-                    ) : (
+                    {enableFlip ? (
                       <div
-                        className={`mb-4 rounded-full p-2 inline-flex items-center justify-center transition-colors duration-300 ease-out text-black`}
+                        className="relative w-full h-full"
+                        style={{ perspective: 1000 }}
                       >
-                        {/* Icon color inherits currentColor */}
-                        {c.icon
-                          ? // @ts-ignore
-                            cloneElement(c.icon as React.ReactElement, {
-                              color: "#000000",
-                              size: 36,
-                            })
-                          : null}
+                        <div
+                          className="relative w-full h-full transition-transform duration-500"
+                          style={{
+                            transformStyle: "preserve-3d",
+                            transform: flipped[c.id]
+                              ? "rotateY(180deg)"
+                              : "rotateY(0deg)",
+                          }}
+                        >
+                          <div
+                            className="absolute inset-0 flex flex-col items-center text-center"
+                            style={{ backfaceVisibility: "hidden" }}
+                          >
+                            {c.media ? (
+                              c.media.type === "video" ? (
+                                <div className="mb-4 w-full rounded-lg overflow-hidden">
+                                  {/(youtube\.com|youtu\.be)/.test(
+                                    c.media.src,
+                                  ) ? (
+                                    <div className="relative w-full h-64">
+                                      <iframe
+                                        src={c.media.src}
+                                        className="absolute inset-0 w-full h-full"
+                                        title={c.title}
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen
+                                      />
+                                    </div>
+                                  ) : (
+                                    <video
+                                      src={c.media.src}
+                                      poster={c.media.poster}
+                                      controls
+                                      className="w-full h-64 object-cover bg-black"
+                                      preload="metadata"
+                                      playsInline
+                                    />
+                                  )}
+                                </div>
+                              ) : (
+                                <img
+                                  src={c.media.src}
+                                  alt={c.media.alt || c.title}
+                                  className="mb-4 w-full h-64 object-cover rounded-lg"
+                                />
+                              )
+                            ) : (
+                              <div className="mb-4 rounded-full p-2 inline-flex items-center justify-center text-black">
+                                {c.icon
+                                  ? // @ts-ignore
+                                    cloneElement(c.icon as React.ReactElement, {
+                                      color: "#000000",
+                                      size: 36,
+                                    })
+                                  : null}
+                              </div>
+                            )}
+
+                            <h3 className="font-semibold text-[18px] leading-tight text-black">
+                              {c.title}
+                            </h3>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleFlip(c.id);
+                              }}
+                              className="mt-4 inline-flex items-center bg-[#0a66c2] text-white rounded-full px-4 py-2 text-sm font-semibold hover:bg-[#084a9e]"
+                            >
+                              More
+                            </button>
+                          </div>
+
+                          <div
+                            className="absolute inset-0 flex flex-col items-center justify-center text-center p-4"
+                            style={{
+                              backfaceVisibility: "hidden",
+                              transform: "rotateY(180deg)",
+                            }}
+                          >
+                            <h3 className="font-semibold text-[18px] leading-tight text-black">
+                              {c.title}
+                            </h3>
+                            <p className="mt-2 text-[14px] leading-snug text-slate-700">
+                              {c.description}
+                            </p>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleFlip(c.id);
+                              }}
+                              className="mt-4 inline-flex items-center border border-slate-300 text-slate-800 rounded-full px-4 py-2 text-sm font-semibold hover:bg-slate-50"
+                            >
+                              Back
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex flex-col items-center text-center">
+                        {c.media ? (
+                          c.media.type === "video" ? (
+                            <div className="mb-4 w-full rounded-lg overflow-hidden">
+                              {/(youtube\.com|youtu\.be)/.test(c.media.src) ? (
+                                <div className="relative w-full h-64">
+                                  <iframe
+                                    src={c.media.src}
+                                    className="absolute inset-0 w-full h-full"
+                                    title={c.title}
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowFullScreen
+                                  />
+                                </div>
+                              ) : (
+                                <video
+                                  src={c.media.src}
+                                  poster={c.media.poster}
+                                  controls
+                                  className="w-full h-64 object-cover bg-black"
+                                  preload="metadata"
+                                  playsInline
+                                />
+                              )}
+                            </div>
+                          ) : (
+                            <img
+                              src={c.media.src}
+                              alt={c.media.alt || c.title}
+                              className="mb-4 w-full h-64 object-cover rounded-lg"
+                            />
+                          )
+                        ) : (
+                          <div className="mb-4 rounded-full p-2 inline-flex items-center justify-center text-black">
+                            {c.icon
+                              ? // @ts-ignore
+                                cloneElement(c.icon as React.ReactElement, {
+                                  color: "#000000",
+                                  size: 36,
+                                })
+                              : null}
+                          </div>
+                        )}
+
+                        <h3 className="font-semibold text-[18px] leading-tight text-black">
+                          {c.title}
+                        </h3>
+                        <p className="mt-2 text-[14px] leading-snug text-slate-700">
+                          {c.description}
+                        </p>
                       </div>
                     )}
-
-                    <h3 className="font-semibold text-[18px] leading-tight text-black">
-                      {c.title}
-                    </h3>
-                    <p className="mt-2 text-[14px] leading-snug text-slate-700">
-                      {c.description}
-                    </p>
                   </article>
                 </div>
               );
