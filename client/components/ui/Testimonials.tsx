@@ -71,13 +71,13 @@ export default function Testimonials() {
             Learn why professionals trust our solutions to complete their
             customer journeys.
           </p>
-          // <div className="mt-6">
-          //   <a
-          //     href="#"
-          //     className="inline-flex items-center bg-[#0a66c2] text-white rounded-full px-5 py-3 font-medium shadow-md hover:opacity-95 hover:bg-[#084a9e] transition"
-          //     Read Success Stories →
-          //   </a>
-          // </div>
+          <div className="mt-6">
+            <a
+              href="#"
+              className="inline-flex items-center bg-[#0a66c2] text-white rounded-full px-5 py-3 font-medium shadow-md hover:opacity-95 hover:bg-[#084a9e] transition"
+              Read Success Stories →
+            </a>
+          </div>
         </div>
       </div>
     </section>
