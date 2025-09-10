@@ -11,7 +11,7 @@ export default function Testimonials() {
         type: "video",
         src: "https://www.youtube.com/embed/MsBnh2RqvPg?si=iJIAWyjIqS9HzyYV",
         poster:
-          "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+          "https://www.youtube.com/embed/MsBnh2RqvPg?si=iJIAWyjIqS9HzyYV",
       },
     },
     {
