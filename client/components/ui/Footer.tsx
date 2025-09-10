@@ -17,12 +17,12 @@ export default function Footer() {
 
             <div className="mt-4 flex items-center gap-3">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fde6115b41ff6407a909740b7cd0e3bab?format=webp&width=200"
+                src="https://play.google.com/store/apps/details?id=com.nivesh.production"
                 alt="Google Play"
                 className="h-10 object-contain"
               />
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fa57cf15cdc3b46ecaaaa3addd5ef67f3?format=webp&width=200"
+                src="https://apps.apple.com/in/app/nivesh-wealth-management-app/id6740700135"
                 alt="App Store"
                 className="h-10 object-contain"
               />
