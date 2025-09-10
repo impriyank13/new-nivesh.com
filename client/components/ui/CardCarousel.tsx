@@ -265,7 +265,7 @@ export default function CardCarousel({
                                   src={c.media.src}
                                   alt={c.media.alt || c.title}
                                     className="mb-4 w-full object-cover rounded-lg"
-                                  width="200px"
+                                  height="200px"
                                 />
                               )
                             ) : (
