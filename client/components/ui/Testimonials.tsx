@@ -4,12 +4,12 @@ export default function Testimonials() {
   const testimonials: CardData[] = [
     {
       id: "t1",
-      title: "Aisha Rahman — VP of Product, FinCo",
+      title: "Shubham Bhatia — Nivesh Partner",
       description:
         "Working with the team accelerated our roadmap and improved customer activation across channels. Their approach is pragmatic and design-led.",
       media: {
         type: "video",
-        src: "https://www.w3schools.com/html/mov_bbb.mp4",
+        src: "https://www.youtube.com/embed/MsBnh2RqvPg?si=iJIAWyjIqS9HzyYV",
         poster: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
       },
     },
