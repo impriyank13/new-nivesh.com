@@ -264,9 +264,6 @@ export default function CardCarousel({
                             <h3 className="font-semibold text-[18px] leading-tight text-black">
                               {c.title}
                             </h3>
-                            <p className="mt-2 text-[14px] leading-snug text-slate-700">
-                              {c.description}
-                            </p>
                             <button
                               type="button"
                               onClick={(e) => {
