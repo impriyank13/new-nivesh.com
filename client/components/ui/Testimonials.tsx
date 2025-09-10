@@ -28,13 +28,13 @@ export default function Testimonials() {
     },
     {
       id: "t3",
-      title: "Priya Kapoor — Customer Success Lead, HealthWave",
+      title: "Dhananjay Chaturvedi — Evangelist, Thinker, Consultant Formerly Managing Director, Miele India",
       description:
-        "Professional, reliable, and results-focused. Our implementation completed ahead of schedule with clear ROI.",
+        "Nivesh has changed the way I have been investing my money, they have educated me & facilitated investments into a totally new investment class for me, Mutual Funds. Having interacted with their able team, I have grown in my conviction about the merits of investing in MF’s and also benefited adequately over a period of time. Happy to recommend them to all those who are looking out for the opportunities and avenues to invest their money and see it grow.",
       media: {
         type: "image",
-        src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80",
-        alt: "Priya Kapoor",
+        src: "https://nivesh.com/2d8dd1be465ff5ea58dec82a5f96ef33.webp",
+        alt: "Dhananjay Chaturvedi",
       },
     },
     {
