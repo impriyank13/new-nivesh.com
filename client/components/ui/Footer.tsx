@@ -1,23 +1,24 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-blue-700 to-blue-900 text-white mt-16">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+    <footer className="bg-[#0D3B66] text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Goals */}
           <div>
-            <h5 className="font-semibold mb-3">Goals</h5>
-            <ul className="text-sm space-y-2 text-slate-200">
-              <li>Retirement Plan</li>
-              <li>Save For Children</li>
-              <li>Save Tax</li>
-              <li>Build Long Term Wealth</li>
+            <h4 className="text-white font-semibold mb-4">Goals</h4>
+            <ul className="text-sm space-y-2 text-white/90">
+              <li className="mb-2">Retirement Plan</li>
+              <li className="mb-2">Save For Children</li>
+              <li className="mb-2">Save Tax</li>
+              <li className="mb-2">Build Long Term Wealth</li>
             </ul>
-            <div className="mt-4 flex gap-2">
+
+            <div className="mt-4 flex items-center gap-3">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fde6115b41ff6407a909740b7cd0e3bab?format=webp&width=200"
-                alt="Play"
+                alt="Google Play"
                 className="h-10 object-contain"
               />
               <img
@@ -28,122 +29,161 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h5 className="font-semibold mb-3">Quick links</h5>
-            <ul className="text-sm space-y-2 text-slate-200">
-              <li>
-                <Link to="/about-us">About Us</Link>
+            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+            <ul className="text-sm space-y-2 text-white/90">
+              <li className="mb-2">
+                <Link to="/about-us" className="hover:underline">
+                  About Us
+                </Link>
               </li>
-              <li>
-                <a
-                  href="https://nivesh.com/blog/"
-                  target="_top"
-                  rel="noopener noreferrer"
-                >
+              <li className="mb-2">
+                <a href="/blog" className="hover:underline">
                   Blog
                 </a>
               </li>
-              <li>
-                <Link to="/calculators">Calculators</Link>
+              <li className="mb-2">
+                <Link to="/calculators" className="hover:underline">
+                  Calculators
+                </Link>
               </li>
-              <li>
-                <Link to="/contact">Contact Us</Link>
+              <li className="mb-2">
+                <Link to="/contact" className="hover:underline">
+                  Contact Us
+                </Link>
               </li>
-              <li>
-                <Link to="/career">Career</Link>
+              <li className="mb-2">
+                <Link to="/career" className="hover:underline">
+                  Career
+                </Link>
               </li>
-              <li>
-                <Link to="/terms">Terms & Conditions</Link>
+              <li className="mb-2">
+                <Link to="/terms" className="hover:underline">
+                  Terms &amp; Conditions
+                </Link>
               </li>
-              <li>
-                <Link to="/privacy">Privacy Policy</Link>
+              <li className="mb-2">
+                <Link to="/privacy" className="hover:underline">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li className="mb-2">
+                <Link to="/data-security" className="hover:underline">
+                  Data Security
+                </Link>
               </li>
             </ul>
           </div>
 
+          {/* Products */}
           <div>
-            <h5 className="font-semibold mb-3">Products</h5>
-            <ul className="text-sm space-y-2 text-slate-200">
-              <li>Mutual Funds</li>
-              <li>Fixed Deposit</li>
-              <li>PMS</li>
-              <li>AIF</li>
-              <li>NPS</li>
-              <li>Bond</li>
-              <li>Loan Against Securities (LAS)</li>
+            <h4 className="text-white font-semibold mb-4">Products</h4>
+            <ul className="text-sm space-y-2 text-white/90">
+              <li className="mb-2">Mutual Funds</li>
+              <li className="mb-2">Fixed Deposit</li>
+              <li className="mb-2">PMS</li>
+              <li className="mb-2">AIF</li>
+              <li className="mb-2">NPS</li>
+              <li className="mb-2">Bond</li>
+              <li className="mb-2">Home Loan</li>
+              <li className="mb-2">Loan Against Securities (LAS)</li>
             </ul>
           </div>
 
+          {/* Partner */}
           <div>
-            <h5 className="font-semibold mb-3">Partner</h5>
-            <ul className="text-sm space-y-2 text-slate-200 mb-4">
-              <li>Be A Nivesh Partner</li>
-              <li>Become MF Distributor</li>
-              <li>Grow Your MF Business</li>
-              <li>NISM Certification</li>
-              <li>AMFI ARN Code</li>
+            <h4 className="text-white font-semibold mb-4">Partner</h4>
+            <ul className="text-sm space-y-2 text-white/90">
+              <li className="mb-2">Be A Nivesh Partner</li>
+              <li className="mb-2">Become MF Distributor</li>
+              <li className="mb-2">Grow Your MF Business</li>
+              <li className="mb-2">NISM Certification</li>
+              <li className="mb-2">AMFI ARN Code</li>
             </ul>
-            <div className="flex items-center gap-3 text-slate-200">
-              <a href="#" aria-label="twitter" className="hover:text-white">
-                X
+
+            <div className="mt-6 flex items-center gap-3">
+              {/* social icons */}
+              <a href="#" aria-label="x" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
+                  <path d="M23 3L12 14"></path>
+                  <path d="M1 11L12 22"></path>
+                </svg>
               </a>
-              <a href="#" aria-label="instagram" className="hover:text-white">
-                Instagram
+              <a href="#" aria-label="instagram" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
+                  <rect x="3" y="3" width="18" height="18" rx="4" ry="4"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                  <path d="M17.5 6.5h.01"></path>
+                </svg>
               </a>
-              <a href="#" aria-label="facebook" className="hover:text-white">
-                Facebook
+              <a href="#" aria-label="facebook" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
+                  <path d="M18 2h-3a4 4 0 00-4 4v3H8v4h3v8h4v-8h3l1-4h-4V6a1 1 0 011-1h3z" />
+                </svg>
               </a>
-              <a href="#" aria-label="linkedin" className="hover:text-white">
-                LinkedIn
+              <a href="#" aria-label="linkedin" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
+                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4V8h4v2" />
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                </svg>
               </a>
-              <a href="#" aria-label="youtube" className="hover:text-white">
-                YouTube
+              <a href="#" aria-label="youtube" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
+                  <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"></path>
+                  <path d="M9.75 15.02l5.5-3.02-5.5-3.02v6.04z"></path>
+                </svg>
               </a>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between mt-10 gap-6">
-          <div className="text-center md:text-left">
-            <div className="flex items-center gap-8 justify-center md:justify-start">
+        {/* Certifications */}
+        <div className="mt-10 border-t border-white/10 pt-8">
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-start text-center">
+            <div className="flex flex-col items-center gap-3">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ff5b6363477f244439bbd28294d853f67?format=webp&width=200"
                 alt="AMFI"
-                className="h-16 object-contain"
+                className="h-12 object-contain"
               />
+              <div className="text-sm text-white/90">
+                <div className="font-semibold">Association of Mutual Funds in India</div>
+                <div>Registered Mutual Fund Distributor</div>
+                <div className="mt-1">ARN: 115287</div>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center gap-3">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fde6115b41ff6407a909740b7cd0e3bab?format=webp&width=200"
                 alt="BSE"
-                className="h-16 object-contain"
+                className="h-12 object-contain"
               />
+              <div className="text-sm text-white/90">
+                <div className="font-semibold">Registered with BSE STAR MF</div>
+                <div>Member ID: 11758</div>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center gap-3">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fa57cf15cdc3b46ecaaaa3addd5ef67f3?format=webp&width=200"
                 alt="APMI"
-                className="h-16 object-contain"
+                className="h-12 object-contain"
               />
+              <div className="text-sm text-white/90">
+                <div className="font-semibold">APRN Code</div>
+                <div>APRN02811</div>
+              </div>
             </div>
-          </div>
-
-          <div className="text-sm text-slate-200 max-w-2xl text-center md:text-right">
-            <p className="mb-2">
-              ASSOCIATION OF MUTUAL FUNDS IN INDIA REGISTERED MUTUAL FUND
-              DISTRIBUTOR
-            </p>
-            <p className="mb-2">REGISTERED WITH BSE STAR MF</p>
-            <p className="mb-2">APRM Code: APRN02811</p>
           </div>
         </div>
 
-        <div className="text-xs text-slate-300 mt-8">
-          <p>
-            Mutual fund investments are subject to market risks. Please read the
-            scheme information and other related documents carefully before
-            investing. Past performance is not indicative of future returns.
-            Please consider your specific investment requirements before
-            choosing a fund, or designing a portfolio that suits your needs.
-          </p>
-
-          <p className="mt-4">© PROVIDENTIAL PLATFORMS PRIVATE LIMITED</p>
+        {/* Legal / Disclaimer */}
+        <div className="mt-8 pt-8 border-t border-white/10 text-center text-xs text-white/70">
+          <p className="max-w-4xl mx-auto">Mutual fund investments are subject to market risks. Please read the scheme information and other related documents carefully before investing. Past performance is not indicative of future returns. Please consider your specific investment requirements before choosing a fund, or designing a portfolio that suits your needs.</p>
+          <p className="mt-4">© Providential Platforms Pvt. Ltd.</p>
         </div>
       </div>
     </footer>
