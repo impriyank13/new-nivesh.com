@@ -230,12 +230,19 @@ export default function CardCarousel({
                             {c.media ? (
                               c.media.type === "video" ? (
                                 <div className="mb-4 w-full rounded-lg overflow-hidden">
-                                  {/(youtube\.com|youtu\.be|youtu.be)/.test(
-                                    c.media.src,
+                                  {/(youtube\.com|youtu\.be)/.test(
+                                    c.media.src
                                   ) ? (
                                     <div className="relative w-full h-64">
                                       <iframe
-                                        src={c.media.src}
+                                        src={
+                                          c.media.src
+                                            .replace("watch?v=", "embed/") // for youtube.com/watch?v=...
+                                            .replace(
+                                              "youtu.be/",
+                                              "www.youtube.com/embed/"
+                                            ) // for youtu.be/...
+                                        }
                                         className="absolute inset-0 w-full h-full"
                                         title={c.title}
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
