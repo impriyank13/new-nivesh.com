@@ -67,7 +67,7 @@ export default function ImageBenefits() {
             />
 
             {/* Content */}
-            <div className="relative h-56 flex items-end">
+            <div className="relative h-68 flex items-end">
               <div className="w-full p-5">
                 <h3 className="text-lg font-bold text-white drop-shadow-sm">
                   {c.title}
