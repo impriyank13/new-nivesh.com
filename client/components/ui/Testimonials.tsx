@@ -53,7 +53,7 @@ export default function Testimonials() {
   return (
     <section className="">
       <div className="relative overflow-hidden px-4 md:px-12 py-3 md:py-6">
-        <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">
+        <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 text-center">
           Testimonials
         </h2>
         <div className="mb-6">
@@ -61,9 +61,6 @@ export default function Testimonials() {
         </div>
 
         <div className="max-w-3xl mx-auto text-center pt-6">
-          <p className="text-sm text-slate-500 tracking-wide mb-2">
-            Testimonials
-          </p>
           <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">
             Trusted by leaders from various industries
           </h2>
