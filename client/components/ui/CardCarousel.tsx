@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, cloneElement } from "react";
 
 export type CardData = {
   id: string;
+  name: string;
   title: string;
   description: string;
   icon?: React.ReactNode;
@@ -272,6 +273,9 @@ export default function CardCarousel({
                             )}
 
                             <h3 className="font-semibold text-[18px] leading-tight text-black">
+                              {c.name}
+                            </h3>
+                            <h3 className="font-semibold text-[15px] leading-tight text-black">
                               {c.title}
                             </h3>
                             <button
@@ -294,7 +298,7 @@ export default function CardCarousel({
                             }}
                           >
                             <h3 className="font-semibold text-[18px] leading-tight text-black">
-                              {c.title}
+                              {c.name}
                             </h3>
                             <p className="mt-2 text-[14px] leading-snug text-slate-700">
                               {c.description}
