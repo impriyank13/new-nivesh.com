@@ -264,7 +264,7 @@ export default function CardCarousel({
                                 <img
                                   src={c.media.src}
                                   alt={c.media.alt || c.title}
-                                    className="mb-4 w-full h-[250px] object-cover rounded-lg"
+                                    className="mb-4 w-full h-[220px] object-cover rounded-lg"
                                 />
                               )
                             ) : (
