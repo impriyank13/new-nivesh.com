@@ -57,7 +57,7 @@ export default function Testimonials() {
           Testimonials
         </h2>
         <div className="mb-6">
-          <CardCarousel cards={testimonials} />
+          <CardCarousel cards={testimonials} enableFlip />
         </div>
 
         <div className="max-w-3xl mx-auto text-center pt-6">
