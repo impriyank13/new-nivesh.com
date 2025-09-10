@@ -6,6 +6,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
@@ -19,42 +20,44 @@ import ScrollToTop from "./components/ui/ScrollToTop";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <WaterBackground />
-        <div className="app-content-over-water">
-          <NavBar />
-          <ScrollToTop />
-          <Routes>
-            {/* Root (no locale) */}
-            <Route path="/" element={<Index />} />
+  <ThemeProvider attribute="class" defaultTheme="system">
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <WaterBackground />
+          <div className="app-content-over-water">
+            <NavBar />
+            <ScrollToTop />
+            <Routes>
+              {/* Root (no locale) */}
+              <Route path="/" element={<Index />} />
 
-            {/* Locale prefixed routes (e.g. /en, /hin, /mar) */}
-            <Route path="/:lang" element={<Index />} />
-            <Route path="/:lang/about-us" element={<About />} />
+              {/* Locale prefixed routes (e.g. /en, /hin, /mar) */}
+              <Route path="/:lang" element={<Index />} />
+              <Route path="/:lang/about-us" element={<About />} />
 
-            {/* Product pages */}
-            <Route path="/:lang/products/:product" element={<Product />} />
-            <Route path="/products/:product" element={<Product />} />
+              {/* Product pages */}
+              <Route path="/:lang/products/:product" element={<Product />} />
+              <Route path="/products/:product" element={<Product />} />
 
-            {/* Partner pages */}
-            <Route path="/:lang/partner/:partner" element={<Partner />} />
-            <Route path="/partner/:partner" element={<Partner />} />
+              {/* Partner pages */}
+              <Route path="/:lang/partner/:partner" element={<Partner />} />
+              <Route path="/partner/:partner" element={<Partner />} />
 
-            {/* Legacy paths */}
-            <Route path="/about" element={<About />} />
+              {/* Legacy paths */}
+              <Route path="/about" element={<About />} />
 
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
-        </div>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </ThemeProvider>
 );
 
 createRoot(document.getElementById("root")!).render(<App />);
