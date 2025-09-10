@@ -222,7 +222,7 @@ export default function CardCarousel({
                               c.media.type === "video" ? (
                                 <div className="mb-4 w-full rounded-lg overflow-hidden">
                                   {/(youtube\.com|youtu\.be)/.test(c.media.src) ? (
-                                    <div className="relative w-full h-40">
+                                    <div className="relative w-full h-64">
                                       <iframe
                                         src={c.media.src}
                                         className="absolute inset-0 w-full h-full"
@@ -308,7 +308,7 @@ export default function CardCarousel({
                           c.media.type === "video" ? (
                             <div className="mb-4 w-full rounded-lg overflow-hidden">
                               {/(youtube\.com|youtu\.be)/.test(c.media.src) ? (
-                                <div className="relative w-full h-40">
+                                <div className="relative w-full h-64">
                                   <iframe
                                     src={c.media.src}
                                     className="absolute inset-0 w-full h-full"
