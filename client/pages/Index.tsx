@@ -17,7 +17,7 @@ const translations: any = {
   hin: {
     heroTitle: "विभिन्न उद्योगों के नेताओं द्वारा भरोसा किया गया",
     heroSubtitle:
-      "जानें कि पेशेवर अपने ग्राहक यात्रा को पूरा करने क�� लिए हमारे समाधानों पर भरोसा क्यों करते हैं।",
+      "जानें कि पेशेवर अपने ग्राहक यात्रा को पूरा करने क�� लिए हमारे समाधानों पर भरोसा ���्यों करते हैं।",
     cta: "सफलता की कहानियाँ पढ़ें →",
   },
   mar: {
@@ -46,6 +46,13 @@ export default function Index() {
         <div className="w-full">
           {/* Hero component */}
           <Hero />
+        </div>
+      </section>
+
+      {/* New benefits-like grid with image backgrounds */}
+      <section className="w-full max-w-7xl pt-6">
+        <div className="w-full">
+          <ImageBenefits />
         </div>
       </section>
 
