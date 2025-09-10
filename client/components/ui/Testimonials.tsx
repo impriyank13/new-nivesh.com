@@ -4,7 +4,8 @@ export default function Testimonials() {
   const testimonials: CardData[] = [
     {
       id: "t1",
-      title: "Shubham Bhatia",
+      name: "Shubham Bhatia",
+      title: "Nivesh Partner",
       description:
         "Working with the team accelerated our roadmap and improved customer activation across channels. Their approach is pragmatic and design-led.",
       media: {
@@ -15,6 +16,7 @@ export default function Testimonials() {
     },
     {
       id: "t2",
+      name: "Michael Chen",
       title: "Michael Chen",
       description:
         "Their platform helped us reduce churn and increase NPS. The onboarding support was exceptional and measurable.",
@@ -27,8 +29,8 @@ export default function Testimonials() {
     },
     {
       id: "t3",
-      title:
-        "Dhananjay Chaturvedi",
+      name: "Dhananjay Chaturvedi",
+      title: "Evangelist, Thinker, Consultant Formerly Managing Director, Miele India",
       description:
         "Nivesh has changed the way I have been investing my money, they have educated me & facilitated investments into a totally new investment class for me, Mutual Funds. Having interacted with their able team, I have grown in my conviction about the merits of investing in MF’s and also benefited adequately over a period of time. Happy to recommend them to all those who are looking out for the opportunities and avenues to invest their money and see it grow.",
       media: {
@@ -39,6 +41,7 @@ export default function Testimonials() {
     },
     {
       id: "t4",
+      name: ,
       title: "Carlos Mendes",
       description:
         "Scalable architecture and a thoughtful product roadmap made integration seamless for our teams.",
