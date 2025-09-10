@@ -41,7 +41,7 @@ export default function Testimonials() {
     },
     {
       id: "t4",
-      name: ,
+      name: "Carlos Mendes",
       title: "Carlos Mendes",
       description:
         "Scalable architecture and a thoughtful product roadmap made integration seamless for our teams.",
