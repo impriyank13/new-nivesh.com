@@ -207,7 +207,7 @@ export default function Footer() {
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-start text-center">
             <div className="flex flex-col items-center gap-3">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Ff5b6363477f244439bbd28294d853f67?format=webp&width=200"
+                src="https://nivesh.com/b04c5ce2bc8fa782eb8c085ce06a9509.png"
                 alt="AMFI"
                 className="h-12 object-contain"
               />
@@ -222,7 +222,7 @@ export default function Footer() {
 
             <div className="flex flex-col items-center gap-3">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fde6115b41ff6407a909740b7cd0e3bab?format=webp&width=200"
+                src="https://nivesh.com/be1189a724474572c653fe1287ea80dd.png"
                 alt="BSE"
                 className="h-12 object-contain"
               />
@@ -234,7 +234,7 @@ export default function Footer() {
 
             <div className="flex flex-col items-center gap-3">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fa57cf15cdc3b46ecaaaa3addd5ef67f3?format=webp&width=200"
+                src="https://nivesh.com/45eecdaeab31105729ebf780d8f0525a.jpeg"
                 alt="APMI"
                 className="h-12 object-contain"
               />
