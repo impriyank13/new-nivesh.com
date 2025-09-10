@@ -362,7 +362,7 @@ export default function CardCarousel({
                               ? // @ts-ignore
                                 cloneElement(c.icon as React.ReactElement, {
                                   color: "#000000",
-                                  size: 36,
+                                  size: 70,
                                 })
                               : null}
                           </div>
