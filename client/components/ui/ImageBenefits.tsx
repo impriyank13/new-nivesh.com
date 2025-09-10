@@ -12,34 +12,26 @@ const cards: Card[] = [
   {
     id: "save-tax",
     title: "Save Tax",
-    body:
-      "Plan your finances in such a way that you can reduce your tax liability through appropriate investments.",
-    image:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb39648aab450460597500936af6bdfd7%2F841e973aa60e462e81a4ac5fcae238e7?format=webp&width=800",
+    body: "Plan your finances in such a way that you can reduce your tax liability through appropriate investments.",
+    image: "https://nivesh.com/45ba2ef3421d8c6816b18285bf9511e8.webp",
   },
   {
     id: "retirement",
     title: "Retirement Plan",
-    body:
-      "Secure your old age by planning ahead and building a desired retirement corpus that covers your expenses.",
-    image:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb39648aab450460597500936af6bdfd7%2Fc3847e2c6d4047789fd7c6ae0fef3a7c?format=webp&width=800",
+    body: "Secure your old age by planning ahead and building a desired retirement corpus that covers your expenses.",
+    image: "https://nivesh.com/90728e03819ffa7da67a4fdb92b1a9e6.webp",
   },
   {
     id: "long-term-wealth-1",
     title: "Build Long Term Wealth",
-    body:
-      "With Nivesh you can plan your investments in such a way to build wealth for important goals.",
-    image:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb39648aab450460597500936af6bdfd7%2Faba32a8ff9114f7e90b27902f2a5c7b3?format=webp&width=800",
+    body: "With Nivesh you can plan your investments in such a way to build wealth for important goals.",
+    image: "https://nivesh.com/700391d1585c35492404045ea346a185.webp",
   },
   {
     id: "long-term-wealth-2",
     title: "Build Long Term Wealth",
-    body:
-      "Invest for long-term compounding such as a house, car, marriage, or education.",
-    image:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb39648aab450460597500936af6bdfd7%2Faca00b8e6b6849ff88f6af6426eb21eb?format=webp&width=800",
+    body: "Invest for long-term compounding such as a house, car, marriage, or education.",
+    image: "https://nivesh.com/4e1f095e6a20fdc2c4e1086470ea0bf3.webp",
   },
 ];
 
@@ -69,7 +61,10 @@ export default function ImageBenefits() {
               aria-hidden
             />
             {/* Dark overlay for readability */}
-            <div className="absolute inset-0 bg-black/35 group-hover:bg-black/30 transition-colors" aria-hidden />
+            <div
+              className="absolute inset-0 bg-black/35 group-hover:bg-black/30 transition-colors"
+              aria-hidden
+            />
 
             {/* Content */}
             <div className="relative h-56 flex items-end">
