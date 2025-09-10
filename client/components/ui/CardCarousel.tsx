@@ -236,7 +236,7 @@ export default function CardCarousel({
                                       src={c.media.src}
                                       poster={c.media.poster}
                                       controls
-                                      className="w-full h-40 object-cover bg-black"
+                                      className="w-full h-64 object-cover bg-black"
                                       preload="metadata"
                                       playsInline
                                     />
@@ -246,7 +246,7 @@ export default function CardCarousel({
                                 <img
                                   src={c.media.src}
                                   alt={c.media.alt || c.title}
-                                  className="mb-4 w-full h-40 object-cover rounded-lg"
+                                  className="mb-4 w-full h-64 object-cover rounded-lg"
                                 />
                               )
                             ) : (
@@ -322,7 +322,7 @@ export default function CardCarousel({
                                   src={c.media.src}
                                   poster={c.media.poster}
                                   controls
-                                  className="w-full h-40 object-cover bg-black"
+                                  className="w-full h-64 object-cover bg-black"
                                   preload="metadata"
                                   playsInline
                                 />
@@ -332,7 +332,7 @@ export default function CardCarousel({
                             <img
                               src={c.media.src}
                               alt={c.media.alt || c.title}
-                              className="mb-4 w-full h-40 object-cover rounded-lg"
+                              className="mb-4 w-full h-64 object-cover rounded-lg"
                             />
                           )
                         ) : (
