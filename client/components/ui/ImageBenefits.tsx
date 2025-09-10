@@ -55,7 +55,7 @@ export default function ImageBenefits() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {cards.map((c) => (
           <article
             key={c.id}
