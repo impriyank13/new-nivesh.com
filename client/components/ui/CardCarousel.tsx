@@ -275,7 +275,7 @@ export default function CardCarousel({
                             <h3 className="font-semibold text-[18px] leading-tight text-black">
                               {c.name}
                             </h3>
-                            <h3 className="font-semibold text-[15px] leading-tight text-black">
+                            <h3 className="text-[15px] leading-tight text-black">
                               {c.title}
                             </h3>
                             <button
