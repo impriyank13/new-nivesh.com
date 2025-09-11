@@ -411,7 +411,7 @@ export default function StepsOrbit({
                   transform={`translate(580,170.7730712890625)`}
                 >
                   {/* base filled circle to mask underlying stroke */}
-                  <circle cx={0} cy={0} r={36} fill="#0c4a6e" />
+                  <circle cx={0} cy={0} r={48} fill="#0c4a6e" />
                   {/* render icon centered on top */}
                   <g transform={`translate(-24,-24)`} style={{ zIndex: 9, color: "#ffffff" }}>
                     {CurrentIconComp ? (
