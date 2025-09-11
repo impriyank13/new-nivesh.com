@@ -316,7 +316,7 @@ export default function StepsOrbit({
                   <img
                     src="https://nivesh.com/158370a8e6511249ce8c31c5745864f6.webp"
                     alt=""
-                    width="400px"
+                    width="100px"
                   />
                   <img
                     src="https://nivesh.com/9962f4877e535b49e6c3b9742b8387a6.jpeg"
@@ -327,7 +327,7 @@ export default function StepsOrbit({
                   <img
                     src="https://nivesh.com/158370a8e6511249ce8c31c5745864f6.webp"
                     alt=""
-                    width="40px"
+                    width="100px"
                   />
                 </div>
                 <div className="text-sm text-slate-700 opacity-90 space-y-2 mb-6 leading-[1.6]">
