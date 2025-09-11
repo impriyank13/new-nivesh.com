@@ -524,7 +524,7 @@ export default function StepsOrbit({
                 cx={0}
                 cy={0}
                 r={11}
-                fill="rgba(255,197,39,0.08)"
+                fill="rgba(12, 74, 110, 0.15)"
                 stroke="#0c4a6e"
                 strokeWidth={2}
               />
