@@ -15,614 +15,190 @@ export default function StepsOrbit({
   steps?: Step[];
   onStepChange?: (index: number) => void;
 }) {
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const stickyRef = useRef<HTMLDivElement | null>(null);
-  const nodeRef = useRef<SVGCircleElement | null>(null);
-  const nodeGroupRef = useRef<SVGGElement | null>(null);
-  const pathRef = useRef<SVGPathElement | null>(null);
-  const stringRef = useRef<SVGPathElement | null>(null);
-  const markersRef = useRef<SVGGElement | null>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const pathRef = useRef<SVGPathElement>(null);
+  const stringRef = useRef<SVGPathElement>(null);
+  const nodeGroupRef = useRef<SVGGElement>(null);
 
-  // mobile refs
-  const nodeRefMobile = useRef<SVGCircleElement | null>(null);
-  const nodeGroupMobileRef = useRef<SVGGElement | null>(null);
-  const pathRefMobile = useRef<SVGPathElement | null>(null);
-  const stringRefMobile = useRef<SVGPathElement | null>(null);
-  const markersRefMobile = useRef<SVGGElement | null>(null);
-  const scrollerMobileRef = useRef<HTMLDivElement | null>(null);
-
-  const rafRef = useRef<number | null>(null);
   const [active, setActive] = useState(0);
-  const prefersReduced = useRef<boolean>(false);
   const [isMobile, setIsMobile] = useState(false);
-
-  // toggle between client and partner steps (defaults to client)
   const [mode, setMode] = useState<"client" | "partner">("client");
   const [activeSteps, setActiveSteps] = useState<Step[]>(
-    steps && steps.length ? steps : clientSteps
+    steps.length ? steps : clientSteps
   );
 
-  // keep activeSteps in sync when a custom `steps` prop is provided
   useEffect(() => {
-    if (steps && steps.length) setActiveSteps(steps);
+    if (steps.length) setActiveSteps(steps);
   }, [steps]);
 
-  // update activeSteps when the mode toggle changes
   useEffect(() => {
-    if (mode === "client") setActiveSteps(clientSteps);
-    else setActiveSteps(partnerSteps);
+    setActiveSteps(mode === "client" ? clientSteps : partnerSteps);
     setActive(0);
-    if (scrollerMobileRef.current)
-      scrollerMobileRef.current.scrollTo({ top: 0, behavior: "auto" });
   }, [mode]);
 
   useEffect(() => {
-    prefersReduced.current = !!(
-      typeof window !== "undefined" &&
-      window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    );
-
-    function onResize() {
-      setIsMobile(window.innerWidth <= 768);
-    }
-    onResize();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    const resize = () => setIsMobile(window.innerWidth <= 768);
+    resize();
+    window.addEventListener("resize", resize);
+    return () => window.removeEventListener("resize", resize);
   }, []);
 
+  // === Animate the node along path ===
   useEffect(() => {
-    if (!wrapperRef.current || !pathRef.current) return;
+    if (!pathRef.current || !stringRef.current) return;
 
-    const wrapper = wrapperRef.current;
     const path = pathRef.current;
+    const string = stringRef.current;
+    const node = nodeGroupRef.current;
+    const length = path.getTotalLength();
 
-    // choose path based on mobile/desktop
-    const chosenPath =
-      isMobile && pathRefMobile.current ? pathRefMobile.current : path;
-    const chosenString = isMobile
-      ? stringRefMobile.current ?? stringRef.current
-      : stringRef.current;
-    const chosenMarkers = isMobile
-      ? markersRefMobile.current ?? markersRef.current
-      : markersRef.current;
-
-    const pathLength = chosenPath.getTotalLength();
-
-    // delay initialization to next frame to ensure DOM defs measured
-    requestAnimationFrame(() => {
-      // initialize string stroke to full length so we can animate dashoffset
-      if (chosenString) {
-        chosenString.setAttribute("stroke-dasharray", String(pathLength));
-        chosenString.setAttribute("stroke-dashoffset", String(pathLength));
-      }
-    });
-
-    function clamp(v: number, a = 0, b = 1) {
-      return Math.max(a, Math.min(b, v));
-    }
+    string.setAttribute("stroke-dasharray", `${length}`);
+    string.setAttribute("stroke-dashoffset", `${length}`);
 
     function update() {
-      let progress = 0;
+      const rect = wrapperRef.current?.getBoundingClientRect();
+      const viewH = window.innerHeight;
+      const total = (rect?.height ?? 0) - viewH;
+      const scrolled = Math.min(Math.max(-(rect?.top ?? 0), 0), total);
+      const progress = total > 0 ? scrolled / total : 0;
 
-      if (isMobile && scrollerMobileRef.current) {
-        const scroller = scrollerMobileRef.current;
-        const totalScrollable = Math.max(
-          0,
-          scroller.scrollHeight - scroller.clientHeight
-        );
-        const scrolled = scroller.scrollTop;
-        progress =
-          totalScrollable > 0 ? clamp(scrolled / totalScrollable, 0, 1) : 0;
-
-        // Determine active index based on which section is closest to viewport center to avoid skips
-        const children = Array.from(scroller.children) as HTMLElement[];
-        const viewportCenter = window.innerHeight / 2;
-        let closest = 0;
-        let closestDist = Infinity;
-        children.forEach((child, idx) => {
-          const r = child.getBoundingClientRect();
-          const childCenter = r.top + r.height / 2;
-          const dist = Math.abs(childCenter - viewportCenter);
-          if (dist < closestDist) {
-            closestDist = dist;
-            closest = idx;
-          }
-        });
-        const boundedIndex = Math.max(
-          0,
-          Math.min(activeSteps.length - 1, closest)
-        );
-        if (boundedIndex !== active) {
-          setActive(boundedIndex);
-          if (onStepChange) onStepChange(boundedIndex);
-        }
-      } else {
-        const rect = wrapper.getBoundingClientRect();
-        const viewportH = window.innerHeight;
-        const totalScrollable = rect.height - viewportH;
-        let scrolled = -rect.top;
-        scrolled = clamp(scrolled, 0, totalScrollable);
-        progress = totalScrollable > 0 ? scrolled / totalScrollable : 0;
-
-        const seg = 1 / activeSteps.length;
-        const rawIndex = Math.floor(progress / seg);
-        const boundedIndex = Math.max(
-          0,
-          Math.min(activeSteps.length - 1, rawIndex)
-        );
-
-        if (boundedIndex !== active) {
-          setActive(boundedIndex);
-          if (onStepChange) onStepChange(boundedIndex);
-        }
-      }
-
-      const t = clamp(progress, 0, 1);
-
-      // main node moves along the chosen path
-      const point = chosenPath.getPointAtLength(t * pathLength);
-
-      if (isMobile) {
-        if (nodeGroupMobileRef.current) {
-          nodeGroupMobileRef.current.setAttribute(
-            "transform",
-            `translate(${point.x},${point.y})`
-          );
-        } else if (nodeRefMobile.current) {
-          nodeRefMobile.current.setAttribute("cx", String(point.x));
-          nodeRefMobile.current.setAttribute("cy", String(point.y));
-        }
-      } else {
-        if (nodeGroupRef.current) {
-          nodeGroupRef.current.setAttribute(
-            "transform",
-            `translate(${point.x},${point.y})`
-          );
-        } else if (nodeRef.current) {
-          nodeRef.current.setAttribute("cx", String(point.x));
-          nodeRef.current.setAttribute("cy", String(point.y));
-        }
-      }
-
-      // animate string reveal
-      if (chosenString) {
-        const dash = pathLength * (1 - t);
-        chosenString.setAttribute("stroke-dashoffset", String(dash));
-      }
-
-      rafRef.current = requestAnimationFrame(update);
-    }
-
-    if (prefersReduced.current) {
-      const obs = new IntersectionObserver(
-        () => {
-          const rect = wrapper.getBoundingClientRect();
-          const viewportH = window.innerHeight;
-          const totalScrollable = rect.height - viewportH;
-          let scrolled = -rect.top;
-          scrolled = clamp(scrolled, 0, totalScrollable);
-          const progress = totalScrollable > 0 ? scrolled / totalScrollable : 0;
-          const seg = 1 / activeSteps.length;
-          const rawIndex = Math.floor(progress / seg);
-          const boundedIndex = Math.max(
-            0,
-            Math.min(activeSteps.length - 1, rawIndex)
-          );
-          if (boundedIndex !== active) {
-            setActive(boundedIndex);
-            if (onStepChange) onStepChange(boundedIndex);
-          }
-        },
-        {
-          threshold: Array.from(
-            { length: activeSteps.length },
-            (_, i) => i / (activeSteps.length - 1)
-          ),
-        }
+      const seg = 1 / activeSteps.length;
+      const idx = Math.min(
+        activeSteps.length - 1,
+        Math.floor(progress / seg)
       );
-      obs.observe(wrapper);
-      return () => obs.disconnect();
+      if (idx !== active) {
+        setActive(idx);
+        onStepChange?.(idx);
+      }
+
+      const pt = path.getPointAtLength(progress * length);
+      if (node) node.setAttribute("transform", `translate(${pt.x},${pt.y})`);
+      string.setAttribute("stroke-dashoffset", `${length * (1 - progress)}`);
+      requestAnimationFrame(update);
     }
 
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    rafRef.current = requestAnimationFrame(update);
+    requestAnimationFrame(update);
+  }, [activeSteps.length, onStepChange, active]);
 
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, [activeSteps.length, onStepChange, active, isMobile]);
-
-  // Mobile: snap to nearest section on scroll end for smooth one-by-one behavior
-  useEffect(() => {
-    if (!scrollerMobileRef.current || !isMobile) return;
-    const scroller = scrollerMobileRef.current;
-    let timeout: number | null = null;
-
-    function onScroll() {
-      if (timeout) window.clearTimeout(timeout);
-      // debounce to detect scroll end
-      timeout = window.setTimeout(() => {
-        const children = Array.from(scroller.children) as HTMLElement[];
-        const viewportCenter = window.innerHeight / 2;
-        let closest = 0;
-        let closestDist = Infinity;
-        children.forEach((child, idx) => {
-          const r = child.getBoundingClientRect();
-          const childCenter = r.top + r.height / 2;
-          const dist = Math.abs(childCenter - viewportCenter);
-          if (dist < closestDist) {
-            closestDist = dist;
-            closest = idx;
-          }
-        });
-        const target = children[closest];
-        if (target) {
-          scroller.scrollTo({ top: target.offsetTop, behavior: "smooth" });
-        }
-      }, 120);
-    }
-
-    scroller.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => {
-      scroller.removeEventListener("scroll", onScroll);
-      if (timeout) window.clearTimeout(timeout);
-    };
-  }, [isMobile]);
-
-  const currentStep = activeSteps[active] as any;
-  const CurrentIconComp = currentStep?.iconComponent as any;
-  const CurrentIconJSX = currentStep?.icon ?? null;
+  const CurrentIcon = activeSteps[active]?.icon;
 
   return (
-    <div ref={wrapperRef} className="w-full relative">
-      {/* Mode toggle: Client / Partner */}
-      {/* Desktop pinned scrub */}
-      <div className="hidden md:block h-[300vh] relative">
-        <div
-          className="sticky top-0 h-screen items-center"
-          ref={stickyRef}
-        >
-          <div className="w-full relative">
-      <div className="flex gap-3 justify-center py-4">
-        <button
-          onClick={() => setMode("client")}
-          className={`px-4 py-2 rounded-full font-semibold transition-colors ${
-            mode === "client"
-              ? "bg-[#0c4a6e] text-[#FFFFFF]"
-              : "bg-transparent border border-[#3B4B66] text-slate-700"
-          }`}
-        >
-          Client Onboarding
-        </button>
-        <button
-          onClick={() => setMode("partner")}
-          className={`px-4 py-2 rounded-full font-semibold transition-colors ${
-            mode === "partner"
-              ? "bg-[#0c4a6e] text-[#FFFFFF]"
-              : "bg-transparent border border-[#3B4B66] text-slate-700"
-          }`}
-        >
-          Partner Onboarding
-        </button>
-      </div>
-            <div
-              className="basis-[70%] w-[70%] pl-[5vw] flex items-center"
-              style={{}}
-            >
-              <div className="text-left max-w-[560px] p-6">
-                <h2 className="text-2xl tracking-widest font-extrabold text-[#0c4a6e] uppercase mb-4">
-                  {activeSteps[active].title}
-                </h2>
-                <div className="text-sm text-slate-700 opacity-90 space-y-2 mb-6 leading-[1.6]">
-                  {activeSteps[active].body.map((line, i) => (
-                    <p key={i}>{line}</p>
-                  ))}
-                </div>
-                {activeSteps[active].cta.length > 0 && (
-                  <button
-                    className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] hover:-translate-y-0.5 transition-transform shadow-sm focus:outline-none"
-                    aria-label={activeSteps[active].cta}
-                  >
-                    <span className="text-sm font-semibold">
-                      {activeSteps[active].cta}
-                    </span>
-                    <span className="w-6 h-6 bg-[#0A1E3D] text-white rounded-full inline-flex items-center justify-center">
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M5 12h14" />
-                        <path d="M12 5l7 7-7 7" />
-                      </svg>
-                    </span>
-                  </button>
-                )}
-              </div>
-            </div>
+    <div ref={wrapperRef} className="w-full">
+      {/* Sticky Header */}
+      <StickyHeader mode={mode} onChange={setMode} />
 
-            <div className="basis-[30%] w-[30%] flex items-center justify-center relative">
-              <svg
-                className="w-[680px] h-[500px]"
-                viewBox="0 0 680 680"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <defs>
-                  <filter
-                    id="glow"
-                    x="-50%"
-                    y="-50%"
-                    width="200%"
-                    height="200%"
-                  >
-                    <feGaussianBlur stdDeviation="8" result="coloredBlur" />
-                    <feMerge>
-                      <feMergeNode in="coloredBlur" />
-                      <feMergeNode in="coloredBlur" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
-                </defs>
-
-                {/* straight vertical main line for node travel on the right */}
-                <path
-                  id="mainOrbit"
-                  ref={pathRef}
-                  d="M580,80 L580,552"
-                  stroke="none"
-                  fill="none"
-                  aria-hidden="true"
-                  style={{ display: "none" }}
-                />
-
-                {/* background faint vertical line */}
-                <path
-                  d="M580,80 L580,552"
-                  stroke="#5F7AA3"
-                  strokeOpacity="0.12"
-                  strokeWidth="1"
-                  fill="none"
-                />
-
-                {/* animated string (yellow) */}
-                <path
-                  id="stringPath"
-                  ref={stringRef}
-                  d="M580,80 L580,552"
-                  stroke="#0c4a6e"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeLinecap="round"
-                  opacity="1"
-                />
-
-                {/* moving main node - group so circle and icon move together */}
-                <g
-                  ref={nodeGroupRef}
-                  style={{ color: "#ffffff", zIndex: 1 }}
-                  transform={`translate(580,170.7730712890625)`}
-                >
-                  {/* base filled circle to mask underlying stroke */}
-                  <circle cx={0} cy={0} r={36} fill="#0c4a6e" />
-                  {/* render icon centered on top */}
-                  <g transform={`translate(-24,-24)`} style={{ zIndex: 9, color: "#ffffff" }}>
-                    {CurrentIconComp ? (
-                      <CurrentIconComp size={48} />
-                    ) : CurrentIconJSX ? (
-                      CurrentIconJSX
-                    ) : null}
-                  </g>
-                </g>
-              </svg>
-
-              <div className="absolute right-8 bottom-8 text-right">
-                <div className="text-slate-900 font-semibold text-xl">
-                  <span className="text-[#0a66c2]">{pad(active + 1)}</span>
-                  <span className="text-[#7E8EA9]">
-                    /{pad(activeSteps.length)}
-                  </span>
-                </div>
-                <div className="w-24 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
-                  <div
-                    className="h-1 bg-[#0c4a6e] transition-width"
-                    style={{
-                      width: `${Math.round(
-                        ((active + 1) / activeSteps.length) * 100
-                      )}%`,
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile panels */}
-      <div className="md:hidden relative">
-        {/* mobile fixed right-side svg controlling node + string (absolute) */}
-        <div className="absolute right-2 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
-          <svg
-            className="w-[140px] h-[520px]"
-            viewBox="0 0 140 520"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <defs>
-              <filter
-                id="glow-mobile"
-                x="-50%"
-                y="-50%"
-                width="200%"
-                height="200%"
-              >
-                <feGaussianBlur stdDeviation="6" result="coloredBlur" />
-                <feMerge>
-                  <feMergeNode in="coloredBlur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-
-            <path
-              id="mobileOrbit"
-              ref={pathRefMobile}
-              d="M110,20 L110,452"
-              stroke="none"
-              fill="none"
-              aria-hidden="true"
-              style={{ display: "none" }}
-            />
-            <path
-              d="M110,20 L110,452"
-              stroke="#5F7AA3"
-              strokeOpacity="0.12"
-              strokeWidth="1"
-              fill="none"
-            />
-            <path
-              id="stringPathMobile"
-              ref={stringRefMobile}
-              d="M110,20 L110,452"
-              stroke="#0c4a6e"
-              strokeWidth="2"
-              fill="none"
-              strokeLinecap="round"
-            />
-
-            <g
-              ref={nodeGroupMobileRef}
-              style={{ color: "#ffffff", zIndex: 1 }}
-              transform={`translate(110,170.7730712890625)`}
-            >
-              <circle cx={0} cy={0} r={14} fill="#0c4a6e" />
-              <g transform={`translate(-10,-10)`} style={{ zIndex: 9, color: "#ffffff" }}>
-                {CurrentIconComp ? (
-                  <CurrentIconComp size={18} />
-                ) : CurrentIconJSX ? (
-                  CurrentIconJSX
-                ) : null}
-              </g>
-            </g>
-          </svg>
-        </div>
-
-        <div
-          ref={scrollerMobileRef}
-          className="h-screen snap-y snap-mandatory overflow-y-auto hide-scroll smooth-scroll"
-          style={{
-            scrollBehavior: "smooth",
-            WebkitOverflowScrolling: "touch",
-            touchAction: "pan-y",
-            overscrollBehavior: "contain",
-          }}
-        >
-          {activeSteps.map((s, i) => (
+      <div className="relative grid grid-cols-1 md:grid-cols-[60%_40%]">
+        {/* Left side text */}
+        <div className="px-6 md:px-12">
+          {activeSteps.map((step, i) => (
             <section
               key={i}
-              className="h-screen snap-start flex items-center justify-start"
+              className="min-h-screen flex items-center"
               aria-hidden={active !== i}
-              style={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}
             >
               <div
-                className={`max-w-md text-left w-full transition-all duration-300 ease-out ${
-                  active === i
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 -translate-y-6 pointer-events-none"
-                }`}
+                className={`transition-opacity duration-300 ${active === i ? "opacity-100" : "opacity-0"
+                  }`}
               >
-                <div className="p-6">
-                  <h2 className="text-2xl tracking-widest font-extrabold text-[#0c4a6e] uppercase mb-4">
-                    {s.title}
-                  </h2>
-                  <div className="text-sm text-slate-700 opacity-90 space-y-2 mb-6 leading-[1.6]">
-                    {s.body.map((line, idx) => (
-                      <p key={idx}>{line}</p>
-                    ))}
-                  </div>
-                  {s?.cta.length > 0 && (
-                    <button className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] focus:outline-none">
-                      <span className="text-sm font-semibold">{s.cta}</span>
-                    </button>
-                  )}
+                <h2 className="text-2xl font-extrabold text-[#0c4a6e] mb-4 uppercase">
+                  {step.title}
+                </h2>
+                <div className="space-y-2 text-sm text-slate-700 mb-6">
+                  {step.body.map((line, idx) => (
+                    <p key={idx}>{line}</p>
+                  ))}
                 </div>
+                {step.cta && (
+                  <button className="inline-flex items-center gap-2 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border shadow-sm">
+                    {step.cta}
+                  </button>
+                )}
               </div>
             </section>
           ))}
         </div>
 
-        {/* mobile snap-to-section smooth handler */}
-
-        {/* Mobile global counter and progress (absolute bottom-right) */}
-        <div className="absolute right-4 bottom-4 z-20 text-right">
-          <div className="text-slate-900 font-semibold text-lg">
-            <span className="text-[#0a66c2]">{pad(active + 1)}</span>
-            <span className="text-[#7E8EA9]">/{pad(activeSteps.length)}</span>
-          </div>
-          <div className="w-36 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
-            <div
-              className="h-1 bg-[#0c4a6e] transition-all"
-              style={{
-                width: `${Math.round(
-                  ((active + 1) / activeSteps.length) * 100
-                )}%`,
-              }}
+        {/* Right side: sticky icon */}
+        <div className="hidden md:flex justify-center items-center sticky top-20 h-[80vh]">
+          <svg
+            viewBox="0 0 680 680"
+            className="w-[500px] h-[500px]"
+            aria-hidden="true"
+          >
+            <path
+              ref={pathRef}
+              d="M580,80 L580,552"
+              stroke="none"
+              fill="none"
+              style={{ display: "none" }}
             />
-          </div>
+            <path
+              d="M580,80 L580,552"
+              stroke="#5F7AA3"
+              strokeOpacity="0.12"
+            />
+            <path
+              ref={stringRef}
+              d="M580,80 L580,552"
+              stroke="#0c4a6e"
+              strokeWidth="2"
+              strokeLinecap="round"
+              fill="none"
+            />
+            <g ref={nodeGroupRef} transform="translate(580,80)">
+              <circle r={36} fill="#0c4a6e" />
+              <g transform="translate(-24,-24)">{CurrentIcon}</g>
+            </g>
+          </svg>
         </div>
       </div>
     </div>
   );
 }
 
-function pad(n: number) {
-  return String(n).padStart(2, "0");
+function StickyHeader({
+  mode,
+  onChange,
+}: {
+  mode: "client" | "partner";
+  onChange: (m: "client" | "partner") => void;
+}) {
+  return (
+    <div className="sticky top-0 z-30 bg-white py-4 flex justify-center gap-4 shadow-sm">
+      <button
+        onClick={() => onChange("client")}
+        className={`px-4 py-2 rounded-full font-semibold ${mode === "client"
+            ? "bg-[#0c4a6e] text-white"
+            : "border border-[#3B4B66] text-slate-700"
+          }`}
+      >
+        Client Onboarding
+      </button>
+      <button
+        onClick={() => onChange("partner")}
+        className={`px-4 py-2 rounded-full font-semibold ${mode === "partner"
+            ? "bg-[#0c4a6e] text-white"
+            : "border border-[#3B4B66] text-slate-700"
+          }`}
+      >
+        Partner Onboarding
+      </button>
+    </div>
+  );
 }
 
+/* Icons */
 const ATMIcon = (
-  <svg
-    viewBox="0 0 64 64"
-    width="64"
-    height="64"
-    fill="none"
-    stroke="#F4F7FF"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
+  <svg viewBox="0 0 64 64" width="48" height="48" fill="none" stroke="#F4F7FF">
     <rect x="6" y="10" width="52" height="44" rx="4" />
     <rect x="14" y="18" width="36" height="18" rx="2" />
-    <rect
-      x="18"
-      y="40"
-      width="28"
-      height="6"
-      rx="1"
-      fill="#0c4a6e"
-      stroke="#0c4a6e"
-    />
+    <rect x="18" y="40" width="28" height="6" fill="#0c4a6e" />
   </svg>
 );
 
 const CardIcon = (
-  <svg
-    viewBox="0 0 64 64"
-    width="64"
-    height="64"
-    fill="none"
-    stroke="#F4F7FF"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
+  <svg viewBox="0 0 64 64" width="48" height="48" fill="none" stroke="#F4F7FF">
     <rect x="6" y="16" width="52" height="32" rx="4" />
     <rect x="10" y="22" width="28" height="12" rx="1" />
     <path d="M44 26c3 0 5-3 8-3" stroke="#0c4a6e" />
@@ -630,18 +206,9 @@ const CardIcon = (
 );
 
 const PhoneIcon = (
-  <svg
-    viewBox="0 0 64 64"
-    width="64"
-    height="64"
-    fill="none"
-    stroke="#F4F7FF"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
+  <svg viewBox="0 0 64 64" width="48" height="48" fill="none" stroke="#F4F7FF">
     <rect x="18" y="8" width="28" height="48" rx="6" />
-    <circle cx="32" cy="44" r="2" fill="#0c4a6e" stroke="#0c4a6e" />
+    <circle cx="32" cy="44" r="2" fill="#0c4a6e" />
     <path d="M40 16l6-2" stroke="#0c4a6e" />
   </svg>
 );
@@ -649,19 +216,13 @@ const PhoneIcon = (
 const defaultSteps: Step[] = [
   {
     title: "THE PAYMENT STATION",
-    body: [
-      "Install payment station in minutes.",
-      "Secure, fast, and offline-capable.",
-    ],
+    body: ["Install payment station in minutes.", "Secure, fast, and offline-capable."],
     cta: "Find Out More",
     icon: ATMIcon,
   },
   {
     title: "PLATFORM AS A SERVICE",
-    body: [
-      "Extend with APIs & integrations.",
-      "Analytics, reconciliation, and routing.",
-    ],
+    body: ["Extend with APIs & integrations.", "Analytics, reconciliation, and routing."],
     cta: "Find Out More",
     icon: CardIcon,
   },
