@@ -305,7 +305,7 @@ export default function StepsOrbit({
           </div>
           <div className="w-full relative flex">
             <div
-              className="basis-[70%] w-[70%] pl-[5vw] flex items-end"
+              className="basis-[70%] w-[70%] pl-[8vw] flex items-end"
               style={{}}
             >
               <div className="text-left max-w-[560px] p-6">
