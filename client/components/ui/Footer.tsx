@@ -119,7 +119,11 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:underline"
               >
-                Twitter
+                <img
+                  src="https://img.icons8.com/?size=100&id=fJp7hepMryiw&format=png&color=000000"
+                  alt=""
+                  className="img-responsive2"
+                />
               </a>
               <a
                 href="https://www.instagram.com/nivesh__official?igsh=MXg5NXR2Mjl0ODAwbw%3D%3D"
@@ -127,7 +131,11 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:underline"
               >
-                Instagram
+                <img
+                  src="https://img.icons8.com/?size=100&id=32292&format=png&color=000000"
+                  alt=""
+                  className="img-responsive2"
+                />
               </a>
               <a
                 href="https://www.facebook.com/niveshapp/"
@@ -135,7 +143,11 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:underline"
               >
-                Facebook
+                <img
+                  src="https://img.icons8.com/?size=100&id=435&format=png&color=000000"
+                  alt=""
+                  className="img-responsive2"
+                />
               </a>
               <a
                 href="https://www.linkedin.com/company/nivesh/"
@@ -143,7 +155,11 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:underline"
               >
-                LinkedIn
+                <img
+                  src="https://img.icons8.com/?size=100&id=447&format=png&color=000000"
+                  alt=""
+                  className="img-responsive2"
+                />
               </a>
               <a
                 href="https://www.youtube.com/c/NiveshOfficial/channels"
@@ -151,7 +167,11 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:underline"
               >
-                YouTube
+                <img
+                  src="https://img.icons8.com/?size=100&id=37325&format=png&color=000000"
+                  alt=""
+                  className="img-responsive2"
+                />
               </a>
             </div>
           </div>
