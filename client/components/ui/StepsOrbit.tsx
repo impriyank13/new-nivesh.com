@@ -39,7 +39,7 @@ export default function StepsOrbit({
   // toggle between client and partner steps (defaults to client)
   const [mode, setMode] = useState<"client" | "partner">("client");
   const [activeSteps, setActiveSteps] = useState<Step[]>(
-    steps && steps.length ? steps : clientSteps,
+    steps && steps.length ? steps : clientSteps
   );
 
   // keep activeSteps in sync when a custom `steps` prop is provided
@@ -81,10 +81,10 @@ export default function StepsOrbit({
     const chosenPath =
       isMobile && pathRefMobile.current ? pathRefMobile.current : path;
     const chosenString = isMobile
-      ? (stringRefMobile.current ?? stringRef.current)
+      ? stringRefMobile.current ?? stringRef.current
       : stringRef.current;
     const chosenMarkers = isMobile
-      ? (markersRefMobile.current ?? markersRef.current)
+      ? markersRefMobile.current ?? markersRef.current
       : markersRef.current;
 
     const pathLength = chosenPath.getTotalLength();
@@ -109,7 +109,7 @@ export default function StepsOrbit({
         const scroller = scrollerMobileRef.current;
         const totalScrollable = Math.max(
           0,
-          scroller.scrollHeight - scroller.clientHeight,
+          scroller.scrollHeight - scroller.clientHeight
         );
         const scrolled = scroller.scrollTop;
         progress =
@@ -131,7 +131,7 @@ export default function StepsOrbit({
         });
         const boundedIndex = Math.max(
           0,
-          Math.min(activeSteps.length - 1, closest),
+          Math.min(activeSteps.length - 1, closest)
         );
         if (boundedIndex !== active) {
           setActive(boundedIndex);
@@ -149,7 +149,7 @@ export default function StepsOrbit({
         const rawIndex = Math.floor(progress / seg);
         const boundedIndex = Math.max(
           0,
-          Math.min(activeSteps.length - 1, rawIndex),
+          Math.min(activeSteps.length - 1, rawIndex)
         );
 
         if (boundedIndex !== active) {
@@ -167,7 +167,7 @@ export default function StepsOrbit({
         if (nodeGroupMobileRef.current) {
           nodeGroupMobileRef.current.setAttribute(
             "transform",
-            `translate(${point.x},${point.y})`,
+            `translate(${point.x},${point.y})`
           );
         } else if (nodeRefMobile.current) {
           nodeRefMobile.current.setAttribute("cx", String(point.x));
@@ -177,7 +177,7 @@ export default function StepsOrbit({
         if (nodeGroupRef.current) {
           nodeGroupRef.current.setAttribute(
             "transform",
-            `translate(${point.x},${point.y})`,
+            `translate(${point.x},${point.y})`
           );
         } else if (nodeRef.current) {
           nodeRef.current.setAttribute("cx", String(point.x));
@@ -207,7 +207,7 @@ export default function StepsOrbit({
           const rawIndex = Math.floor(progress / seg);
           const boundedIndex = Math.max(
             0,
-            Math.min(activeSteps.length - 1, rawIndex),
+            Math.min(activeSteps.length - 1, rawIndex)
           );
           if (boundedIndex !== active) {
             setActive(boundedIndex);
@@ -217,9 +217,9 @@ export default function StepsOrbit({
         {
           threshold: Array.from(
             { length: activeSteps.length },
-            (_, i) => i / (activeSteps.length - 1),
+            (_, i) => i / (activeSteps.length - 1)
           ),
-        },
+        }
       );
       obs.observe(wrapper);
       return () => obs.disconnect();
@@ -281,13 +281,21 @@ export default function StepsOrbit({
       <div className="flex gap-3 justify-center py-4">
         <button
           onClick={() => setMode("client")}
-          className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === "client" ? "bg-[#0c4a6e] text-[#0A1E3D]" : "bg-transparent border border-[#3B4B66] text-slate-700"}`}
+          className={`px-4 py-2 rounded-full font-semibold transition-colors ${
+            mode === "client"
+              ? "bg-[#0c4a6e] text-[#0A1E3D]"
+              : "bg-transparent border border-[#3B4B66] text-slate-700"
+          }`}
         >
           Client Onboarding
         </button>
         <button
           onClick={() => setMode("partner")}
-          className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === "partner" ? "bg-[#0c4a6e] text-[#0A1E3D]" : "bg-transparent border border-[#3B4B66] text-slate-700"}`}
+          className={`px-4 py-2 rounded-full font-semibold transition-colors ${
+            mode === "partner"
+              ? "bg-[#0c4a6e] text-[#0A1E3D]"
+              : "bg-transparent border border-[#3B4B66] text-slate-700"
+          }`}
         >
           Partner Onboarding
         </button>
@@ -416,7 +424,7 @@ export default function StepsOrbit({
                     cx={0}
                     cy={0}
                     r={35}
-                    fill="rgba(255,197,39,0.08)"
+                    fill="rgba(12, 74, 110, 0.15)"
                     stroke="#0c4a6e"
                     strokeWidth={2}
                   />
@@ -442,7 +450,9 @@ export default function StepsOrbit({
                   <div
                     className="h-1 bg-[#0c4a6e] transition-width"
                     style={{
-                      width: `${Math.round(((active + 1) / activeSteps.length) * 100)}%`,
+                      width: `${Math.round(
+                        ((active + 1) / activeSteps.length) * 100
+                      )}%`,
                     }}
                   />
                 </div>
@@ -557,7 +567,11 @@ export default function StepsOrbit({
               style={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}
             >
               <div
-                className={`max-w-md text-left w-full transition-all duration-300 ease-out ${active === i ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6 pointer-events-none"}`}
+                className={`max-w-md text-left w-full transition-all duration-300 ease-out ${
+                  active === i
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 -translate-y-6 pointer-events-none"
+                }`}
               >
                 <div className="p-6">
                   <h2 className="text-2xl tracking-widest font-extrabold text-[#0c4a6e] uppercase mb-4">
@@ -589,7 +603,9 @@ export default function StepsOrbit({
             <div
               className="h-1 bg-[#0c4a6e] transition-all"
               style={{
-                width: `${Math.round(((active + 1) / activeSteps.length) * 100)}%`,
+                width: `${Math.round(
+                  ((active + 1) / activeSteps.length) * 100
+                )}%`,
               }}
             />
           </div>
