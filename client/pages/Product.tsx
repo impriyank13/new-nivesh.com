@@ -192,7 +192,7 @@ export default function Product() {
       cancelled = true;
     };
   }, [prod, lang]);
-  
+
   return (
     <main className="py-12 text-slate-800">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
@@ -359,9 +359,6 @@ export default function Product() {
 
                           <div className="grid grid-cols-1 gap-2 text-sm text-slate-700 mb-3">
                             {[
-                              ["SchemeCode","Scheme Code"],
-                              ["ISIN","ISIN"],
-                              ["AMCCode","AMC Code"],
                               ["MinimumPurchaseAmount","Min Purchase"],
                               ["RedemptionAmountMinimum","Min Redemption"],
                               ["PurchaseCutoffTime","Purchase Cutoff"],
