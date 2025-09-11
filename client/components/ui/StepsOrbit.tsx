@@ -415,7 +415,7 @@ export default function StepsOrbit({
                   {/* render icon centered on top */}
                   <g transform={`translate(-24,-24)`} style={{ zIndex: 9, color: "#ffffff" }}>
                     {CurrentIconComp ? (
-                      <CurrentIconComp size={48} />
+                      <CurrentIconComp size={70} />
                     ) : CurrentIconJSX ? (
                       CurrentIconJSX
                     ) : null}
