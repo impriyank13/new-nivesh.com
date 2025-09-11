@@ -312,16 +312,10 @@ export default function Product() {
 
                           <div className="grid grid-cols-2 gap-2 text-sm">
                             {[
-                              ["OneWeekReturn","1W"],
-                              ["OneMonthReturn","1M"],
-                              ["ThreeMonthReturn","3M"],
-                              ["SixMonthReturn","6M"],
-                              ["NineMonthReturn","9M"],
                               ["OneYearReturn","1Y"],
                               ["TwoYearReturn","2Y"],
                               ["ThreeYearReturn","3Y"],
                               ["FiveYearReturn","5Y"],
-                              ["SinceInceptionReturn","SIN"]
                             ].map(([k, label]) => {
                               const val = s[k as string];
                               if (val === null || val === undefined) return null;
