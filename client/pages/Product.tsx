@@ -351,7 +351,7 @@ export default function Product() {
                             <div className="text-sm text-slate-500 truncate">{s.SchemeType}</div>
                           </div>
 
-                          <div className="grid grid-cols-3 gap-2 text-sm text-slate-700 mb-3 text-center">
+                          <div className="grid grid-cols-3 gap-2 text-sm text-slate-700 mb-2 text-center">
                             {[
                               ["MinimumPurchaseAmount","Min Purchase"],
                               ["RedemptionAmountMinimum","Min Redemption"],
