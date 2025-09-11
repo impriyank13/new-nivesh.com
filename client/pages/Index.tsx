@@ -19,7 +19,7 @@ const translations: any = {
   hin: {
     heroTitle: "विभिन्न उद्योगों के नेताओं द्वारा भरोसा किया गया",
     heroSubtitle:
-      "जानें क��� पेशेवर अपने ग्राहक यात्रा को पूरा ���रने क�� लिए हमारे समाधानों पर भरोसा क्यों करते हैं।",
+      "जानें कि पेशेवर अपने ग्राहक यात्रा को पूरा ���रने क�� लिए हमारे समाधानों पर भरोसा क्यों करते हैं।",
     cta: "सफलता की कहानियाँ पढ़ें →",
   },
   mar: {
@@ -68,6 +68,10 @@ export default function Index() {
 
       <section className="w-full max-w-7xl">
         <Benefits />
+      </section>
+
+      <section className="w-full">
+        <GrowthStats />
       </section>
 
       <section className="w-full max-w-7xl">
