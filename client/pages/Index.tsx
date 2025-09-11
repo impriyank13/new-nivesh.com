@@ -63,6 +63,10 @@ export default function Index() {
       </section>
 
       <section className="w-full max-w-7xl">
+        <GrowthStats />
+      </section>
+
+      <section className="w-full max-w-7xl">
         <StepsOrbit />
       </section>
 
@@ -76,10 +80,6 @@ export default function Index() {
 
       <section className="w-full max-w-7xl">
         <AwardsMarquee />
-      </section>
-
-      <section className="w-full">
-        <GrowthStats />
       </section>
     </main>
   );
