@@ -310,7 +310,7 @@ export default function Product() {
                         <div className="mt-2 text-sm text-slate-700 flex-1 overflow-hidden">
                           <div className="mb-2">NAV: <span className="font-medium">{s.NAV_Value}</span></div>
 
-                          <div className="grid grid-cols-2 gap-2 text-sm">
+                          <div className="grid grid-cols-4 gap-2 text-sm">
                             {[
                               ["OneYearReturn","1Y"],
                               ["TwoYearReturn","2Y"],
