@@ -295,7 +295,7 @@ export default function Product() {
                       }}
                     >
                       {/* Front (show icon, name, NAV, all returns, invest + details) */}
-                      <div className="absolute inset-0 p-4 rounded-lg border border-slate-200 shadow-sm flex flex-col overflow-hidden" style={{ backfaceVisibility: "hidden" }}>
+                      <div className="absolute inset-0 p-4 rounded-lg border border-slate-200 shadow-sm flex flex-col overflow-hidden bg-[#ffffff]" style={{ backfaceVisibility: "hidden" }}>
                         <div className="flex items-start gap-3 mb-2">
                           <div className="h-10 w-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-700 flex-shrink-0">
                             {/* Simple icon: initials */}
