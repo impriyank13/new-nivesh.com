@@ -243,7 +243,7 @@ export default function Product() {
       cancelled = true;
     };
   }, [prod, lang]);
-
+  console.log(schemes)
   return (
     <main className="py-12 text-slate-800">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
