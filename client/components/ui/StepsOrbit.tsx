@@ -350,7 +350,7 @@ export default function StepsOrbit({
 
             <div className="basis-[30%] w-[30%] flex items-center justify-center relative">
               <svg
-                className="w-full max-w-[520px] h-auto"
+                className="w-[680px] h-[680px]"
                 viewBox="0 0 680 680"
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
