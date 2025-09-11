@@ -50,7 +50,7 @@ export default function GrowthStats() {
         </div>
 
         {/* Bottom: three stats in subtle red background */}
-        <div className="bg-rose-500">
+        <div className="bg-sky-900">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-6 py-8 sm:grid-cols-3">
             <BottomStat value="43,25,220" title="Transactions Executed" />
             <div className="rounded-xl border border-white/20 bg-white/5 p-6 flex items-center justify-center">
