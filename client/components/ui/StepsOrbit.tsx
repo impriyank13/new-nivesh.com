@@ -284,6 +284,7 @@ export default function StepsOrbit({
           className="sticky top-0 h-screen items-center"
           ref={stickyRef}
         >
+          <div className="w-full relative">
       <div className="flex gap-3 justify-center py-4">
         <button
           onClick={() => setMode("client")}
@@ -306,7 +307,6 @@ export default function StepsOrbit({
           Partner Onboarding
         </button>
       </div>
-          <div className="w-full relative flex">
             <div
               className="basis-[70%] w-[70%] pl-[5vw] flex items-center"
               style={{}}
