@@ -345,8 +345,8 @@ export default function Product() {
                           transform: "rotateY(180deg)",
                         }}
                       >
-                        <div className="h-full flex flex-col mb-4">
-                          <div className="flex items-center justify-between mb-2">
+                        <div className="h-full flex flex-col">
+                          <div className="flex items-center justify-between  mb-4">
                             <div className="font-semibold truncate">{s.SchemeName}</div>
                             <div className="text-sm text-slate-500 truncate">{s.SchemeType}</div>
                           </div>
