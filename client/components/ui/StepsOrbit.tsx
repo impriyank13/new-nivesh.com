@@ -320,29 +320,31 @@ export default function StepsOrbit({
                     <p key={i}>{line}</p>
                   ))}
                 </div>
-                {activeSteps[active].cta.length > 0 && <button
-                  className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] hover:-translate-y-0.5 transition-transform shadow-sm focus:outline-none"
-                  aria-label={activeSteps[active].cta}
-                >
-                  <span className="text-sm font-semibold">
-                    {activeSteps[active].cta}
-                  </span>
-                  <span className="w-6 h-6 bg-[#0A1E3D] text-white rounded-full inline-flex items-center justify-center">
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M5 12h14" />
-                      <path d="M12 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </button>}
+                {activeSteps[active].cta.length > 0 && (
+                  <button
+                    className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] hover:-translate-y-0.5 transition-transform shadow-sm focus:outline-none"
+                    aria-label={activeSteps[active].cta}
+                  >
+                    <span className="text-sm font-semibold">
+                      {activeSteps[active].cta}
+                    </span>
+                    <span className="w-6 h-6 bg-[#0A1E3D] text-white rounded-full inline-flex items-center justify-center">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="M12 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </button>
+                )}
               </div>
             </div>
 
@@ -582,9 +584,11 @@ export default function StepsOrbit({
                       <p key={idx}>{line}</p>
                     ))}
                   </div>
-                  <button className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] focus:outline-none">
-                    <span className="text-sm font-semibold">{s.cta}</span>
-                  </button>
+                  {s?.cta.length > 0 && (
+                    <button className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] focus:outline-none">
+                      <span className="text-sm font-semibold">{s.cta}</span>
+                    </button>
+                  )}
                 </div>
               </div>
             </section>
