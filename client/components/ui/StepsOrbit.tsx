@@ -320,7 +320,7 @@ export default function StepsOrbit({
                     <p key={i}>{line}</p>
                   ))}
                 </div>
-                <button
+                {activeSteps[active].cta.length > 0 && <button
                   className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] hover:-translate-y-0.5 transition-transform shadow-sm focus:outline-none"
                   aria-label={activeSteps[active].cta}
                 >
@@ -342,7 +342,7 @@ export default function StepsOrbit({
                       <path d="M12 5l7 7-7 7" />
                     </svg>
                   </span>
-                </button>
+                </button>}
               </div>
             </div>
 
