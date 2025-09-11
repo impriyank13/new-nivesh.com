@@ -123,7 +123,7 @@ export default function Footer() {
                   src="https://img.icons8.com/?size=100&id=fJp7hepMryiw&format=png&color=000000"
                   alt=""
                   className="img-responsive2"
-                  width="50px"
+                  width="70px"
                 />
               </a>
               <a
@@ -136,6 +136,7 @@ export default function Footer() {
                   src="https://img.icons8.com/?size=100&id=32292&format=png&color=000000"
                   alt=""
                   className="img-responsive2"
+                  width="70px"
                 />
               </a>
               <a
@@ -148,6 +149,7 @@ export default function Footer() {
                   src="https://img.icons8.com/?size=100&id=435&format=png&color=000000"
                   alt=""
                   className="img-responsive2"
+                  width="70px"
                 />
               </a>
               <a
@@ -160,6 +162,7 @@ export default function Footer() {
                   src="https://img.icons8.com/?size=100&id=447&format=png&color=000000"
                   alt=""
                   className="img-responsive2"
+                  width="70px"
                 />
               </a>
               <a
@@ -172,6 +175,7 @@ export default function Footer() {
                   src="https://img.icons8.com/?size=100&id=37325&format=png&color=000000"
                   alt=""
                   className="img-responsive2"
+                  width="70px"
                 />
               </a>
             </div>
