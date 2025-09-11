@@ -407,11 +407,13 @@ export default function StepsOrbit({
                 {/* moving main node - group so circle and icon move together */}
                 <g
                   ref={nodeGroupRef}
-                  style={{ color: "#0c4a6e" }}
+                  style={{ color: "#ffffff", zIndex: 1 }}
                   transform={`translate(580,170.7730712890625)`}
                 >
-                  {/* render icon SVG centered at 0,0 (smaller for half size) without glow */}
-                  <g transform={`translate(-24,-24)`}>
+                  {/* base filled circle to mask underlying stroke */}
+                  <circle cx={0} cy={0} r={36} fill="#0c4a6e" />
+                  {/* render icon centered on top */}
+                  <g transform={`translate(-24,-24)`} style={{ zIndex: 9, color: "#ffffff" }}>
                     {CurrentIconComp ? (
                       <CurrentIconComp size={48} />
                     ) : CurrentIconJSX ? (
@@ -498,10 +500,11 @@ export default function StepsOrbit({
 
             <g
               ref={nodeGroupMobileRef}
-              style={{ color: "#0c4a6e" }}
+              style={{ color: "#ffffff", zIndex: 1 }}
               transform={`translate(110,170.7730712890625)`}
             >
-              <g transform={`translate(-10,-10)`}>
+              <circle cx={0} cy={0} r={14} fill="#0c4a6e" />
+              <g transform={`translate(-10,-10)`} style={{ zIndex: 9, color: "#ffffff" }}>
                 {CurrentIconComp ? (
                   <CurrentIconComp size={18} />
                 ) : CurrentIconJSX ? (
