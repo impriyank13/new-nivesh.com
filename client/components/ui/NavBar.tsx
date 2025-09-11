@@ -433,7 +433,7 @@ export default function NavBar() {
                       className={
                         "text-sm font-medium px-2 py-1 rounded transition-transform transform " +
                         (l.code === lang
-                          ? "bg-[#0a66c2] text-white"
+                          ? "bg-[#0c4a6e] text-white"
                           : linkTextClass + " hover:scale-105 hover:bg-slate-100")
                       }
                     >
@@ -453,7 +453,7 @@ export default function NavBar() {
                 <a
                   href="https://app.nivesh.com/partner_onboarding"
                   className={
-                    "block text-sm font-semibold bg-[#0a66c2] text-white px-4 py-2 rounded-full text-center"
+                    "block text-sm font-semibold bg-[#0c4a6e] text-white px-4 py-2 rounded-full text-center"
                   }
                   onClick={() => setOpen(false)}
                 >
