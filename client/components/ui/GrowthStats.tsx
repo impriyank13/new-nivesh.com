@@ -4,16 +4,24 @@ function StatCard({
   title,
   value,
   sub,
+  img,
+  position,
 }: {
   title: string;
   value: string;
   sub?: string;
+  img?: string;
+  position?: string;
 }) {
   return (
-    <div className="rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm p-4 text-white">
-      <div className="text-lg font-semibold">{value}</div>
-      <div className="text-sm opacity-90 leading-snug">{title}</div>
-      {sub ? <div className="text-xs opacity-80 mt-1">{sub}</div> : null}
+    <div className="flex">
+      <img src={position === "left" && img} alt="img-left" />
+      <div className="rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm p-4 text-white">
+        <div className="text-lg font-semibold">{value}</div>
+        <div className="text-sm opacity-90 leading-snug">{title}</div>
+        {sub ? <div className="text-xs opacity-80 mt-1">{sub}</div> : null}
+      </div>
+      <img src={position === "right" && img} alt="img-right" />
     </div>
   );
 }
