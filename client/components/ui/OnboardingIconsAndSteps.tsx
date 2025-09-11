@@ -123,27 +123,31 @@ export const clientSteps = [
     cta: "Sign Up Now",
     icon: <UserIcon size={72} />,
     iconComponent: UserIcon,
+    url: "https://app.nivesh.com/register"
   },
   {
     title: "KYC VERIFICATION",
     body: ["Upload PAN, Aadhaar, and bank details for instant digital verification."],
-    cta: "Complete KYC",
+    cta: "",
     icon: <DocumentCheckIcon size={72} />,
     iconComponent: DocumentCheckIcon,
+    url: ""
   },
   {
     title: "RISK PROFILING",
     body: ["Answer a few questions to get personalized investment recommendations."],
-    cta: "Take Quiz",
+    cta: "",
     icon: <ShieldIcon size={72} />,
     iconComponent: ShieldIcon,
+    url: ""
   },
   {
     title: "ADD BANK ACCOUNT",
     body: ["Link your bank securely for investments and withdrawals."],
-    cta: "Link Account",
+    cta: "",
     icon: <BankIcon size={72} />,
     iconComponent: BankIcon,
+    url: ""
   },
   {
     title: "START INVESTING",
@@ -151,6 +155,7 @@ export const clientSteps = [
     cta: "Explore Investments",
     icon: <ChartIcon size={72} />,
     iconComponent: ChartIcon,
+    url: "https://app.nivesh.com/login"
   },
 ];
 
@@ -161,27 +166,31 @@ export const partnerSteps = [
     cta: "Register Now",
     icon: <HandshakeIcon size={72} />,
     iconComponent: HandshakeIcon,
+    url: "https://app.nivesh.com/partner_onboarding"
   },
   {
     title: "COMPLETE COMPLIANCES",
     body: ["Submit ARN, SEBI registration, and KYC documents for approval."],
-    cta: "Submit Documents",
+    cta: "",
     icon: <FileShieldIcon size={72} />,
     iconComponent: FileShieldIcon,
+    url: ""
   },
   {
     title: "SET UP BANKING DETAILS",
     body: ["Add your bank account for payouts, earnings, and commissions."],
-    cta: "Add Bank Details",
+    cta: "",
     icon: <BankIcon size={72} />,
     iconComponent: BankIcon,
+    url: ""
   },
   {
     title: "CLIENT ONBOARDING",
     body: ["Invite clients, assist them with KYC, and track their progress."],
-    cta: "Onboard Clients",
+    cta: "",
     icon: <UsersIcon size={72} />,
     iconComponent: UsersIcon,
+    url: ""
   },
   {
     title: "ACCESS PARTNER DASHBOARD",
@@ -189,6 +198,7 @@ export const partnerSteps = [
     cta: "Go to Dashboard",
     icon: <DashboardIcon size={72} />,
     iconComponent: DashboardIcon,
+    url: "https://app.nivesh.com/login"
   },
 ];
 
