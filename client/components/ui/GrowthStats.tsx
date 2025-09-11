@@ -44,6 +44,8 @@ export default function GrowthStats() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <StatCard title="Partners in 785 cities across India" value="10,744" />
                 <StatCard title="Customers spread over 3,000 pincodes" value="55,220" />
+                <BottomStat value="43,25,220" title="Transactions Executed" />
+                <BottomStat value="Rs. 5,802" title="Crore - Transaction Value" />
               </div>
             </div>
           </div>
@@ -52,8 +54,6 @@ export default function GrowthStats() {
         {/* Bottom: three stats in subtle red background */}
         <div className="bg-sky-900">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-6 py-8 sm:grid-cols-3">
-            <BottomStat value="43,25,220" title="Transactions Executed" />
-            <BottomStat value="Rs. 5,802" title="Crore - Transaction Value" />
           </div>
         </div>
       </div>
