@@ -15,13 +15,13 @@ function StatCard({
 }) {
   return (
     <div className="rounded-xl flex border border-white/20 bg-white/5 backdrop-blur-sm p-4 text-white">
-      {position === "left" && <img src={img} alt="img-left" width="50px" />}
+      {position === "left" && <img src={img} alt="img-left" width="70px" />}
       <div>
         <div className="text-lg font-semibold">{value}</div>
         <div className="text-sm opacity-90 leading-snug">{title}</div>
       </div>
       {sub ? <div className="text-xs opacity-80 mt-1">{sub}</div> : null}
-      {position === "right" && <img src={img} alt="img-right" width="50px" />}
+      {position === "right" && <img src={img} alt="img-right" width="70px" />}
     </div>
   );
 }
