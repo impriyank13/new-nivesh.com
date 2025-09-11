@@ -364,7 +364,7 @@ export default function Product() {
                               if (val === null || val === undefined || val === "") return null;
                               return (
                                 <div key={String(k)} className="">
-                                  <div className="font-medium text-right">{String(val)}</div>
+                                  <div className="font-medium">{String(val)}</div>
                                   <div className="text-slate-500 text-xs">{label}</div>
                                 </div>
                               );
