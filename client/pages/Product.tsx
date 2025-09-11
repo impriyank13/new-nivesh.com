@@ -346,7 +346,7 @@ export default function Product() {
                         }}
                       >
                         <div className="h-full flex flex-col">
-                          <div className="flex items-center justify-between  mb-4">
+                          <div className="flex items-center justify-between  mb-5">
                             <div className="font-semibold truncate">{s.SchemeName}</div>
                             <div className="text-sm text-slate-500 truncate">{s.SchemeType}</div>
                           </div>
