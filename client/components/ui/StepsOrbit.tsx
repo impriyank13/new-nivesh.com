@@ -312,10 +312,10 @@ export default function StepsOrbit({
               style={{}}
             >
               <div className="text-left max-w-[560px] p-6">
-                <h2 className="text-2xl tracking-widest font-extrabold text-[#0c4a6e] uppercase mb-4">
+                <h2 className="text-2xl tracking-widest font-extrabold text-[#0c4a6e] uppercase mb-10">
                   {activeSteps[active].title}
                 </h2>
-                <img src="https://nivesh.com/9962f4877e535b49e6c3b9742b8387a6.jpeg" alt="" className="" />
+                <img src="https://nivesh.com/9962f4877e535b49e6c3b9742b8387a6.jpeg" alt="" className="mb-10" />
                 <div className="text-sm text-slate-700 opacity-90 space-y-2 mb-6 leading-[1.6]">
                   {activeSteps[active].body.map((line, i) => (
                     <p key={i}>{line}</p>
