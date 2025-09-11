@@ -31,7 +31,7 @@ export default function Footer() {
                 target="_blank"
               >
                 <img
-                  src="/39662a6f385663aae1cec89625b9f278.svg"
+                  src="https://nivesh.com/39662a6f385663aae1cec89625b9f278.svg"
                   alt=""
                   className="img-responsive2"
                 />
