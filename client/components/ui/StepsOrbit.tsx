@@ -376,7 +376,7 @@ export default function StepsOrbit({
                 <path
                   id="mainOrbit"
                   ref={pathRef}
-                  d="M580,80 L580,600"
+                  d="M580,80 L580,552"
                   stroke="none"
                   fill="none"
                   aria-hidden="true"
@@ -385,7 +385,7 @@ export default function StepsOrbit({
 
                 {/* background faint vertical line */}
                 <path
-                  d="M580,80 L580,600"
+                  d="M580,80 L580,552"
                   stroke="#5F7AA3"
                   strokeOpacity="0.12"
                   strokeWidth="1"
@@ -396,7 +396,7 @@ export default function StepsOrbit({
                 <path
                   id="stringPath"
                   ref={stringRef}
-                  d="M580,80 L580,600"
+                  d="M580,80 L580,552"
                   stroke="#0c4a6e"
                   strokeWidth="2"
                   fill="none"
@@ -410,26 +410,6 @@ export default function StepsOrbit({
                   style={{ color: "#0c4a6e" }}
                   transform={`translate(580,170.7730712890625)`}
                 >
-                  {/* subtle outer ring to highlight the circle (no blur) */}
-                  <circle
-                    cx={0}
-                    cy={0}
-                    r={40}
-                    fill="none"
-                    stroke="#0c4a6e"
-                    strokeWidth={8}
-                    strokeOpacity={0.08}
-                  />
-                  {/* inner highlighted circle */}
-                  <circle
-                    ref={nodeRef}
-                    cx={0}
-                    cy={0}
-                    r={35}
-                    fill="rgba(0, 0, 0, 0)"
-                    stroke="#0c4a6e"
-                    strokeWidth={2}
-                  />
                   {/* render icon SVG centered at 0,0 (smaller for half size) without glow */}
                   <g transform={`translate(-24,-24)`}>
                     {CurrentIconComp ? (
@@ -493,14 +473,14 @@ export default function StepsOrbit({
             <path
               id="mobileOrbit"
               ref={pathRefMobile}
-              d="M110,20 L110,500"
+              d="M110,20 L110,452"
               stroke="none"
               fill="none"
               aria-hidden="true"
               style={{ display: "none" }}
             />
             <path
-              d="M110,20 L110,500"
+              d="M110,20 L110,452"
               stroke="#5F7AA3"
               strokeOpacity="0.12"
               strokeWidth="1"
@@ -509,7 +489,7 @@ export default function StepsOrbit({
             <path
               id="stringPathMobile"
               ref={stringRefMobile}
-              d="M110,20 L110,500"
+              d="M110,20 L110,452"
               stroke="#0c4a6e"
               strokeWidth="2"
               fill="none"
@@ -521,25 +501,6 @@ export default function StepsOrbit({
               style={{ color: "#0c4a6e" }}
               transform={`translate(110,170.7730712890625)`}
             >
-              {/* outer subtle ring */}
-              <circle
-                cx={0}
-                cy={0}
-                r={14}
-                fill="none"
-                stroke="#0c4a6e"
-                strokeWidth={6}
-                strokeOpacity={0.08}
-              />
-              <circle
-                ref={nodeRefMobile}
-                cx={0}
-                cy={0}
-                r={11}
-                fill="rgba(0, 0, 0, 0)"
-                stroke="#0c4a6e"
-                strokeWidth={2}
-              />
               <g transform={`translate(-10,-10)`}>
                 {CurrentIconComp ? (
                   <CurrentIconComp size={18} />
