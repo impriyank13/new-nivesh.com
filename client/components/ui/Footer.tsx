@@ -112,7 +112,7 @@ export default function Footer() {
               <li className="mb-2">AMFI ARN Code</li>
             </ul>
 
-            <div className="mt-6 flex items-center gap-3 text-sm">
+            <div className="mt-6 flex items-center gap-3 text-sm text-white">
               <a
                 href="https://twitter.com/niveshapp"
                 target="_blank"
