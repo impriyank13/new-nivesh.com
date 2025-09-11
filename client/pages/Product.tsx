@@ -275,7 +275,7 @@ export default function Product() {
           </div>
 
           <div className="flex items-center justify-center">
-            <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fplaceholder.svg?width=800" alt={t("title")} className="w-full max-w-md object-contain" />
+            <img src="https://nivesh.com/9962f4877e535b49e6c3b9742b8387a6.jpeg" alt={t("title")} className="w-full max-w-md object-contain" />
           </div>
         </section>
 
