@@ -308,8 +308,8 @@ export default function StepsOrbit({
         >
           <div className="w-full relative flex">
             <div
-              className="w-1/2 pl-[8vw] flex items-center"
-              style={{ maxWidth: 560 }}
+              className="basis-[70%] w-[70%] pl-[8vw] flex items-center"
+              style={{}}
             >
               <div className="text-left max-w-[560px] p-6">
                 <h2 className="text-2xl tracking-widest font-extrabold text-[#0c4a6e] uppercase mb-4">
@@ -348,9 +348,9 @@ export default function StepsOrbit({
               </div>
             </div>
 
-            <div className="w-1/2 flex items-center justify-center relative">
+            <div className="basis-[30%] w-[30%] flex items-center justify-center relative">
               <svg
-                className="w-[680px] h-[680px]"
+                className="w-full max-w-[520px] h-auto"
                 viewBox="0 0 680 680"
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
