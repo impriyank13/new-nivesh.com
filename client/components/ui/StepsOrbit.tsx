@@ -361,7 +361,7 @@ export default function StepsOrbit({
                     x="-50%"
                     y="-50%"
                     width="200%"
-                    height="200%"
+                    height="300%"
                   >
                     <feGaussianBlur stdDeviation="8" result="coloredBlur" />
                     <feMerge>
