@@ -396,7 +396,7 @@ export default function StepsOrbit({
                 <path
                   id="stringPath"
                   ref={stringRef}
-                  d="M580,80 L580,552"
+                  d="M580,80 L580,600"
                   stroke="#0c4a6e"
                   strokeWidth="2"
                   fill="none"
