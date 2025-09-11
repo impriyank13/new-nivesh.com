@@ -40,7 +40,7 @@ export default function StepsOrbit({
   // toggle between client and partner steps (defaults to client)
   const [mode, setMode] = useState<"client" | "partner">("client");
   const [activeSteps, setActiveSteps] = useState<Step[]>(
-    steps && steps.length ? steps : clientSteps
+    steps && steps.length ? steps : clientSteps,
   );
 
   // keep activeSteps in sync when a custom `steps` prop is provided
@@ -82,10 +82,10 @@ export default function StepsOrbit({
     const chosenPath =
       isMobile && pathRefMobile.current ? pathRefMobile.current : path;
     const chosenString = isMobile
-      ? stringRefMobile.current ?? stringRef.current
+      ? (stringRefMobile.current ?? stringRef.current)
       : stringRef.current;
     const chosenMarkers = isMobile
-      ? markersRefMobile.current ?? markersRef.current
+      ? (markersRefMobile.current ?? markersRef.current)
       : markersRef.current;
 
     const pathLength = chosenPath.getTotalLength();
@@ -110,7 +110,7 @@ export default function StepsOrbit({
         const scroller = scrollerMobileRef.current;
         const totalScrollable = Math.max(
           0,
-          scroller.scrollHeight - scroller.clientHeight
+          scroller.scrollHeight - scroller.clientHeight,
         );
         const scrolled = scroller.scrollTop;
         progress =
@@ -132,7 +132,7 @@ export default function StepsOrbit({
         });
         const boundedIndex = Math.max(
           0,
-          Math.min(activeSteps.length - 1, closest)
+          Math.min(activeSteps.length - 1, closest),
         );
         if (boundedIndex !== active) {
           setActive(boundedIndex);
@@ -150,7 +150,7 @@ export default function StepsOrbit({
         const rawIndex = Math.floor(progress / seg);
         const boundedIndex = Math.max(
           0,
-          Math.min(activeSteps.length - 1, rawIndex)
+          Math.min(activeSteps.length - 1, rawIndex),
         );
 
         if (boundedIndex !== active) {
@@ -168,7 +168,7 @@ export default function StepsOrbit({
         if (nodeGroupMobileRef.current) {
           nodeGroupMobileRef.current.setAttribute(
             "transform",
-            `translate(${point.x},${point.y})`
+            `translate(${point.x},${point.y})`,
           );
         } else if (nodeRefMobile.current) {
           nodeRefMobile.current.setAttribute("cx", String(point.x));
@@ -178,7 +178,7 @@ export default function StepsOrbit({
         if (nodeGroupRef.current) {
           nodeGroupRef.current.setAttribute(
             "transform",
-            `translate(${point.x},${point.y})`
+            `translate(${point.x},${point.y})`,
           );
         } else if (nodeRef.current) {
           nodeRef.current.setAttribute("cx", String(point.x));
@@ -208,7 +208,7 @@ export default function StepsOrbit({
           const rawIndex = Math.floor(progress / seg);
           const boundedIndex = Math.max(
             0,
-            Math.min(activeSteps.length - 1, rawIndex)
+            Math.min(activeSteps.length - 1, rawIndex),
           );
           if (boundedIndex !== active) {
             setActive(boundedIndex);
@@ -218,9 +218,9 @@ export default function StepsOrbit({
         {
           threshold: Array.from(
             { length: activeSteps.length },
-            (_, i) => i / (activeSteps.length - 1)
+            (_, i) => i / (activeSteps.length - 1),
           ),
-        }
+        },
       );
       obs.observe(wrapper);
       return () => obs.disconnect();
@@ -340,7 +340,9 @@ export default function StepsOrbit({
                   <button
                     className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] hover:-translate-y-0.5 transition-transform shadow-sm focus:outline-none"
                     aria-label={activeSteps[active].cta}
-                    onClick={() => window.open(activeSteps[active].url, "_blank")}
+                    onClick={() =>
+                      window.open(activeSteps[active].url, "_blank")
+                    }
                   >
                     <span className="text-sm font-semibold">
                       {activeSteps[active].cta}
@@ -455,7 +457,7 @@ export default function StepsOrbit({
                     className="h-1 bg-[#0c4a6e] transition-width"
                     style={{
                       width: `${Math.round(
-                        ((active + 1) / activeSteps.length) * 100
+                        ((active + 1) / activeSteps.length) * 100,
                       )}%`,
                     }}
                   />
@@ -595,7 +597,7 @@ export default function StepsOrbit({
               className="h-1 bg-[#0c4a6e] transition-all"
               style={{
                 width: `${Math.round(
-                  ((active + 1) / activeSteps.length) * 100
+                  ((active + 1) / activeSteps.length) * 100,
                 )}%`,
               }}
             />

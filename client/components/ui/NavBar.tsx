@@ -434,7 +434,8 @@ export default function NavBar() {
                         "text-sm font-medium px-2 py-1 rounded transition-transform transform " +
                         (l.code === lang
                           ? "bg-[#0c4a6e] text-white"
-                          : linkTextClass + " hover:scale-105 hover:bg-slate-100")
+                          : linkTextClass +
+                            " hover:scale-105 hover:bg-slate-100")
                       }
                     >
                       {l.label}
