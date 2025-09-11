@@ -7,6 +7,7 @@ import Testimonials from "@/components/ui/Testimonials";
 import { useParams, useLocation } from "react-router-dom";
 import Hero from "@/components/ui/Hero";
 import ImageBenefits from "@/components/ui/ImageBenefits";
+import GrowthStats from "@/components/ui/GrowthStats";
 
 const translations: any = {
   en: {
@@ -18,7 +19,7 @@ const translations: any = {
   hin: {
     heroTitle: "विभिन्न उद्योगों के नेताओं द्वारा भरोसा किया गया",
     heroSubtitle:
-      "जानें कि पेशेवर अपने ग्राहक यात्रा को पूरा ���रने क�� लिए हमारे समाधानों पर भरोसा क्यों करते हैं।",
+      "जानें क��� पेशेवर अपने ग्राहक यात्रा को पूरा ���रने क�� लिए हमारे समाधानों पर भरोसा क्यों करते हैं।",
     cta: "सफलता की कहानियाँ पढ़ें →",
   },
   mar: {
