@@ -22,9 +22,9 @@ function BottomStat({ value, title }: { value: string; title: string }) {
 export default function GrowthStats() {
   return (
     <section className="w-full">
-      <div className="overflow-hidden rounded-2xl shadow-xl">
+      <div className="overflow-hidden shadow-xl">
         {/* Top: gradient background with map and two stats */}
-        <div className="bg-gradient-to-r from-sky-900 via-sky-800 to-rose-500">
+        <div className="">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 py-10 md:grid-cols-2">
             {/* Left: Map */}
             <div className="flex items-center justify-center">
