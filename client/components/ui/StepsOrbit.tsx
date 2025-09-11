@@ -278,6 +278,12 @@ export default function StepsOrbit({
   return (
     <div ref={wrapperRef} className="w-full relative">
       {/* Mode toggle: Client / Partner */}
+      {/* Desktop pinned scrub */}
+      <div className="hidden md:block h-[300vh] relative">
+        <div
+          className="sticky top-0 h-screen flex items-center"
+          ref={stickyRef}
+        >
       <div className="flex gap-3 justify-center py-4">
         <button
           onClick={() => setMode("client")}
@@ -300,12 +306,6 @@ export default function StepsOrbit({
           Partner Onboarding
         </button>
       </div>
-      {/* Desktop pinned scrub */}
-      <div className="hidden md:block h-[300vh] relative">
-        <div
-          className="sticky top-0 h-screen flex items-center"
-          ref={stickyRef}
-        >
           <div className="w-full relative flex">
             <div
               className="basis-[70%] w-[70%] pl-[5vw] flex items-center"
