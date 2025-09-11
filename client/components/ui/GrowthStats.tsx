@@ -19,7 +19,7 @@ function StatCard({
         <div className="text-sm opacity-90 leading-snug">{title}</div>
       </div>
       {sub ? <div className="text-xs opacity-80 mt-1">{sub}</div> : null}
-      {position === "right" && <img src={img} alt="img-right" width="70px" />}
+<img src={img} alt="img-right" width="70px" />
     </div>
   );
 }
