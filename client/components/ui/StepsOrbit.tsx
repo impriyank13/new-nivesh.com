@@ -281,7 +281,7 @@ export default function StepsOrbit({
       {/* Desktop pinned scrub */}
       <div className="hidden md:block h-[300vh] relative">
         <div
-          className="sticky top-0 h-screen flex items-center"
+          className="sticky top-0 h-screen items-center"
           ref={stickyRef}
         >
       <div className="flex gap-3 justify-center py-4">
