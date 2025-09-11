@@ -15,13 +15,13 @@ function StatCard({
 }) {
   return (
     <div className="flex">
-      <img src={position === "left" && img} alt="img-left" />
+      {position === "left" && <img src={img} alt="img-left" />}
       <div className="rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm p-4 text-white">
         <div className="text-lg font-semibold">{value}</div>
         <div className="text-sm opacity-90 leading-snug">{title}</div>
         {sub ? <div className="text-xs opacity-80 mt-1">{sub}</div> : null}
       </div>
-      <img src={position === "right" && img} alt="img-right" />
+      {position === "right" && <img src={img} alt="img-right" />}
     </div>
   );
 }
@@ -62,10 +62,14 @@ export default function GrowthStats() {
                 <StatCard
                   title="Partners in 785 cities across India"
                   value="10,744"
+                  position="left"
+                  img="https://nivesh.com/01949c5f5dcc5fe013ed7d3253954d02.webp"
                 />
                 <StatCard
                   title="Customers spread over 3,000 pincodes"
                   value="55,220"
+                  position="right"
+                  img="https://nivesh.com/f9823ef3dfe5b73ef4f09065f079db70.webp"
                 />
                 <BottomStat value="43,25,220" title="Transactions Executed" />
                 <BottomStat
