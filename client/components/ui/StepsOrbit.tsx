@@ -281,13 +281,13 @@ export default function StepsOrbit({
       <div className="flex gap-3 justify-center py-4">
         <button
           onClick={() => setMode("client")}
-          className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === "client" ? "bg-[#FFC527] text-[#0A1E3D]" : "bg-transparent border border-[#3B4B66] text-slate-700"}`}
+          className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === "client" ? "bg-[#0c4a6e] text-[#0A1E3D]" : "bg-transparent border border-[#3B4B66] text-slate-700"}`}
         >
           Client Onboarding
         </button>
         <button
           onClick={() => setMode("partner")}
-          className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === "partner" ? "bg-[#FFC527] text-[#0A1E3D]" : "bg-transparent border border-[#3B4B66] text-slate-700"}`}
+          className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === "partner" ? "bg-[#0c4a6e] text-[#0A1E3D]" : "bg-transparent border border-[#3B4B66] text-slate-700"}`}
         >
           Partner Onboarding
         </button>
@@ -304,7 +304,7 @@ export default function StepsOrbit({
               style={{ maxWidth: 560 }}
             >
               <div className="text-left max-w-[560px] p-6">
-                <h2 className="text-2xl tracking-widest font-extrabold text-[#FFC527] uppercase mb-4">
+                <h2 className="text-2xl tracking-widest font-extrabold text-[#0c4a6e] uppercase mb-4">
                   {activeSteps[active].title}
                 </h2>
                 <div className="text-[#EAF0FF] opacity-90 space-y-2 mb-6 leading-[1.6]">
@@ -387,7 +387,7 @@ export default function StepsOrbit({
                   id="stringPath"
                   ref={stringRef}
                   d="M580,80 L580,600"
-                  stroke="#FFC527"
+                  stroke="#0c4a6e"
                   strokeWidth="2"
                   fill="none"
                   strokeLinecap="round"
@@ -397,7 +397,7 @@ export default function StepsOrbit({
                 {/* moving main node - group so circle and icon move together */}
                 <g
                   ref={nodeGroupRef}
-                  style={{ color: "#FFC527" }}
+                  style={{ color: "#0c4a6e" }}
                   transform={`translate(580,170.7730712890625)`}
                 >
                   {/* subtle outer ring to highlight the circle (no blur) */}
@@ -406,7 +406,7 @@ export default function StepsOrbit({
                     cy={0}
                     r={40}
                     fill="none"
-                    stroke="#FFC527"
+                    stroke="#0c4a6e"
                     strokeWidth={8}
                     strokeOpacity={0.08}
                   />
@@ -417,7 +417,7 @@ export default function StepsOrbit({
                     cy={0}
                     r={35}
                     fill="rgba(255,197,39,0.08)"
-                    stroke="#FFC527"
+                    stroke="#0c4a6e"
                     strokeWidth={2}
                   />
                   {/* render icon SVG centered at 0,0 (smaller for half size) without glow */}
@@ -440,7 +440,7 @@ export default function StepsOrbit({
                 </div>
                 <div className="w-24 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
                   <div
-                    className="h-1 bg-[#FFC527] transition-width"
+                    className="h-1 bg-[#0c4a6e] transition-width"
                     style={{
                       width: `${Math.round(((active + 1) / activeSteps.length) * 100)}%`,
                     }}
@@ -498,7 +498,7 @@ export default function StepsOrbit({
               id="stringPathMobile"
               ref={stringRefMobile}
               d="M110,20 L110,500"
-              stroke="#FFC527"
+              stroke="#0c4a6e"
               strokeWidth="2"
               fill="none"
               strokeLinecap="round"
@@ -506,7 +506,7 @@ export default function StepsOrbit({
 
             <g
               ref={nodeGroupMobileRef}
-              style={{ color: "#FFC527" }}
+              style={{ color: "#0c4a6e" }}
               transform={`translate(110,170.7730712890625)`}
             >
               {/* outer subtle ring */}
@@ -515,7 +515,7 @@ export default function StepsOrbit({
                 cy={0}
                 r={14}
                 fill="none"
-                stroke="#FFC527"
+                stroke="#0c4a6e"
                 strokeWidth={6}
                 strokeOpacity={0.08}
               />
@@ -525,7 +525,7 @@ export default function StepsOrbit({
                 cy={0}
                 r={11}
                 fill="rgba(255,197,39,0.08)"
-                stroke="#FFC527"
+                stroke="#0c4a6e"
                 strokeWidth={2}
               />
               <g transform={`translate(-10,-10)`}>
@@ -560,7 +560,7 @@ export default function StepsOrbit({
                 className={`max-w-md text-left w-full transition-all duration-300 ease-out ${active === i ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6 pointer-events-none"}`}
               >
                 <div className="p-6">
-                  <h2 className="text-2xl tracking-widest font-extrabold text-[#FFC527] uppercase mb-4">
+                  <h2 className="text-2xl tracking-widest font-extrabold text-[#0c4a6e] uppercase mb-4">
                     {s.title}
                   </h2>
                   <div className="text-[#EAF0FF] opacity-90 space-y-2 mb-6 leading-[1.6]">
@@ -587,7 +587,7 @@ export default function StepsOrbit({
           </div>
           <div className="w-36 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
             <div
-              className="h-1 bg-[#FFC527] transition-all"
+              className="h-1 bg-[#0c4a6e] transition-all"
               style={{
                 width: `${Math.round(((active + 1) / activeSteps.length) * 100)}%`,
               }}
@@ -622,8 +622,8 @@ const ATMIcon = (
       width="28"
       height="6"
       rx="1"
-      fill="#FFC527"
-      stroke="#FFC527"
+      fill="#0c4a6e"
+      stroke="#0c4a6e"
     />
   </svg>
 );
@@ -641,7 +641,7 @@ const CardIcon = (
   >
     <rect x="6" y="16" width="52" height="32" rx="4" />
     <rect x="10" y="22" width="28" height="12" rx="1" />
-    <path d="M44 26c3 0 5-3 8-3" stroke="#FFC527" />
+    <path d="M44 26c3 0 5-3 8-3" stroke="#0c4a6e" />
   </svg>
 );
 
@@ -657,8 +657,8 @@ const PhoneIcon = (
     strokeLinejoin="round"
   >
     <rect x="18" y="8" width="28" height="48" rx="6" />
-    <circle cx="32" cy="44" r="2" fill="#FFC527" stroke="#FFC527" />
-    <path d="M40 16l6-2" stroke="#FFC527" />
+    <circle cx="32" cy="44" r="2" fill="#0c4a6e" stroke="#0c4a6e" />
+    <path d="M40 16l6-2" stroke="#0c4a6e" />
   </svg>
 );
 
