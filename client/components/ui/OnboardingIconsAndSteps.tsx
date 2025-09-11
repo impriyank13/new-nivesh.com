@@ -121,7 +121,7 @@ export const clientSteps = [
     title: "SIGN UP",
     body: ["Create your account using mobile number and email for secure access."],
     cta: "Sign Up Now",
-    icon: <UserIcon size={100} />,
+    icon: <UserIcon size={150} />,
     iconComponent: UserIcon,
     url: "https://app.nivesh.com/register"
   },
@@ -129,7 +129,7 @@ export const clientSteps = [
     title: "KYC VERIFICATION",
     body: ["Upload PAN, Aadhaar, and bank details for instant digital verification."],
     cta: "",
-    icon: <DocumentCheckIcon size={100} />,
+    icon: <DocumentCheckIcon size={150} />,
     iconComponent: DocumentCheckIcon,
     url: ""
   },
@@ -137,7 +137,7 @@ export const clientSteps = [
     title: "RISK PROFILING",
     body: ["Answer a few questions to get personalized investment recommendations."],
     cta: "",
-    icon: <ShieldIcon size={100} />,
+    icon: <ShieldIcon size={150} />,
     iconComponent: ShieldIcon,
     url: ""
   },
@@ -145,7 +145,7 @@ export const clientSteps = [
     title: "ADD BANK ACCOUNT",
     body: ["Link your bank securely for investments and withdrawals."],
     cta: "",
-    icon: <BankIcon size={100} />,
+    icon: <BankIcon size={150} />,
     iconComponent: BankIcon,
     url: ""
   },
@@ -153,7 +153,7 @@ export const clientSteps = [
     title: "START INVESTING",
     body: ["Choose from mutual funds, SIPs, and other products to begin your journey."],
     cta: "Explore Investments",
-    icon: <ChartIcon size={100} />,
+    icon: <ChartIcon size={150} />,
     iconComponent: ChartIcon,
     url: "https://app.nivesh.com/login"
   },
@@ -164,7 +164,7 @@ export const partnerSteps = [
     title: "REGISTER AS PARTNER",
     body: ["Fill in your basic details to register as a distributor/advisor on the platform."],
     cta: "Register Now",
-    icon: <HandshakeIcon size={100} />,
+    icon: <HandshakeIcon size={150} />,
     iconComponent: HandshakeIcon,
     url: "https://app.nivesh.com/partner_onboarding"
   },
@@ -172,7 +172,7 @@ export const partnerSteps = [
     title: "COMPLETE COMPLIANCES",
     body: ["Submit ARN, SEBI registration, and KYC documents for approval."],
     cta: "",
-    icon: <FileShieldIcon size={100} />,
+    icon: <FileShieldIcon size={150} />,
     iconComponent: FileShieldIcon,
     url: ""
   },
@@ -180,7 +180,7 @@ export const partnerSteps = [
     title: "SET UP BANKING DETAILS",
     body: ["Add your bank account for payouts, earnings, and commissions."],
     cta: "",
-    icon: <BankIcon size={100} />,
+    icon: <BankIcon size={150} />,
     iconComponent: BankIcon,
     url: ""
   },
@@ -188,7 +188,7 @@ export const partnerSteps = [
     title: "CLIENT ONBOARDING",
     body: ["Invite clients, assist them with KYC, and track their progress."],
     cta: "",
-    icon: <UsersIcon size={100} />,
+    icon: <UsersIcon size={150} />,
     iconComponent: UsersIcon,
     url: ""
   },
@@ -196,7 +196,7 @@ export const partnerSteps = [
     title: "ACCESS PARTNER DASHBOARD",
     body: ["Manage clients, track commissions, and monitor business growth."],
     cta: "Go to Dashboard",
-    icon: <DashboardIcon size={100} />,
+    icon: <DashboardIcon size={150} />,
     iconComponent: DashboardIcon,
     url: "https://app.nivesh.com/login"
   },
