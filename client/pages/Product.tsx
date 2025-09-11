@@ -230,7 +230,7 @@ export default function Product() {
 
         {/* Product details / benefits */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="md:col-span-2 rounded-lg border ">
+          <div className="md:col-span-2 rounded-lg ">
             <h2 className="text-2xl font-semibold mb-4">Why choose {t("title")}</h2>
             <p className="text-slate-600 mb-4">Our platform helps distributors access diversified mutual fund solutions with best-in-class technology and support.</p>
 
