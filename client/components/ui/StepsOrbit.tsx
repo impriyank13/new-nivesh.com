@@ -6,6 +6,7 @@ type Step = {
   body: string[];
   cta: string;
   icon: React.ReactNode;
+  url: string;
 };
 
 export default function StepsOrbit({
@@ -339,6 +340,7 @@ export default function StepsOrbit({
                   <button
                     className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] hover:-translate-y-0.5 transition-transform shadow-sm focus:outline-none"
                     aria-label={activeSteps[active].cta}
+                    onClick={() => window.open({activeSteps[active].url})}
                   >
                     <span className="text-sm font-semibold">
                       {activeSteps[active].cta}
