@@ -283,7 +283,7 @@ export default function StepsOrbit({
           onClick={() => setMode("client")}
           className={`px-4 py-2 rounded-full font-semibold transition-colors ${
             mode === "client"
-              ? "bg-[#0c4a6e] text-[#0A1E3D]"
+              ? "bg-[#0c4a6e] text-[#FFFFFF]"
               : "bg-transparent border border-[#3B4B66] text-slate-700"
           }`}
         >
@@ -293,7 +293,7 @@ export default function StepsOrbit({
           onClick={() => setMode("partner")}
           className={`px-4 py-2 rounded-full font-semibold transition-colors ${
             mode === "partner"
-              ? "bg-[#0c4a6e] text-[#0A1E3D]"
+              ? "bg-[#0c4a6e] text-[#FFFFFF]"
               : "bg-transparent border border-[#3B4B66] text-slate-700"
           }`}
         >
