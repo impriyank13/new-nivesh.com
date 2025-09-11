@@ -123,6 +123,7 @@ export default function Footer() {
                   src="https://img.icons8.com/?size=100&id=fJp7hepMryiw&format=png&color=000000"
                   alt=""
                   className="img-responsive2"
+                  width="30px"
                 />
               </a>
               <a
