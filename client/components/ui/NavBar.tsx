@@ -57,16 +57,12 @@ export default function NavBar() {
   // determine if we're on the hero/index page so navbar can adapt to hero gradient
   const isHero = /^\/(?:en|hin|mar)?\/?$/.test(location);
 
-  const linkTextClass = isHero && atTop ? "text-white" : "text-slate-700";
-  const chevronClass = isHero && atTop ? "text-white/80" : "text-slate-500";
-  const navButtonHoverBg =
-    isHero && atTop ? "hover:bg-white/10" : "hover:bg-white/20";
-  const dropdownBgClass =
-    isHero && atTop ? "bg-black/70 text-white" : "bg-white text-slate-700";
-  const dropdownItemHover =
-    isHero && atTop ? "hover:text-white" : "hover:text-slate-900";
-  const mobileMenuBg =
-    isHero && atTop ? "bg-black/70 text-white" : "bg-white text-slate-700";
+  const linkTextClass = "text-[#0c4a6e]";
+  const chevronClass = "text-[#0c4a6e]";
+  const navButtonHoverBg = "hover:bg-slate-100";
+  const dropdownBgClass = "bg-white text-[#0c4a6e]";
+  const dropdownItemHover = "hover:text-[#0c4a6e]";
+  const mobileMenuBg = "bg-white text-[#0c4a6e]";
 
   const navRef = useRef<HTMLElement | null>(null);
 
@@ -109,16 +105,12 @@ export default function NavBar() {
     nav(newPath);
   };
 
-  const headerStyle =
-    isHero && atTop
-      ? { background: "var(--hero-navbar-bg, rgba(0,0,0,0.2))" }
-      : undefined;
+  const headerStyle = undefined;
   const headerClass =
-    "w-full backdrop-blur-[2px] sticky top-0 z-50 shadow-sm " +
-    (isHero && atTop ? "text-white" : "bg-white/10 text-slate-700");
+    "w-full sticky top-0 z-50 shadow-sm bg-white text-[#0c4a6e]";
 
   return (
-    <header style={headerStyle} className={headerClass}>
+    <header style={headerStyle as any} className={headerClass}>
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <nav className="flex items-center justify-between py-4">
           <div className="flex items-center gap-6">
@@ -282,9 +274,7 @@ export default function NavBar() {
             <a
               href="https://app.nivesh.com/partner_onboarding"
               className={
-                isHero
-                  ? "inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold shadow transform scale-105 bg-white/10 text-white ring-1 ring-white/20"
-                  : "inline-flex items-center bg-[#0a66c2] text-white rounded-full px-4 py-2 text-sm font-semibold shadow hover:bg-[#084a9e] transition"
+                "inline-flex items-center bg-[#0a66c2] text-white rounded-full px-4 py-2 text-sm font-semibold shadow hover:bg-[#084a9e] transition"
               }
               onClick={() => setOpen(false)}
             >
@@ -295,7 +285,7 @@ export default function NavBar() {
             <button
               aria-label="Toggle menu"
               onClick={() => setOpen((v) => !v)}
-              className={`md:hidden inline-flex items-center justify-center p-2 rounded-lg ${linkTextClass} hover:bg-white/10`}
+              className={`md:hidden inline-flex items-center justify-center p-2 rounded-lg ${linkTextClass} hover:bg-slate-100`}
             >
               <svg
                 width="20"
@@ -443,11 +433,8 @@ export default function NavBar() {
                       className={
                         "text-sm font-medium px-2 py-1 rounded transition-transform transform " +
                         (l.code === lang
-                          ? isHero
-                            ? "bg-white/20 text-white"
-                            : "bg-[#0a66c2] text-white"
-                          : linkTextClass +
-                            " hover:scale-105 hover:bg-white/10")
+                          ? "bg-[#0a66c2] text-white"
+                          : linkTextClass + " hover:scale-105 hover:bg-slate-100")
                       }
                     >
                       {l.label}
@@ -466,9 +453,7 @@ export default function NavBar() {
                 <a
                   href="https://app.nivesh.com/partner_onboarding"
                   className={
-                    isHero
-                      ? `block text-sm font-semibold ${"bg-white/10 text-white scale-105 transform"} px-4 py-2 rounded-full text-center`
-                      : "block text-sm font-semibold bg-[#0a66c2] text-white px-4 py-2 rounded-full text-center"
+                    "block text-sm font-semibold bg-[#0a66c2] text-white px-4 py-2 rounded-full text-center"
                   }
                   onClick={() => setOpen(false)}
                 >
