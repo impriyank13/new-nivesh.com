@@ -127,7 +127,6 @@ export default function Footer() {
                 />
               </a>
               <a
-              
                 href="https://www.instagram.com/nivesh__official?igsh=MXg5NXR2Mjl0ODAwbw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
