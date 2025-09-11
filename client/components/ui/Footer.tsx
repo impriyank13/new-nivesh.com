@@ -21,22 +21,19 @@ export default function Footer() {
                 target="_blank"
               >
                 <img
-                  src="/b1e0ea7105b59c39914f42a97c0927eb.svg"
+                  src="https://nivesh.com/b1e0ea7105b59c39914f42a97c0927eb.svg"
                   alt=""
-                  class="img-responsive2"
+                  className="img-responsive2"
                 />
               </a>
               <a
                 href="https://apps.apple.com/in/app/nivesh-wealth-management-app/id6740700135"
                 target="_blank"
-                bis_size='{"x":251,"y":6640,"w":140,"h":13,"abs_x":251,"abs_y":6640}'
               >
                 <img
                   src="/39662a6f385663aae1cec89625b9f278.svg"
                   alt=""
-                  class="img-responsive2"
-                  bis_size='{"x":251,"y":6624,"w":140,"h":50,"abs_x":251,"abs_y":6624}'
-                  bis_id="bn_nk2828pph1sc5zutgtcjnx"
+                  className="img-responsive2"
                 />
               </a>
             </div>
