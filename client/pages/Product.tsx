@@ -157,50 +157,6 @@ export default function Product() {
     };
 
     // Sample fallback data (from provided API response) used in preview environments
-    const SAMPLE_SCHEMES = [
-      {
-        Product_category_id: 17,
-        UniqueNo: "493",
-        SchemeName: "INVESCO INDIA PSU EQUITY FUND",
-        SchemeType: "Equity: Sectoral/ Thematic",
-        NAV_Value: 60.96,
-        OneYearReturn: -10.25,
-        ThreeYearReturn: 28.25,
-        SinceInceptionReturn: 12.81,
-        SIPFLAG: "Y",
-        StartDate: "2010-07-19",
-        ExitLoad: "0",
-        InvestURL: "https://nivesh.app.link/vObimin3hMb",
-      },
-      {
-        Product_category_id: 1,
-        UniqueNo: "34777",
-        SchemeName: "BANDHAN SMALL CAP FUND",
-        SchemeType: "Equity: Small Cap Fund",
-        NAV_Value: 45.969,
-        OneYearReturn: -3.81,
-        ThreeYearReturn: 28.22,
-        SinceInceptionReturn: 35.67,
-        SIPFLAG: "Y",
-        StartDate: "2020-02-26",
-        ExitLoad: "0",
-        InvestURL: "https://nivesh.app.link/NcdeikTUgub",
-      },
-      {
-        Product_category_id: 18,
-        UniqueNo: "875",
-        SchemeName: "INVESCO INDIA MIDCAP FUND",
-        SchemeType: "Equity: Mid Cap Fund",
-        NAV_Value: 180.34,
-        OneYearReturn: 8.65,
-        ThreeYearReturn: 26.92,
-        SinceInceptionReturn: 15.11,
-        SIPFLAG: "Y",
-        StartDate: "2010-07-19",
-        ExitLoad: "0",
-        InvestURL: "https://nivesh.app.link/oR9VNTUUgub",
-      },
-    ];
 
     // If running in Builder preview or similar restricted environment, use sample data to avoid network/CORS issues
     if (typeof window !== "undefined" && window.location && window.location.hostname && window.location.hostname.includes("projects.builder.codes")) {
