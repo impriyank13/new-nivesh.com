@@ -274,7 +274,7 @@ export default function NavBar() {
             <a
               href="https://app.nivesh.com/partner_onboarding"
               className={
-                "inline-flex items-center bg-[#0c4a6e] text-white rounded-full px-4 py-2 text-sm font-semibold shadow hover:bg-[#084a9e] transition"
+                "inline-flex items-center bg-[#0c4a6e] text-white rounded-full px-4 py-2 text-sm font-semibold shadow hover:bg-[#21658d] transition"
               }
               onClick={() => setOpen(false)}
             >
