@@ -15,7 +15,7 @@ export default function Footer() {
               <li className="mb-2">Build Long Term Wealth</li>
             </ul>
 
-            <div className="mt-4 flex items-center gap-3">
+            <div className="mt-4 items-center gap-3">
               <a
                 href="https://play.google.com/store/apps/details?id=com.nivesh.production"
                 target="_blank"
