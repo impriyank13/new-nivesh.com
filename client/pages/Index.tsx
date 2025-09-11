@@ -70,16 +70,16 @@ export default function Index() {
         <Benefits />
       </section>
 
-      <section className="w-full">
-        <GrowthStats />
-      </section>
-
       <section className="w-full max-w-7xl">
         <Testimonials />
       </section>
 
       <section className="w-full max-w-7xl">
         <AwardsMarquee />
+      </section>
+
+      <section className="w-full">
+        <GrowthStats />
       </section>
     </main>
   );
