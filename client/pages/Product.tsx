@@ -144,7 +144,7 @@ export default function Product() {
   useEffect(() => {
     if (prod !== "mutual-funds") return;
 
-    const langMap: any = { en: 1, hin: 2, mar: 3 };
+    const langMap: Record<string, number> = { en: 1, hin: 2, mar: 3 };
     const payload = {
       ProductCategoryId: "1",
       ClientCode: "",
@@ -156,41 +156,34 @@ export default function Product() {
       DefaultProductId: "1",
     };
 
-    // Sample fallback data (from provided API response) used in preview environments
-
-    // If running in Builder preview or similar restricted environment, use sample data to avoid network/CORS issues
-    if (typeof window !== "undefined" && window.location && window.location.hostname && window.location.hostname.includes("projects.builder.codes")) {
-      setSchemes(SAMPLE_SCHEMES);
-      return;
-    }
-
     let cancelled = false;
+
     const fetchSchemes = async () => {
       setSchemesLoading(true);
       setSchemesError(null);
-      const endpoints = ["/api/getSchemes", "/.netlify/functions/api/getSchemes", "https://api.nivesh.com/API/getSchemesDataV2"];
-      let lastErr: any = null;
-      for (const ep of endpoints) {
-        try {
-          const res = await fetch(ep, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          const data = await res.json();
-          const list = data?.ObjectResponse?.SchemeDataList || [];
-          if (!cancelled) setSchemes(list);
-          lastErr = null;
-          break;
-        } catch (err: any) {
-          lastErr = err;
-          // try next endpoint
+
+      try {
+        const res = await fetch("https://api.nivesh.com/API/getSchemesDataV2", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        // The API puts list here:
+        const list = data?.ObjectResponse?.SchemeDataList ?? [];
+
+        if (!cancelled) {
+          setSchemes(list);
+          setSchemesLoading(false);
         }
-      }
-      if (!cancelled) {
-        if (lastErr) setSchemesError(lastErr.message || "Failed to fetch schemes");
-        setSchemesLoading(false);
+      } catch (err: any) {
+        if (!cancelled) {
+          setSchemesError(err.message || "Failed to fetch schemes");
+          setSchemesLoading(false);
+        }
       }
     };
 
@@ -199,7 +192,7 @@ export default function Product() {
       cancelled = true;
     };
   }, [prod, lang]);
-  console.log(schemes)
+  
   return (
     <main className="py-12 text-slate-800">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
