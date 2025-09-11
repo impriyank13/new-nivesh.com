@@ -351,7 +351,7 @@ export default function Product() {
                             <div className="text-sm text-slate-500 truncate">{s.SchemeType}</div>
                           </div>
 
-                          <div className="grid grid-cols-1 gap-2 text-sm text-slate-700 mb-3">
+                          <div className="grid grid-cols-2 gap-2 text-sm text-slate-700 mb-3">
                             {[
                               ["MinimumPurchaseAmount","Min Purchase"],
                               ["RedemptionAmountMinimum","Min Redemption"],
@@ -363,9 +363,9 @@ export default function Product() {
                               const val = s[k as string];
                               if (val === null || val === undefined || val === "") return null;
                               return (
-                                <div key={String(k)} className="flex justify-between">
-                                  <div className="text-slate-500">{label}</div>
+                                <div key={String(k)} className="">
                                   <div className="font-medium text-right">{String(val)}</div>
+                                  <div className="text-slate-500">{label}</div>
                                 </div>
                               );
                             })}
