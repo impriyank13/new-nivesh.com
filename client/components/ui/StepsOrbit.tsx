@@ -376,7 +376,7 @@ export default function StepsOrbit({
                 <path
                   id="mainOrbit"
                   ref={pathRef}
-                  d="M580,80 L580,552"
+                  d="M580,80 L580,600"
                   stroke="none"
                   fill="none"
                   aria-hidden="true"
@@ -385,7 +385,7 @@ export default function StepsOrbit({
 
                 {/* background faint vertical line */}
                 <path
-                  d="M580,80 L580,552"
+                  d="M580,80 L580,600"
                   stroke="#5F7AA3"
                   strokeOpacity="0.12"
                   strokeWidth="1"
