@@ -13,7 +13,7 @@ function StatCard({
   img?: string;
 }) {
   return (
-    <div className="rounded-xl flex border border-white/20 bg-white/5 backdrop-blur-sm p-4 text-white">
+    <div className="rounded-xl flex border border-white/20 bg-white/5 backdrop-blur-sm p-5 text-white">
       <div>
         <div className="text-lg font-semibold">{value}</div>
         <div className="text-sm opacity-90 leading-snug">{title}</div>
