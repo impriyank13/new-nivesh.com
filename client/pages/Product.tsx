@@ -365,7 +365,7 @@ export default function Product() {
                               return (
                                 <div key={String(k)} className="">
                                   <div className="font-medium text-right">{String(val)}</div>
-                                  <div className="text-slate-500">{label}</div>
+                                  <div className="text-slate-500 text-xs">{label}</div>
                                 </div>
                               );
                             })}
