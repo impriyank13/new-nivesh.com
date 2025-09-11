@@ -54,23 +54,7 @@ export default function GrowthStats() {
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-6 py-8 sm:grid-cols-3">
             <BottomStat value="43,25,220" title="Transactions Executed" />
             <div className="rounded-xl border border-white/20 bg-white/5 p-6 flex items-center justify-center">
-              <svg
-                aria-label="Rupee transactions icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                className="h-14 w-14 text-white"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M7 6h9" />
-                <path d="M7 10h9" />
-                <path d="M7 6c4 10 8 10 8 10H7" />
-                <path d="M16 17l3 3-3 3" />
-                <path d="M8 23l-3-3 3-3" />
-              </svg>
+              <img src="https://nivesh.com/2479201c9b4360facfe4aed819053dff.webp" alt="" className="map-icon"/>
             </div>
             <BottomStat value="Rs. 5,802" title="Crore - Transaction Value" />
           </div>
