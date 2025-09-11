@@ -322,9 +322,9 @@ export default function Product() {
                               const num = Number(val);
                               const cls = isNaN(num) ? "text-slate-500" : num >= 0 ? "text-green-600" : "text-red-600";
                               return (
-                                <div key={String(k)} className="truncate">
-                                  <div className="text-slate-500 text-xs">{label}</div>
+                                <div key={String(k)} className="items-center">
                                   <div className={`font-medium ${cls}`}>{isNaN(num) ? String(val) : `${num}%`}</div>
+                                  <div className="text-slate-500 text-xs">{label}</div>
                                 </div>
                               );
                             })}
