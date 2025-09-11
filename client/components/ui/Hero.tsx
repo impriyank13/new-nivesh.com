@@ -11,27 +11,27 @@ const images = [
 
 const texts = [
   {
-    title: "Build smarter investments with Nivesh",
+    title: "Build Smarter Investments with Nivesh",
     subtitle:
       "Modern distribution tools, curated products and onboarding that help you scale AUM and serve clients better.",
   },
   {
-    title: "Digitize distribution for mutual funds and advisors",
+    title: "Digitize Distribution for Mutual Funds and Advisors",
     subtitle:
       "Streamline client onboarding, compliance and reporting with our secure fintech platform.",
   },
   {
-    title: "Data-driven insights to grow AUM",
+    title: "Data-Driven Insights to Grow AUM",
     subtitle:
       "Real-time dashboards and performance analytics to help you advise clients confidently.",
   },
   {
-    title: "API-powered integrations for seamless workflows",
+    title: "API-Powered Integrations for Seamless Workflows",
     subtitle:
       "Integrate portfolio, KYC and payments to reduce manual work and speed up onboarding.",
   },
   {
-    title: "Trusted infrastructure for wealth management",
+    title: "Trusted Infrastructure for Wealth Management",
     subtitle:
       "Enterprise-grade security, compliance-ready processes, and 24/7 support for advisors.",
   },
