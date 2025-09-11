@@ -361,8 +361,6 @@ export default function Product() {
                             {[
                               ["MinimumPurchaseAmount","Min Purchase"],
                               ["RedemptionAmountMinimum","Min Redemption"],
-                              ["PurchaseCutoffTime","Purchase Cutoff"],
-                              ["RedemptionCutOffTime","Redemption Cutoff"],
                               ["SIPFLAG","SIP Allowed"],
                               ["ExitLoad","Exit Load"],
                               ["StartDate","Start Date"],
