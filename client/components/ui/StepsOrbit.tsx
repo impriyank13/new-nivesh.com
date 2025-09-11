@@ -6,6 +6,7 @@ type Step = {
   body: string[];
   cta: string;
   icon: React.ReactNode;
+  url: string;
 };
 
 export default function StepsOrbit({
@@ -278,69 +279,97 @@ export default function StepsOrbit({
   return (
     <div ref={wrapperRef} className="w-full relative">
       {/* Mode toggle: Client / Partner */}
-      <div className="flex gap-3 justify-center py-4">
-        <button
-          onClick={() => setMode("client")}
-          className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === "client" ? "bg-[#FFC527] text-[#0A1E3D]" : "bg-transparent border border-[#3B4B66] text-slate-700"}`}
-        >
-          Client Onboarding
-        </button>
-        <button
-          onClick={() => setMode("partner")}
-          className={`px-4 py-2 rounded-full font-semibold transition-colors ${mode === "partner" ? "bg-[#FFC527] text-[#0A1E3D]" : "bg-transparent border border-[#3B4B66] text-slate-700"}`}
-        >
-          Partner Onboarding
-        </button>
-      </div>
       {/* Desktop pinned scrub */}
       <div className="hidden md:block h-[300vh] relative">
-        <div
-          className="sticky top-0 h-screen flex items-center"
-          ref={stickyRef}
-        >
+        <div className="sticky top-0 h-screen items-center" ref={stickyRef}>
+          <div className="flex gap-3 justify-center py-4">
+            <button
+              onClick={() => setMode("client")}
+              className={`px-4 py-2 rounded-full font-semibold transition-colors ${
+                mode === "client"
+                  ? "bg-[#0c4a6e] text-[#FFFFFF]"
+                  : "bg-transparent border border-[#3B4B66] text-slate-700"
+              }`}
+            >
+              Client Onboarding
+            </button>
+            <button
+              onClick={() => setMode("partner")}
+              className={`px-4 py-2 rounded-full font-semibold transition-colors ${
+                mode === "partner"
+                  ? "bg-[#0c4a6e] text-[#FFFFFF]"
+                  : "bg-transparent border border-[#3B4B66] text-slate-700"
+              }`}
+            >
+              Partner Onboarding
+            </button>
+          </div>
           <div className="w-full relative flex">
             <div
-              className="w-1/2 pl-[8vw] flex items-center"
-              style={{ maxWidth: 560 }}
+              className="basis-[70%] w-[70%] pl-[8vw] flex items-end"
+              style={{}}
             >
               <div className="text-left max-w-[560px] p-6">
-                <h2 className="text-2xl tracking-widest font-extrabold text-[#FFC527] uppercase mb-4">
+                <h2 className="text-2xl tracking-widest font-extrabold text-[#0c4a6e] uppercase mb-10">
                   {activeSteps[active].title}
                 </h2>
-                <div className="text-[#EAF0FF] opacity-90 space-y-2 mb-6 leading-[1.6]">
+                <div className="flex items-center mb-10">
+                  <img
+                    src="https://nivesh.com/158370a8e6511249ce8c31c5745864f6.webp"
+                    alt=""
+                    width="100px"
+                  />
+                  <img
+                    src="https://nivesh.com/9962f4877e535b49e6c3b9742b8387a6.jpeg"
+                    alt=""
+                    className="mb-10"
+                    width="400px"
+                  />
+                  <img
+                    src="https://nivesh.com/158370a8e6511249ce8c31c5745864f6.webp"
+                    alt=""
+                    width="100px"
+                  />
+                </div>
+                <div className="text-sm text-slate-700 opacity-90 space-y-2 mb-6 leading-[1.6]">
                   {activeSteps[active].body.map((line, i) => (
                     <p key={i}>{line}</p>
                   ))}
                 </div>
-                <button
-                  className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] hover:-translate-y-0.5 transition-transform shadow-sm focus:outline-none"
-                  aria-label={activeSteps[active].cta}
-                >
-                  <span className="text-sm font-semibold">
-                    {activeSteps[active].cta}
-                  </span>
-                  <span className="w-6 h-6 bg-[#0A1E3D] text-white rounded-full inline-flex items-center justify-center">
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M5 12h14" />
-                      <path d="M12 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </button>
+                {activeSteps[active].cta.length > 0 && (
+                  <button
+                    className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] hover:-translate-y-0.5 transition-transform shadow-sm focus:outline-none"
+                    aria-label={activeSteps[active].cta}
+                    onClick={() =>
+                      window.open(activeSteps[active].url, "_blank")
+                    }
+                  >
+                    <span className="text-sm font-semibold">
+                      {activeSteps[active].cta}
+                    </span>
+                    <span className="w-6 h-6 bg-[#0A1E3D] text-white rounded-full inline-flex items-center justify-center">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="M12 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </button>
+                )}
               </div>
             </div>
 
-            <div className="w-1/2 flex items-center justify-center relative">
+            <div className="basis-[30%] w-[30%] flex items-center justify-center relative">
               <svg
-                className="w-[680px] h-[680px]"
+                className="w-[680px] h-[600px]"
                 viewBox="0 0 680 680"
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
@@ -351,7 +380,7 @@ export default function StepsOrbit({
                     x="-50%"
                     y="-50%"
                     width="200%"
-                    height="200%"
+                    height="300%"
                   >
                     <feGaussianBlur stdDeviation="8" result="coloredBlur" />
                     <feMerge>
@@ -387,7 +416,7 @@ export default function StepsOrbit({
                   id="stringPath"
                   ref={stringRef}
                   d="M580,80 L580,600"
-                  stroke="#FFC527"
+                  stroke="#0c4a6e"
                   strokeWidth="2"
                   fill="none"
                   strokeLinecap="round"
@@ -397,33 +426,18 @@ export default function StepsOrbit({
                 {/* moving main node - group so circle and icon move together */}
                 <g
                   ref={nodeGroupRef}
-                  style={{ color: "#FFC527" }}
+                  style={{ color: "#ffffff", zIndex: 1 }}
                   transform={`translate(580,170.7730712890625)`}
                 >
-                  {/* subtle outer ring to highlight the circle (no blur) */}
-                  <circle
-                    cx={0}
-                    cy={0}
-                    r={40}
-                    fill="none"
-                    stroke="#FFC527"
-                    strokeWidth={8}
-                    strokeOpacity={0.08}
-                  />
-                  {/* inner highlighted circle */}
-                  <circle
-                    ref={nodeRef}
-                    cx={0}
-                    cy={0}
-                    r={35}
-                    fill="rgba(255,197,39,0.08)"
-                    stroke="#FFC527"
-                    strokeWidth={2}
-                  />
-                  {/* render icon SVG centered at 0,0 (smaller for half size) without glow */}
-                  <g transform={`translate(-24,-24)`}>
+                  {/* base filled circle to mask underlying stroke */}
+                  <circle cx={0} cy={0} r={48} fill="#0c4a6e" />
+                  {/* render icon centered on top */}
+                  <g
+                    transform={`translate(-40,-40)`}
+                    style={{ zIndex: 9, color: "#ffffff" }}
+                  >
                     {CurrentIconComp ? (
-                      <CurrentIconComp size={48} />
+                      <CurrentIconComp size={80} />
                     ) : CurrentIconJSX ? (
                       CurrentIconJSX
                     ) : null}
@@ -440,9 +454,11 @@ export default function StepsOrbit({
                 </div>
                 <div className="w-24 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
                   <div
-                    className="h-1 bg-[#FFC527] transition-width"
+                    className="h-1 bg-[#0c4a6e] transition-width"
                     style={{
-                      width: `${Math.round(((active + 1) / activeSteps.length) * 100)}%`,
+                      width: `${Math.round(
+                        ((active + 1) / activeSteps.length) * 100,
+                      )}%`,
                     }}
                   />
                 </div>
@@ -481,14 +497,14 @@ export default function StepsOrbit({
             <path
               id="mobileOrbit"
               ref={pathRefMobile}
-              d="M110,20 L110,500"
+              d="M110,20 L110,452"
               stroke="none"
               fill="none"
               aria-hidden="true"
               style={{ display: "none" }}
             />
             <path
-              d="M110,20 L110,500"
+              d="M110,20 L110,452"
               stroke="#5F7AA3"
               strokeOpacity="0.12"
               strokeWidth="1"
@@ -497,8 +513,8 @@ export default function StepsOrbit({
             <path
               id="stringPathMobile"
               ref={stringRefMobile}
-              d="M110,20 L110,500"
-              stroke="#FFC527"
+              d="M110,20 L110,452"
+              stroke="#0c4a6e"
               strokeWidth="2"
               fill="none"
               strokeLinecap="round"
@@ -506,29 +522,14 @@ export default function StepsOrbit({
 
             <g
               ref={nodeGroupMobileRef}
-              style={{ color: "#FFC527" }}
+              style={{ color: "#ffffff", zIndex: 1 }}
               transform={`translate(110,170.7730712890625)`}
             >
-              {/* outer subtle ring */}
-              <circle
-                cx={0}
-                cy={0}
-                r={14}
-                fill="none"
-                stroke="#FFC527"
-                strokeWidth={6}
-                strokeOpacity={0.08}
-              />
-              <circle
-                ref={nodeRefMobile}
-                cx={0}
-                cy={0}
-                r={11}
-                fill="rgba(255,197,39,0.08)"
-                stroke="#FFC527"
-                strokeWidth={2}
-              />
-              <g transform={`translate(-10,-10)`}>
+              <circle cx={0} cy={0} r={14} fill="#0c4a6e" />
+              <g
+                transform={`translate(-10,-10)`}
+                style={{ zIndex: 9, color: "#ffffff" }}
+              >
                 {CurrentIconComp ? (
                   <CurrentIconComp size={18} />
                 ) : CurrentIconJSX ? (
@@ -557,20 +558,26 @@ export default function StepsOrbit({
               style={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}
             >
               <div
-                className={`max-w-md text-left w-full transition-all duration-300 ease-out ${active === i ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6 pointer-events-none"}`}
+                className={`max-w-md text-left w-full transition-all duration-300 ease-out ${
+                  active === i
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 -translate-y-6 pointer-events-none"
+                }`}
               >
                 <div className="p-6">
-                  <h2 className="text-2xl tracking-widest font-extrabold text-[#FFC527] uppercase mb-4">
+                  <h2 className="text-2xl tracking-widest font-extrabold text-[#0c4a6e] uppercase mb-4">
                     {s.title}
                   </h2>
-                  <div className="text-[#EAF0FF] opacity-90 space-y-2 mb-6 leading-[1.6]">
+                  <div className="text-sm text-slate-700 opacity-90 space-y-2 mb-6 leading-[1.6]">
                     {s.body.map((line, idx) => (
                       <p key={idx}>{line}</p>
                     ))}
                   </div>
-                  <button className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] focus:outline-none">
-                    <span className="text-sm font-semibold">{s.cta}</span>
-                  </button>
+                  {s?.cta.length > 0 && (
+                    <button className="inline-flex items-center gap-3 bg-white text-[#0A1E3D] px-4 py-2 rounded-full border border-[#D9E1F5] focus:outline-none">
+                      <span className="text-sm font-semibold">{s.cta}</span>
+                    </button>
+                  )}
                 </div>
               </div>
             </section>
@@ -587,9 +594,11 @@ export default function StepsOrbit({
           </div>
           <div className="w-36 h-1 bg-[#1F2B40] mt-2 rounded overflow-hidden">
             <div
-              className="h-1 bg-[#FFC527] transition-all"
+              className="h-1 bg-[#0c4a6e] transition-all"
               style={{
-                width: `${Math.round(((active + 1) / activeSteps.length) * 100)}%`,
+                width: `${Math.round(
+                  ((active + 1) / activeSteps.length) * 100,
+                )}%`,
               }}
             />
           </div>
@@ -606,8 +615,8 @@ function pad(n: number) {
 const ATMIcon = (
   <svg
     viewBox="0 0 64 64"
-    width="64"
-    height="64"
+    width="80"
+    height="80"
     fill="none"
     stroke="#F4F7FF"
     strokeWidth="2"
@@ -622,8 +631,8 @@ const ATMIcon = (
       width="28"
       height="6"
       rx="1"
-      fill="#FFC527"
-      stroke="#FFC527"
+      fill="#0c4a6e"
+      stroke="#0c4a6e"
     />
   </svg>
 );
@@ -641,7 +650,7 @@ const CardIcon = (
   >
     <rect x="6" y="16" width="52" height="32" rx="4" />
     <rect x="10" y="22" width="28" height="12" rx="1" />
-    <path d="M44 26c3 0 5-3 8-3" stroke="#FFC527" />
+    <path d="M44 26c3 0 5-3 8-3" stroke="#0c4a6e" />
   </svg>
 );
 
@@ -657,8 +666,8 @@ const PhoneIcon = (
     strokeLinejoin="round"
   >
     <rect x="18" y="8" width="28" height="48" rx="6" />
-    <circle cx="32" cy="44" r="2" fill="#FFC527" stroke="#FFC527" />
-    <path d="M40 16l6-2" stroke="#FFC527" />
+    <circle cx="32" cy="44" r="2" fill="#0c4a6e" stroke="#0c4a6e" />
+    <path d="M40 16l6-2" stroke="#0c4a6e" />
   </svg>
 );
 

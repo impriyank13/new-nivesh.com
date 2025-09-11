@@ -15,22 +15,26 @@ export default function Footer() {
               <li className="mb-2">Build Long Term Wealth</li>
             </ul>
 
-            <div className="mt-4 flex items-center gap-3">
+            <div className="mt-4 items-center gap-3">
               <a
                 href="https://play.google.com/store/apps/details?id=com.nivesh.production"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-white/90 hover:text-white"
               >
-                Get it on Google Play
+                <img
+                  src="https://nivesh.com/b1e0ea7105b59c39914f42a97c0927eb.svg"
+                  alt=""
+                  className="img-responsive2"
+                />
               </a>
               <a
                 href="https://apps.apple.com/in/app/nivesh-wealth-management-app/id6740700135"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-white/90 hover:text-white"
               >
-                Download on the App Store
+                <img
+                  src="https://nivesh.com/39662a6f385663aae1cec89625b9f278.svg"
+                  alt=""
+                  className="img-responsive2"
+                />
               </a>
             </div>
           </div>
@@ -109,20 +113,70 @@ export default function Footer() {
             </ul>
 
             <div className="mt-6 flex items-center gap-3 text-sm">
-              <a href="https://twitter.com/niveshapp" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                Twitter
+              <a
+                href="https://twitter.com/niveshapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                <img
+                  src="https://img.icons8.com/?size=100&id=fJp7hepMryiw&format=png&color=ffffff"
+                  alt=""
+                  className="img-responsive2"
+                  width="40px"
+                />
               </a>
-              <a href="https://www.instagram.com/nivesh__official?igsh=MXg5NXR2Mjl0ODAwbw%3D%3D" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                Instagram
+              <a
+                href="https://www.instagram.com/nivesh__official?igsh=MXg5NXR2Mjl0ODAwbw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                <img
+                  src="https://img.icons8.com/?size=100&id=32292&format=png&color=ffffff"
+                  alt=""
+                  className="img-responsive2"
+                  width="40px"
+                />
               </a>
-              <a href="https://www.facebook.com/niveshapp/" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                Facebook
+              <a
+                href="https://www.facebook.com/niveshapp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                <img
+                  src="https://img.icons8.com/?size=100&id=435&format=png&color=ffffff"
+                  alt=""
+                  className="img-responsive2"
+                  width="40px"
+                />
               </a>
-              <a href="https://www.linkedin.com/company/nivesh/" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                LinkedIn
+              <a
+                href="https://www.linkedin.com/company/nivesh/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                <img
+                  src="https://img.icons8.com/?size=100&id=447&format=png&color=ffffff"
+                  alt=""
+                  className="img-responsive2"
+                  width="40px"
+                />
               </a>
-              <a href="https://www.youtube.com/c/NiveshOfficial/channels" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                YouTube
+              <a
+                href="https://www.youtube.com/c/NiveshOfficial/channels"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                <img
+                  src="https://img.icons8.com/?size=100&id=37325&format=png&color=ffffff"
+                  alt=""
+                  className="img-responsive2"
+                  width="40px"
+                />
               </a>
             </div>
           </div>
@@ -138,7 +192,9 @@ export default function Footer() {
                 className="h-12 object-contain"
               />
               <div className="text-sm text-white/90">
-                <div className="font-semibold">Association of Mutual Funds in India</div>
+                <div className="font-semibold">
+                  Association of Mutual Funds in India
+                </div>
                 <div>Registered Mutual Fund Distributor</div>
                 <div className="mt-1">ARN: 115287</div>
               </div>
@@ -173,7 +229,11 @@ export default function Footer() {
         {/* Legal / Disclaimer */}
         <div className="mt-8 pt-8 border-t border-white/10 text-center text-xs text-white/70">
           <p className="max-w-4xl mx-auto">
-            Mutual fund investments are subject to market risks. Please read the scheme information and other related documents carefully before investing. Past performance is not indicative of future returns. Please consider your specific investment requirements before choosing a fund, or designing a portfolio that suits your needs.
+            Mutual fund investments are subject to market risks. Please read the
+            scheme information and other related documents carefully before
+            investing. Past performance is not indicative of future returns.
+            Please consider your specific investment requirements before
+            choosing a fund, or designing a portfolio that suits your needs.
           </p>
           <p className="mt-4">© Providential Platforms Pvt. Ltd.</p>
         </div>

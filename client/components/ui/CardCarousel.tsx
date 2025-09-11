@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, cloneElement } from "react";
 
 export type CardData = {
   id: string;
+  name: string;
   title: string;
   description: string;
   icon?: React.ReactNode;
@@ -230,11 +231,18 @@ export default function CardCarousel({
                               c.media.type === "video" ? (
                                 <div className="mb-4 w-full rounded-lg overflow-hidden">
                                   {/(youtube\.com|youtu\.be)/.test(
-                                    c.media.src,
+                                    c.media.src
                                   ) ? (
-                                    <div className="relative w-full h-64">
+                                    <div className="relative w-full h-[220px]">
                                       <iframe
-                                        src={c.media.src}
+                                        src={
+                                          c.media.src
+                                            .replace("watch?v=", "embed/") // for youtube.com/watch?v=...
+                                            .replace(
+                                              "youtu.be/",
+                                              "www.youtube.com/embed/"
+                                            ) // for youtu.be/...
+                                        }
                                         className="absolute inset-0 w-full h-full"
                                         title={c.title}
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -246,7 +254,7 @@ export default function CardCarousel({
                                       src={c.media.src}
                                       poster={c.media.poster}
                                       controls
-                                      className="w-full h-64 object-cover bg-black"
+                                        className="w-full h-[220px] object-cover bg-black"
                                       preload="metadata"
                                       playsInline
                                     />
@@ -256,7 +264,7 @@ export default function CardCarousel({
                                 <img
                                   src={c.media.src}
                                   alt={c.media.alt || c.title}
-                                  className="mb-4 w-full h-64 object-cover rounded-lg"
+                                    className="mb-4 w-full h-[220px] object-cover rounded-lg"
                                 />
                               )
                             ) : (
@@ -272,6 +280,9 @@ export default function CardCarousel({
                             )}
 
                             <h3 className="font-semibold text-[18px] leading-tight text-black">
+                              {c.name}
+                            </h3>
+                            <h3 className="text-[15px] leading-tight text-black">
                               {c.title}
                             </h3>
                             <button
@@ -280,7 +291,7 @@ export default function CardCarousel({
                                 e.stopPropagation();
                                 toggleFlip(c.id);
                               }}
-                              className="mt-4 inline-flex items-center bg-[#0a66c2] text-white rounded-full px-4 py-2 text-sm font-semibold hover:bg-[#084a9e]"
+                              className="mt-4 inline-flex items-center bg-[#0c4a6e] text-white rounded-full px-4 py-2 text-sm font-semibold hover:bg-[#084a9e]"
                             >
                               More
                             </button>
@@ -294,7 +305,7 @@ export default function CardCarousel({
                             }}
                           >
                             <h3 className="font-semibold text-[18px] leading-tight text-black">
-                              {c.title}
+                              {c.name}
                             </h3>
                             <p className="mt-2 text-[14px] leading-snug text-slate-700">
                               {c.description}
@@ -346,12 +357,12 @@ export default function CardCarousel({
                             />
                           )
                         ) : (
-                          <div className="mb-4 rounded-full p-2 inline-flex items-center justify-center text-black">
+                          <div className="mb-4 rounded-full p-2 inline-flex items-center justify-center text-black mt-5">
                             {c.icon
                               ? // @ts-ignore
                                 cloneElement(c.icon as React.ReactElement, {
                                   color: "#000000",
-                                  size: 36,
+                                  size: 70,
                                 })
                               : null}
                           </div>

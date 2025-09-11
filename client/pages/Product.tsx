@@ -144,7 +144,7 @@ export default function Product() {
   useEffect(() => {
     if (prod !== "mutual-funds") return;
 
-    const langMap: any = { en: 1, hin: 2, mar: 3 };
+    const langMap: Record<string, number> = { en: 1, hin: 2, mar: 3 };
     const payload = {
       ProductCategoryId: "1",
       ClientCode: "",
@@ -156,85 +156,34 @@ export default function Product() {
       DefaultProductId: "1",
     };
 
-    // Sample fallback data (from provided API response) used in preview environments
-    const SAMPLE_SCHEMES = [
-      {
-        Product_category_id: 17,
-        UniqueNo: "493",
-        SchemeName: "INVESCO INDIA PSU EQUITY FUND",
-        SchemeType: "Equity: Sectoral/ Thematic",
-        NAV_Value: 60.96,
-        OneYearReturn: -10.25,
-        ThreeYearReturn: 28.25,
-        SinceInceptionReturn: 12.81,
-        SIPFLAG: "Y",
-        StartDate: "2010-07-19",
-        ExitLoad: "0",
-        InvestURL: "https://nivesh.app.link/vObimin3hMb",
-      },
-      {
-        Product_category_id: 1,
-        UniqueNo: "34777",
-        SchemeName: "BANDHAN SMALL CAP FUND",
-        SchemeType: "Equity: Small Cap Fund",
-        NAV_Value: 45.969,
-        OneYearReturn: -3.81,
-        ThreeYearReturn: 28.22,
-        SinceInceptionReturn: 35.67,
-        SIPFLAG: "Y",
-        StartDate: "2020-02-26",
-        ExitLoad: "0",
-        InvestURL: "https://nivesh.app.link/NcdeikTUgub",
-      },
-      {
-        Product_category_id: 18,
-        UniqueNo: "875",
-        SchemeName: "INVESCO INDIA MIDCAP FUND",
-        SchemeType: "Equity: Mid Cap Fund",
-        NAV_Value: 180.34,
-        OneYearReturn: 8.65,
-        ThreeYearReturn: 26.92,
-        SinceInceptionReturn: 15.11,
-        SIPFLAG: "Y",
-        StartDate: "2010-07-19",
-        ExitLoad: "0",
-        InvestURL: "https://nivesh.app.link/oR9VNTUUgub",
-      },
-    ];
-
-    // If running in Builder preview or similar restricted environment, use sample data to avoid network/CORS issues
-    if (typeof window !== "undefined" && window.location && window.location.hostname && window.location.hostname.includes("projects.builder.codes")) {
-      setSchemes(SAMPLE_SCHEMES);
-      return;
-    }
-
     let cancelled = false;
+
     const fetchSchemes = async () => {
       setSchemesLoading(true);
       setSchemesError(null);
-      const endpoints = ["/api/getSchemes", "/.netlify/functions/api/getSchemes", "https://api.nivesh.com/API/getSchemesDataV2"];
-      let lastErr: any = null;
-      for (const ep of endpoints) {
-        try {
-          const res = await fetch(ep, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          const data = await res.json();
-          const list = data?.ObjectResponse?.SchemeDataList || [];
-          if (!cancelled) setSchemes(list);
-          lastErr = null;
-          break;
-        } catch (err: any) {
-          lastErr = err;
-          // try next endpoint
+
+      try {
+        const res = await fetch("https://api.nivesh.com/API/getSchemesDataV2", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        // The API puts list here:
+        const list = data?.ObjectResponse?.SchemeDataList ?? [];
+
+        if (!cancelled) {
+          setSchemes(list);
+          setSchemesLoading(false);
         }
-      }
-      if (!cancelled) {
-        if (lastErr) setSchemesError(lastErr.message || "Failed to fetch schemes");
-        setSchemesLoading(false);
+      } catch (err: any) {
+        if (!cancelled) {
+          setSchemesError(err.message || "Failed to fetch schemes");
+          setSchemesLoading(false);
+        }
       }
     };
 
@@ -275,13 +224,13 @@ export default function Product() {
           </div>
 
           <div className="flex items-center justify-center">
-            <img src="https://cdn.builder.io/api/v1/image/assets%2F94c3f01df8d44c2fa8db4cd56d1d8e35%2Fplaceholder.svg?width=800" alt={t("title")} className="w-full max-w-md object-contain" />
+            <img src="https://nivesh.com/9962f4877e535b49e6c3b9742b8387a6.jpeg" alt={t("title")} className="w-full max-w-md object-contain" />
           </div>
         </section>
 
         {/* Product details / benefits */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="md:col-span-2 rounded-lg border border-slate-200 p-6 shadow-sm">
+          <div className="md:col-span-2">
             <h2 className="text-2xl font-semibold mb-4">Why choose {t("title")}</h2>
             <p className="text-slate-600 mb-4">Our platform helps distributors access diversified mutual fund solutions with best-in-class technology and support.</p>
 
@@ -346,7 +295,7 @@ export default function Product() {
                       }}
                     >
                       {/* Front (show icon, name, NAV, all returns, invest + details) */}
-                      <div className="absolute inset-0 p-4 rounded-lg border border-slate-200 shadow-sm flex flex-col overflow-hidden" style={{ backfaceVisibility: "hidden" }}>
+                      <div className="absolute inset-0 p-4 rounded-lg border border-slate-200 shadow-sm flex flex-col overflow-hidden bg-[#ffffff]" style={{ backfaceVisibility: "hidden" }}>
                         <div className="flex items-start gap-3 mb-2">
                           <div className="h-10 w-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-700 flex-shrink-0">
                             {/* Simple icon: initials */}
@@ -358,30 +307,24 @@ export default function Product() {
                           </div>
                         </div>
 
-                        <div className="mt-2 text-sm text-slate-700 flex-1 overflow-hidden">
+                        <div className="mt-2 text-sm text-slate-700 flex-1 overflow-hidden text-center">
                           <div className="mb-2">NAV: <span className="font-medium">{s.NAV_Value}</span></div>
 
-                          <div className="grid grid-cols-2 gap-2 text-sm">
+                          <div className="grid grid-cols-4 gap-2 text-sm mt-2">
                             {[
-                              ["OneWeekReturn","1W"],
-                              ["OneMonthReturn","1M"],
-                              ["ThreeMonthReturn","3M"],
-                              ["SixMonthReturn","6M"],
-                              ["NineMonthReturn","9M"],
                               ["OneYearReturn","1Y"],
                               ["TwoYearReturn","2Y"],
                               ["ThreeYearReturn","3Y"],
                               ["FiveYearReturn","5Y"],
-                              ["SinceInceptionReturn","SIN"]
                             ].map(([k, label]) => {
                               const val = s[k as string];
                               if (val === null || val === undefined) return null;
                               const num = Number(val);
                               const cls = isNaN(num) ? "text-slate-500" : num >= 0 ? "text-green-600" : "text-red-600";
                               return (
-                                <div key={String(k)} className="truncate">
-                                  <div className="text-slate-500 text-xs">{label}</div>
+                                <div key={String(k)} className="text-center">
                                   <div className={`font-medium ${cls}`}>{isNaN(num) ? String(val) : `${num}%`}</div>
+                                  <div className="text-slate-500 text-xs">{label}</div>
                                 </div>
                               );
                             })}
@@ -396,27 +339,22 @@ export default function Product() {
 
                       {/* Back (full details) */}
                       <div
-                        className="absolute inset-0 p-4 rounded-lg border border-slate-200 shadow-sm overflow-auto"
+                        className="absolute inset-0 p-4 rounded-lg border border-slate-200 shadow-sm overflow-auto bg-[#ffffff]"
                         style={{
                           backfaceVisibility: "hidden",
                           transform: "rotateY(180deg)",
                         }}
                       >
                         <div className="h-full flex flex-col">
-                          <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center justify-between  mb-5">
                             <div className="font-semibold truncate">{s.SchemeName}</div>
                             <div className="text-sm text-slate-500 truncate">{s.SchemeType}</div>
                           </div>
 
-                          <div className="grid grid-cols-1 gap-2 text-sm text-slate-700 mb-3">
+                          <div className="grid grid-cols-3 gap-2 text-sm text-slate-700 mb-2 text-center">
                             {[
-                              ["SchemeCode","Scheme Code"],
-                              ["ISIN","ISIN"],
-                              ["AMCCode","AMC Code"],
                               ["MinimumPurchaseAmount","Min Purchase"],
                               ["RedemptionAmountMinimum","Min Redemption"],
-                              ["PurchaseCutoffTime","Purchase Cutoff"],
-                              ["RedemptionCutOffTime","Redemption Cutoff"],
                               ["SIPFLAG","SIP Allowed"],
                               ["ExitLoad","Exit Load"],
                               ["StartDate","Start Date"],
@@ -425,9 +363,9 @@ export default function Product() {
                               const val = s[k as string];
                               if (val === null || val === undefined || val === "") return null;
                               return (
-                                <div key={String(k)} className="flex justify-between">
-                                  <div className="text-slate-500">{label}</div>
-                                  <div className="font-medium text-right">{String(val)}</div>
+                                <div key={String(k)} className="">
+                                  <div className="font-medium">{String(val)}</div>
+                                  <div className="text-slate-500 text-xs">{label}</div>
                                 </div>
                               );
                             })}

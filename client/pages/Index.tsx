@@ -7,6 +7,7 @@ import Testimonials from "@/components/ui/Testimonials";
 import { useParams, useLocation } from "react-router-dom";
 import Hero from "@/components/ui/Hero";
 import ImageBenefits from "@/components/ui/ImageBenefits";
+import GrowthStats from "@/components/ui/GrowthStats";
 
 const translations: any = {
   en: {
@@ -63,6 +64,10 @@ export default function Index() {
 
       <section className="w-full max-w-7xl">
         <StepsOrbit />
+      </section>
+
+      <section className="w-full max-w-7xl">
+        <GrowthStats />
       </section>
 
       <section className="w-full max-w-7xl">
