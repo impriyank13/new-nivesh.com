@@ -33,6 +33,7 @@ export default function GrowthStats() {
                 alt="India map with partner locations"
                 className="max-h-80 w-auto drop-shadow-lg"
                 loading="lazy"
+                height="500px"
               />
             </div>
 
