@@ -19,18 +19,25 @@ export default function Footer() {
               <a
                 href="https://play.google.com/store/apps/details?id=com.nivesh.production"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-white/90 hover:text-white"
               >
-                Get it on Google Play
+                <img
+                  src="/b1e0ea7105b59c39914f42a97c0927eb.svg"
+                  alt=""
+                  class="img-responsive2"
+                />
               </a>
               <a
                 href="https://apps.apple.com/in/app/nivesh-wealth-management-app/id6740700135"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-white/90 hover:text-white"
+                bis_size='{"x":251,"y":6640,"w":140,"h":13,"abs_x":251,"abs_y":6640}'
               >
-                Download on the App Store
+                <img
+                  src="/39662a6f385663aae1cec89625b9f278.svg"
+                  alt=""
+                  class="img-responsive2"
+                  bis_size='{"x":251,"y":6624,"w":140,"h":50,"abs_x":251,"abs_y":6624}'
+                  bis_id="bn_nk2828pph1sc5zutgtcjnx"
+                />
               </a>
             </div>
           </div>
@@ -109,19 +116,44 @@ export default function Footer() {
             </ul>
 
             <div className="mt-6 flex items-center gap-3 text-sm">
-              <a href="https://twitter.com/niveshapp" target="_blank" rel="noopener noreferrer" className="hover:underline">
+              <a
+                href="https://twitter.com/niveshapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
                 Twitter
               </a>
-              <a href="https://www.instagram.com/nivesh__official?igsh=MXg5NXR2Mjl0ODAwbw%3D%3D" target="_blank" rel="noopener noreferrer" className="hover:underline">
+              <a
+                href="https://www.instagram.com/nivesh__official?igsh=MXg5NXR2Mjl0ODAwbw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
                 Instagram
               </a>
-              <a href="https://www.facebook.com/niveshapp/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+              <a
+                href="https://www.facebook.com/niveshapp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
                 Facebook
               </a>
-              <a href="https://www.linkedin.com/company/nivesh/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+              <a
+                href="https://www.linkedin.com/company/nivesh/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
                 LinkedIn
               </a>
-              <a href="https://www.youtube.com/c/NiveshOfficial/channels" target="_blank" rel="noopener noreferrer" className="hover:underline">
+              <a
+                href="https://www.youtube.com/c/NiveshOfficial/channels"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
                 YouTube
               </a>
             </div>
@@ -138,7 +170,9 @@ export default function Footer() {
                 className="h-12 object-contain"
               />
               <div className="text-sm text-white/90">
-                <div className="font-semibold">Association of Mutual Funds in India</div>
+                <div className="font-semibold">
+                  Association of Mutual Funds in India
+                </div>
                 <div>Registered Mutual Fund Distributor</div>
                 <div className="mt-1">ARN: 115287</div>
               </div>
@@ -173,7 +207,11 @@ export default function Footer() {
         {/* Legal / Disclaimer */}
         <div className="mt-8 pt-8 border-t border-white/10 text-center text-xs text-white/70">
           <p className="max-w-4xl mx-auto">
-            Mutual fund investments are subject to market risks. Please read the scheme information and other related documents carefully before investing. Past performance is not indicative of future returns. Please consider your specific investment requirements before choosing a fund, or designing a portfolio that suits your needs.
+            Mutual fund investments are subject to market risks. Please read the
+            scheme information and other related documents carefully before
+            investing. Past performance is not indicative of future returns.
+            Please consider your specific investment requirements before
+            choosing a fund, or designing a portfolio that suits your needs.
           </p>
           <p className="mt-4">© Providential Platforms Pvt. Ltd.</p>
         </div>
