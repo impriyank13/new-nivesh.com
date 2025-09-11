@@ -280,32 +280,29 @@ export default function StepsOrbit({
       {/* Mode toggle: Client / Partner */}
       {/* Desktop pinned scrub */}
       <div className="hidden md:block h-[300vh] relative">
-        <div
-          className="sticky top-0 h-screen items-center"
-          ref={stickyRef}
-        >
-      <div className="flex gap-3 justify-center py-4">
-        <button
-          onClick={() => setMode("client")}
-          className={`px-4 py-2 rounded-full font-semibold transition-colors ${
-            mode === "client"
-              ? "bg-[#0c4a6e] text-[#FFFFFF]"
-              : "bg-transparent border border-[#3B4B66] text-slate-700"
-          }`}
-        >
-          Client Onboarding
-        </button>
-        <button
-          onClick={() => setMode("partner")}
-          className={`px-4 py-2 rounded-full font-semibold transition-colors ${
-            mode === "partner"
-              ? "bg-[#0c4a6e] text-[#FFFFFF]"
-              : "bg-transparent border border-[#3B4B66] text-slate-700"
-          }`}
-        >
-          Partner Onboarding
-        </button>
-      </div>
+        <div className="sticky top-0 h-screen items-center" ref={stickyRef}>
+          <div className="flex gap-3 justify-center py-4">
+            <button
+              onClick={() => setMode("client")}
+              className={`px-4 py-2 rounded-full font-semibold transition-colors ${
+                mode === "client"
+                  ? "bg-[#0c4a6e] text-[#FFFFFF]"
+                  : "bg-transparent border border-[#3B4B66] text-slate-700"
+              }`}
+            >
+              Client Onboarding
+            </button>
+            <button
+              onClick={() => setMode("partner")}
+              className={`px-4 py-2 rounded-full font-semibold transition-colors ${
+                mode === "partner"
+                  ? "bg-[#0c4a6e] text-[#FFFFFF]"
+                  : "bg-transparent border border-[#3B4B66] text-slate-700"
+              }`}
+            >
+              Partner Onboarding
+            </button>
+          </div>
           <div className="w-full relative flex">
             <div
               className="basis-[70%] w-[70%] pl-[5vw] flex items-end"
@@ -315,7 +312,24 @@ export default function StepsOrbit({
                 <h2 className="text-2xl tracking-widest font-extrabold text-[#0c4a6e] uppercase mb-10">
                   {activeSteps[active].title}
                 </h2>
-                <img src="https://nivesh.com/9962f4877e535b49e6c3b9742b8387a6.jpeg" alt="" className="mb-10" width="500px"/>
+                <div className="flex items-center mb-10">
+                  <img
+                    src="https://nivesh.com/158370a8e6511249ce8c31c5745864f6.webp"
+                    alt=""
+                    width="400px"
+                  />
+                  <img
+                    src="https://nivesh.com/9962f4877e535b49e6c3b9742b8387a6.jpeg"
+                    alt=""
+                    className="mb-10"
+                    width="400px"
+                  />
+                  <img
+                    src="https://nivesh.com/158370a8e6511249ce8c31c5745864f6.webp"
+                    alt=""
+                    width="40px"
+                  />
+                </div>
                 <div className="text-sm text-slate-700 opacity-90 space-y-2 mb-6 leading-[1.6]">
                   {activeSteps[active].body.map((line, i) => (
                     <p key={i}>{line}</p>
@@ -414,7 +428,10 @@ export default function StepsOrbit({
                   {/* base filled circle to mask underlying stroke */}
                   <circle cx={0} cy={0} r={48} fill="#0c4a6e" />
                   {/* render icon centered on top */}
-                  <g transform={`translate(-40,-40)`} style={{ zIndex: 9, color: "#ffffff" }}>
+                  <g
+                    transform={`translate(-40,-40)`}
+                    style={{ zIndex: 9, color: "#ffffff" }}
+                  >
                     {CurrentIconComp ? (
                       <CurrentIconComp size={80} />
                     ) : CurrentIconJSX ? (
@@ -505,7 +522,10 @@ export default function StepsOrbit({
               transform={`translate(110,170.7730712890625)`}
             >
               <circle cx={0} cy={0} r={14} fill="#0c4a6e" />
-              <g transform={`translate(-10,-10)`} style={{ zIndex: 9, color: "#ffffff" }}>
+              <g
+                transform={`translate(-10,-10)`}
+                style={{ zIndex: 9, color: "#ffffff" }}
+              >
                 {CurrentIconComp ? (
                   <CurrentIconComp size={18} />
                 ) : CurrentIconJSX ? (
