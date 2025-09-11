@@ -112,7 +112,7 @@ export default function Footer() {
               <li className="mb-2">AMFI ARN Code</li>
             </ul>
 
-            <div className="mt-6 flex items-center gap-3 text-sm" style={{ color: 'white' }}>
+            <div className="mt-6 flex items-center gap-3 text-sm">
               <a
                 href="https://twitter.com/niveshapp"
                 target="_blank"
@@ -120,7 +120,7 @@ export default function Footer() {
                 className="hover:underline"
               >
                 <img
-                  src="https://img.icons8.com/?size=100&id=fJp7hepMryiw&format=png&color=000000"
+                  src="https://img.icons8.com/?size=100&id=fJp7hepMryiw&format=png&color=ffffff"
                   alt=""
                   className="img-responsive2"
                   width="40px"
@@ -133,7 +133,7 @@ export default function Footer() {
                 className="hover:underline"
               >
                 <img
-                  src="https://img.icons8.com/?size=100&id=32292&format=png&color=000000"
+                  src="https://img.icons8.com/?size=100&id=32292&format=png&color=ffffff"
                   alt=""
                   className="img-responsive2"
                   width="40px"
@@ -146,7 +146,7 @@ export default function Footer() {
                 className="hover:underline"
               >
                 <img
-                  src="https://img.icons8.com/?size=100&id=435&format=png&color=000000"
+                  src="https://img.icons8.com/?size=100&id=435&format=png&color=ffffff"
                   alt=""
                   className="img-responsive2"
                   width="40px"
@@ -159,7 +159,7 @@ export default function Footer() {
                 className="hover:underline"
               >
                 <img
-                  src="https://img.icons8.com/?size=100&id=447&format=png&color=000000"
+                  src="https://img.icons8.com/?size=100&id=447&format=png&color=ffffff"
                   alt=""
                   className="img-responsive2"
                   width="40px"
@@ -172,7 +172,7 @@ export default function Footer() {
                 className="hover:underline"
               >
                 <img
-                  src="https://img.icons8.com/?size=100&id=37325&format=png&color=000000"
+                  src="https://img.icons8.com/?size=100&id=37325&format=png&color=ffffff"
                   alt=""
                   className="img-responsive2"
                   width="40px"
