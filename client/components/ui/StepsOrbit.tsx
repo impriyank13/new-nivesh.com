@@ -415,7 +415,7 @@ export default function StepsOrbit({
                   {/* render icon centered on top */}
                   <g transform={`translate(-24,-24)`} style={{ zIndex: 9, color: "#ffffff" }}>
                     {CurrentIconComp ? (
-                      <CurrentIconComp size={70} />
+                      <CurrentIconComp size={80} />
                     ) : CurrentIconJSX ? (
                       CurrentIconJSX
                     ) : null}
@@ -590,8 +590,8 @@ function pad(n: number) {
 const ATMIcon = (
   <svg
     viewBox="0 0 64 64"
-    width="64"
-    height="64"
+    width="80"
+    height="80"
     fill="none"
     stroke="#F4F7FF"
     strokeWidth="2"
