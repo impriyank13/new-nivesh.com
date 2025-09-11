@@ -315,7 +315,7 @@ export default function StepsOrbit({
                 <h2 className="text-2xl tracking-widest font-extrabold text-[#0c4a6e] uppercase mb-4">
                   {activeSteps[active].title}
                 </h2>
-                <div className="text-[#EAF0FF] opacity-90 space-y-2 mb-6 leading-[1.6]">
+                <div className="text-sm text-slate-700 opacity-90 space-y-2 mb-6 leading-[1.6]">
                   {activeSteps[active].body.map((line, i) => (
                     <p key={i}>{line}</p>
                   ))}
@@ -577,7 +577,7 @@ export default function StepsOrbit({
                   <h2 className="text-2xl tracking-widest font-extrabold text-[#0c4a6e] uppercase mb-4">
                     {s.title}
                   </h2>
-                  <div className="text-[#EAF0FF] opacity-90 space-y-2 mb-6 leading-[1.6]">
+                  <div className="text-sm text-slate-700 opacity-90 space-y-2 mb-6 leading-[1.6]">
                     {s.body.map((line, idx) => (
                       <p key={idx}>{line}</p>
                     ))}
