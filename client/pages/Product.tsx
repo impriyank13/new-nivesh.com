@@ -345,7 +345,7 @@ export default function Product() {
 
                       {/* Back (full details) */}
                       <div
-                        className="absolute inset-0 p-4 rounded-lg border border-slate-200 shadow-sm overflow-auto"
+                        className="absolute inset-0 p-4 rounded-lg border border-slate-200 shadow-sm overflow-auto bg-[#ffffff]"
                         style={{
                           backfaceVisibility: "hidden",
                           transform: "rotateY(180deg)",
