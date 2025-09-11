@@ -24,7 +24,7 @@ export default function GrowthStats() {
     <section className="w-full">
       <div className="overflow-hidden shadow-xl">
         {/* Top: gradient background with map and two stats */}
-        <div className="">
+        <div className="bg-sky-900">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 py-10 md:grid-cols-2">
             {/* Left: Map */}
             <div className="flex items-center justify-center">
